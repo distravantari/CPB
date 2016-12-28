@@ -1,0 +1,239 @@
+{
+  "feature" : {
+    "contact" : {
+      "ADDRESS": [
+          "33 Broadway Steet, Suite 32, New York",
+          "NY 1812 United States"
+      ],
+      "PHONE": [
+          "+2 (555) 6498-241-2548",
+          "+2 (555) 6498-241-2543"
+      ],
+      "EMAIL": [
+          "admin@admin.com",
+          "contactUs@admin.com"
+      ],
+      "FACEBOOK": [
+          "www.facebook.com/modarama",
+          "www.facebook.com/modarama_magazine"
+      ]
+    },
+    "packets" : {
+      "list" : [
+          {
+              "TAGS": [
+                  "Fashion",
+                  "Inspiration",
+                  "Lifestyle"
+              ],
+              "TITTLE": "This is Tittle",
+              "DATE": "Sep 25, 2013",
+              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+              "NOTIFICATION": {
+                  "COMMENT": "25",
+                  "LIKES": "724"
+              }
+          },{
+              "TAGS": [
+                  "Fashion",
+                  "Inspiration",
+                  "Lifestyle"
+              ],
+              "TITTLE": "This is Tittle",
+              "DATE": "Sep 25, 2013",
+              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+              "NOTIFICATION": {
+                  "COMMENT": "25",
+                  "LIKES": "724"
+              }
+          },{
+              "TAGS": [
+                  "Fashion",
+                  "Inspiration",
+                  "Lifestyle"
+              ],
+              "TITTLE": "This is Tittle",
+              "DATE": "Sep 25, 2013",
+              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+              "NOTIFICATION": {
+                  "COMMENT": "25",
+                  "LIKES": "724"
+              }
+          },{
+              "TAGS": [
+                  "Fashion",
+                  "Inspiration",
+                  "Lifestyle"
+              ],
+              "TITTLE": "This is Tittle",
+              "DATE": "Sep 25, 2013",
+              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+              "NOTIFICATION": {
+                  "COMMENT": "25",
+                  "LIKES": "724"
+              }
+          }
+      ]
+    },
+    "slider" : {
+      "bigSlider" : {
+        "slide1" : {
+          "desc" : "description text for Corporate/MICE",
+          "img" : "img/slide1.jpg",
+          "title" : "Corporate/MICE"
+        },
+        "slide2" : {
+          "desc" : "description text for FIT Leisure",
+          "img" : "img/slide2.jpg",
+          "title" : "FIT Leisure"
+        },
+        "slide3" : {
+          "desc" : "description text for Honeymoon",
+          "img" : "img/slide3.jpg",
+          "title" : "Honeymoon"
+        },
+        "slide4" : {
+          "desc" : "description text for Special Package",
+          "img" : "img/slide4.jpg",
+          "title" : "Special Package"
+        }
+      },
+      "mediumSlider" : {
+        "slide1" : {
+          "desc" : "description text for Corporate/MICE",
+          "img" : "img/slide1.jpg",
+          "title" : "Corporate/MICE"
+        },
+        "slide2" : {
+          "desc" : "description text for FIT Leisure",
+          "img" : "img/slide2.jpg",
+          "title" : "FIT Leisure"
+        },
+        "slide3" : {
+          "desc" : "description text for Honeymoon",
+          "img" : "img/slide3.jpg",
+          "title" : "Honeymoon"
+        },
+        "slide4" : {
+          "desc" : "description text for Special Package",
+          "img" : "img/slide4.jpg",
+          "title" : "Special Package"
+        }
+      }
+    },
+    "vouchers" : {
+      "list": [
+          {
+            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
+            "TITTLE": "Designer Stuff",
+            "DATE": "Sep 25, 2013 |",
+            "CREATEDBY": "Balizee",
+            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+            "NOTIFICATION": {
+                "COMMENT": "25",
+                "LIKES": "724"
+            }
+        },{
+            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
+            "TITTLE": "Designer Stuff",
+            "DATE": "Sep 25, 2013 |",
+            "CREATEDBY": "Balizee",
+            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+            "NOTIFICATION": {
+                "COMMENT": "25",
+                "LIKES": "724"
+            }
+        },{
+            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
+            "TITTLE": "Designer Stuff",
+            "DATE": "Sep 25, 2013 |",
+            "CREATEDBY": "Balizee",
+            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+            "NOTIFICATION": {
+                "COMMENT": "25",
+                "LIKES": "724"
+            }
+        },{
+            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
+            "TITTLE": "Designer Stuff",
+            "DATE": "Sep 25, 2013 |",
+            "CREATEDBY": "Balizee",
+            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+            "NOTIFICATION": {
+                "COMMENT": "25",
+                "LIKES": "724"
+            }
+        }
+      ]
+    }
+  },
+  "container" : {
+    "main_menu": {
+      "list": [
+          "Home",
+          "Trip-organizer",
+          "Contact",
+          "About"
+      ]
+    },
+    "footer" : {
+      "allrightreserve" : "© 2016 All rights reserved.",
+      "design": "Radion"
+    },
+    "footer_components" : {
+        "TITTLE": "About Modarama fashion magazine",
+        "TEXT": "This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
+    }
+  },
+  "social" : {
+    "maps" : {
+      "location" : "Kota Bali"
+    },
+    "twitter" : {
+        "TITTLE": "Latest tweets",
+        "LINK": "https://twitter.com/envato",
+        "WIDGET_ID": "400278156189237248",
+        "LINK_COLOR": "#f1284e",
+        "DATA_CHROME": "noheader nofooter noscrollbar",
+        "LANG": "EN",
+        "LIMIT": "3"
+    },
+    "instagram" : {
+        "URL": "https://www.instagram.com/valentinancy/"
+    }
+  },
+  "about" : {
+    "us" : {
+        "TITTLE": "Who we are and what we do?",
+        "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "IMGURL": "url"
+    },
+    "team" : {
+      "list" : [
+          {
+              "POSITION": ["founder", "CEO"],
+              "NAME": "Trevis Marshal",
+              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "IMGURL": "url"
+          },{
+              "POSITION": ["founder", "CEO"],
+              "NAME": "Julia Stanford",
+              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "IMGURL": "url"
+          },{
+              "POSITION": ["founder", "CEO"],
+              "NAME": "Alex Grosville",
+              "TEXT": " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              "IMGURL": "url"
+          }
+      ]
+    },
+    "web" : {
+      "users": "17,435",
+      "post": "2,139",
+      "comment": "244,967",
+      "download": "239",
+      "image": "32,234"
+    }
+  }
+}

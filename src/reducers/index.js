@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux'
-import user from "./userReducer"
+import feature from "./Feature"
+import container from "./Container"
+import social from "./Social"
+import about from "./About"
 
 let reducers = combineReducers({
-    user,
+    feature,
+    container,
+    social,
+    about
 })
 
-export default user
+export default reducers

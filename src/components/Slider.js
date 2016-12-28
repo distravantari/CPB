@@ -7,9 +7,9 @@ class Slider extends React.Component{
     super()
   };
 
-  componentWillReceiveProps(){
-    location.reload()
-  }
+  // componentWillReceiveProps(){
+  //   location.reload()
+  // }
 
   render(){
     return (

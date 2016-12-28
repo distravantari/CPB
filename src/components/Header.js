@@ -5,7 +5,6 @@ import * as constant from 'app_path/actions/const'
 class Header extends React.Component{
   constructor(props) {
     super(props)
-    this.state = {}
   }
 
   render(){
@@ -18,7 +17,7 @@ class Header extends React.Component{
             <a href="" id="header-menu-button"><i className="fa fa-bars"></i></a>
             <ul className="list-inline">
 
-              { constant.main_menu.map((list,idx) => (
+              { this.props.main_menu.map((list,idx) => (
                 <li key={idx}> <Link to={ `${constant.routes[idx]}` }> { list } </Link></li>
               ))}
 

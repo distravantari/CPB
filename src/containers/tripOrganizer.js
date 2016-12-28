@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react'
-import { fetchToken } from "app_path/actions/authentication"
+import { Link } from 'react-router'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
+
+import fetchFeature from 'app_path/actions/Feature'
+import fetchContainer from 'app_path/actions/Container'
 import * as constant from 'app_path/actions/const'
 import Immutable from 'immutable'
 
@@ -13,11 +16,12 @@ import Footer from 'components_path/Footer'
 class Trip extends React.Component{
 
   constructor(props) {
-    super(props);
-    this.state = {}
+    super(props)
   }
 
-  componentDidMount(){}
+  componentDidMount(){
+      this.props.getContainer(this)
+  }
 
   componentWillReceiveProps(){
     this.setState({})
@@ -26,7 +30,7 @@ class Trip extends React.Component{
   render(){
     return(
       <div className="main-container">
-        <Header />
+        <Header main_menu={ this.props.main_menu } />
         <div className="container">
            
           <div>
@@ -37,15 +41,15 @@ class Trip extends React.Component{
                   <Slider />
                 </div>
                 <div className="row">
-                  { Main() }
-                  { desc() }
+                  <Main />
+                  <Desc />
                 </div>
               </div>
 
             </div>
           </div>
 
-          <Footer />
+          <Footer footer={ this.props.footer } footer_component={ this.props.footer_component } />
         </div>
       </div>
     )
@@ -56,158 +60,68 @@ const Main = () => {
     return (
         <div className="col-md-12 col-sm-12">
             <div className="row">
-                <article className="col-md-3 col-sm-6 mid">
-                    <div className="img">
-                        <img src="assets/img/mid.jpg" alt="post" />
-                        <div className="overlay"></div>
-                    </div>
-                    <div className="info">
-                        <p className="tags">
-                            <a href="">Fashion</a>
-                            <a href="">Inspiration</a>
-                            <a href="">lifestyle</a>
-                        </p>
-                        <h1><a href="">Somewhere In Europe</a></h1>
-                        <p className="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
-                        <p className="text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </p>
 
-                    </div>
-                    <ul className="counters list-inline">
-                        <li>
-                            <a href=""><i className="fa fa-eye"></i>15271</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-comment"></i>25</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-heart"></i>724</a>
-                        </li>
-                    </ul>
-                </article>
-                <article className="col-md-3 col-sm-6 mid">
-                    <div className="img">
-                        <img src="assets/img/mid.jpg" alt="post" />
-                        <div className="overlay"></div>
-                    </div>
-                    <div className="info">
-                        <p className="tags">
-                            <a href="">Science</a>
-                            <a href="">lifestyle</a>
-                        </p>
-                        <h1><a href="">Fishing Nowadays</a></h1>
-                        <p className="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
-                        <p className="text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </p>
+                { constant.trip.map((list, index) => (
+                    <article className="col-md-3 col-sm-6 mid" key={index}>
+                        <div className="img">
+                            <img src="assets/img/mid.jpg" alt="post" />
+                            <div className="overlay"></div>
+                        </div>
+                        <div className="info">
+                            <p className="tags">
 
-                    </div>
-                    <ul className="counters list-inline">
-                        <li>
-                            <a href=""><i className="fa fa-eye"></i>15271</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-comment"></i>25</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-heart"></i>724</a>
-                        </li>
-                    </ul>
-                </article>
-                <article className="col-md-3 col-sm-6 mid">
-                    <div className="img">
-                        <img src="assets/img/mid.jpg" alt="post" />
-                        <div className="overlay"></div>
-                    </div>
-                    <div className="info">
-                        <p className="tags">
-                            <a href="">Science</a>
-                            <a href="">lifestyle</a>
-                        </p>
-                        <h1><a href="">NY City Pabs</a></h1>
-                        <p className="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
-                        <p className="text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </p>
+                                {list.TAGS.map((tag, index) => (
+                                    <a>{tag}</a>
+                                ))}
 
-                    </div>
-                    <ul className="counters list-inline">
-                        <li>
-                            <a href=""><i className="fa fa-eye"></i>15271</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-comment"></i>25</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-heart"></i>724</a>
-                        </li>
-                    </ul>
-                </article>
-                <article className="col-md-3 col-sm-6 mid">
-                    <div className="img">
-                        <img src="assets/img/mid.jpg" alt="post" />
-                        <div className="overlay"></div>
-                    </div>
-                    <div className="info">
-                        <p className="tags">
-                            <a href="">Fashion</a>
-                            <a href="">Inspiration</a>
-                            <a href="">lifestyle</a>
-                        </p>
-                        <h1><a href="">Somewhere In Europe</a></h1>
-                        <p className="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
-                        <p className="text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                        </p>
+                            </p>
+                            <h1><Link to={ `${constant.routes_detail[1]}` }>{ list.TITTLE }</Link></h1>
+                            <p className="details"> { list.DATE }</p>
+                            <p className="text">
+                                { list.TEXT }
+                            </p>
 
-                    </div>
-                    <ul className="counters list-inline">
-                        <li>
-                            <a href=""><i className="fa fa-eye"></i>15271</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-comment"></i>25</a>
-                        </li>
-                        <li>
-                            <a href=""><i className="fa fa-heart"></i>724</a>
-                        </li>
-                    </ul>
-                </article>
+                        </div>
+                        <ul className="counters list-inline">
+                            <li>
+                                <a href=""><i className="fa fa-eye"></i> { list.NOTIFICATION.COMMENT } </a>
+                            </li>
+                            <li>
+                                <a href=""><i className="fa fa-comment"></i> { list.NOTIFICATION.LIKES } </a>
+                            </li>
+                        </ul>
+                    </article>
+                ))}
+
             </div>
         </div>
     )
 }
 
-const desc = () => {
+const Desc = () => {
     return (
         <div className="info col-md-offset-1 col-md-10">
-            <h1>Alternative Sources of Energy</h1>
+            <h1>{ constant.description.TITTLE }</h1>
             
             <div className="text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
-
+                <p>{ constant.description.TEXT }</p>
             </div>  
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        footer: state.container.footer[0],
+        footer_component: state.container.footer_component[0],
+        main_menu: state.container.main_menu[0].list
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        getContainer: (context) => dispatch(fetchContainer(context))
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Trip)

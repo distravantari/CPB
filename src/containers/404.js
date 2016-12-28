@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
-import { fetchToken } from "app_path/actions/authentication"
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
+
 import * as constant from 'app_path/actions/const'
+import fetchFeature from 'app_path/actions/Feature'
+import fetchContainer from 'app_path/actions/Container'
 import Immutable from 'immutable'
 
 //conmponents

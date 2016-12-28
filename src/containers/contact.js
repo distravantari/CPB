@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react'
-import { fetchToken } from "app_path/actions/authentication"
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
+
 import * as constant from 'app_path/actions/const'
-import Immutable from 'immutable'
+import fetchFeature from 'app_path/actions/Feature'
+import fetchContainer from 'app_path/actions/Container'
 
 //conmponents
 import Header from 'components_path/Header'
@@ -13,10 +14,15 @@ class Index extends React.Component{
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      contact: []
+    }
   }
 
-  componentDidMount(){}
+  componentDidMount(){
+    this.props.getContact(this)
+    this.props.getContainer(this)
+  }
 
   componentWillReceiveProps(){
     this.setState({})
@@ -25,7 +31,7 @@ class Index extends React.Component{
   render(){
     return(
       <div className="main-container">
-        <Header />
+        <Header main_menu={ this.props.main_menu } />
         <div className="container">
            
           <div>
@@ -33,82 +39,82 @@ class Index extends React.Component{
               
               <div>
                 <div className="row">
-                  { Main() }
+                  <Main contact={ this.props.contact } />
                 </div>
               </div>
 
             </div>
           </div>
 
-          <Footer />
+          <Footer footer={ this.props.footer } footer_component={ this.props.footer_component }/>
         </div>
       </div>
     )
   }
  }
 
-const Main = () => {
+const Main = ({ contact }) => {
+      return (
+          <div className="main">
+              <div className="row">
+                  <div className="contact-us col-md-12 col-sm-12">
+                      <h2>Contact us</h2>
+                      <div className="row">
+                          <div className="map col-md-12 col-sm-12">
+                              <iframe src="https://www.google.com.ua/maps?f=d&amp;source=s_d&amp;saddr=48.209746,16.348501&amp;daddr=&amp;hl=uk&amp;geocode=&amp;sll=48.209575,16.365509&amp;sspn=0.033404,0.084543&amp;mra=mift&amp;mrsp=0&amp;sz=14&amp;ie=UTF8&amp;t=m&amp;z=13&amp;output=embed"></iframe>
+                          </div>
+                      </div>	
+
+                      <div className="row">
+                          <ContactDetail contact={ contact } />
+                          
+                          <GetInTouch />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      )
+  }
+
+export const ContactDetail = ({ contact }) => {
     return (
-        <div className="main">
-            <div className="row">
-                <div className="contact-us col-md-12 col-sm-12">
-                    <h2>Contact us</h2>
-                    <div className="row">
-                        <div className="map col-md-12 col-sm-12">
-                            <iframe src="https://www.google.com.ua/maps?f=d&amp;source=s_d&amp;saddr=48.209746,16.348501&amp;daddr=&amp;hl=uk&amp;geocode=&amp;sll=48.209575,16.365509&amp;sspn=0.033404,0.084543&amp;mra=mift&amp;mrsp=0&amp;sz=14&amp;ie=UTF8&amp;t=m&amp;z=13&amp;output=embed"></iframe>
-                        </div>
-                    </div>	
-
-                    <div className="row">
-                        { contactDetail() }
-                        
-                        { getInTouch() }
-                    </div>
-                </div>
+      <div className="col-md-6 col-sm-6">
+        <h3>Contact details</h3>	
+        <ul className="contact-details">
+          <li>
+            <i className="fa fa-map-marker"></i>
+            <div>
+              <p>{ contact.ADDRESS[0] }</p>
+              <p>{ contact.ADDRESS[1] }</p>
             </div>
-        </div>
+          </li>
+          <li>
+            <i className="fa fa-phone"></i>
+            <div>
+              <p>{ contact.PHONE[0] }</p>
+              <p>{ contact.PHONE[1] }</p>
+            </div>
+          </li>
+          <li>
+            <i className="fa fa-envelope-o"></i>
+            <div>
+              <p><span>Email:</span> { contact.EMAIL[0] }</p>
+              <p>{ contact.EMAIL[1] }</p>
+            </div>
+          </li>
+          <li>
+            <i className="fa fa-facebook"></i>
+            <div>
+              <p><span>Facebook:</span> { contact.FACEBOOK[0] }</p>
+              <p>{ contact.FACEBOOK[1] }</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     )
-}
+  }
 
-export const contactDetail = () => {
-  return (
-    <div className="col-md-6 col-sm-6">
-      <h3>Contact details</h3>	
-      <ul className="contact-details">
-        <li>
-          <i className="fa fa-map-marker"></i>
-          <div>
-            <p>{constant.contact_detail.ADDRESS[0]}</p>
-            <p>{constant.contact_detail.ADDRESS[1]}</p>
-          </div>
-        </li>
-        <li>
-          <i className="fa fa-phone"></i>
-          <div>
-            <p>{constant.contact_detail.PHONE[0]}</p>
-            <p>{constant.contact_detail.PHONE[1]}</p>
-          </div>
-        </li>
-        <li>
-          <i className="fa fa-envelope-o"></i>
-          <div>
-            <p><span>Email:</span> {constant.contact_detail.EMAIL[0]}</p>
-            <p>{constant.contact_detail.EMAIL[1]}</p>
-          </div>
-        </li>
-        <li>
-          <i className="fa fa-facebook"></i>
-          <div>
-            <p><span>Facebook:</span> {constant.contact_detail.FACEBOOK[0]}</p>
-            <p>{constant.contact_detail.FACEBOOK[1]}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  )
-}
-
-export const getInTouch = () => {
+export const GetInTouch = () => {
   return (
     <div className="contact-form col-md-6 col-sm-6">
       <h3>Get in touch</h3>
@@ -149,11 +155,19 @@ export const getInTouch = () => {
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+      contact: state.feature.contact[0],
+      footer: state.container.footer[0],
+      footer_component: state.container.footer_component[0],
+      main_menu: state.container.main_menu[0].list
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+      getContact: (context) => dispatch(fetchFeature(context)),
+      getContainer: (context) => dispatch(fetchContainer(context))
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index)
