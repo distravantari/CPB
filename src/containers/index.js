@@ -3,8 +3,12 @@ import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
 
 import * as constant from 'app_path/actions/const'
-import fetchContainer from 'app_path/actions/Container'
 import Immutable from 'immutable'
+
+import fetchContainer from 'app_path/actions/Container'
+import fetchSocial from 'app_path/actions/Social'
+import fetchAbout from 'app_path/actions/About'
+import fetchFeature from 'app_path/actions/Feature'
 
 //conmponents
 import Header from 'components_path/Header'
@@ -19,16 +23,17 @@ class Index extends React.Component{
     super(props)
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.getContainer(this)
+    this.props.getSocial(this)
+    this.props.getAbout(this)
+    this.props.getFeature(this)
   }
-
-  componentWillReceiveProps(){}
 
   render(){
     return(
       <div className="main-container">
-        <Header main_menu={ this.props.main_menu } />
+        <Header main_menu={ this.props.main_menu.list } />
         <div className="container">
            
           <div>
@@ -39,7 +44,7 @@ class Index extends React.Component{
                   <Slider />
                 </div>
                 <div className="row">
-                  <Main />
+                  <Main /> 
                   <Sidebar />
                 </div>
               </div>
@@ -58,13 +63,16 @@ const mapStateToProps = (state) => {
     return {
       footer: state.container.footer[0],
       footer_component: state.container.footer_component[0],
-      main_menu: state.container.main_menu[0].list
+      main_menu: state.container.main_menu[0]
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      getContainer: (context) => dispatch(fetchContainer(context))
+      getContainer: (context) => dispatch(fetchContainer(context)),
+      getSocial: (context) => dispatch(fetchSocial(context)),
+      getAbout: (context) => dispatch(fetchAbout(context)),
+      getFeature: (context) => dispatch(fetchFeature(context))
     }
 }
 

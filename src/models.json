@@ -76,49 +76,40 @@
       ]
     },
     "slider" : {
-      "bigSlider" : {
-        "slide1" : {
-          "desc" : "description text for Corporate/MICE",
-          "img" : "img/slide1.jpg",
-          "title" : "Corporate/MICE"
-        },
-        "slide2" : {
-          "desc" : "description text for FIT Leisure",
-          "img" : "img/slide2.jpg",
-          "title" : "FIT Leisure"
-        },
-        "slide3" : {
-          "desc" : "description text for Honeymoon",
-          "img" : "img/slide3.jpg",
-          "title" : "Honeymoon"
-        },
-        "slide4" : {
-          "desc" : "description text for Special Package",
-          "img" : "img/slide4.jpg",
-          "title" : "Special Package"
-        }
+      "news": {
+          "list": [
+              {
+                "IMPORTANT": "",
+                "TEXT": "Match Point: FACE Stockholm's New Special-Edition Bicycle and Nail Color Collaboration"
+            },{
+                "IMPORTANT": "HOT! ",
+                "TEXT": "This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet."
+            },{
+                "IMPORTANT": "",
+                "TEXT": "Jessica Chastain:Hollywood's Most Versatile Star"
+            }
+          ]
       },
-      "mediumSlider" : {
-        "slide1" : {
-          "desc" : "description text for Corporate/MICE",
-          "img" : "img/slide1.jpg",
-          "title" : "Corporate/MICE"
-        },
-        "slide2" : {
-          "desc" : "description text for FIT Leisure",
-          "img" : "img/slide2.jpg",
-          "title" : "FIT Leisure"
-        },
-        "slide3" : {
-          "desc" : "description text for Honeymoon",
-          "img" : "img/slide3.jpg",
-          "title" : "Honeymoon"
-        },
-        "slide4" : {
-          "desc" : "description text for Special Package",
-          "img" : "img/slide4.jpg",
-          "title" : "Special Package"
-        }
+      "big": {
+          "list":[
+              {
+                "TYPE": "Fashion",
+                "TITTLE": "What To Look Forward To In 2014",
+                "INFO": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                "DATE": "Sep 25, 2013 |",
+                "CREATE": "Alex Grosville",
+                "LIKE": "25",
+                "COMMENT": "724"
+            },{
+                "TYPE": "Fashion",
+                "TITTLE": "What To Look Forward To In 2014",
+                "INFO": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                "DATE": "Sep 25, 2013 |",
+                "CREATE": "Alex Grosville",
+                "LIKE": "25",
+                "COMMENT": "724"
+            }
+          ]
       }
     },
     "vouchers" : {
@@ -165,6 +156,10 @@
             }
         }
       ]
+    },
+    "404" : {
+        "TITTLE": "That's an error.",
+        "MESSAGE": "The requested URL /URL was not found on this server. That’s all we know."
     }
   },
   "container" : {
@@ -200,6 +195,9 @@
     },
     "instagram" : {
         "URL": "https://www.instagram.com/valentinancy/"
+    },
+    "facebook" : {
+        "URL": "https://www.facebook.com/valentinancy/"
     }
   },
   "about" : {

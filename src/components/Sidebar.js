@@ -24,8 +24,8 @@ class Sidebar extends React.Component{
           </div>
         </div>
 
-        <div className="banner visible-md visible-lg">
-          <img src="assets/img/banner.jpg" alt="banner" />
+        <div className="banner visible-md visible-lg" id="facebook" onClick={ () => (window.location = this.props.facebook.URL) }>
+          <img src="https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/facebook_.jpg?alt=media&token=1cfef65e-293c-4562-8fc6-84a124468976" alt="banner" />
         </div>
 
       </aside>
@@ -35,7 +35,8 @@ class Sidebar extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        twitter: state.social.twitter[0]
+        twitter: state.social.twitter[0],
+        facebook: state.social.facebook[0]
     }
 }
 

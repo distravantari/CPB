@@ -21,6 +21,7 @@ class Trip extends React.Component{
 
   componentDidMount(){
       this.props.getContainer(this)
+      this.props.getPackets(this)
   }
 
   componentWillReceiveProps(){
@@ -41,7 +42,7 @@ class Trip extends React.Component{
                   <Slider />
                 </div>
                 <div className="row">
-                  <Main />
+                  <Main trip={ this.props.packets } />
                   <Desc />
                 </div>
               </div>
@@ -56,12 +57,12 @@ class Trip extends React.Component{
   }
  }
 
-const Main = () => {
+const Main = ({ trip }) => {
     return (
         <div className="col-md-12 col-sm-12">
             <div className="row">
 
-                { constant.trip.map((list, index) => (
+                { trip.map((list, index) => (
                     <article className="col-md-3 col-sm-6 mid" key={index}>
                         <div className="img">
                             <img src="assets/img/mid.jpg" alt="post" />
@@ -71,7 +72,7 @@ const Main = () => {
                             <p className="tags">
 
                                 {list.TAGS.map((tag, index) => (
-                                    <a>{tag}</a>
+                                    <a key={ index } >{tag}</a>
                                 ))}
 
                             </p>
@@ -114,13 +115,15 @@ const mapStateToProps = (state) => {
     return {
         footer: state.container.footer[0],
         footer_component: state.container.footer_component[0],
-        main_menu: state.container.main_menu[0].list
+        main_menu: state.container.main_menu[0].list,
+        packets: state.feature.packets[0].list
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getContainer: (context) => dispatch(fetchContainer(context))
+        getContainer: (context) => dispatch(fetchContainer(context)),
+        getPackets: (context) => dispatch(fetchFeature(context))
     }
 }
 

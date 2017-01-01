@@ -3,8 +3,6 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import * as constant from 'app_path/actions/const'
-import fetchFeature from 'app_path/actions/Feature'
-import fetchSocial from 'app_path/actions/Social'
 import { ContactDetail, GetInTouch } from 'app_path/containers/contact'
 // import base from 'app_path/config/db'
 
@@ -13,13 +11,6 @@ class Content extends React.Component{
     super(props)
     context.router
   }
-
-  componentDidMount(){
-      this.props.getMain(this)
-      this.props.getSocial(this)
-  }
-
-  componentWillReceiveProps(){}
 
   render(){
     return (
@@ -34,7 +25,7 @@ class Content extends React.Component{
       </div>
     )
   }
-}
+} 
 
 const Vouchers = ({ vouchers, url }) => {
     return (
@@ -89,8 +80,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      getMain: (context) => dispatch(fetchFeature(context)),
-      getSocial: (context) => dispatch(fetchSocial(context))
+      getMain: (context) => dispatch(fetchFeature(context))
     };
 }
 

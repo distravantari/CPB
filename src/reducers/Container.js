@@ -11,7 +11,7 @@ const receiveContainer = (state = initialState, action) => {
     switch (action.type) {
         case con.ACTReceiveContainer: { 
             const result = action.payload
-            
+            console.log('receiveContainer ',result.response)
             return Object.assign({}, state, { 
                 footer: _.filter(result.response, ['key', 'footer']), 
                 footer_component: _.filter(result.response, ['key', 'footer_components']), 

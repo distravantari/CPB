@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
 import * as constant from 'app_path/actions/const'
 
 class Slider extends React.Component{
@@ -15,9 +16,9 @@ class Slider extends React.Component{
     return (
       <div className="col-md-12 col-sm-12">
 
-        { news() }
+        <News news={ this.props.news.list } />
 
-        { bigSlider() }
+        <BigSlider big_slider={ this.props.slider.list } />
         
       </div>
     )
@@ -26,7 +27,7 @@ class Slider extends React.Component{
 };
 
 // COMPONENTS
-const news = () => {
+const News = ({ news }) => {
   return (
     <div className="row">
         <div className="breaking col-md-12 col-sm-12">
@@ -37,7 +38,7 @@ const news = () => {
 
           <ul className="news">
 
-            { constant.news.map((list, index) => (
+            { news.map((list, index) => (
               
               <li key={index} >
                 <span> { list.IMPORTANT } </span>
@@ -53,7 +54,7 @@ const news = () => {
   )
 }
 
-const bigSlider = () => {
+const BigSlider = ({ big_slider }) => {
   return (
     <div className="row">
       <div className="post-slider col-md-12 col-sm-12">
@@ -65,7 +66,7 @@ const bigSlider = () => {
         <div className="slides">
 
           { 
-            constant.big_slider.map((list, index) => (
+            big_slider.map((list, index) => (
               <article className="big clearfix" key={ index }>
                 <img src="assets/img/slider12.jpg" alt="post1" />
                 <div className="info">
@@ -98,4 +99,15 @@ const bigSlider = () => {
   )
 }
 
-export default Slider;
+const mapStateToProps = (state) => {
+    return {
+        news: state.feature.slider[0].news,
+        slider: state.feature.slider[0].big
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Slider)
