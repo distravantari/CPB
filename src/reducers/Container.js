@@ -4,7 +4,8 @@ import * as con from "app_path/actions/const" //ALL CONSTATNTA FIELD
 const initialState = {
   footer: {},
   main_menu: {},
-  footer_component: {}
+  footer_component: {},
+  logo: ""
 };
 
 const receiveContainer = (state = initialState, action) => {
@@ -15,7 +16,8 @@ const receiveContainer = (state = initialState, action) => {
             return Object.assign({}, state, { 
                 footer: _.filter(result.response, ['key', 'footer']), 
                 footer_component: _.filter(result.response, ['key', 'footer_components']), 
-                main_menu: _.filter(result.response, ['key', 'main_menu'])
+                main_menu: _.filter(result.response, ['key', 'main_menu']),
+                logo: _.filter(result.response, ['key', 'logo'])
             });
         }
     }

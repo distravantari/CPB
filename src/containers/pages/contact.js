@@ -2,13 +2,11 @@ import React, { PropTypes } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
 
+//constanta
 import * as constant from 'app_path/actions/const'
-import fetchFeature from 'app_path/actions/Feature'
-import fetchContainer from 'app_path/actions/Container'
 
-//conmponents
-import Header from 'components_path/Header'
-import Footer from 'components_path/Footer'
+//redux
+import fetchFeature from 'app_path/actions/Feature'
 
 class Index extends React.Component{
 
@@ -21,7 +19,6 @@ class Index extends React.Component{
 
   componentDidMount(){
     this.props.getContact(this)
-    this.props.getContainer(this)
   }
 
   componentWillReceiveProps(){
@@ -30,27 +27,20 @@ class Index extends React.Component{
 
   render(){
     return(
-      <div className="main-container">
-        <Header main_menu={ this.props.main_menu } />
-        <div className="container">
-           
+      <div>
+        <div className="main">
+          
           <div>
-            <div className="main">
-              
-              <div>
-                <div className="row">
-                  <Main contact={ this.props.contact } />
-                </div>
-              </div>
-
+            <div className="row">
+              <Main contact={ this.props.contact } />
             </div>
           </div>
 
-          <Footer footer={ this.props.footer } footer_component={ this.props.footer_component }/>
         </div>
       </div>
     )
   }
+
  }
 
 const Main = ({ contact }) => {
@@ -77,48 +67,48 @@ const Main = ({ contact }) => {
   }
 
 export const ContactDetail = ({ contact }) => {
-    return (
-      <div className="col-md-6 col-sm-6">
-        <h3>Contact details</h3>	
-        <ul className="contact-details">
-          <li>
-            <i className="fa fa-map-marker"></i>
-            <div>
-              <p>{ contact.ADDRESS[0] }</p>
-              <p>{ contact.ADDRESS[1] }</p>
-            </div>
-          </li>
-          <li>
-            <i className="fa fa-phone"></i>
-            <div>
-              <p>{ contact.PHONE[0] }</p>
-              <p>{ contact.PHONE[1] }</p>
-            </div>
-          </li>
-          <li>
-            <i className="fa fa-envelope-o"></i>
-            <div>
-              <p><span>Email:</span> { contact.EMAIL[0] }</p>
-              <p>{ contact.EMAIL[1] }</p>
-            </div>
-          </li>
-          <li>
-            <i className="fa fa-facebook"></i>
-            <div>
-              <p><span>Facebook:</span> { contact.FACEBOOK[0] }</p>
-              <p>{ contact.FACEBOOK[1] }</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    )
-  }
+  return (
+    <div className="col-md-6 col-sm-6">
+      <h3>Contact details</h3>	
+      <ul className="contact-details">
+        <li>
+          <i className="fa fa-map-marker"></i>
+          <div>
+            <p>{ contact.ADDRESS[0] }</p>
+            <p>{ contact.ADDRESS[1] }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-phone"></i>
+          <div>
+            <p>{ contact.PHONE[0] }</p>
+            <p>{ contact.PHONE[1] }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-envelope-o"></i>
+          <div>
+            <p><span>Email:</span> { contact.EMAIL[0] }</p>
+            <p>{ contact.EMAIL[1] }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-facebook"></i>
+          <div>
+            <p><span>Facebook:</span> { contact.FACEBOOK[0] }</p>
+            <p>{ contact.FACEBOOK[1] }</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  )
+}
 
 export const GetInTouch = () => {
   return (
     <div className="contact-form col-md-6 col-sm-6">
       <h3>Get in touch</h3>
-        <form method="post" id="contact" name="contact" novalidate="novalidate">
+        <form method="post" id="contact" name="contact" noValidate="novalidate">
           <div className="row">
               <div className="col-md-6 col-sm-6 input-group">
                 <span className="input-group-addon">
@@ -152,21 +142,17 @@ export const GetInTouch = () => {
         </div>
       </div>
   )
-}
+  }
 
 const mapStateToProps = (state) => {
     return {
-      contact: state.feature.contact[0],
-      footer: state.container.footer[0],
-      footer_component: state.container.footer_component[0],
-      main_menu: state.container.main_menu[0].list
+      contact: state.feature.contact[0]
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      getContact: (context) => dispatch(fetchFeature(context)),
-      getContainer: (context) => dispatch(fetchContainer(context))
+      getContact: (context) => dispatch(fetchFeature(context))
     };
 }
 

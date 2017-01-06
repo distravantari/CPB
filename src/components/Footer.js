@@ -8,8 +8,8 @@ class Footer extends React.Component{
     	<div>
         <footer>
           <div className="row">
-            <div className="about col-md-3 col-sm-6">
-              <img src="assets/img/about-logo.png" alt="logo" />
+            <div className="about col-md-12 col-sm-12">
+              <img src={ this.props.footer_component.IMG } alt="logo" />
               <h5> { this.props.footer_component.TITTLE } </h5>
               <p>
                 { this.props.footer_component.TEXT }

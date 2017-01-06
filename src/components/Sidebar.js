@@ -1,31 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as constant from 'app_path/actions/const'
-import fetchSocial from 'app_path/actions/social'
+import fetchSocial from 'app_path/actions/Social'
 
 class Sidebar extends React.Component{
   
-  componentDidMount(){
+  componentWillMount(){
     this.props.getTwitterConfig(this)
+    this.props.twitterWidget()
+  }
+
+  refresh(){
+    window.location.reload()
   }
 
   render(){
+    if(!this.props.twitter) return (<h1> Loading ... </h1>)
     return (
       <aside className="col-md-3 col-sm-12">
 
         <div className="hidden-xs hidden-sm hidden-md hidden-lg"></div>
-
+        
         <div id="twitter" className="col-md-12 col-sm-6">
-          <h4> { this.props.twitter.TITTLE } </h4>
+          <h4 > { this.props.twitter.TITTLE } <i className="fa fa-refresh" id="refresh" onClick={() => this.refresh()}></i> </h4> 
           <div>
             <a  className="twitter-timeline" href={ this.props.twitter.LINK } data-widget-id={ this.props.twitter.WIDGET_ID } 
                 data-link-color={ this.props.twitter.LINK_COLOR } data-chrome={ this.props.twitter.DATA_CHROME } 
-                lang={ this.props.twitter.LANG } data-tweet-limit={ this.props.twitter.LIMIT }></a>
+                lang={ this.props.twitter.LANG } data-tweet-limit={ this.props.twitter.LIMIT }>
+            </a>
           </div>
         </div>
 
         <div className="banner visible-md visible-lg" id="facebook" onClick={ () => (window.location = this.props.facebook.URL) }>
-          <img src="https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/facebook_.jpg?alt=media&token=1cfef65e-293c-4562-8fc6-84a124468976" alt="banner" />
+          <img src={ this.props.facebook.ICON } alt="banner" />
         </div>
 
       </aside>
@@ -42,7 +49,19 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getTwitterConfig: (context) => dispatch(fetchSocial(context))
+        getTwitterConfig: (context) => dispatch(fetchSocial(context)),
+        twitterWidget: () => {
+          !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],
+            p=/^http:/.test(d.location)?'http':'https';
+            if( !d.getElementById(id) ){
+              js=d.createElement(s);
+              js.id=id;
+              js.src=p+"://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+            }
+          }(document,"script","twitter-wjs")
+        }
     }
 }
 

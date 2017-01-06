@@ -2,56 +2,47 @@ import React, { PropTypes } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
 
+//redux
 import fetchFeature from 'app_path/actions/Feature'
-import fetchContainer from 'app_path/actions/Container'
 import fetchAbout from 'app_path/actions/About'
+
+//constanta
 import * as constant from 'app_path/actions/const'
 import Immutable from 'immutable'
 
-//conmponents
-import Header from 'components_path/Header'
-import Footer from 'components_path/Footer'
-
-class Index extends React.Component{
+class About extends React.Component{
 
   constructor(props) {
     super(props);
     this.state = {}
   }
 
-  componentDidMount(){
-		this.props.getContainer(this)
-		this.props.getAbout(this)
-	}
+  componentWillMount(){
+	this.props.getAbout(this)
+  }
 
   componentWillReceiveProps(){
     this.setState({})
   }
 
   render(){
+	if(!this.props.team) return (<h1> Loading ... </h1>)
     return(
-      <div className="main-container">
-        <Header main_menu={ this.props.main_menu } />
-        <div className="container">
-           
-          <div>
-            <div className="main">
-              
-              <div>
-                <div className="row">
-									<Main about_us={ this.props.aboutus } team={ this.props.team } web={ this.props.web } />
-                </div>
-              </div>
+      <div>
+		<div className="main">
+			
+			<div>
+				<div className="row">
+					<Main about_us={ this.props.aboutus } team={ this.props.team } web={ this.props.web } />
+				</div>
+			</div>
 
-            </div>
-          </div>
-
-          <Footer footer={ this.props.footer } footer_component={ this.props.footer_component }/>
-        </div>
-      </div>
+		</div>
+	</div>
     )
   }
- }
+	
+}
 
 const Main = ({ about_us, team, web }) => {
     return (
@@ -61,7 +52,7 @@ const Main = ({ about_us, team, web }) => {
 					<h2>About us</h2>
 					<div className="row">
 						<div className="about-us col-md-12 col-sm-12">
-							<img src="assets/img/about.jpg" alt="about" />
+							<img src={ about_us.IMG } alt="about" />
 							<div className="info">
 								<h1><small> { about_us.TITTLE } </small></h1>
 								<p> { about_us.TEXT } </p>
@@ -88,13 +79,13 @@ const OurTeam = ({ our_team }) => {
 					{ our_team.map((list, index) => (
 						<article className="col-md-4 col-sm-4 mid member" key={ index }>
 							<div className="img">
-								<img src="assets/img/team.jpg" alt="post2" />
+								<img src={ list.IMG } alt="post2" />
 								<div className="overlay"></div>
 							</div>
 							<div className="info">
 								<p className="tags">
 									{ list.POSITION.map((pos, idx) => (
-										<a>{ pos }</a>
+										<a key={ idx }>{ pos }</a>
 									))}
 								</p>
 								<h1><a>{ list.NAME }</a></h1>
@@ -151,21 +142,19 @@ const Stats = ({ web }) => {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        footer: state.container.footer[0],
-        footer_component: state.container.footer_component[0],
-        main_menu: state.container.main_menu[0].list,
+		if(state.about){
+			return {
 				team: state.about.team[0].list,
 				aboutus: state.about.us[0],
 				web: state.about.status[0]
-    }
+			};
+		}else return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getContainer: (context) => dispatch(fetchContainer(context)),
-				getAbout: (context) => dispatch(fetchAbout(context))
-    }
+			getAbout: (context) => dispatch(fetchAbout(context))
+    };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+export default connect(mapStateToProps, mapDispatchToProps)(About);

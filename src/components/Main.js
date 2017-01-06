@@ -2,9 +2,15 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
+//redux
+import fetchFeature from 'app_path/actions/Feature'
+import fetchAbout from 'app_path/actions/About'
+
+//constanta
 import * as constant from 'app_path/actions/const'
-import { ContactDetail, GetInTouch } from 'app_path/containers/contact'
-// import base from 'app_path/config/db'
+
+//container
+import { ContactDetail, GetInTouch } from 'app_path/containers/pages/contact'
 
 class Content extends React.Component{
   constructor(props,context){
@@ -12,7 +18,13 @@ class Content extends React.Component{
     context.router
   }
 
+  componentWillMount(){
+    this.props.getMain(this)
+    this.props.getAbout(this)
+  }
+
   render(){
+    if(!this.props.vouchers) return (<h1> Loading ... </h1>)
     return (
       <div className="col-md-9 col-sm-12 list-page">
         
@@ -36,7 +48,7 @@ const Vouchers = ({ vouchers, url }) => {
             { vouchers.map((list, index) => (
               <article className="col-md-6 col-sm-6 mid" key={ index }>
                 <div className="img" onClick={ () => (window.location = url) }>
-                  <img src="assets/img/mid.jpg" />
+                  <img src={ list.IMG } />
                   <div className="overlay"></div>
                 </div>
                 <div className="info">
@@ -75,12 +87,13 @@ const mapStateToProps = (state) => {
       contact: state.feature.contact[0],
       vouchers: state.feature.vouchers[0].list,
       instagram: state.social.instagram[0]
-    };
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      getMain: (context) => dispatch(fetchFeature(context))
+      getMain: (context) => dispatch(fetchFeature(context)),
+      getAbout: (context) => dispatch(fetchAbout(context))
     };
 }
 

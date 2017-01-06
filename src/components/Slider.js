@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as constant from 'app_path/actions/const'
+import $ from 'jquery'
 
 class Slider extends React.Component{
 
@@ -8,11 +9,41 @@ class Slider extends React.Component{
     super()
   };
 
-  // componentWillReceiveProps(){
-  //   location.reload()
-  // }
+  componentDidMount(){
+    this.renderNews()
+    this.renderSlider()
+  }
+
+  renderNews(){
+    $('.news').bxSlider({
+		  speed: 600,
+		  touchEnabled: true,
+		  nextSelector: ".breaking>.controls .next",
+		  prevSelector: ".breaking>.controls .prev",
+		  pager: false,
+		  infiniteLoop: true,
+		  adaptiveHeight: true,
+		  auto: true,
+		  pause: 4000
+		});
+  }
+
+  renderSlider(){
+    $('.post-slider .slides').bxSlider({
+		  speed: 300,
+		  touchEnabled: true,
+		  pager: false,
+		  infiniteLoop: true,
+		  nextSelector: ".post-slider .controls .next",
+		  prevSelector: ".post-slider .controls .prev",
+		  fadeText: true,
+		  auto: true,
+		  pause: 4000
+		});
+  }
 
   render(){
+    if(!this.props.news) return (<h1> Loading ... </h1>)
     return (
       <div className="col-md-12 col-sm-12">
 
@@ -22,12 +53,14 @@ class Slider extends React.Component{
         
       </div>
     )
+
   }
   
 };
 
 // COMPONENTS
 const News = ({ news }) => {
+  if(!news) return (<h1>loading ..</h1>)
   return (
     <div className="row">
         <div className="breaking col-md-12 col-sm-12">
@@ -68,7 +101,7 @@ const BigSlider = ({ big_slider }) => {
           { 
             big_slider.map((list, index) => (
               <article className="big clearfix" key={ index }>
-                <img src="assets/img/slider12.jpg" alt="post1" />
+                <img src={ list.IMG } alt="post1" />
                 <div className="info">
                   <p className="tags">
                     <a> { list.TYPE } </a>
@@ -100,10 +133,12 @@ const BigSlider = ({ big_slider }) => {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        news: state.feature.slider[0].news,
-        slider: state.feature.slider[0].big
-    }
+    if(state.feature.slider[0]){
+      return {
+          news: state.feature.slider[0].news,
+          slider: state.feature.slider[0].big
+      }
+    }else return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
