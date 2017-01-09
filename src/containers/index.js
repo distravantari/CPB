@@ -22,6 +22,20 @@ class Index extends React.Component{
     super(props)
   }
 
+  renderSlider(){
+    $('.post-slider .slides').bxSlider({
+		  speed: 300,
+		  touchEnabled: true,
+		  pager: false,
+		  infiniteLoop: true,
+		  nextSelector: ".post-slider .controls .next",
+		  prevSelector: ".post-slider .controls .prev",
+		  fadeText: true,
+		  auto: true,
+		  pause: 4000
+		});
+  }
+
   componentWillMount(){
     this.props.getContainer(this)
   }

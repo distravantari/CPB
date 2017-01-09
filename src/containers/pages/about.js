@@ -33,7 +33,7 @@ class About extends React.Component{
 			
 			<div>
 				<div className="row">
-					<Main about_us={ this.props.aboutus } team={ this.props.team } web={ this.props.web } />
+					<Main about_us={ this.props.aboutus } team={ this.props.team.list } web={ this.props.web } />
 				</div>
 			</div>
 
@@ -144,7 +144,7 @@ const Stats = ({ web }) => {
 const mapStateToProps = (state) => {
 		if(state.about){
 			return {
-				team: state.about.team[0].list,
+				team: state.about.team[0],
 				aboutus: state.about.us[0],
 				web: state.about.status[0]
 			};

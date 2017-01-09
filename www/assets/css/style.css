@@ -444,7 +444,8 @@ article {
     text-transform: none;
     float: none; }
   article .img {
-    position: relative; }
+    position: relative;
+    cursor: pointer; }
     article .img .overlay {
       top: 0;
       left: 0;
@@ -793,6 +794,12 @@ aside h4 {
 
 #twitter div {
   margin-top: 20px; }
+
+#refresh:hover {
+  cursor: pointer !important; }
+
+#facebook div:hover {
+  cursor: pointer; }
 
 .most-commented .counter {
   border: 1px solid #ddd;

@@ -10,8 +10,8 @@ class Slider extends React.Component{
   };
 
   componentDidMount(){
-    this.renderNews()
-    this.renderSlider()
+      this.renderNews()
+      this.renderSlider()
   }
 
   renderNews(){

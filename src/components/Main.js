@@ -28,7 +28,7 @@ class Content extends React.Component{
     return (
       <div className="col-md-9 col-sm-12 list-page">
         
-        <Vouchers vouchers= { this.props.vouchers } url= { this.props.instagram.URL }/>
+        <Vouchers vouchers= { this.props.vouchers.list } url= { this.props.instagram.URL }/>
 
         <ContactDetail contact={ this.props.contact }/>
 
@@ -85,7 +85,7 @@ const Vouchers = ({ vouchers, url }) => {
 const mapStateToProps = (state) => {
     return {
       contact: state.feature.contact[0],
-      vouchers: state.feature.vouchers[0].list,
+      vouchers: state.feature.vouchers[0],
       instagram: state.social.instagram[0]
     }
 }

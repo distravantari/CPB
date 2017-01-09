@@ -37,7 +37,7 @@ class Trip extends React.Component{
                 <Slider />
             </div>
             <div className="row">
-                <Main trip={ this.props.packets } />
+                <Main trip={ this.props.packets.list } />
                 <Desc />
             </div>
             </div>
@@ -105,7 +105,7 @@ const Desc = () => {
 
 const mapStateToProps = (state) => {
     return {
-        packets: state.feature.packets[0].list
+        packets: state.feature.packets[0]
     }
 }
 
