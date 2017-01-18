@@ -197,7 +197,10 @@
   },
   "social" : {
     "maps" : {
-      "location" : "Kota Bali"
+      "location" : "Kota Bali",
+      "url" : "https://www.google.co.id/maps?f=d&amp;source=s_d&amp;saddr=-6.903429,107.5030708&amp;daddr=&amp;output=embed",
+      "latitude": "-6.903429",
+      "longitude": "107.5030708"
     },
     "twitter" : {
         "TITTLE": "Latest tweets",

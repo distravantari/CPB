@@ -7,6 +7,7 @@ import ErroPage from 'containers_path/pages/404'
 import Contact from 'containers_path/pages/contact'
 import AboutUs from 'containers_path/pages/about'
 import InfoDetail from 'containers_path/pages/informationDetail'
+import Maps from 'containers_path/pages/maps'
 
 import { Router, Route, IndexRoute, BrowserHistory, useRouterHistory } from 'react-router'
 
@@ -25,7 +26,8 @@ export default(
 
       <Route path='/Trip-detail' component={ InfoDetail }/>
       <Route path='/Voucher-detail' component={ InfoDetail }/>
-      
+
+      <Route path='/Maps' component={ Maps }/>
       <Route path='*' component={ ErroPage }/>
 
     </Route>

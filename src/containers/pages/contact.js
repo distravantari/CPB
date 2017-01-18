@@ -44,27 +44,27 @@ class Index extends React.Component{
  }
 
 const Main = ({ contact }) => {
-      return (
-          <div className="main">
-              <div className="row">
-                  <div className="contact-us col-md-12 col-sm-12">
-                      <h2>Contact us</h2>
-                      <div className="row">
-                          <div className="map col-md-12 col-sm-12">
-                              <iframe src="https://www.google.com.ua/maps?f=d&amp;source=s_d&amp;saddr=48.209746,16.348501&amp;daddr=&amp;hl=uk&amp;geocode=&amp;sll=48.209575,16.365509&amp;sspn=0.033404,0.084543&amp;mra=mift&amp;mrsp=0&amp;sz=14&amp;ie=UTF8&amp;t=m&amp;z=13&amp;output=embed"></iframe>
-                          </div>
-                      </div>	
+    return (
+        <div className="main">
+            <div className="row">
+                <div className="contact-us col-md-12 col-sm-12">
+                    <h2>Contact us</h2>
+                    <div className="row">
+                        <div className="map col-md-12 col-sm-12">
+                            <iframe src={ this.props.map.url }></iframe>
+                        </div>
+                    </div>	
 
-                      <div className="row">
-                          <ContactDetail contact={ contact } />
-                          
-                          <GetInTouch />
-                      </div>
-                  </div>
-              </div>
-          </div>
-      )
-  }
+                    <div className="row">
+                        <ContactDetail contact={ contact } />
+                        
+                        <GetInTouch />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 export const ContactDetail = ({ contact }) => {
   return (
@@ -146,7 +146,8 @@ export const GetInTouch = () => {
 
 const mapStateToProps = (state) => {
     return {
-      contact: state.feature.contact[0]
+      contact: state.feature.contact[0],
+      map: state.social.maps[0]
     };
 }
 

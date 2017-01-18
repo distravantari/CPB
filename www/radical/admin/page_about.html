@@ -15,6 +15,8 @@
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Dropzone.js -->
+    <link href="../vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
@@ -50,11 +52,58 @@
 
             <div class="clearfix"></div>
 
+            <div class="row"> 
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>About Us</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div id="alerts"></div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                      <div>
+                        <form action="#" class="dropzone"></form>
+                        image size: 470 x 220
+                      </div>
+                    </div>
+
+                   <div class="col-md-9 col-sm-9 col-xs-12">
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <textarea class="resizable_textarea form-control" placeholder="Title Here .."></textarea>
+                        </div>
+                      </div>
+
+                      <br /><br /><br />
+
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="resizable_textarea form-control" placeholder="Content Here .." style="height:230px"></textarea>
+                      </div>
+                   </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Plain Page</h2>
+                    <h2> Our Team</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -73,11 +122,110 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      Add content to the page ...
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1" role="tab" data-toggle="tab" aria-expanded="true">Name1</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2" role="tab" data-toggle="tab" aria-expanded="false">Name2</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" data-toggle="tab" aria-expanded="false">Name3</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <div class="x_content">
+                            <div id="alerts"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                              <div>
+                                <form action="#" class="dropzone"></form>
+                                image size: 270 x 280
+                              </div>
+                            </div>
+
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                              <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <input placeholder="Position"></input>
+                                  <input placeholder="Name" style="width: 500px"></input>
+                                </div>
+                              </div>
+
+                              <br /><br /><br />
+
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="resizable_textarea form-control" placeholder="Short Desc" style="height:230px"></textarea>
+                              </div>
+                          </div>
+
+                          </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                          <div class="x_content">
+                            <div id="alerts"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                              <div>
+                                <form action="#" class="dropzone"></form>
+                                image size: 270 x 280
+                              </div>
+                            </div>
+
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                              <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <input placeholder="Position"></input>
+                                  <input placeholder="Name" style="width: 500px"></input>
+                                </div>
+                              </div>
+
+                              <br /><br /><br />
+
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="resizable_textarea form-control" placeholder="Short Desc" style="height:230px"></textarea>
+                              </div>
+                          </div>
+
+                          </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                          <div class="x_content">
+                            <div id="alerts"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                              <div>
+                                <form action="#" class="dropzone"></form>
+                                image size: 270 x 280
+                              </div>
+                            </div>
+
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                              <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <input placeholder="Position"></input>
+                                  <input placeholder="Name" style="width: 500px"></input>
+                                </div>
+                              </div>
+
+                              <br /><br /><br />
+
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="resizable_textarea form-control" placeholder="Short Desc" style="height:230px"></textarea>
+                              </div>
+                          </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
         <!-- /page content -->
@@ -94,6 +242,8 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Dropzone.js -->
+    <script src="../vendors/dropzone/dist/min/dropzone.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
@@ -108,4 +258,6 @@
     </script> 
     
   </body>
+  <!-- VIEW UPLOAD IMAGE -->
+  
 </html>
