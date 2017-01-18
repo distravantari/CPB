@@ -7,6 +7,7 @@ import * as constant from 'app_path/actions/const'
 
 //redux
 import fetchFeature from 'app_path/actions/Feature'
+import fetchMap from 'app_path/actions/Social'
 
 class Index extends React.Component{
 
@@ -19,6 +20,7 @@ class Index extends React.Component{
 
   componentDidMount(){
     this.props.getContact(this)
+    this.props.getSocial(this)
   }
 
   componentWillReceiveProps(){
@@ -26,13 +28,14 @@ class Index extends React.Component{
   }
 
   render(){
+    if(!this.props.map) return (<h1>Loading ..</h1>)
     return(
       <div>
         <div className="main">
           
           <div>
             <div className="row">
-              <Main contact={ this.props.contact } />
+              <Main contact={ this.props.contact } map={ this.props.map[0] } />
             </div>
           </div>
 
@@ -43,7 +46,7 @@ class Index extends React.Component{
 
  }
 
-const Main = ({ contact }) => {
+const Main = ({ contact, map }) => {
     return (
         <div className="main">
             <div className="row">
@@ -51,7 +54,7 @@ const Main = ({ contact }) => {
                     <h2>Contact us</h2>
                     <div className="row">
                         <div className="map col-md-12 col-sm-12">
-                            <iframe src={ this.props.map.url }></iframe>
+                            <iframe src={ `https://www.google.com/maps?q=${map.latitude},${map.longitude}&output=embed` }></iframe>
                         </div>
                     </div>	
 
@@ -145,15 +148,17 @@ export const GetInTouch = () => {
   }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
       contact: state.feature.contact[0],
-      map: state.social.maps[0]
+      map: state.social.map
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      getContact: (context) => dispatch(fetchFeature(context))
+      getContact: (context) => dispatch(fetchFeature(context)),
+      getSocial: (context) => dispatch(fetchMap(context))
     };
 }
 

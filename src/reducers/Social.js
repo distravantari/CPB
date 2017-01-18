@@ -15,7 +15,7 @@ const receiveSocial = (state = initialState, action) => {
             console.log('receiveSocial ',result.response)
             return Object.assign({}, state, { 
                 facebook: _.filter(result.response, ['key', 'facebook']), 
-                map: _.filter(result.response, ['key', 'map']), 
+                map: _.filter(result.response, ['key', 'maps']), 
                 twitter: _.filter(result.response, ['key', 'twitter']), 
                 instagram: _.filter(result.response, ['key', 'instagram'])
             });
