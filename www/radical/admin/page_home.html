@@ -357,17 +357,35 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Select2 -->
-    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
-    <!-- Switchery -->
-    <script src="../vendors/switchery/dist/switchery.min.js"></script>
     <!-- Dropzone.js -->
     <script src="../vendors/dropzone/dist/min/dropzone.min.js"></script>
+    <!-- jQuery Tags Input -->
+    <script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
+    <!-- jQuery Tags Input -->
+    <script>
+      function onAddTag(tag) {
+        alert("Added a tag: " + tag);
+      }
+
+      function onRemoveTag(tag) {
+        alert("Removed a tag: " + tag);
+      }
+
+      function onChangeTag(input, tag) {
+        alert("Changed a tag: " + tag);
+      }
+
+      $(document).ready(function() {
+        $('#tags_1').tagsInput({
+          width: 'auto'
+        });
+      });
+    </script>
+    <!-- /jQuery Tags Input -->
 
     <!-- Load Custom Components -->
     <script> 
