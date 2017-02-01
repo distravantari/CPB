@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
-import routes from './config/routes'
 import { Router, Route, useRouterHistory, IndexRoute} from 'react-router'
 
 import createHashHistory from 'history/lib/createHashHistory'

@@ -27,7 +27,7 @@ class Content extends React.Component{
     if(!this.props.vouchers) return (<h1> Loading ... </h1>)
     return (
       <div className="col-md-9 col-sm-12 list-page">
-        
+
         <Vouchers vouchers= { this.props.vouchers.list } url= { this.props.instagram.URL }/>
 
         <ContactDetail contact={ this.props.contact }/>
@@ -37,7 +37,7 @@ class Content extends React.Component{
       </div>
     )
   }
-} 
+}
 
 const Vouchers = ({ vouchers, url }) => {
     return (
@@ -59,12 +59,12 @@ const Vouchers = ({ vouchers, url }) => {
                     )) }
 
                   </p>
-                  <h1><Link to={ `${constant.routes_detail[0]}` }> { list.TITTLE } </Link></h1>
+                  <h1><Link to={ `${list.URL}` }> { list.TITTLE } </Link></h1>
                   <p className="details"> {list.DATE} <a> {list.CREATEDBY} </a></p>
                   <p className="text">
                     { list.TEXT }
                   </p>
-                  
+
                 </div>
                 <ul className="counters list-inline">
                   <li>
