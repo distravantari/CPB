@@ -11,13 +11,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 // application absolute path
-var ROOT = path.resolve(__dirname, "./")
 var SCRIPTS_ROOT = path.resolve(__dirname, "./assets/js")
-var STYLES_ROOT = path.resolve(__dirname, "./assets/css")
-var THEMES_ROOT = path.resolve(__dirname, "./www/assets")
-var APP_ROOT = path.resolve(__dirname, "./src")
-var COMPONENTS_ROOT = path.resolve(__dirname, "./src/components")
-var CONTAINERS_ROOT = path.resolve(__dirname, "./src/containers")
 // end of application absolute path
 
 module.exports = {
@@ -54,9 +48,6 @@ module.exports = {
       }
     ]
   },
-  sassLoader: {
-    includePaths: [STYLES_ROOT]
-  },
   output: {
     filename: "bundle.js",
     path: __dirname + '/www'
@@ -65,13 +56,7 @@ module.exports = {
     extensions: ["", ".js", ".es6", ".jsx",".hbs"],
     modulesDirectories: ["node_modules"],
     alias: {
-        "scripts_path": SCRIPTS_ROOT,
-        "styles_path": STYLES_ROOT,
-        "app_path": APP_ROOT,
-        "containers_path": CONTAINERS_ROOT,
-        "components_path": COMPONENTS_ROOT,
-        "themes_root": THEMES_ROOT,
-        "root": ROOT
+        "scripts_path": SCRIPTS_ROOT
     }
   },
   externals: {
