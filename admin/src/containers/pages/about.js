@@ -1,6 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import fetchAbout from '../../actions/About'
+
+import * as constant from '../../actions/const'
 
 class About extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
+
+  componentWillMount(){
+    this.props.getAbout(this)
+  }
+
+  componentWillReceiveProps(){
+    this.setState({})
+  }
+
   render(){
     return(
         <div className="right_col" role="main">
@@ -23,14 +42,14 @@ class About extends React.Component{
 
           <div className="clearfix"></div>
 
-          <AboutUs />
-          <OurTeam />
+          <AboutUs about_us={this.props.aboutus}/>
+          <OurTeam team={this.props.team.list}/>
         </div>
     )
   }
 }
 
-const AboutUs = () => {
+const AboutUs = ({about_us}) => {
   return(
     <div className="row">
       <div className="col-md-12 col-sm-12 col-xs-12">
@@ -63,14 +82,14 @@ const AboutUs = () => {
            <div className="col-md-9 col-sm-9 col-xs-12">
               <div className="form-group">
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <textarea className="resizable_textarea form-control" placeholder="Title Here .."></textarea>
+                  <textarea className="resizable_textarea form-control" placeholder="Title Here .." value={ about_us.TITTLE }></textarea>
                 </div>
               </div>
 
               <br /><br /><br />
 
               <div className="col-md-12 col-sm-12 col-xs-12">
-                <textarea className="resizable_textarea form-control" placeholder="Content Here .." style={{height:"230px"}}></textarea>
+                <textarea className="resizable_textarea form-control" placeholder="Content Here .." style={{height:"230px"}} value={ about_us.TEXT }></textarea>
               </div>
            </div>
            <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
@@ -83,7 +102,7 @@ const AboutUs = () => {
   )
 }
 
-const OurTeam = () => {
+const OurTeam = ({team}) => {
   return(
     <div className="row">
       <div className="col-md-12 col-sm-12 col-xs-12">
@@ -112,11 +131,11 @@ const OurTeam = () => {
 
             <div className="" role="tabpanel" data-example-id="togglable-tabs">
               <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
-                <li role="presentation" className="active"><a href="#tab_content1" role="tab" data-toggle="tab" aria-expanded="true">Name1</a>
+                <li role="presentation" className="active"><a href="#tab_content1" role="tab" data-toggle="tab" aria-expanded="true">{ team[0].NAME }</a>
                 </li>
-                <li role="presentation" className=""><a href="#tab_content2" role="tab" data-toggle="tab" aria-expanded="false">Name2</a>
+                <li role="presentation" className=""><a href="#tab_content2" role="tab" data-toggle="tab" aria-expanded="false">{ team[1].NAME }</a>
                 </li>
-                <li role="presentation" className=""><a href="#tab_content3" role="tab" data-toggle="tab" aria-expanded="false">Name3</a>
+                <li role="presentation" className=""><a href="#tab_content3" role="tab" data-toggle="tab" aria-expanded="false">{ team[2].NAME }</a>
                 </li>
               </ul>
               <div id="myTabContent" className="tab-content">
@@ -134,15 +153,15 @@ const OurTeam = () => {
                   <div className="col-md-9 col-sm-9 col-xs-12">
                       <div className="form-group">
                         <div className="col-md-9 col-sm-9 col-xs-12">
-                          <input placeholder="Position"></input>
-                          <input placeholder="Name" style={{width: "500px"}}></input>
+                          <input placeholder="Position" value={ team[0].POSITION }></input>
+                          <input placeholder="Name" style={{width: "500px"}} value={ team[0].NAME }></input>
                         </div>
                       </div>
 
                       <br /><br /><br />
 
                       <div className="col-md-12 col-sm-12 col-xs-12">
-                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}}></textarea>
+                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={ team[0].TEXT }></textarea>
                       </div>
                   </div>
 
@@ -166,15 +185,15 @@ const OurTeam = () => {
                   <div className="col-md-9 col-sm-9 col-xs-12">
                       <div className="form-group">
                         <div className="col-md-9 col-sm-9 col-xs-12">
-                          <input placeholder="Position"></input>
-                          <input placeholder="Name" style={{width: "500px"}}></input>
+                          <input placeholder="Position" value={team[1].POSITION}></input>
+                          <input placeholder="Name" style={{width: "500px"}} value={team[1].NAME}></input>
                         </div>
                       </div>
 
                       <br /><br /><br />
 
                       <div className="col-md-12 col-sm-12 col-xs-12">
-                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}}></textarea>
+                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={team[1].TEXT}></textarea>
                       </div>
                   </div>
 
@@ -198,15 +217,15 @@ const OurTeam = () => {
                   <div className="col-md-9 col-sm-9 col-xs-12">
                       <div className="form-group">
                         <div className="col-md-9 col-sm-9 col-xs-12">
-                          <input placeholder="Position"></input>
-                          <input placeholder="Name" style={{width: "500px"}}></input>
+                          <input placeholder="Position" value={ team[2].POSITION }></input>
+                          <input placeholder="Name" style={{width: "500px"}} value={ team[2].NAME }></input>
                         </div>
                       </div>
 
                       <br /><br /><br />
 
                       <div className="col-md-12 col-sm-12 col-xs-12">
-                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}}></textarea>
+                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={ team[2].TEXT }></textarea>
                       </div>
                   </div>
 
@@ -226,4 +245,20 @@ const OurTeam = () => {
   )
 }
 
-export default About
+const mapStateToProps = (state) => {
+  if (state) {
+    console.log('distra ',state)
+    return{
+      team: state.team[0],
+      aboutus: state.us[0]
+    }
+  }else return{ }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    getAbout: (context) => dispatch(fetchAbout(context))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (About)
