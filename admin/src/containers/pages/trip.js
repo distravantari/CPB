@@ -1,6 +1,23 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
+import fetchFeature from '../../actions/Feature'
 
 class Trip extends React.Component{
+
+    constructor(props){
+      super(props)
+      this.state = {}
+    }
+
+    componentWillMount(){
+      this.props.getFeature(this)
+    }
+
+    componentWillReceiveProps(){
+      this.setState({})
+    }
+
   render(){
     return(
       <div className="right_col" role="main">
@@ -25,8 +42,8 @@ class Trip extends React.Component{
           <div className="clearfix"></div>
 
           <div className="row">
-            <TripPackage />
-            <TripDescription />
+            <TripPackage packets = {this.props.list}/>
+            <TripDescription shortdesc = {this.props.description}/>
           </div>
         </div>
       </div>
@@ -34,7 +51,7 @@ class Trip extends React.Component{
   }
 }
 
-const TripPackage = () => {
+const TripPackage = ({packets}) => {
   return(
     <div className="col-md-12 col-sm-12 col-xs-12">
       <div className="x_panel">
@@ -70,7 +87,7 @@ const TripPackage = () => {
             <div className="form-group">
               <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
               <div className="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" className="form-control" placeholder="Tittle" />
+                <input type="text" className="form-control" placeholder="Tittle" value={packets[0].TITTLE}/>
               </div>
             </div>
 
@@ -91,7 +108,7 @@ const TripPackage = () => {
             <div className="form-group">
               <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
               <div className="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" className="form-control" placeholder="Date" />
+                <input type="text" className="form-control" placeholder="Date" value={packets[0].DATE}/>
               </div>
             </div>
 
@@ -118,7 +135,7 @@ const TripPackage = () => {
   )
 }
 
-const TripDescription = () => {
+const TripDescription = ({shortdesc}) => {
   return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
@@ -147,11 +164,11 @@ const TripDescription = () => {
             <form id="demo-form" data-parsley-validate>
 
               <label for="heard">Tittle</label>
-              <input type="text" style={{width: "500px", height: "30px"}} />
+              <input type="text" style={{width: "500px", height: "30px"}} value={shortdesc.tittle}/>
               <br /><br />
               <label for="message">News Text (20 chars min, 100 max) :</label>
               <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                data-parsley-validation-threshold="10"></textarea>
+                data-parsley-validation-threshold="10" value={shortdesc.text}></textarea>
 
               <br/>
               <button type="submit" className="btn btn-success">Edit</button>
@@ -164,4 +181,20 @@ const TripDescription = () => {
   )
 }
 
-export default Trip
+const mapStateToProps =(state) => {
+  if(state.feature){
+    console.log('abcd', state.feature.packets[0])
+    return{
+      list : state.feature.packets[0].list,
+      description :state.feature.packets[0].shortdesc
+    }
+  }else return{}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    getFeature: (context) => dispatch(fetchFeature(context))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Trip)

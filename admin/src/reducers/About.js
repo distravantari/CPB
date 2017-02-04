@@ -3,8 +3,7 @@ import * as con from "../actions/const"
 
 const initialState = {
   us: {},
-  team: [],
-  status: {}
+  team: []
 };
 
 const receiveAbout = (state = initialState, action) => {

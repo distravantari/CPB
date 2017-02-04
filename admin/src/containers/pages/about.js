@@ -246,11 +246,10 @@ const OurTeam = ({team}) => {
 }
 
 const mapStateToProps = (state) => {
-  if (state) {
-    console.log('distra ',state)
+  if (state.about) {
     return{
-      team: state.team[0],
-      aboutus: state.us[0]
+      team: state.about.team[0],
+      aboutus: state.about.us[0]
     }
   }else return{ }
 }

@@ -1,6 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import fetchFeature from '../../actions/Feature'
+import fetchSocial from '../../actions/Social'
 
 class Contact extends React.Component{
+
+  constructor(props){
+    super(props)
+    this.state = {}
+  }
+
+  componentWillMount(){
+    this.props.getFeature(this)
+    this.props.getSocial(this)
+  }
+
+  componentWillReceiveProps(){
+    this.setState({})
+  }
+
   render(){
     return(
       <div className="right_col" role="main">
@@ -24,13 +43,13 @@ class Contact extends React.Component{
 
           <div className="clearfix"></div>
 
-          <ContactDetail />
+          <ContactDetail map={this.props.map} contact={this.props.contact}/>
         </div>
       </div>
     )
   }
 }
-const ContactDetail = () =>{
+const ContactDetail = ({map, contact}) =>{
   return(
       <div className="row">
         <div className="col-md-12 col-xs-12">
@@ -61,58 +80,58 @@ const ContactDetail = () =>{
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Map</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" id="inputSuccess3" placeholder="Latitude" />
+                    <input type="text" className="form-control" id="inputSuccess3" placeholder="Latitude" value={ map.latitude }/>
                     <br />
-                    <input type="text" className="form-control" id="inputSuccess3" placeholder="Longitude" />
+                    <input type="text" className="form-control" id="inputSuccess3" placeholder="Longitude" value={ map.longitude }/>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Address" />
+                    <input type="text" className="form-control" placeholder="Address" value={ contact.ADDRESS }/>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Phone Number" />
+                    <input type="text" className="form-control" placeholder="Phone Number" value={ contact.PHONE[0] }/>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Alternative Phone Number</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Alternative Phone Number" />
+                    <input type="text" className="form-control" placeholder="Alternative Phone Number" value={ contact.PHONE[1] }/>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Alternative Email" />
+                    <input type="text" className="form-control" placeholder="Alternative Email" value={ contact.EMAIL[0] } />
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Alternative Email</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Alternative Email" />
+                    <input type="text" className="form-control" placeholder="Alternative Email" value={ contact.EMAIL[1] } />
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Facebook</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Facebook" />
+                    <input type="text" className="form-control" placeholder="Facebook" value={ contact.FACEBOOK[0] } />
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Alternative Facebook</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Alternative Facebook" />
+                    <input type="text" className="form-control" placeholder="Alternative Facebook" value={ contact.FACEBOOK[1] } />
                   </div>
                 </div>
 
@@ -131,4 +150,21 @@ const ContactDetail = () =>{
   )
 }
 
-export default Contact
+const mapStateToProps =(state) => {
+  if(state.feature){
+    // console.log('abcd', state.feature.contact[0])
+    return{
+      map : state.social.maps[0],
+      contact : state.feature.contact[0]
+    }
+  }else return{}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    getFeature: (context) => dispatch(fetchFeature(context)),
+    getSocial: (context) => dispatch(fetchSocial(context))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact)

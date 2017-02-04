@@ -1,7 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router'
+import * as con from '../actions/const'
 
 class SideBar extends React.Component{
   render(){
+    console.log('dis ',con.routes[0])
     return(
 
       <div className="col-md-3 left_col">
@@ -36,15 +39,12 @@ class SideBar extends React.Component{
               <div className="menu_section">
               <h3>Live On</h3>
               <ul className="nav side-menu">
-                  <li><a><i className="fa fa-windows"></i> Pages <span className="fa fa-chevron-down"></span></a>
-                  <ul className="nav child_menu">
-                      <li><a href="page_about.html">About Page</a></li>
-                      <li><a href="page_contact.html">Contact Page</a></li>
-                      <li><a href="page_home.html">Home Page</a></li>
-                      <li><a href="page_trip.html">Trip Page</a></li>
-                      <li><a href="plain_page.html">Other</a></li>
-                      <li><a href="pricing_tables.html">Pricing Tables</a></li>
-                  </ul>
+                  <li><a><i className="fa fa-windows"></i> Pages </a>
+                    <ul className="nav child_menu"style={{display:"block"}}>
+                        { con.routes.map ((routes) => (
+                          <li><Link to={`${routes}`} >{`${routes} Pages`}</Link></li>
+                        ))}
+                    </ul>
                   </li>
               </ul>
               </div>

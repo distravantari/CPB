@@ -1,6 +1,24 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
+import fetchFeature from '../../actions/Feature'
+import fetchSocial from '../../actions/Social'
 
 class Home extends React.Component{
+
+  constructor(props){
+    super(props)
+    this.state = {}
+  }
+
+  componentWillMount(){
+    this.props.getFeature(this)
+    this.props.getSocial(this)
+  }
+
+  componentWillReceiveProps(){
+    this.setState({})
+  }
   render(){
     return(
       <div className="right_col" role="main">
@@ -25,10 +43,9 @@ class Home extends React.Component{
           <div className="clearfix"></div>
 
           <div className="row">
-            <News />
-            <Slider />
-            <Social />
-            <Voucher />
+            <Slider slider = {this.props.slider}/>
+            <Social social = {this.props.social}/>
+            <Voucher vouchers = {this.props.vouchers}/>
           </div>
         </div>
       </div>
@@ -87,7 +104,7 @@ const News = () => {
   )
 }
 
-const Slider = () => {
+const Slider = ({slider}) => {
   return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
@@ -123,28 +140,28 @@ const Slider = () => {
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Tittle" />
+                  <input type="text" className="form-control" placeholder="Tittle" value={slider[0].TITTLE} />
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Info" />
+                  <input type="text" className="form-control" placeholder="Info" value={slider[0].INFO} />
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Create" />
+                  <input type="text" className="form-control" placeholder="Create" value={slider[0].CREATE} />
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Date" />
+                  <input type="text" className="form-control" placeholder="Date" value={slider[0].DATE} />
                 </div>
               </div>
 
@@ -171,7 +188,7 @@ const Slider = () => {
   )
 }
 
-const Social = () => {
+const Social = ({social}) => {
   return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
@@ -200,35 +217,35 @@ const Social = () => {
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Facebook URL</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="URL" />
+                  <input type="text" className="form-control" placeholder="URL" value={social.facebook[0].URL}/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Instagram URL</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="URL" />
+                  <input type="text" className="form-control" placeholder="URL" value={social.instagram[0].URL}/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter Tittle</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Tittle" />
+                  <input type="text" className="form-control" placeholder="Tittle" value={social.twitter[0].TITTLE}/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter Limmit</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="number" className="form-control" placeholder="Limmit" />
+                  <input type="number" className="form-control" placeholder="Limmit" value={social.twitter[0].LIMIT}/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter URL</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="number" className="form-control" placeholder="URL" />
+                  <input type="text" className="form-control" placeholder="URL" value={social.twitter[0].LINK}/>
                 </div>
               </div>
 
@@ -246,7 +263,7 @@ const Social = () => {
   )
 }
 
-const Voucher = () => {
+const Voucher = ({vouchers}) => {
   return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
@@ -281,28 +298,28 @@ const Voucher = () => {
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Tittle" />
+                  <input type="text" className="form-control" placeholder="Tittle" value={vouchers[0].TITTLE}/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Info" />
+                  <input type="text" className="form-control" placeholder="Info"/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Create" />
+                  <input type="text" className="form-control" placeholder="Create" value={vouchers[0].CREATEDBY}/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
                 <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Date" />
+                  <input type="text" className="form-control" placeholder="Date" value={vouchers[0].DATE}/>
                 </div>
               </div>
 
@@ -330,4 +347,22 @@ const Voucher = () => {
   )
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  if(state.feature){
+    console.log('jkjl', state.feature.vouchers[0].list)
+    return{
+      slider : state.feature.slider[0].big.list,
+      social : state.social,
+      vouchers : state.feature.vouchers[0].list
+    }
+  }else return{}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    getFeature: (context) => dispatch(fetchFeature(context)),
+    getSocial: (context) => dispatch(fetchSocial(context))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
