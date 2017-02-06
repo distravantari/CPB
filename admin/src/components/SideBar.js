@@ -8,7 +8,7 @@ class SideBar extends React.Component{
 
       <div className="col-md-3 left_col">
           <div className="left_col scroll-view">
-          <div className="navbar nav_title" style={{border:" 0"}}>
+          <div className="navbar nav_title" style={{border:0}}>
               <a href="dashboard.html" className="site_title"><i className="fa fa-paw"></i> <span>Radical Admin!</span></a>
           </div>
 
@@ -40,8 +40,8 @@ class SideBar extends React.Component{
               <ul className="nav side-menu">
                   <li><a><i className="fa fa-windows"></i> Pages </a>
                     <ul className="nav child_menu"style={{display:"block"}}>
-                        { con.routes.map ((routes) => (
-                          <li><Link to={`${routes}`} >{`${routes} Pages`}</Link></li>
+                        { con.routes.map ((routes, index) => (
+                          <li key={index}><Link to={`${routes}`} >{`${routes} Pages`}</Link></li>
                         ))}
                     </ul>
                   </li>

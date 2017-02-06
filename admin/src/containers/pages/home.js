@@ -20,6 +20,10 @@ class Home extends React.Component{
     this.setState({})
   }
   render(){
+    if(!this.state.feature) {
+      return <div>Loading ..</div>
+    }
+
     return(
       <div className="right_col" role="main">
         <div className="">

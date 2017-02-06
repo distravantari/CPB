@@ -14,6 +14,7 @@ export default(context) => {
 }
 
 let receiveFeature = (response) =>{
+  console.log('default')
   return{
     type: con.ACTReceiveFeature,
     payload:{

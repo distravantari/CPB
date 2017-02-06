@@ -21,6 +21,10 @@ class About extends React.Component{
   }
 
   render(){
+    if(!this.props.team) {
+      return <div>Loading ..</div>
+    }
+
     return(
         <div className="right_col" role="main">
           <div className="page-title">
@@ -140,9 +144,8 @@ const OurTeam = ({team}) => {
               </ul>
               <div id="myTabContent" className="tab-content">
                 {
-                  team.map((team, index) => {
-                    return (
-                      <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_content${index+1}`} aria-labelledby="home-tab">
+                  team.map((team, index) => (
+                      <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_content${index+1}`} aria-labelledby="home-tab" key={index}>
                         <div className="x_content">
                           <div id="alerts"></div>
 
@@ -174,8 +177,7 @@ const OurTeam = ({team}) => {
 
                         </div>
                       </div>
-                    )
-                  })
+                    ))
                 }
               </div>
             </div>
