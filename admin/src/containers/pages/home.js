@@ -127,61 +127,82 @@ const Slider = ({slider}) => {
           <div className="x_content">
             <div id="alerts"></div>
 
-            <div className="col-md-5 col-sm-5 col-xs-12">
-              <div>
-                <form action="#" className="dropzone"></form>
-                image size: 470 x 220
-              </div>
+            <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
+              <li role="presentation" className="active"><a href="#tab_slider1" role="tab" data-toggle="tab" aria-expanded="true"> Slider1 </a>
+              </li>
+              <li role="presentation" className=""><a href="#tab_slider2" role="tab" data-toggle="tab" aria-expanded="false"> Slider2 </a>
+              </li>
+            </ul>
+
+            <div id="myTabContent" className="tab-content">
+              {
+                slider.map((slider, index) => {
+                  return (
+                    <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_slider${index+1}`} aria-labelledby="home-tab">
+
+                      <div className="col-md-5 col-sm-5 col-xs-12">
+                        <div>
+                          <form action="#" className="dropzone"></form>
+                          image size: 470 x 220
+                        </div>
+                      </div>
+
+                     <div className="col-md-7 col-sm-7 col-xs-12">
+                        <form className="form-horizontal form-label-left">
+
+                        <div className="form-group">
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
+                          <div className="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" className="form-control" placeholder="Tittle" value={slider.TITTLE} />
+                          </div>
+                        </div>
+
+                        <div className="form-group">
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
+                          <div className="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" className="form-control" placeholder="Info" value={slider.INFO} />
+                          </div>
+                        </div>
+
+                        <div className="form-group">
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
+                          <div className="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" className="form-control" placeholder="Create" value={slider.CREATE} />
+                          </div>
+                        </div>
+
+                        <div className="form-group">
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                          <div className="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" className="form-control" placeholder="Date" value={slider.DATE} />
+                          </div>
+                        </div>
+
+                        <div className="control-group">
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
+                          <div className="col-md-9 col-sm-9 col-xs-12">
+                            <input id="tags_1" type="text" className="tags form-control" value="social, adverts, sales" />
+                            <div id="suggestions-container" style={{position: "relative", float: "left", width: "250px", margin: "10px"}}></div>
+                          </div>
+                        </div>
+
+                        <div className="form-group">
+                          <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                            <button type="submit" className="btn btn-success">Edit</button>
+                            <span className="btn btn-primary">Add</span>
+                          </div>
+                        </div>
+
+                      </form>
+                     </div>
+
+                    </div>
+                  )
+                })
+              }
             </div>
 
-           <div className="col-md-7 col-sm-7 col-xs-12">
-              <form className="form-horizontal form-label-left">
 
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Tittle" value={slider[0].TITTLE} />
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Info" value={slider[0].INFO} />
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Create" value={slider[0].CREATE} />
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Date" value={slider[0].DATE} />
-                </div>
-              </div>
-
-              <div className="control-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input id="tags_1" type="text" className="tags form-control" value="social, adverts, sales" />
-                  <div id="suggestions-container" style={{position: "relative", float: "left", width: "250px", margin: "10px"}}></div>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                  <button type="submit" className="btn btn-success">Edit</button>
-                  <span className="btn btn-primary">Add</span>
-                </div>
-              </div>
-
-            </form>
-           </div>
           </div>
         </div>
       </div>
@@ -285,61 +306,84 @@ const Voucher = ({vouchers}) => {
           <div className="x_content">
             <div id="alerts"></div>
 
-            <div className="col-md-5 col-sm-5 col-xs-12">
-              <div>
-                <form action="#" className="dropzone"></form>
-                image size: 270 x 280
+            <div className="" role="tabpanel" data-example-id="togglable-tabs">
+              <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
+                { vouchers.map((voucher, index) => (
+                      <li role="presentation" className={ index == 0 ? 'active':''}>
+                        <a href={`#tab_voucher${index+1}`} role="tab" data-toggle="tab" aria-expanded={index == 0 ? 'true' : 'false'}>
+                          {`Voucher${index+1}`}
+                        </a>
+                      </li>
+                  ))
+                }
+              </ul>
+
+              <div id="myTabContent" className="tab-content">
+                {
+                  vouchers.map((voucher, index) => {
+                    return (
+                      <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_voucher${index+1}`} aria-labelledby="home-tab">
+                        <div className="col-md-5 col-sm-5 col-xs-12">
+                          <div>
+                            <form action="#" className="dropzone"></form>
+                            image size: 270 x 280
+                          </div>
+                        </div>
+
+                        <div className="col-md-7 col-sm-7 col-xs-12">
+                          <form className="form-horizontal form-label-left">
+                            <div className="form-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" className="form-control" placeholder="Tittle" value={voucher.TITTLE}/>
+                              </div>
+                            </div>
+
+                            <div className="form-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" className="form-control" placeholder="Info"/>
+                              </div>
+                            </div>
+
+                            <div className="form-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" className="form-control" placeholder="Create" value={voucher.CREATEDBY}/>
+                              </div>
+                            </div>
+
+                            <div className="form-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" className="form-control" placeholder="Date" value={voucher.DATE}/>
+                              </div>
+                            </div>
+
+                            <div className="control-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input id="tags_1" type="text" className="tags form-control" value="social, adverts, sales" />
+                                <div id="suggestions-container" style={{position: "relative", float: "left", width: "250px", margin: "10px"}}></div>
+                              </div>
+                            </div>
+
+                            <div className="form-group">
+                              <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                <button type="submit" className="btn btn-success">Edit</button>
+                                <span className="btn btn-primary">Add</span>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
 
-           <div className="col-md-7 col-sm-7 col-xs-12">
-              <form className="form-horizontal form-label-left">
 
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Tittle" value={vouchers[0].TITTLE}/>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Info"/>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Create" value={vouchers[0].CREATEDBY}/>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input type="text" className="form-control" placeholder="Date" value={vouchers[0].DATE}/>
-                </div>
-              </div>
-
-              <div className="control-group">
-                <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <input id="tags_1" type="text" className="tags form-control" value="social, adverts, sales" />
-                  <div id="suggestions-container" style={{position: "relative", float: "left", width: "250px", margin: "10px"}}></div>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                  <button type="submit" className="btn btn-success">Edit</button>
-                  <span className="btn btn-primary">Add</span>
-                </div>
-              </div>
-
-            </form>
-           </div>
 
           </div>
         </div>
@@ -349,7 +393,6 @@ const Voucher = ({vouchers}) => {
 
 const mapStateToProps = (state) => {
   if(state.feature){
-    console.log('jkjl', state.feature.vouchers[0].list)
     return{
       slider : state.feature.slider[0].big.list,
       social : state.social,

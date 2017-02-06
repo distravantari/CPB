@@ -139,102 +139,44 @@ const OurTeam = ({team}) => {
                 </li>
               </ul>
               <div id="myTabContent" className="tab-content">
-                <div role="tabpanel" className="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                  <div className="x_content">
-                    <div id="alerts"></div>
+                {
+                  team.map((team, index) => {
+                    return (
+                      <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_content${index+1}`} aria-labelledby="home-tab">
+                        <div className="x_content">
+                          <div id="alerts"></div>
 
-                    <div className="col-md-3 col-sm-3 col-xs-12">
-                      <div>
-                        <form action="#" className="dropzone"></form>
-                        image size: 270 x 280
-                      </div>
-                    </div>
+                          <div className="col-md-3 col-sm-3 col-xs-12">
+                            <div>
+                              <form action="#" className="dropzone"></form>
+                              image size: 270 x 280
+                            </div>
+                          </div>
 
-                  <div className="col-md-9 col-sm-9 col-xs-12">
-                      <div className="form-group">
                         <div className="col-md-9 col-sm-9 col-xs-12">
-                          <input placeholder="Position" value={ team[0].POSITION }></input>
-                          <input placeholder="Name" style={{width: "500px"}} value={ team[0].NAME }></input>
+                            <div className="form-group">
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input placeholder="Position" value={ team.POSITION }></input>
+                                <input placeholder="Name" style={{width: "500px"}} value={ team.NAME }></input>
+                              </div>
+                            </div>
+
+                            <br /><br /><br />
+
+                            <div className="col-md-12 col-sm-12 col-xs-12">
+                              <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={ team.TEXT }></textarea>
+                            </div>
+                        </div>
+
+                        <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
+                          <span className="btn btn-success">Edit</span>
+                        </div>
+
                         </div>
                       </div>
-
-                      <br /><br /><br />
-
-                      <div className="col-md-12 col-sm-12 col-xs-12">
-                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={ team[0].TEXT }></textarea>
-                      </div>
-                  </div>
-
-                  <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
-                    <span className="btn btn-success">Edit</span>
-                  </div>
-
-                  </div>
-                </div>
-                <div role="tabpanel" className="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                  <div className="x_content">
-                    <div id="alerts"></div>
-
-                    <div className="col-md-3 col-sm-3 col-xs-12">
-                      <div>
-                        <form action="#" className="dropzone"></form>
-                        image size: 270 x 280
-                      </div>
-                    </div>
-
-                  <div className="col-md-9 col-sm-9 col-xs-12">
-                      <div className="form-group">
-                        <div className="col-md-9 col-sm-9 col-xs-12">
-                          <input placeholder="Position" value={team[1].POSITION}></input>
-                          <input placeholder="Name" style={{width: "500px"}} value={team[1].NAME}></input>
-                        </div>
-                      </div>
-
-                      <br /><br /><br />
-
-                      <div className="col-md-12 col-sm-12 col-xs-12">
-                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={team[1].TEXT}></textarea>
-                      </div>
-                  </div>
-
-                  <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
-                    <span className="btn btn-success">Edit</span>
-                  </div>
-
-                  </div>
-                </div>
-                <div role="tabpanel" className="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                  <div className="x_content">
-                    <div id="alerts"></div>
-
-                    <div className="col-md-3 col-sm-3 col-xs-12">
-                      <div>
-                        <form action="#" className="dropzone"></form>
-                        image size: 270 x 280
-                      </div>
-                    </div>
-
-                  <div className="col-md-9 col-sm-9 col-xs-12">
-                      <div className="form-group">
-                        <div className="col-md-9 col-sm-9 col-xs-12">
-                          <input placeholder="Position" value={ team[2].POSITION }></input>
-                          <input placeholder="Name" style={{width: "500px"}} value={ team[2].NAME }></input>
-                        </div>
-                      </div>
-
-                      <br /><br /><br />
-
-                      <div className="col-md-12 col-sm-12 col-xs-12">
-                        <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={ team[2].TEXT }></textarea>
-                      </div>
-                  </div>
-
-                  <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
-                    <span className="btn btn-success">Edit</span>
-                  </div>
-
-                  </div>
-                </div>
+                    )
+                  })
+                }
               </div>
             </div>
 

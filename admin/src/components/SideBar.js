@@ -4,7 +4,6 @@ import * as con from '../actions/const'
 
 class SideBar extends React.Component{
   render(){
-    console.log('dis ',con.routes[0])
     return(
 
       <div className="col-md-3 left_col">
