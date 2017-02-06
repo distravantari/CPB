@@ -287,5 +287,12 @@
       "download": "239",
       "image": "32,234"
     }
+  },
+  "inbox" : {
+    "list": [{
+        "name" : "distra",
+        "email" : "distravantari@gmail.com",
+        "text" : "this is text"
+    }]
   }
 }

@@ -15,11 +15,36 @@ export default (context) => {
     }
 }
 
-let receiveFeature = (response) => {
+const receiveFeature = (response) => {
     return {
         type: con.ACTReceiveFeature,
         payload: {
             response
         }
     }
+}
+
+//add
+export const addEmail = (name, email, text) => {
+    base.push('inbox/list', {
+      data: {
+        name: name,
+        email: email,
+        text: text
+      }
+    }).then(newLocation => {
+      var generatedKey = newLocation.key;
+    })
+}
+
+// edit
+export const editEmail = (key) => {
+  base.post(`inbox/list/${key}`, {
+    data: {
+      name: 'Tyler McGinnis',
+      age: 25
+    }
+  }).then(() => {
+    Router.transitionTo('dashboard');
+  })
 }
