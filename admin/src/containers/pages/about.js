@@ -123,18 +123,31 @@ class OurTeam extends React.Component {
   constructor(props,context){
     super(props)
     context.router
-    this.state = { value : this.props.team }
+    this.state = {
+      NAME: '',
+      POSITION: '',
+      TEXT: ''
+    }
   }
 
   editTeam(val, index){
+
+    let name = this.state.NAME;
+    let text = this.state.TEXT;
+    let position = this.state.POSITION;
+    if (!name) name = this.props.team[index].NAME
+    if (!text) text = this.props.team[index].TEXT
+    if (!position) position = this.props.team[index].POSITION
+    console.log(name+" "+text+" "+position)
+
     const team = {
       IMG : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
       IMGURL : "url",
-      NAME : this.nameRef.value,
-      POSITION : this.positionRef.value,
-      TEXT : this.textTeamRef.value
+      NAME : name,
+      POSITION : position,
+      TEXT : text
     }
-    console.log('nameRef', `this.nameRef${index}.value`);
+    // console.log('nameRef', `this.nameRef${index}.value`);
     this.props.editAbout(`team/list/${index}`, team)
     .then(() => {
        alert('success, changed content saved')
@@ -142,6 +155,24 @@ class OurTeam extends React.Component {
     .catch(() => {
        alert('fail, changed content cannot be saved')
     })
+  }
+
+  handleChange(val, key, index) {
+    val.preventDefault();
+    if(key == `name`){
+      this.setState({
+        NAME: val.target.value
+      })
+    }else if(key == `position`) {
+      this.setState({
+        POSITION: val.target.value
+      })
+    }else{
+      this.setState({
+        TEXT: val.target.value
+      })
+    }
+
   }
 
   render(){
@@ -177,7 +208,7 @@ class OurTeam extends React.Component {
                           <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_team${index+1}`} aria-labelledby="home-tab" key={index}>
                             <div className="x_content">
                               <div id="alerts"></div>
-                              <form id="formteam" onSubmit={(val) => this.editTeam(val, index)}>
+                              <form id="formteam">
                                 <div className="col-md-3 col-sm-3 col-xs-12">
                                   <div>
                                     <form action="#" className="dropzone"></form>
@@ -188,20 +219,22 @@ class OurTeam extends React.Component {
                                 <div className="col-md-9 col-sm-9 col-xs-12">
                                     <div className="form-group">
                                       <div className="col-md-9 col-sm-9 col-xs-12">
-                                        <input data-key = "position" placeholder="Position" defaultValue={ this.props.team[index].POSITION } ref={(ref) => this.positionRef = ref} ></input>
-                                        <input data-key = "name" placeholder="Name" style={{width: "500px"}} defaultValue={ this.props.team[index].NAME } ref={ (ref) => this.nameRef = ref}></input>
+                                        {/*<input data-key = "position" placeholder="Position" defaultValue={ this.props.team[index].POSITION } ref={(ref) => this.positionRef = ref} ></input>
+                                        <input data-key = "name" placeholder="Name" style={{width: "500px"}} defaultValue={ this.props.team[index].NAME } ref={ (ref) => this.nameRef = ref}></input>*/}
+                                        <input data-key = "position" placeholder="Position" defaultValue={ this.props.team[index].POSITION }  onChange={(ref) => this.handleChange(ref, `position`)}></input>
+                                        <input data-key = "name" placeholder="Name" style={{width: "500px"}} defaultValue={ this.props.team[index].NAME } onChange={(ref) => this.handleChange(ref, `name`)}></input>
                                       </div>
                                     </div>
 
                                     <br /><br /><br />
 
                                     <div className="col-md-12 col-sm-12 col-xs-12">
-                                      <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} defaultValue={ this.props.team[index].TEXT } ref={(ref) => this.textTeamRef = ref} ></textarea>
+                                      <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} defaultValue={ this.props.team[index].TEXT } onChange={(ref) => this.handleChange(ref, `text`)}></textarea>
                                     </div>
                                 </div>
 
                                 <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
-                                  <input className="btn btn-success" type="submit" name="submit" />
+                                  <input className="btn btn-success" type="submit" name="submit" onClick={(val) => this.editTeam(val, index)}/>
                                 </div>
                               </form>
                             </div>
