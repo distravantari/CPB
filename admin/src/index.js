@@ -13,6 +13,7 @@ import About from './containers/pages/about'
 import Contact from './containers/pages/contact'
 import Home from './containers/pages/home'
 import Trip from './containers/pages/trip'
+import Form from './containers/pages/form'
 
 render(
   <Provider store={store}>
@@ -24,6 +25,8 @@ render(
         <Route path= "/contact" component={ Contact } />
         <Route path= "/home" component={ Home } />
         <Route path= "/trip" component={ Trip } />
+        <Route path= "/welcome" component={ Welcome } />
+        <Route path= "/form" component={ Form } />
 
       </Route>
     </Router>

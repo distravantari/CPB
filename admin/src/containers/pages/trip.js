@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import fetchFeature from '../../actions/Feature'
+import fetchFeature,{ editPackets } from '../../actions/Feature'
 
 class Trip extends React.Component{
 
@@ -43,7 +43,7 @@ class Trip extends React.Component{
 
           <div className="row">
             <TripPackage packets = {this.props.list}/>
-            <TripDescription shortdesc = {this.props.description}/>
+            <TripDescription shortdesc = {this.props.description} editPackets = {this.props.editPackets}/>
           </div>
         </div>
       </div>
@@ -74,69 +74,117 @@ const TripPackage = ({packets}) => {
         <div className="x_content">
           <div id="alerts"></div>
 
-          <div className="col-md-5 col-sm-5 col-xs-12">
-            <div>
-              <form action="#" className="dropzone"></form>
-              image size: 270 x 280
+          <div className="" role="tabpanel" data-example-id="togglable-tabs">
+            <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
+              {
+                packets.map((packet, index) => (
+                  <li role="presentation" className={ index == 0 ? 'active':''}>
+                    <a href={`#tab_packet${index+1}`} role="tab" data-toggle="tab" aria-expanded={index == 0 ? 'true' : 'false'}>
+                      {`Packet${index+1}`}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+
+            <div id="myTabContent" className="tab-content">
+              {
+                packets.map((packet, index) => {
+                  return(
+                    <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_packet${index+1}`} aria-labelledby="home-tab">
+                      <div className="col-md-5 col-sm-5 col-xs-12">
+                        <div>
+                          <form action="#" className="dropzone"></form>
+                          image size: 270 x 280
+                        </div>
+                      </div>
+
+                      <div className="col-md-7 col-sm-7 col-xs-12">
+                          <form className="form-horizontal form-label-left">
+
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="Tittle" value={packet.TITTLE}/>
+                            </div>
+                          </div>
+
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="Info" />
+                            </div>
+                          </div>
+
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="Create" />
+                            </div>
+                          </div>
+
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="Date" value={packet.DATE}/>
+                            </div>
+                          </div>
+
+                          <div className="control-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input id="tags_1" type="text" className="tags form-control" value="social, adverts, sales" />
+                              <div id="suggestions-container" style={{position: "relative", float: "left", width: "250px", margin: "10px;"}}></div>
+                            </div>
+                          </div>
+
+                          <div className="form-group">
+                            <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                              <button type="submit" className="btn btn-success">Edit</button>
+                              <span className="btn btn-primary">Add</span>
+                            </div>
+                          </div>
+
+                        </form>
+                      </div>
+                    </div>
+                  )
+                })
+              }
             </div>
           </div>
-
-         <div className="col-md-7 col-sm-7 col-xs-12">
-            <form className="form-horizontal form-label-left">
-
-            <div className="form-group">
-              <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
-              <div className="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" className="form-control" placeholder="Tittle" value={packets[0].TITTLE}/>
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label className="control-label col-md-3 col-sm-3 col-xs-12">Info</label>
-              <div className="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" className="form-control" placeholder="Info" />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
-              <div className="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" className="form-control" placeholder="Create" />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
-              <div className="col-md-9 col-sm-9 col-xs-12">
-                <input type="text" className="form-control" placeholder="Date" value={packets[0].DATE}/>
-              </div>
-            </div>
-
-            <div className="control-group">
-              <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
-              <div className="col-md-9 col-sm-9 col-xs-12">
-                <input id="tags_1" type="text" className="tags form-control" value="social, adverts, sales" />
-                <div id="suggestions-container" style={{position: "relative", float: "left", width: "250px", margin: "10px;"}}></div>
-              </div>
-            </div>
-
-            <div className="form-group">
-              <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                <button type="submit" className="btn btn-success">Edit</button>
-                <span className="btn btn-primary">Add</span>
-              </div>
-            </div>
-
-          </form>
-         </div>
         </div>
       </div>
     </div>
   )
 }
 
-const TripDescription = ({shortdesc}) => {
-  return(
+class TripDescription extends React.Component {
+  constructor(props, context){
+    super(props)
+    context.router
+  }
+
+  editDescription(val){
+    const shortdesc = {
+      tittle : this.titleDescRef.value,
+      text : this.textDescRef.value
+    }
+
+    this.props.editPackets("shortdesc", shortdesc)
+    .then(() => {
+       alert('success, changed content saved')
+    })
+    .catch(() => {
+       alert('fail, changed content cannot be saved')
+    })
+  }
+
+  render(){
+    if(!this.props.shortdesc){
+      return <div> Loading ..</div>
+    }
+    return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
           <div className="x_title">
@@ -161,17 +209,17 @@ const TripDescription = ({shortdesc}) => {
 
           <div className="x_content">
 
-            <form id="demo-form" data-parsley-validate>
+            <form id="demo-form" data-parsley-validate onSubmit={(val) => this.editDescription(val)}>
 
               <label for="heard">Tittle</label>
-              <input type="text" style={{width: "500px", height: "30px"}} value={shortdesc.tittle}/>
+              <input type="text" style={{width: "500px", height: "30px"}} defaultValue={this.props.shortdesc.tittle} ref={(ref) => this.titleDescRef = ref}/>
               <br /><br />
               <label for="message">News Text (20 chars min, 100 max) :</label>
               <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                data-parsley-validation-threshold="10" value={shortdesc.text}></textarea>
+                data-parsley-validation-threshold="10" defaultValue={this.props.shortdesc.text} ref={(ref) => this.textDescRef = ref}></textarea>
 
               <br/>
-              <button type="submit" className="btn btn-success">Edit</button>
+              <input className="btn btn-success" type="submit" name="submit" />
               <span className="btn btn-primary">Add</span>
 
             </form>
@@ -179,6 +227,7 @@ const TripDescription = ({shortdesc}) => {
         </div>
       </div>
   )
+  }
 }
 
 const mapStateToProps =(state) => {
@@ -193,7 +242,8 @@ const mapStateToProps =(state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    getFeature: (context) => dispatch(fetchFeature(context))
+    getFeature: (context) => dispatch(fetchFeature(context)),
+    editPackets: (key, data) => editPackets(key, data)
   }
 }
 
