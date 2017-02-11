@@ -13,7 +13,6 @@ const receiveFeature = (state = initialState, action) => {
   switch (action.type) {
     case con.ACTReceiveFeature:{
       const result = action.payload
-      console.log('receiveFeature ',result.response)
       return Object.assign({}, state,{
         errorpage: _.filter(result.response, ['key', '404']),
         contact: _.filter(result.response, ['key', 'contact']),

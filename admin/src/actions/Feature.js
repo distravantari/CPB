@@ -14,11 +14,22 @@ export default(context) => {
 }
 
 let receiveFeature = (response) =>{
-  console.log('default')
   return{
     type: con.ACTReceiveFeature,
     payload:{
       response
     }
   }
+}
+
+export const editContact = (key, data) => {
+  return base.post((`feature/${key}`),{
+    data: data
+  })
+}
+
+export const editPackets = (key, data) => {
+  return base.post((`feature/packets/${key}`),{
+    data: data
+  })
 }

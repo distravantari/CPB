@@ -23,3 +23,9 @@ let receiveAbout = (response) => {
       }
     }
 }
+
+export const editAbout = (key, data) => {
+  return base.post(`about/${key}`,{
+      data: data
+    })
+}
