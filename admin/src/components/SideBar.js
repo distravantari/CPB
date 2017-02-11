@@ -31,7 +31,7 @@ class SideBar extends React.Component{
               <h3>General</h3>
               <ul className="nav side-menu">
                   <li>
-                    <a href="dashboard.html"><i className="fa fa-home"></i> Dashboard</a>
+                    <Link to="Dashboard" ><i className="fa fa-home"></i>Dashboard</Link>
                   </li>
               </ul>
               </div>

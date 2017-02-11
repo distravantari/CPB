@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Welcome extends React.Component{
+class Dashboard extends React.Component{
   render(){
       return(
         <div className="right_col" role="main">
@@ -15,4 +15,4 @@ class Welcome extends React.Component{
   }
 }
 
-export default Welcome
+export default Dashboard

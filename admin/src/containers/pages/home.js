@@ -397,7 +397,6 @@ const Voucher = ({vouchers}) => {
 
 const mapsStateToProps = (state) => {
   if(state.feature){
-    console.log('maps', state.social);
     return{
       slider : state.feature.slider[0].big.list,
       social : state.social,

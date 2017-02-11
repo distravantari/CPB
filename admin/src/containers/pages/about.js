@@ -134,7 +134,6 @@ class OurTeam extends React.Component {
       POSITION : this.positionRef.value,
       TEXT : this.textTeamRef.value
     }
-    console.log('nameRef', `this.nameRef${index}.value`);
     this.props.editAbout(`team/list/${index}`, team)
     .then(() => {
        alert('success, changed content saved')
