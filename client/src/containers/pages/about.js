@@ -18,7 +18,7 @@ class About extends React.Component{
   }
 
   componentWillMount(){
-	this.props.getAbout(this)
+	   this.props.getAbout(this)
   }
 
   componentWillReceiveProps(){
@@ -26,22 +26,22 @@ class About extends React.Component{
   }
 
   render(){
-	if(!this.props.team) return (<h1> Loading ... </h1>)
+	  if(!this.props.team) return (<h1> Loading ... </h1>)
     return(
       <div>
-		<div className="main">
-			
-			<div>
-				<div className="row">
-					<Main about_us={ this.props.aboutus } team={ this.props.team.list } web={ this.props.web } />
-				</div>
-			</div>
+    		<div className="main">
 
-		</div>
-	</div>
+    			<div>
+    				<div className="row">
+    					<Main about_us={ this.props.aboutus } team={ this.props.team.list } web={ this.props.web } />
+    				</div>
+    			</div>
+
+    		</div>
+    	</div>
     )
   }
-	
+
 }
 
 const Main = ({ about_us, team, web }) => {
@@ -61,9 +61,9 @@ const Main = ({ about_us, team, web }) => {
 					</div>
 
 					<OurTeam our_team = { team }/>
-					
+
 					<Stats web={ web }/>
-					
+
 				</div>
 			</div>
 		</div>
@@ -101,7 +101,7 @@ const OurTeam = ({ our_team }) => {
 							</ul>
 						</article>
 					))}
-	
+
 				</div>
 		</div>
 	)

@@ -37,6 +37,10 @@ class Trip extends React.Component{
 //   }
 
   render(){
+    let detail = this.props.routes[1].path.split("-")[0]
+    console.log('props ',this.props)
+    let index = this.props.location.search.split('?')[1]
+    console.log('index ',index)
     return(
       <div>
         <div className="main">
@@ -46,7 +50,7 @@ class Trip extends React.Component{
 
             </div>
             <div className="row">
-              <Desc />
+              <Desc detail={ detail } trip={ this.props.trip.list[index].DETAIL } voucher={ this.props.voucher.list[index].DETAIL } />
             </div>
             <div className="row">
               <Form />
@@ -59,16 +63,30 @@ class Trip extends React.Component{
   }
  }
 
-const Desc = () => {
-    return (
-        <div className="info col-md-offset-1 col-md-10">
-            <h1>{ constant.description.TITTLE }</h1>
+const Desc = ({ detail, voucher, trip }) => {
+    if(detail == "/Trip"){
+      console.log(trip)
+      return (
+          <div className="info col-md-offset-1 col-md-10">
+              <h1>{ trip.TITTLE }</h1>
 
-            <div className="text">
-                <p>{ constant.description.TEXT }</p>
-            </div>
-        </div>
-    )
+              <div className="text">
+                  <p>{ trip.TEXT }</p>
+              </div>
+          </div>
+      )
+    }else{
+      console.log(voucher)
+      return (
+          <div className="info col-md-offset-1 col-md-10">
+              <h1>{ voucher.TITTLE }</h1>
+
+              <div className="text">
+                  <p>{ voucher.TEXT }</p>
+              </div>
+          </div>
+      )
+    }
 }
 
 const Form = () => {
@@ -338,11 +356,10 @@ const Form = () => {
 }
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+      trip: state.feature.packets[0],
+      voucher: state.feature.vouchers[0]
+    }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Trip)
+export default connect(mapStateToProps)(Trip)

@@ -11,23 +11,25 @@ class Slider extends React.Component{
   };
 
   componentDidMount(){
-      this.renderNews()
+      // DEPRECATED
+      // this.renderNews()
       this.renderSlider()
   }
 
-  renderNews(){
-    $('.news').bxSlider({
-		  speed: 600,
-		  touchEnabled: true,
-		  nextSelector: ".breaking>.controls .next",
-		  prevSelector: ".breaking>.controls .prev",
-		  pager: false,
-		  infiniteLoop: true,
-		  adaptiveHeight: true,
-		  auto: true,
-		  pause: 4000
-		});
-  }
+  // DEPRECATED
+  // renderNews(){
+  //   $('.news').bxSlider({
+	// 	  speed: 600,
+	// 	  touchEnabled: true,
+	// 	  nextSelector: ".breaking>.controls .next",
+	// 	  prevSelector: ".breaking>.controls .prev",
+	// 	  pager: false,
+	// 	  infiniteLoop: true,
+	// 	  adaptiveHeight: true,
+	// 	  auto: true,
+	// 	  pause: 4000
+	// 	});
+  // }
 
   renderSlider(){
     $('.post-slider .slides').bxSlider({
@@ -44,10 +46,11 @@ class Slider extends React.Component{
   }
 
   render(){
-    if(!this.props.news) return (<h1> Loading ... </h1>)
+    if(!this.props.slider) return (<h1> Loading ... </h1>)
     return (
       <div className="col-md-12 col-sm-12">
 
+        {/*DEPRECATED*/}
         {/*<News news={ this.props.news.list } />*/}
 
         <BigSlider big_slider={ this.props.slider.list } />
@@ -60,6 +63,8 @@ class Slider extends React.Component{
 };
 
 // COMPONENTS
+
+// DEPRECATED
 // const News = ({ news }) => {
 //   if(!news) return (<h1>loading ..</h1>)
 //   return (
@@ -108,7 +113,7 @@ const BigSlider = ({ big_slider }) => {
                     <a> { list.TYPE } </a>
                   </p>
                   <h1>
-                    <Link to={ `Trip-organizer` }> { list.TITTLE } </Link>
+                    <Link to={ list.URL }> { list.TITTLE } </Link>
                   </h1>
                   <p className="text">
                     {
@@ -138,7 +143,6 @@ const BigSlider = ({ big_slider }) => {
 const mapStateToProps = (state) => {
     if(state.feature.slider[0]){
       return {
-          news: state.feature.slider[0].news,
           slider: state.feature.slider[0].big
       }
     }else return {}

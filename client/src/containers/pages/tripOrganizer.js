@@ -31,7 +31,7 @@ class Trip extends React.Component{
     return(
       <div>
         <div className="main">
-            
+
             <div>
             <div className="row">
                 <Slider />
@@ -68,7 +68,7 @@ const Main = ({ trip }) => {
                                 ))}
 
                             </p>
-                            <h1><Link to={ `${constant.routes_detail[1]}` }>{ list.TITTLE }</Link></h1>
+                            <h1><Link to={ `${list.URL}` }>{ list.TITTLE }</Link></h1>
                             <p className="details"> { list.DATE }</p>
                             <p className="text">
                                 { list.TEXT }
@@ -95,10 +95,10 @@ const Desc = () => {
     return (
         <div className="info col-md-offset-1 col-md-10">
             <h1>{ constant.description.TITTLE }</h1>
-            
+
             <div className="text">
                 <p>{ constant.description.TEXT }</p>
-            </div>  
+            </div>
         </div>
     )
 }

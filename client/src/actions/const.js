@@ -7,7 +7,6 @@ export const ACTReceiveAbout = "RECEIVE ABOUT"
 //ROUTES
 export const routes = [
     "Home",
-    "Trip-organizer",
     "Contact",
     "About"
 ]
@@ -16,7 +15,7 @@ export const routes_detail = [
     "Trip-detail"
 ]
 
-// Trip Organizer PAGE 
+// Trip Organizer PAGE
 export const description = {
     TITTLE: "Alternative Sources of Energy",
     TEXT: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
