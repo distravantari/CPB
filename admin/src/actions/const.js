@@ -11,3 +11,8 @@ export const routes = [
     "Trip",
     "Form"
 ]
+
+export const authentication = {
+  username : "balizee",
+  password : "damn5hitfuck5ake"
+}

@@ -1,7 +1,21 @@
 import React from 'react'
 
+import * as constant from '../../actions/const'
+
 class Login extends React.Component{
+
+  authenticate(val){
+    if(this.usernameRef.value === constant.authentication.username && this.passwordRef.value === constant.authentication.password){
+      alert('success')
+      this.props.history.push('/dashboard')
+    }
+    else{
+      alert('failed')
+      this.props.history.push('/')
+    }
+  }
   render(){
+    console.log(this.props,'string');
       return(
           <div className="login">
             <a className="hiddenanchor" id="signup"></a>
@@ -10,16 +24,16 @@ class Login extends React.Component{
             <div className="login_wrapper">
               <div className="animate form login_form">
                 <section className="login_content">
-                  <form>
+                  <form onSubmit = {(val) => this.authenticate(val)}>
                     <h1>Login Form</h1>
                     <div>
-                      <input type="text" className="form-control" placeholder="Username" required="" />
+                      <input type="text" className="form-control" placeholder="Username" required="" ref={(ref) => this.usernameRef = ref}/>
                     </div>
                     <div>
-                      <input type="password" className="form-control" placeholder="Password" required="" />
+                      <input type="password" className="form-control" placeholder="Password" required="" ref={(ref) => this.passwordRef = ref}/>
                     </div>
                     <div>
-                      <a className="btn btn-default submit" href="dashboard.html">Log in</a>
+                      <input className="btn btn-success" type="submit" name="submit" onClick={(val) => this.authenticate(val)}/>
                       <a className="reset_pass" href="#">Lost your password?</a>
                     </div>
 
