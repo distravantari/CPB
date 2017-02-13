@@ -8,5 +8,11 @@ export const routes = [
     "About",
     "Contact",
     "Home",
-    "Trip"
+    "Trip",
+    "Form"
 ]
+
+export const authentication = {
+  username : "balizee",
+  password : "damn5hitfuck5ake"
+}

@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import fetchAbout from '../../actions/About'
+import fetchAbout,{ editAbout } from '../../actions/About'
 
 import * as constant from '../../actions/const'
 
 class About extends React.Component{
 
   constructor(props){
-    super(props);
+    super(props)
     this.state = {}
   }
 
@@ -21,170 +21,236 @@ class About extends React.Component{
   }
 
   render(){
+    if(!this.props.team) {
+      return <div>Loading ..</div>
+    }
+
     return(
-        <div className="right_col" role="main">
-          <div className="page-title">
-            <div className="title_left">
-              <h3>About Page</h3>
-            </div>
-
-            <div className="title_right">
-              <div className="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                <div className="input-group">
-                  <input type="text" className="form-control" placeholder="Search for..." />
-                  <span className="input-group-btn">
-                    <button className="btn btn-default" type="button">Go!</button>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="clearfix"></div>
-
-          <AboutUs about_us={this.props.aboutus}/>
-          <OurTeam team={this.props.team.list}/>
-        </div>
+        <Main aboutus={this.props.aboutus} team={this.props.team.list} editAbout={this.props.editAbout} />
     )
   }
 }
 
-const AboutUs = ({about_us}) => {
-  return(
-    <div className="row">
-      <div className="col-md-12 col-sm-12 col-xs-12">
-        <div className="x_panel">
-          <div className="x_title">
-            <h2>About Us</h2>
-            <ul className="nav navbar-right panel_toolbox">
-              <li><a className="collapse-link"><i className="fa fa-chevron-up"></i></a>
-              </li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i className="fa fa-wrench"></i></a>
-                <ul className="dropdown-menu" role="menu">
-                </ul>
-              </li>
-              <li><a className="close-link"><i className="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div className="clearfix"></div>
-          </div>
-          <div className="x_content">
-            <div id="alerts"></div>
-
-            <div className="col-md-3 col-sm-3 col-xs-12">
-              <div>
-                <form action="#" className="dropzone"></form>
-                image size: 470 x 220
-              </div>
-            </div>
-
-           <div className="col-md-9 col-sm-9 col-xs-12">
-              <div className="form-group">
-                <div className="col-md-9 col-sm-9 col-xs-12">
-                  <textarea className="resizable_textarea form-control" placeholder="Title Here .." value={ about_us.TITTLE }></textarea>
-                </div>
-              </div>
-
-              <br /><br /><br />
-
-              <div className="col-md-12 col-sm-12 col-xs-12">
-                <textarea className="resizable_textarea form-control" placeholder="Content Here .." style={{height:"230px"}} value={ about_us.TEXT }></textarea>
-              </div>
-           </div>
-           <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
-              <span className="btn btn-success">Edit</span>
-            </div>
-          </div>
+export const Main = ( {aboutus, team, editAbout} ) => {
+  return (
+    <div className="right_col" role="main">
+      <div className="page-title">
+        <div className="title_left">
+          <h3>About Page</h3>
         </div>
+
+      </div>
+
+      <div className="clearfix"></div>
+      <div className="row">
+        <AboutUs about_us={aboutus} editAbout={editAbout}/>
+        <OurTeam team={team} editAbout={editAbout}/>
       </div>
     </div>
   )
 }
 
-const OurTeam = ({team}) => {
-  return(
-    <div className="row">
-      <div className="col-md-12 col-sm-12 col-xs-12">
-        <div className="x_panel">
-          <div className="x_title">
-            <h2> Our Team</h2>
-            <ul className="nav navbar-right panel_toolbox">
-              <li><a className="collapse-link"><i className="fa fa-chevron-up"></i></a>
-              </li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i className="fa fa-wrench"></i></a>
-                <ul className="dropdown-menu" role="menu">
-                  <li><a href="#">Settings 1</a>
-                  </li>
-                  <li><a href="#">Settings 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a className="close-link"><i className="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div className="clearfix"></div>
-          </div>
-          <div className="x_content">
+class AboutUs extends React.Component {
+  constructor(props,context){
+    super(props)
+    context.router
+  }
 
+  editAboutUs(val){
+    const us = {
+      TITTLE : this.titleRef.value,
+      TEXT : this.textAboutRef.value
+    }
+    this.props.editAbout("us", us)
+    .then(() => {
+       alert('success, changed content saved')
+    })
+    .catch(() => {
+       alert('fail, changed content cannot be saved')
+    })
+  }
 
-            <div className="" role="tabpanel" data-example-id="togglable-tabs">
-              <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
-                <li role="presentation" className="active"><a href="#tab_content1" role="tab" data-toggle="tab" aria-expanded="true">{ team[0].NAME }</a>
-                </li>
-                <li role="presentation" className=""><a href="#tab_content2" role="tab" data-toggle="tab" aria-expanded="false">{ team[1].NAME }</a>
-                </li>
-                <li role="presentation" className=""><a href="#tab_content3" role="tab" data-toggle="tab" aria-expanded="false">{ team[2].NAME }</a>
-                </li>
-              </ul>
-              <div id="myTabContent" className="tab-content">
-                {
-                  team.map((team, index) => {
-                    return (
-                      <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_content${index+1}`} aria-labelledby="home-tab">
-                        <div className="x_content">
-                          <div id="alerts"></div>
-
-                          <div className="col-md-3 col-sm-3 col-xs-12">
-                            <div>
-                              <form action="#" className="dropzone"></form>
-                              image size: 270 x 280
-                            </div>
-                          </div>
-
-                        <div className="col-md-9 col-sm-9 col-xs-12">
-                            <div className="form-group">
-                              <div className="col-md-9 col-sm-9 col-xs-12">
-                                <input placeholder="Position" value={ team.POSITION }></input>
-                                <input placeholder="Name" style={{width: "500px"}} value={ team.NAME }></input>
-                              </div>
-                            </div>
-
-                            <br /><br /><br />
-
-                            <div className="col-md-12 col-sm-12 col-xs-12">
-                              <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} value={ team.TEXT }></textarea>
-                            </div>
-                        </div>
-
-                        <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
-                          <span className="btn btn-success">Edit</span>
-                        </div>
-
-                        </div>
-                      </div>
-                    )
-                  })
-                }
-              </div>
+  render(){
+    if(!this.props.about_us){
+      return <div>Loading ..</div>
+    }
+    return(
+      <div className="row">
+        <div className="col-md-12 col-sm-12 col-xs-12">
+          <div className="x_panel">
+            <div className="x_title">
+              <h2>About Us</h2>
+              <div className="clearfix"></div>
             </div>
+            <div className="x_content">
+              <div id="alerts"></div>
+              <form id="formabout" onSubmit={(val) => this.editAboutUs(val)}>
+                <div className="col-md-3 col-sm-3 col-xs-12">
+                  <div>
+                    <form action="#" className="dropzone"></form>
+                    image size: 470 x 220
+                  </div>
+                </div>
 
+                <div className="col-md-9 col-sm-9 col-xs-12">
+                  <div className="form-group">
+                      <div className="col-md-9 col-sm-9 col-xs-12">
+                        <textarea className="resizable_textarea form-control" placeholder="Title Here .." defaultValue={this.props.about_us.TITTLE} ref={(ref) => this.titleRef = ref}></textarea>
+                      </div>
+                    </div>
+
+                    <br /><br /><br />
+
+                    <div className="col-md-12 col-sm-12 col-xs-12">
+                      <textarea className="resizable_textarea form-control" placeholder="Content Here .." style={{height:"230px"}} defaultValue={ this.props.about_us.TEXT } ref={(ref) => this.textAboutRef = ref}></textarea>
+                    </div>
+                </div>
+
+                <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
+                  <input className="btn btn-success" type="submit" name="submit" />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+}
+
+class OurTeam extends React.Component {
+
+  constructor(props,context){
+    super(props)
+    context.router
+    this.state = {
+      NAME: '',
+      POSITION: '',
+      TEXT: ''
+    }
+  }
+
+  editTeam(val, index){
+
+    let name = this.state.NAME;
+    let text = this.state.TEXT;
+    let position = this.state.POSITION;
+    if (!name) name = this.props.team[index].NAME
+    if (!text) text = this.props.team[index].TEXT
+    if (!position) position = this.props.team[index].POSITION
+    console.log(name+" "+text+" "+position)
+
+    const team = {
+      IMG : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
+      IMGURL : "url",
+      NAME : name,
+      POSITION : position,
+      TEXT : text
+    }
+
+    this.props.editAbout(`team/list/${index}`, team)
+    .then(() => {
+       alert('success, changed content saved')
+    })
+    .catch(() => {
+       alert('fail, changed content cannot be saved')
+    })
+  }
+
+  handleChange(val, key, index) {
+    val.preventDefault();
+    if(key == `name`){
+      this.setState({
+        NAME: val.target.value
+      })
+    }else if(key == `position`) {
+      this.setState({
+        POSITION: val.target.value
+      })
+    }else{
+      this.setState({
+        TEXT: val.target.value
+      })
+    }
+
+  }
+
+  render(){
+    return(
+      <div className="row">
+        <div className="col-md-12 col-sm-12 col-xs-12">
+          <div className="x_panel">
+            <div className="x_title">
+              <h2> Our Team</h2>
+              <div className="clearfix"></div>
+            </div>
+            <div className="x_content">
+
+
+              <div className="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
+                  {
+                    this.props.team && this.props.team.map((team, index) => {
+                      return (
+                        <li role="presentation" className={ index == 0 ? 'active':''}>
+                          <a href={`#tab_team${index+1}`} role="tab" data-toggle="tab" aria-expanded={index == 0 ? 'true' : 'false'}>
+                            {this.props.team[index].NAME}
+                          </a>
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+                <div id="myTabContent" className="tab-content">
+                  {
+                    this.props.team && this.props.team.map((team, index) => {
+                      return(
+                          <div role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_team${index+1}`} aria-labelledby="home-tab" key={index}>
+                            <div className="x_content">
+                              <div id="alerts"></div>
+                              <form id="formteam">
+                                <div className="col-md-3 col-sm-3 col-xs-12">
+                                  <div>
+                                    <form action="#" className="dropzone"></form>
+                                    image size: 270 x 280
+                                  </div>
+                                </div>
+
+                                <div className="col-md-9 col-sm-9 col-xs-12">
+                                    <div className="form-group">
+                                      <div className="col-md-9 col-sm-9 col-xs-12">
+                                        {/*<input data-key = "position" placeholder="Position" defaultValue={ this.props.team[index].POSITION } ref={(ref) => this.positionRef = ref} ></input>
+                                        <input data-key = "name" placeholder="Name" style={{width: "500px"}} defaultValue={ this.props.team[index].NAME } ref={ (ref) => this.nameRef = ref}></input>*/}
+                                        <input placeholder="Position" defaultValue={ this.props.team[index].POSITION }  onChange={(ref) => this.handleChange(ref, `position`)}></input>
+                                        <input placeholder="Name" style={{width: "500px"}} defaultValue={ this.props.team[index].NAME } onChange={(ref) => this.handleChange(ref, `name`)}></input>
+                                      </div>
+                                    </div>
+
+                                    <br /><br /><br />
+
+                                    <div className="col-md-12 col-sm-12 col-xs-12">
+                                      <textarea className="resizable_textarea form-control" placeholder="Short Desc" style={{height:"230px"}} defaultValue={ this.props.team[index].TEXT } onChange={(ref) => this.handleChange(ref, `text`)}></textarea>
+                                    </div>
+                                </div>
+
+                                <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
+                                  <input className="btn btn-success" type="submit" name="submit" onClick={(val) => this.editTeam(val, index)}/>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        )
+                    })
+                  }
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -198,7 +264,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    getAbout: (context) => dispatch(fetchAbout(context))
+    getAbout: (context) => dispatch(fetchAbout(context)),
+    editAbout:(key, data) => editAbout(key, data)
   }
 }
 

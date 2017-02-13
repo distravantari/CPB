@@ -21,3 +21,15 @@ let receiveSocial = (response) =>{
     }
   }
 }
+
+export const editSocial = (data) => {
+  return base.post((`social`),{
+    data: data
+  })
+}
+
+export const editMaps = (data) => {
+  return base.post((`social/maps`),{
+    data : data
+  })
+}
