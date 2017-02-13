@@ -61,13 +61,6 @@ const Main = ({ trip }) => {
                             <div className="overlay"></div>
                         </div>
                         <div className="info">
-                            <p className="tags">
-
-                                {list.TAGS.map((tag, index) => (
-                                    <a key={ index } >{tag}</a>
-                                ))}
-
-                            </p>
                             <h1><Link to={ `${list.URL}` }>{ list.TITTLE }</Link></h1>
                             <p className="details"> { list.DATE }</p>
                             <p className="text">

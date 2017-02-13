@@ -13,7 +13,7 @@ import * as constant from 'app_path/actions/const'
 import { ContactDetail, GetInTouch } from 'app_path/containers/pages/contact'
 
 class Content extends React.Component{
-  constructor(props,context){
+  constructor(props, context){
     super(props)
     context.router
   }
