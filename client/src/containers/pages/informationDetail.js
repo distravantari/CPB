@@ -56,6 +56,7 @@ class Trip extends React.Component{
             </div>
             <div className="row">
                 { form.decider(this.props.trip.list[index].FORM) }
+                <Form />
             </div>
           </div>
 
