@@ -1,9 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import _ from 'lodash'
+import Dropzone from 'react-dropzone'
 
 import fetchFeature, { editSlider, addSlider, editVouchers, addVouchers } from '../../actions/Feature'
 import fetchSocial, { editSocial } from '../../actions/Social'
+import { updateImage } from '../../actions/UploadImage'
+
+import * as constant from '../../actions/const'
 
 class Home extends React.Component{
 
@@ -33,9 +37,9 @@ class Home extends React.Component{
           <div className="clearfix"></div>
 
           <div className="row">
-            <Slider slider = {this.props.slider} editSlider = {this.props.editSlider} addSlider = {this.props.addSlider}/>
+            <Slider slider = {this.props.slider} editSlider = {this.props.editSlider} addSlider = {this.props.addSlider} updateImage={ this.props.updateImage }/>
             <Social social = {this.props.social} editSocial={this.props.editSocial}/>
-            <Voucher vouchers = {this.props.vouchers} editVouchers={this.props.editVouchers} addVouchers={this.props.addVouchers}/>
+            <Voucher vouchers = {this.props.vouchers} editVouchers={this.props.editVouchers} addVouchers={this.props.addVouchers} updateImage={ this.props.updateImage}/>
           </div>
         </div>
       </div>
@@ -107,79 +111,113 @@ class Slider extends React.Component {
       LIKE : '',
       TITTLE : '',
       TYPE : '',
-      URL : ''
+      URL : '',
+      filename : []
     }
   }
 
   addSlider(val){
     val.preventDefault()
-    const newslider = {
-      TITTLE : this.newTitleRef.value,
-      INFO : this.newInfoRef.value,
-      CREATE : this.newCreateRef.value,
-      DATE : this.newDateRef.value,
-      COMMENT : '',
-      IMG : '',
-      LIKE : '',
-      TYPE : this.newTypeRef.value,
-      URL : ''
-    }
+    this.props.updateImage(this.state.file)
+    .then((dlurl) => {
+      const newslider = {
+        TITTLE : this.newTitleRef.value,
+        INFO : this.newInfoRef.value,
+        CREATE : this.newCreateRef.value,
+        DATE : this.newDateRef.value,
+        COMMENT : '',
+        IMG : dlurl,
+        LIKE : '',
+        TYPE : this.newTypeRef.value,
+        URL : ''
+      }
 
-    this.props.addSlider(this.props.slider.length, newslider)
-    .then(() => {
-      alert('success, new content saved')
-      this.newTitleRef.value = ''
-      this.newInfoRef.value = ''
-      this.newCreateRef.value = ''
-      this.newDateRef.value =''
-      this.newTypeRef.value =''
-    })
-    .catch(() => {
-       alert('fail, new content cannot be saved')
+      this.props.addSlider(this.props.slider.length, newslider)
+      .then(() => {
+        alert('success, new content saved')
+        this.newTitleRef.value = ''
+        this.newInfoRef.value = ''
+        this.newCreateRef.value = ''
+        this.newDateRef.value =''
+        this.newTypeRef.value =''
+      })
+      .catch(() => {
+         alert('fail, new content cannot be saved')
+      })
     })
   }
 
-  editSlider(val, index){
-    val.preventDefault()
+  onDrop(e) {
+      let img = new Image();
+      let file = e[0];
+      img.src = window.URL.createObjectURL( file )
+      let h = this.state.height
+      let w = this.state.width
+      img.onload = () => {// REFACTORIN
+        this.setState({
+          naturalHeight: img.naturalHeight,
+          naturalWidth: img.naturalWidth
+        })
+        handleImageChange(file)
+      }
 
-    let comment = this.state.COMMENT
-    let create = this.state.CREATE
-    let date = this.state.DATE
-    let img = this.state.IMG
-    let info = this.state.INFO
-    let like = this.state.LIKE
-    let tittle = this.state.TITTLE
-    let type = this.state.TYPE
-    let url = this.state.URL
+      let handleImageChange = (file) => {
+        let reader = new FileReader();
 
-    if(!comment) comment = _.values(this.props.slider)[index].COMMENT
-    if(!create) create = _.values(this.props.slider)[index].CREATE
-    if(!date) date = _.values(this.props.slider)[index].DATE
-    if(!img) img = _.values(this.props.slider)[index].IMG
-    if(!info) info = _.values(this.props.slider)[index].INFO
-    if(!like) like = _.values(this.props.slider)[index].LIKE
-    if(!tittle) tittle = _.values(this.props.slider)[index].TITTLE
-    if(!type) type = _.values(this.props.slider)[index].TYPE
-    if(!url) url = _.values(this.props.slider)[index].URL
-
-    const slider = {
-      COMMENT : comment,
-      CREATE : create,
-      DATE : date,
-      IMG : img,
-      INFO : info,
-      LIKE : like,
-      TITTLE : tittle,
-      TYPE : type,
-      URL : url
+        reader.onloadend = () => {
+          this.setState({
+            filename: e[0].name,
+            file: file,
+            imagePreviewUrl: reader.result
+          });
+        }
+        reader.readAsDataURL(file)
+      }
     }
 
-    this.props.editSlider(`big/list/${index}`, slider)
-    .then(() => {
-       alert('success, changed content saved')
-    })
-    .catch(() => {
-       alert('fail, changed content cannot be saved')
+  editSlider(val, index){
+    val.preventDefault()
+    this.props.updateImage(this.state.file)
+    .then((dlurl) => {
+      let comment = this.state.COMMENT
+      let create = this.state.CREATE
+      let date = this.state.DATE
+      let img = this.state.IMG
+      let info = this.state.INFO
+      let like = this.state.LIKE
+      let tittle = this.state.TITTLE
+      let type = this.state.TYPE
+      let url = this.state.URL
+
+      if(!comment) comment = _.values(this.props.slider)[index].COMMENT
+      if(!create) create = _.values(this.props.slider)[index].CREATE
+      if(!date) date = _.values(this.props.slider)[index].DATE
+      if(!img) img = dlurl
+      if(!info) info = _.values(this.props.slider)[index].INFO
+      if(!like) like = _.values(this.props.slider)[index].LIKE
+      if(!tittle) tittle = _.values(this.props.slider)[index].TITTLE
+      if(!type) type = _.values(this.props.slider)[index].TYPE
+      if(!url) url = _.values(this.props.slider)[index].URL
+
+      const slider = {
+        COMMENT : comment,
+        CREATE : create,
+        DATE : date,
+        IMG : img,
+        INFO : info,
+        LIKE : like,
+        TITTLE : tittle,
+        TYPE : type,
+        URL : url
+      }
+
+      this.props.editSlider(`big/list/${index}`, slider)
+      .then(() => {
+         alert('success, changed content saved')
+      })
+      .catch(() => {
+         alert('fail, changed content cannot be saved')
+      })
     })
   }
 
@@ -247,7 +285,9 @@ class Slider extends React.Component {
 
                       <div className="col-md-5 col-sm-5 col-xs-12">
                         <div>
-                          <form action="#" className="dropzone"></form>
+                          <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                            <div>{ this.state.filename }</div>
+                          </Dropzone>
                           image size: 470 x 220
                         </div>
                       </div>
@@ -304,7 +344,9 @@ class Slider extends React.Component {
 
                 <div className="col-md-5 col-sm-5 col-xs-12">
                   <div>
-                    <form action="#" className="dropzone"></form>
+                    <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                      <div>{ this.state.filename }</div>
+                    </Dropzone>
                     image size: 470 x 220
                   </div>
                 </div>
@@ -481,63 +523,97 @@ class Voucher extends React.Component {
       IMG : '',
       TEXT : '',
       TITTLE : '',
-      URL : ''
+      URL : '',
+      filename : []
+    }
+  }
+
+  onDrop(e) {
+    let img = new Image();
+    let file = e[0];
+    img.src = window.URL.createObjectURL( file )
+    let h = this.state.height
+    let w = this.state.width
+    img.onload = () => {// REFACTORIN
+      this.setState({
+        naturalHeight: img.naturalHeight,
+        naturalWidth: img.naturalWidth
+      })
+      handleImageChange(file)
+    }
+
+    let handleImageChange = (file) => {
+      let reader = new FileReader();
+
+      reader.onloadend = () => {
+        this.setState({
+          filename: e[0].name,
+          file: file,
+          imagePreviewUrl: reader.result
+        });
+      }
+      reader.readAsDataURL(file)
     }
   }
 
   editVouchers(val, index){
-    val.preventDefault()
-    let createdby = this.state.CREATEDBY
-    let date = this.state.DATE
-    let img = this.state.IMG
-    let text = this.state.TEXT
-    let tittle = this.state.TITTLE
-    let url = this.state.URL
+    this.props.updateImage(this.state.file)
+    .then((dlurl) => {
+      let createdby = this.state.CREATEDBY
+      let date = this.state.DATE
+      let img = this.state.IMG
+      let text = this.state.TEXT
+      let tittle = this.state.TITTLE
+      let url = this.state.URL
 
-    if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
-    if(!date) date = _.values(this.props.vouchers)[index].DATE
-    if(!img) img = _.values(this.props.vouchers)[index].IMG
-    if(!text) text = _.values(this.props.vouchers)[index].TEXT
-    if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
-    if(!url) url = _.values(this.props.vouchers)[index].URL
+      if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
+      if(!date) date = _.values(this.props.vouchers)[index].DATE
+      if(!img) img = dlurl
+      if(!text) text = _.values(this.props.vouchers)[index].TEXT
+      if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
+      if(!url) url = _.values(this.props.vouchers)[index].URL
 
-    const vouchers = {
-      CREATEDBY : createdby,
-      DATE : date,
-      IMG : img,
-      TEXT : text,
-      TITTLE : tittle,
-      URL : url
-    }
+      const vouchers = {
+        CREATEDBY : createdby,
+        DATE : date,
+        IMG : img,
+        TEXT : text,
+        TITTLE : tittle,
+        URL : url
+      }
 
-    this.props.editVouchers(`list/${index}`, vouchers)
-    .then(() => {
-       alert('success, changed content saved')
-    })
-    .catch(() => {
-       alert('fail, changed content cannot be saved')
+      this.props.editVouchers(`list/${index}`, vouchers)
+      .then(() => {
+         alert('success, changed content saved')
+      })
+      .catch(() => {
+         alert('fail, changed content cannot be saved')
+      })
     })
   }
 
   addVouchers(val){
     val.preventDefault()
-    const newvoucher = {
-      CREATEDBY : '',
-      DATE : '',
-      IMG : '',
-      TEXT : this.newTextRef.value,
-      TITTLE : this.newTitleRef.value,
-      URL : ''
-    }
+    this.props.updateImage(this.state.file)
+    .then((dlurl) => {
+      const newvoucher = {
+        CREATEDBY : '',
+        DATE : '',
+        IMG : dlurl,
+        TEXT : this.newTextRef.value,
+        TITTLE : this.newTitleRef.value,
+        URL : ''
+      }
 
-    this.props.addVouchers(this.props.vouchers.length, newvoucher)
-    .then(() => {
-      alert('success, new content saved')
-      this.newTitleRef.value = ''
-      this.newTextRef.value = ''
-    })
-    .catch(() => {
-       alert('fail, new content cannot be saved')
+      this.props.addVouchers(this.props.vouchers.length, newvoucher)
+      .then(() => {
+        alert('success, new content saved')
+        this.newTitleRef.value = ''
+        this.newTextRef.value = ''
+      })
+      .catch(() => {
+         alert('fail, new content cannot be saved')
+      })
     })
   }
 
@@ -587,8 +663,10 @@ class Voucher extends React.Component {
                       <div key={index} role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_voucher${index+1}`} aria-labelledby="home-tab">
                         <div className="col-md-5 col-sm-5 col-xs-12">
                           <div>
-                            <form action="#" className="dropzone"></form>
-                            image size: 270 x 280
+                            <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                              <div>{ this.state.filename }</div>
+                            </Dropzone>
+                            image size: 470 x 220
                           </div>
                         </div>
 
@@ -623,8 +701,10 @@ class Voucher extends React.Component {
                 <div role="tabpanel" className='tab-pane fade' id='tab_newvoucher' aria-labelledby="home-tab">
                   <div className="col-md-5 col-sm-5 col-xs-12">
                     <div>
-                      <form action="#" className="dropzone"></form>
-                      image size: 270 x 280
+                      <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                        <div>{ this.state.filename }</div>
+                      </Dropzone>
+                      image size: 470 x 220
                     </div>
                   </div>
 
@@ -680,7 +760,8 @@ const mapsDispatchToProps = (dispatch) => {
     editSlider: (key, data) => editSlider(key, data),
     addSlider: (index, data) => addSlider(index, data),
     editVouchers: (key, data) => editVouchers(key, data),
-    addVouchers: (index, data) => addVouchers(index, data)
+    addVouchers: (index, data) => addVouchers(index, data),
+    updateImage: (data) => updateImage(data)
   }
 }
 

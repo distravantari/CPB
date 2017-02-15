@@ -63,3 +63,24 @@ export const addPackets = (index, data) => {
       data: data
     })
 }
+
+export const deletePackets = (index) => {
+  return base.remove(`feature/packets/list/${index}`)
+}
+
+export const addChild = (indexParent, index, data) => {
+    return base.post((`feature/packets/list/${indexParent}/CHILD/list/${index}`), {
+      data: data
+    })
+}
+
+export const editChild = (indexParent, key, data) => {
+    return base.post((`feature/packets/list/${indexParent}/CHILD/${key}`), {
+      data: data
+    })
+}
+
+export const deleteChild = (indexParent, index) => {
+  console.log(index,'indexchild');
+  return base.remove(`feature/packets/list/${indexParent}/CHILD/list/${index}`)
+}
