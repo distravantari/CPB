@@ -55,8 +55,7 @@ class Trip extends React.Component{
               <Desc detail={ detail } trip={ this.props.trip.list[index].DETAIL } voucher={ this.props.voucher.list[index].DETAIL } />
             </div>
             <div className="row">
-                { form.decider(this.props.trip.list[index].FORM) }
-                <Form />
+                <Form index={ this.props.trip.list[index].FORM } />
             </div>
           </div>
 
