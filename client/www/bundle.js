@@ -69,11 +69,13 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	__webpack_require__(368);
-
 	__webpack_require__(369);
 
 	__webpack_require__(370);
+
+	__webpack_require__(371);
+
+	__webpack_require__(372);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40453,10 +40455,10 @@
 	var ACTReceiveAbout = exports.ACTReceiveAbout = "RECEIVE ABOUT";
 
 	//ROUTES
-	var routes = exports.routes = ["Home", "Trip-organizer", "Contact", "About"];
+	var routes = exports.routes = ["Home", "Contact", "About"];
 	var routes_detail = exports.routes_detail = ["voucher-detail", "Trip-detail"];
 
-	// Trip Organizer PAGE 
+	// Trip Organizer PAGE
 	var description = exports.description = {
 	    TITTLE: "Alternative Sources of Energy",
 	    TEXT: " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n            consequat."
@@ -40926,7 +40928,7 @@
 
 	var _informationDetail2 = _interopRequireDefault(_informationDetail);
 
-	var _maps = __webpack_require__(338);
+	var _maps = __webpack_require__(339);
 
 	var _maps2 = _interopRequireDefault(_maps);
 
@@ -41088,12 +41090,14 @@
 	}(_react2.default.Component);
 
 	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    footer: state.container.footer[0],
-	    footer_component: state.container.footer_component[0],
-	    main_menu: state.container.main_menu[0],
-	    logo: state.container.logo[0]
-	  };
+	  if (state.container.logo) {
+	    return {
+	      footer: state.container.footer[0],
+	      footer_component: state.container.footer_component[0],
+	      main_menu: state.container.main_menu[0],
+	      logo: state.container.logo[0]
+	    };
+	  }
 	};
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -65766,24 +65770,11 @@
 	            'div',
 	            { className: 'info' },
 	            _react2.default.createElement(
-	              'p',
-	              { className: 'tags' },
-	              list.TAGS.map(function (tag, idx) {
-	                return _react2.default.createElement(
-	                  'a',
-	                  { key: idx },
-	                  ' ',
-	                  tag,
-	                  ' '
-	                );
-	              })
-	            ),
-	            _react2.default.createElement(
 	              'h1',
 	              null,
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '' + constant.routes_detail[0] },
+	                { to: '' + list.URL },
 	                ' ',
 	                list.TITTLE,
 	                ' '
@@ -65807,34 +65798,6 @@
 	              'p',
 	              { className: 'text' },
 	              list.TEXT
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'counters list-inline' },
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                'a',
-	                null,
-	                _react2.default.createElement('i', { className: 'fa fa-comment' }),
-	                ' ',
-	                list.NOTIFICATION.COMMENT,
-	                ' '
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                'a',
-	                null,
-	                _react2.default.createElement('i', { className: 'fa fa-heart' }),
-	                ' ',
-	                list.NOTIFICATION.LIKES,
-	                ' '
-	              )
 	            )
 	          )
 	        );
@@ -65873,6 +65836,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.editEmail = exports.addEmail = undefined;
 
 	var _axios = __webpack_require__(229);
 
@@ -65909,6 +65873,31 @@
 	            response: response
 	        }
 	    };
+	};
+
+	//add
+	var addEmail = exports.addEmail = function addEmail(name, email, text) {
+	    _db2.default.push('inbox/list', {
+	        data: {
+	            name: name,
+	            email: email,
+	            text: text
+	        }
+	    }).then(function (newLocation) {
+	        var generatedKey = newLocation.key;
+	    });
+	};
+
+	// edit
+	var editEmail = exports.editEmail = function editEmail(key) {
+	    _db2.default.post('inbox/list/' + key, {
+	        data: {
+	            name: 'Tyler McGinnis',
+	            age: 25
+	        }
+	    }).then(function () {
+	        Router.transitionTo('dashboard');
+	    });
 	};
 
 /***/ },
@@ -66037,6 +66026,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      // contact={ this.props.contact } map={ this.props.map[0] }
 	      if (!this.props.map) return _react2.default.createElement(
 	        'h1',
 	        null,
@@ -66054,7 +66044,7 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'row' },
-	              _react2.default.createElement(Main, { contact: this.props.contact, map: this.props.map[0] })
+	              _react2.default.createElement(Main, { contact: this.props.contact, map: this.props.map[0], addToMail: this.props.addToMail })
 	            )
 	          )
 	        )
@@ -66067,7 +66057,8 @@
 
 	var Main = function Main(_ref) {
 	  var contact = _ref.contact,
-	      map = _ref.map;
+	      map = _ref.map,
+	      addToMail = _ref.addToMail;
 
 	  return _react2.default.createElement(
 	    'div',
@@ -66096,7 +66087,7 @@
 	          'div',
 	          { className: 'row' },
 	          _react2.default.createElement(ContactDetail, { contact: contact }),
-	          _react2.default.createElement(GetInTouch, null)
+	          _react2.default.createElement(GetInTouch, { addToMail: addToMail })
 	        )
 	      )
 	    )
@@ -66209,88 +66200,125 @@
 	  );
 	};
 
-	var GetInTouch = exports.GetInTouch = function GetInTouch() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'contact-form col-md-6 col-sm-6' },
-	    _react2.default.createElement(
-	      'h3',
-	      null,
-	      'Get in touch'
-	    ),
-	    _react2.default.createElement(
-	      'form',
-	      { method: 'post', id: 'contact', name: 'contact', noValidate: 'novalidate' },
-	      _react2.default.createElement(
+	var GetInTouch = exports.GetInTouch = function (_React$Component2) {
+	  _inherits(GetInTouch, _React$Component2);
+
+	  function GetInTouch(props, context) {
+	    _classCallCheck(this, GetInTouch);
+
+	    var _this2 = _possibleConstructorReturn(this, (GetInTouch.__proto__ || Object.getPrototypeOf(GetInTouch)).call(this, props));
+
+	    context.router;
+	    return _this2;
+	  }
+
+	  _createClass(GetInTouch, [{
+	    key: 'email',
+	    value: function email(val) {
+	      val.preventDefault();
+	      this.props.addToMail(this.nameRef.value, this.emailRef.value, this.textRef.value);
+	      alert('success, thank you for subsribing us');
+	      this.nameRef.value = "";
+	      this.emailRef.value = "";
+	      this.textRef.value = "";
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'contact-form col-md-6 col-sm-6' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-md-6 col-sm-6 input-group' },
+	          'h3',
+	          null,
+	          'Get in touch'
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { id: 'contact', name: 'contact', onSubmit: function onSubmit(val) {
+	              return _this3.email(val);
+	            } },
 	          _react2.default.createElement(
-	            'span',
-	            { className: 'input-group-addon' },
-	            _react2.default.createElement('i', { className: 'fa fa-user' })
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-6 col-sm-6 input-group' },
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'input-group-addon' },
+	                _react2.default.createElement('i', { className: 'fa fa-user' })
+	              ),
+	              _react2.default.createElement('input', { type: 'text', className: 'form-control', name: 'name', id: 'name', placeholder: 'Name (required)', required: '', ref: function ref(_ref3) {
+	                  return _this3.nameRef = _ref3;
+	                } })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-6 col-sm-6 input-group' },
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'input-group-addon' },
+	                _react2.default.createElement('i', { className: 'fa fa-envelope-o add-on' })
+	              ),
+	              _react2.default.createElement('input', { type: 'email', className: 'form-control', name: 'email', placeholder: 'Email (required)', required: '', ref: function ref(_ref4) {
+	                  return _this3.emailRef = _ref4;
+	                } })
+	            )
 	          ),
-	          _react2.default.createElement('input', { type: 'text', className: 'form-control', name: 'name', id: 'name', placeholder: 'Name (required)', required: '' })
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-12 col-sm-12' },
+	              _react2.default.createElement('textarea', { className: 'form-control', name: 'message', id: 'message', required: '', placeholder: 'Message', rows: '9', ref: function ref(_ref5) {
+	                  return _this3.textRef = _ref5;
+	                } })
+	            )
+	          ),
+	          _react2.default.createElement('input', { className: 'btn btn-default', type: 'submit', name: 'submit' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-md-6 col-sm-6 input-group' },
+	          { className: 'alert alert-danger' },
 	          _react2.default.createElement(
-	            'span',
-	            { className: 'input-group-addon' },
-	            _react2.default.createElement('i', { className: 'fa fa-envelope-o add-on' })
+	            'button',
+	            { type: 'button', className: 'close', 'data-dismiss': 'alert' },
+	            '\xD7'
 	          ),
-	          _react2.default.createElement('input', { type: 'email', className: 'form-control', name: 'email', id: 'email', placeholder: 'Email (required)', required: '' })
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'row' },
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Oh snap!'
+	          ),
+	          ' Change a few things up and try submitting again.'
+	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-md-12 col-sm-12' },
-	          _react2.default.createElement('textarea', { className: 'form-control', name: 'message', id: 'message', required: '', placeholder: 'Message', rows: '9' })
+	          { className: 'alert alert-success' },
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'button', className: 'close', 'data-dismiss': 'alert' },
+	            '\xD7'
+	          ),
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Well done!'
+	          ),
+	          ' Your message was sent succssfully!'
 	        )
-	      ),
-	      _react2.default.createElement('input', { className: 'btn btn-default', id: 'submit', type: 'submit', name: 'submit', value: 'Send' })
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'alert alert-danger' },
-	      _react2.default.createElement(
-	        'button',
-	        { type: 'button', className: 'close', 'data-dismiss': 'alert' },
-	        '\xD7'
-	      ),
-	      _react2.default.createElement(
-	        'strong',
-	        null,
-	        'Oh snap!'
-	      ),
-	      ' Change a few things up and try submitting again.'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'alert alert-success' },
-	      _react2.default.createElement(
-	        'button',
-	        { type: 'button', className: 'close', 'data-dismiss': 'alert' },
-	        '\xD7'
-	      ),
-	      _react2.default.createElement(
-	        'strong',
-	        null,
-	        'Well done!'
-	      ),
-	      ' Your message was sent succssfully!'
-	    )
-	  );
-	};
+	      );
+	    }
+	  }]);
+
+	  return GetInTouch;
+	}(_react2.default.Component);
 
 	var mapStateToProps = function mapStateToProps(state) {
-	  console.log(state);
 	  return {
 	    contact: state.feature.contact[0],
 	    map: state.social.map
@@ -66304,6 +66332,9 @@
 	    },
 	    getSocial: function getSocial(context) {
 	      return dispatch((0, _Social2.default)(context));
+	    },
+	    addToMail: function addToMail(name, email, text) {
+	      return (0, _Feature.addEmail)(name, email, text);
 	    }
 	  };
 	};
@@ -66327,6 +66358,8 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRedux = __webpack_require__(179);
+
+	var _reactRouter = __webpack_require__(264);
 
 	var _const = __webpack_require__(213);
 
@@ -66358,9 +66391,13 @@
 	  _createClass(Slider, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.renderNews();
+	      // DEPRECATED
+	      // this.renderNews()
 	      this.renderSlider();
 	    }
+
+	    // DEPRECATED
+
 	  }, {
 	    key: 'renderNews',
 	    value: function renderNews() {
@@ -66386,7 +66423,7 @@
 	        infiniteLoop: true,
 	        nextSelector: ".post-slider .controls .next",
 	        prevSelector: ".post-slider .controls .prev",
-	        fadeText: true,
+	        fadeText: false,
 	        auto: true,
 	        pause: 4000
 	      });
@@ -66394,7 +66431,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.news) return _react2.default.createElement(
+	      if (!this.props.slider) return _react2.default.createElement(
 	        'h1',
 	        null,
 	        ' Loading ... '
@@ -66402,7 +66439,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col-md-12 col-sm-12' },
-	        _react2.default.createElement(News, { news: this.props.news.list }),
 	        _react2.default.createElement(BigSlider, { big_slider: this.props.slider.list })
 	      );
 	    }
@@ -66414,58 +66450,38 @@
 	;
 
 	// COMPONENTS
-	var News = function News(_ref) {
-	  var news = _ref.news;
 
-	  if (!news) return _react2.default.createElement(
-	    'h1',
-	    null,
-	    'loading ..'
-	  );
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'row' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'breaking col-md-12 col-sm-12' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'controls' },
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'prev' },
-	          _react2.default.createElement('i', { className: 'fa fa-angle-left' })
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          { className: 'next' },
-	          _react2.default.createElement('i', { className: 'fa fa-angle-right' })
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        { className: 'news' },
-	        news.map(function (list, index) {
-	          return _react2.default.createElement(
-	            'li',
-	            { key: index },
-	            _react2.default.createElement(
-	              'span',
-	              null,
-	              ' ',
-	              list.IMPORTANT,
-	              ' '
-	            ),
-	            list.TEXT
-	          );
-	        })
-	      )
-	    )
-	  );
-	};
+	// DEPRECATED
+	// const News = ({ news }) => {
+	//   if(!news) return (<h1>loading ..</h1>)
+	//   return (
+	//     <div className="row">
+	//         <div className="breaking col-md-12 col-sm-12">
+	//           <div className="controls">
+	//             <p className="prev"><i className="fa fa-angle-left"></i></p>
+	//             <p className="next"><i className="fa fa-angle-right"></i></p>
+	//           </div>
+	//
+	//           <ul className="news">
+	//
+	//             { news.map((list, index) => (
+	//
+	//               <li key={index} >
+	//                 <span> { list.IMPORTANT } </span>
+	//
+	//               </li>
+	//
+	//             ))}
+	//
+	//           </ul>
+	//
+	//         </div>
+	//       </div>
+	//   )
+	// }
 
-	var BigSlider = function BigSlider(_ref2) {
-	  var big_slider = _ref2.big_slider;
+	var BigSlider = function BigSlider(_ref) {
+	  var big_slider = _ref.big_slider;
 
 	  return _react2.default.createElement(
 	    'div',
@@ -66513,8 +66529,8 @@
 	                'h1',
 	                null,
 	                _react2.default.createElement(
-	                  'a',
-	                  null,
+	                  _reactRouter.Link,
+	                  { to: list.URL },
 	                  ' ',
 	                  list.TITTLE,
 	                  ' '
@@ -66578,7 +66594,6 @@
 	var mapStateToProps = function mapStateToProps(state) {
 	  if (state.feature.slider[0]) {
 	    return {
-	      news: state.feature.slider[0].news,
 	      slider: state.feature.slider[0].big
 	    };
 	  } else return {};
@@ -67009,22 +67024,11 @@
 	                        'div',
 	                        { className: 'info' },
 	                        _react2.default.createElement(
-	                            'p',
-	                            { className: 'tags' },
-	                            list.TAGS.map(function (tag, index) {
-	                                return _react2.default.createElement(
-	                                    'a',
-	                                    { key: index },
-	                                    tag
-	                                );
-	                            })
-	                        ),
-	                        _react2.default.createElement(
 	                            'h1',
 	                            null,
 	                            _react2.default.createElement(
 	                                _reactRouter.Link,
-	                                { to: '' + constant.routes_detail[1] },
+	                                { to: '' + list.URL },
 	                                list.TITTLE
 	                            )
 	                        ),
@@ -67654,6 +67658,10 @@
 
 	var _reactRedux = __webpack_require__(179);
 
+	var _Form = __webpack_require__(338);
+
+	var _Form2 = _interopRequireDefault(_Form);
+
 	var _Feature = __webpack_require__(328);
 
 	var _Feature2 = _interopRequireDefault(_Feature);
@@ -67679,6 +67687,9 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import DatePicker from 'react-datepicker'
+	// import moment from 'moment'
+
 
 	//redux
 
@@ -67695,10 +67706,10 @@
 	  function Trip(props) {
 	    _classCallCheck(this, Trip);
 
-	    var _this = _possibleConstructorReturn(this, (Trip.__proto__ || Object.getPrototypeOf(Trip)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
+	    return _possibleConstructorReturn(this, (Trip.__proto__ || Object.getPrototypeOf(Trip)).call(this, props));
+	    // this.state = {
+	    //     startDate: moment()
+	    // }
 	  }
 
 	  _createClass(Trip, [{
@@ -67709,9 +67720,21 @@
 	    value: function componentWillReceiveProps() {
 	      this.setState({});
 	    }
+
+	    //   handeDate(date) {
+	    //       this.setState({
+	    //           startDate: date
+	    //       })
+	    //   }
+
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var detail = this.props.routes[1].path.split("-")[0];
+	      console.log('props ', this.props);
+	      var index = this.props.location.search.split('?')[1];
+	      console.log('index dexxxxx', index);
+	      var form = new _Form2.default();
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -67721,15 +67744,16 @@
 	          _react2.default.createElement(
 	            'div',
 	            null,
+	            _react2.default.createElement('div', { className: 'row' }),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'row' },
-	              _react2.default.createElement(_Slider2.default, null)
+	              _react2.default.createElement(Desc, { detail: detail, trip: this.props.trip.list[index].DETAIL, voucher: this.props.voucher.list[index].DETAIL })
 	            ),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'row' },
-	              _react2.default.createElement(Desc, null)
+	              form.decider(this.props.trip.list[index].FORM)
 	            )
 	          )
 	        )
@@ -67740,39 +67764,2629 @@
 	  return Trip;
 	}(_react2.default.Component);
 
-	var Desc = function Desc() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'info col-md-offset-1 col-md-10' },
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      constant.description.TITTLE
-	    ),
-	    _react2.default.createElement(
+	var Desc = function Desc(_ref) {
+	  var detail = _ref.detail,
+	      voucher = _ref.voucher,
+	      trip = _ref.trip;
+
+	  if (detail == "/Trip") {
+	    console.log(trip);
+	    return _react2.default.createElement(
 	      'div',
-	      { className: 'text' },
+	      { className: 'info col-md-offset-1 col-md-10' },
 	      _react2.default.createElement(
-	        'p',
+	        'h1',
 	        null,
-	        constant.description.TEXT
+	        trip.TITTLE
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'text' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          trip.TEXT
+	        )
 	      )
-	    )
-	  );
+	    );
+	  } else {
+	    console.log(voucher);
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'info col-md-offset-1 col-md-10' },
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        voucher.TITTLE
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'text' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          voucher.TEXT
+	        )
+	      )
+	    );
+	  }
 	};
 
 	var mapStateToProps = function mapStateToProps(state) {
-	  return {};
+	  return {
+	    trip: state.feature.packets[0],
+	    voucher: state.feature.vouchers[0]
+	  };
 	};
 
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Trip);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Trip);
 
 /***/ },
 /* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Form = function (_Component) {
+	    _inherits(Form, _Component);
+
+	    function Form(props) {
+	        _classCallCheck(this, Form);
+
+	        var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+	        _this.state = {
+	            value: 'eh'
+	        };
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        // this.state = {
+	        //     name1: "",
+	        //     compName1: "",
+	        //     telp1: "",
+	        //     email1: "",
+	        //     start1: "",
+	        //     end1: "",
+	        //     type1: "",
+	        //     gender1: "",
+	        //     age1: "",
+	        //     character1: "",
+	        //     num1: "",
+	        //     level1: "",
+	        //     theme1: "",
+	        //     blima1: "",
+	        //     bempat1: "",
+	        //     btiga1: "",
+	        //     bdua1: "",
+	        //     numad1: "",
+	        //     numkid1: "",
+	        //     esti1: "",
+	        //     bed1: "",
+	        //     area1: "",
+	        //     fac1: "",
+	        //     otherrequest1: "",
+	        //     meetingy1: "",
+	        //     meetingn1: "",
+	        //     detmeeting1: "",
+	        //     outingy1: "",
+	        //     outingn1: "",
+	        //     detouting1: "",
+	        //     toursy1: "",
+	        //     toursn1: "",
+	        //     dettours1: "",
+	        //     transporty1: "",
+	        //     tranportn1: "",
+	        //     dettransport1: "",
+	        //     eventy1: "",
+	        //     eventn1: "",
+	        //     detevent1: "",
+	        //     homeband1: "",
+	        //     keyboardist1: "",
+	        //     popband1: "",
+	        //     openingdance1: "", value={this.state.value} onChange={this.handleChange}
+	        //     traddance1: "",
+	        //     moddance1: "",
+	        //     dj1: "",
+	        //     mc1: "",
+	        //     ushers1: "",
+	        //     othertalent1: "",
+	        //     sound1: "",
+	        //     lighting1: "",
+	        //     led1: "",
+	        //     backdrop1: "",
+	        //     projector1: "",
+	        //     lcd1:this.handleChange = this.handleChange.bind(this); "",
+	        //     photo1: "",
+	        //     video1: "",
+	        //     digital1: "",
+	        //     otherTech1: "",
+	        //     budget1: "",
+	        //     remarks1: ""
+	        // }
+	        return _this;
+	    }
+
+	    _createClass(Form, [{
+	        key: 'decider',
+	        value: function decider(index) {
+	            if (index == 0) {
+	                return this.form0();
+	            } else if (index == 1) {
+	                return this.form1();
+	            } else if (index == 2) {
+	                return this.form2();
+	            }
+	        }
+	    }, {
+	        key: 'handleChange',
+	        value: function handleChange(e, key) {
+	            console.log(key);
+	            // switch(key) {
+	            //     case 'name1':
+	            //         this.setState({
+	            //             name1: e.target.value    
+	            //         })
+	            //         break
+	            // case 'compName1':
+	            //     this.setState({
+	            //         compName1: e.target.value    
+	            //     })
+	            //     break
+	            // case 'telp1':
+	            //     this.setState({
+	            //         telp1: e.target.value    
+	            //     })
+	            //     break
+	            // case 'email1':
+	            //     this.setState({
+	            //         email1: e.target.value    
+	            //     })
+	            //     break
+	            // }
+	        }
+	    }, {
+	        key: 'handleChange',
+	        value: function handleChange(event) {
+	            console.log(event.target.value);
+	            this.setState({ value: event.target.value });
+	        }
+	    }, {
+	        key: 'handleSubmit',
+	        value: function handleSubmit() {
+	            var message = this.state.name1 + this.state.compName1 + this.state.telp1 + this.state.email1 + this.state.start1 + this.state.end1 + this.state.type1 + this.state.gender1 + this.state.age1 + this.state.character1 + this.state.num1 + this.state.lethis.state.vel1 + this.state.theme1 + this.state.blima1 + this.state.bempat1 + this.state.btiga1 + this.state.bdua1 + this.state.numad1 + this.state.numkid1 + this.state.esti1 + this.state.bed1 + this.state.area1 + this.state.fac1 + this.state.otherrequest1 + this.state.meetingy1 + this.state.meetingn1 + this.state.detmeeting1 + this.state.outingy1 + this.state.outingn1 + this.state.detouting1 + this.state.toursy1 + this.state.toursn1 + this.state.dettours1 + this.state.transporty1 + this.state.tranportn1 + this.state.dettransport1 + this.state.eventy1 + this.state.eventn1 + this.state.detevent1 + this.state.homeband1 + this.state.keyboardist1 + this.state.popband1 + this.state.openingdance1 + this.state.traddance1 + this.state.moddance1 + this.state.dj1 + this.state.mc1 + this.state.ushers1 + this.state.othertalent1 + this.state.sound1 + this.state.lighting1 + this.state.led1 + this.state.backdrop1 + this.state.projector1 + this.state.lcd1 + this.state.photo1 + this.state.video1 + this.state.digital1 + this.state.otherTech1 + this.state.budget1 + this.state.remarks1;
+	            console.log("AKHIRNYA", message);
+	        }
+	    }, {
+	        key: 'form0',
+	        value: function form0() {
+	            var _this2 = this,
+	                _React$createElement;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-offset-1 col-md-10 form' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'Tell us about your ideal event, we want to hear from you!'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'Please\xA0contact us and fill the form\xA0for more information or with any help or advice that you may need.'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'We will assist you in designing your event in Bali. Please fill in this event brief form.'
+	                    )
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    'form',
+	                    { className: 'form-div', action: function action() {
+	                            return _this2.handleSubmit;
+	                        } },
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'COMPANY DETAILS'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Name :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.value, onChange: this.handleChange, id: 'name', required: true })
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'EVENT DETAILS'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'event-start' },
+	                                'Starts from :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.start1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'event-start' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'event-end' },
+	                                'Ends :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.end1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'event-end' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'type' },
+	                                'Event Type :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.type1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'type' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'gender' },
+	                                'Guest Gender of Attendees :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.gender1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'gender' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'age' },
+	                                'Age Profile of Attendees :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.age1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'age' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'character' },
+	                                'Special characteristics of Attendees :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.character1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'character' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'num' },
+	                                'Number of Attendees :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.num1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'num' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'level' },
+	                                'Managerial Level of Attendees :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.level1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'level' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'theme' },
+	                                'Theme :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.theme1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'theme' })
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'ACCOMMODATION'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Venue/Hotel :'
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'select',
+	                                    { className: 'form-control', id: 'sel1' },
+	                                    _react2.default.createElement(
+	                                        'option',
+	                                        { value: this.state.blima1, onChange: function onChange(e) {
+	                                                return _this2.handleChange = e;
+	                                            } },
+	                                        '5'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'option',
+	                                        { value: this.state.bempat1, onChange: function onChange(e) {
+	                                                return _this2.handleChange = e;
+	                                            } },
+	                                        '4'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'option',
+	                                        { value: this.state.btiga1, onChange: function onChange(e) {
+	                                                return _this2.handleChange = e;
+	                                            } },
+	                                        '3'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'option',
+	                                        { value: this.state.bdua1, onChange: function onChange(e) {
+	                                                return _this2.handleChange = e;
+	                                            } },
+	                                        '2'
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'numad' },
+	                                'Number of Adult :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.numad1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'numad' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'numkid' },
+	                                'Number of Kids (if there are any) : '
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.numkid1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'numkid' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'esti' },
+	                                'Estimation accommodation budget (per-night, per-room) :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.esti1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'esti' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'h5',
+	                            null,
+	                            'REQUEST :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-section' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'bed' },
+	                                    'Bedding type :'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.bed1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    }, id: 'bed' })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'area' },
+	                                    'Hotel Area or Desirable Atmosphere :'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.area1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    }, id: 'area' })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'fac' },
+	                                    'Hotel Facility :'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.fac1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    }, id: 'fac' })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'other' },
+	                                    'Others :'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'email', className: 'form-control', value: this.state.otherrequest1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    }, id: 'other' })
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'name' },
+	                            'MEETING/SEMINAR :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'meeting1', type: 'radio', value: this.state.meetingy1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'meeting1', type: 'radio', value: this.state.meetingn1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.detmeeting1, onChange: function onChange(e) {
+	                                return _this2.handleChange = e;
+	                            }, id: 'details' })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'comp-name' },
+	                            'OUTING :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'outing1', type: 'radio', value: this.state.outingy1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'outing1', type: 'radio', value: this.state.outingn1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.detouting1, onChange: function onChange(e) {
+	                                return _this2.handleChange = e;
+	                            }, id: 'comp-name' })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'phone' },
+	                            'TOURS :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'tours1', type: 'radio', value: this.state.toursy1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'tours1', type: 'radio', value: this.state.toursn1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.dettours1, onChange: function onChange(e) {
+	                                return _this2.handleChange = e;
+	                            }, id: 'comp-name' })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'email' },
+	                            'TRANSPORTATION :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'transporty1', type: 'radio', value: this.state.transport1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'transport1', type: 'radio', value: this.state.transportn1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.dettransport1, onChange: function onChange(e) {
+	                                return _this2.handleChange = e;
+	                            }, id: 'comp-name' })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'email' },
+	                            'EVENT :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'event1', type: 'radio', value: this.state.eventy1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'radio-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { name: 'event1', type: 'radio', value: this.state.eventn1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', (_React$createElement = { type: 'text', className: 'form-control' }, _defineProperty(_React$createElement, 'type', 'radio'), _defineProperty(_React$createElement, 'value', this.state.detevent1), _defineProperty(_React$createElement, 'onChange', function onChange(e) {
+	                            return _this2.handleChange = e;
+	                        }), _defineProperty(_React$createElement, 'id', 'comp-name'), _React$createElement))
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'email' },
+	                            'Talent or Entertainment Need :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.homeband1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Home Band'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.keyboardist1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Keyboardist + Singer'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.popband1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Popular Band'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.openingdance1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Opening Dance'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.traddance1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Traditional Dance'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.moddance1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Modern/Contemporary Dance'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.dj1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'DJ'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.mc1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'MC'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.ushers1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Ushers'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Others :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.othertalent1, onChange: function onChange(e) {
+	                                return _this2.handleChange = e;
+	                            }, id: 'comp-name' })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'email' },
+	                            'Technical Support Need :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.sound1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Sound System'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.lighting1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Lighting System'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.led1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'LED Backdrop'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.backdrop1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                '3D Backdrop'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.projector1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Projector (standard)'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.lcd1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'LCD/Plasma TV'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.photo1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Photography'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.video1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Videography'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: this.state.digital1, onChange: function onChange(e) {
+	                                        return _this2.handleChange = e;
+	                                    } }),
+	                                'Digital Printing Backdrop'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'p',
+	                                { 'for': 'comp-name' },
+	                                'Others :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.otherTech1, onChange: function onChange(e) {
+	                                    return _this2.handleChange = e;
+	                                }, id: 'comp-name' })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'budget' },
+	                            'Indicative Budget :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.budget1, onChange: function onChange(e) {
+	                                return _this2.handleChange = e;
+	                            }, id: 'budget' })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'remarks' },
+	                            'Special Remarks :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', value: this.state.remarks1, onChange: function onChange(e) {
+	                                return _this2.handleChange = e;
+	                            }, id: 'remarks' })
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'button',
+	                        { type: 'submit', className: 'btn btn-default' },
+	                        'Submit'
+	                    )
+	                )
+	            );
+	        }
+	    }, {
+	        key: 'form1',
+	        value: function form1() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-offset-1 col-md-10 form' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'Tell us about your ideal event, we want to hear from you!'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'Please\xA0contact us and fill the form\xA0for more information or with any help or advice that you may need.'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'We will assist you in designing your vacation Bali. Please fill in this event brief form.'
+	                    )
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    'form',
+	                    { className: 'form-div' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Name :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'name', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Nationality :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'name', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'phone' },
+	                                'Telephone :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', id: 'phone', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'email' },
+	                                'E-mail :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'TRIP DETAILS'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'event-start' },
+	                                'Starts from :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'event-start', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'event-end' },
+	                                'Ends :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'event-end', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Still Tentative'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'phone' },
+	                                'Event Type :'
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'dropdown' },
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { className: 'btn btn-default dropdown-toggle', type: 'button', 'data-toggle': 'dropdown' },
+	                                    'Type',
+	                                    _react2.default.createElement('span', { className: 'caret' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'ul',
+	                                    { className: 'dropdown-menu' },
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Family'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Friends'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Mix Group'
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'ACCOMMODATION'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Venue/Hotel :'
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'dropdown' },
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { className: 'btn btn-default dropdown-toggle', type: 'button', 'data-toggle': 'dropdown' },
+	                                    'Stars',
+	                                    _react2.default.createElement('span', { className: 'caret' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'ul',
+	                                    { className: 'dropdown-menu' },
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Apartment'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Bungalow'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Guest House'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '5'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '4'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '3'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '2'
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'comp-name' },
+	                                'Number of Adult :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'comp-name', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'phone' },
+	                                'Number of Kids (if there are any) : '
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', id: 'phone', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'email' },
+	                                'Estimation accommodation budget (per-night, per-room) :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'h5',
+	                            null,
+	                            'REQUEST :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-section' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'name' },
+	                                    'Bedding type :'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Modern/Contemporary Dance'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'DJ'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'MC'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Ushers'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'comp-name' },
+	                                    'Hotel Area :'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'comp-name', required: true })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'phone' },
+	                                    'Hotel Preference :'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Beachfront'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Business facilities'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Golf Course'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Kids/Family Friendly'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near The Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near Mountain'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near Restaurant'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Heart of the City'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Tranquil Area'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near Nightclub'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'comp-name' },
+	                                    'Hotel Facility :'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Family Room'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Fitness Centre'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Pool'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Private Pool'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'WIFI'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Non-smoking room'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Smoking room'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Spa & Wellness Center'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Restaurant'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'email' },
+	                                    'Others :'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'name' },
+	                            'TRANPORTATION :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'comp-name', required: true })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'comp-name' },
+	                            'TOURS / SIGHTSEEING :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'comp-name', required: true })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'comp-name' },
+	                            'ACTIVITIES :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'comp-name', required: true })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'comp-name' },
+	                            'MEALS :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'No'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Breakfast Included'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Halfboard (B&L)'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Fullboard (B,L&D)'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'email' },
+	                            'Indicative Budget :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'email' },
+	                            'Special Remarks :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'button',
+	                        { type: 'submit', className: 'btn btn-default' },
+	                        'Submit'
+	                    )
+	                )
+	            );
+	        }
+	    }, {
+	        key: 'form2',
+	        value: function form2() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'col-md-offset-1 col-md-10 form' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'Tell us about your dream luxury stays, we want to hear from you!'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'Please\xA0contact us and fill the form\xA0for more information or with any help or advice that you may need.'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        'We will assist you in designing your vacation Bali. Please fill in this event brief form.'
+	                    )
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                    'form',
+	                    { className: 'form-div' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Name :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'name', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Nationality :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'name', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'phone' },
+	                                'Telephone :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', id: 'phone', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'email' },
+	                                'E-mail :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'TRIP DETAILS'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'event-start' },
+	                                'Starts from :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'event-start', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'event-end' },
+	                                'Ends :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'event-end', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Still Tentative'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'phone' },
+	                                'Number of Rooms :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', id: 'phone', required: true })
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'ACCOMMODATION'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-section' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'name' },
+	                                'Venue/Hotel :'
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'dropdown' },
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { className: 'btn btn-default dropdown-toggle', type: 'button', 'data-toggle': 'dropdown' },
+	                                    'Stars',
+	                                    _react2.default.createElement('span', { className: 'caret' })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'ul',
+	                                    { className: 'dropdown-menu' },
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Apartment'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Bungalow'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        'Guest House'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '5'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '4'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '3'
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'li',
+	                                        null,
+	                                        '2'
+	                                    )
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'comp-name' },
+	                                'Number of Adult :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'comp-name', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'phone' },
+	                                'Number of Kids (if there are any) : '
+	                            ),
+	                            _react2.default.createElement('input', { type: 'number', className: 'form-control', id: 'phone', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { 'for': 'email' },
+	                                'Estimation accommodation budget (per-night, per-room) :'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            'h5',
+	                            null,
+	                            'REQUEST :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-section' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'comp-name' },
+	                                    'Hotel Area :'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Amed'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Candidasa'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Canggu area'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Canggu Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Jimbaran'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Karangasem'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Kerobokan'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Kids/Family Friendly'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Kuta area'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Kuta Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Legian Area'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Legian Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Lembongan'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Lovina Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Lovina'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Menjangan'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near The Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Nusadua Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Petitenget'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Seminyak Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Seminyak'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Tabanan'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Tanjung Benoa'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Sanur Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Sanur Area'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Sinaraja'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Tuban'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Tulamben'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Ubud'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Uluwatu'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Ungasan'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'phone' },
+	                                    'Hotel Preference :'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Beachfront'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Business facilities'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Golf Course'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Kids/Family Friendly'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near The Beach'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near Mountain'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near Restaurant'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Heart of the City'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Tranquil Area'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Near Nightclub'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'comp-name' },
+	                                    'Hotel Facility :'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Family Room'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Fitness Centre'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Pool'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Private Pool'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'WIFI'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Non-smoking room'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Smoking room'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Spa & Wellness Center'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'checkbox' },
+	                                    _react2.default.createElement(
+	                                        'label',
+	                                        null,
+	                                        _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                        'Restaurant'
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    { 'for': 'email' },
+	                                    'Others :'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'name' },
+	                            'TRANPORTATION :'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'Yes'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'checkbox-inline' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                _react2.default.createElement('input', { type: 'checkbox', value: '' }),
+	                                'No'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'p',
+	                            { 'for': 'comp-name' },
+	                            'Details :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'comp-name', required: true })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { 'for': 'email' },
+	                            'Special Remarks :'
+	                        ),
+	                        _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: true })
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'button',
+	                        { type: 'submit', className: 'btn btn-default' },
+	                        'Submit'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Form;
+	}(_react.Component);
+
+	exports.default = Form;
+
+/***/ },
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67787,7 +70401,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactPlacesAutocomplete = __webpack_require__(339);
+	var _reactPlacesAutocomplete = __webpack_require__(340);
 
 	var _reactPlacesAutocomplete2 = _interopRequireDefault(_reactPlacesAutocomplete);
 
@@ -67939,7 +70553,7 @@
 	exports.default = Autocomplete;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67949,11 +70563,11 @@
 	});
 	exports.geocodeByAddress = undefined;
 
-	var _PlacesAutocomplete = __webpack_require__(340);
+	var _PlacesAutocomplete = __webpack_require__(341);
 
 	var _PlacesAutocomplete2 = _interopRequireDefault(_PlacesAutocomplete);
 
-	var _utils = __webpack_require__(367);
+	var _utils = __webpack_require__(368);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -67961,7 +70575,7 @@
 	exports.default = _PlacesAutocomplete2.default;
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67974,7 +70588,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(341);
+	var _react = __webpack_require__(342);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -68351,16 +70965,16 @@
 	exports.default = PlacesAutocomplete;
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(342);
+	module.exports = __webpack_require__(343);
 
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -68378,15 +70992,15 @@
 
 	var _assign = __webpack_require__(5);
 
-	var ReactChildren = __webpack_require__(343);
-	var ReactComponent = __webpack_require__(352);
-	var ReactClass = __webpack_require__(354);
-	var ReactDOMFactories = __webpack_require__(359);
-	var ReactElement = __webpack_require__(346);
-	var ReactPropTypes = __webpack_require__(364);
-	var ReactVersion = __webpack_require__(365);
+	var ReactChildren = __webpack_require__(344);
+	var ReactComponent = __webpack_require__(353);
+	var ReactClass = __webpack_require__(355);
+	var ReactDOMFactories = __webpack_require__(360);
+	var ReactElement = __webpack_require__(347);
+	var ReactPropTypes = __webpack_require__(365);
+	var ReactVersion = __webpack_require__(366);
 
-	var onlyChild = __webpack_require__(366);
+	var onlyChild = __webpack_require__(367);
 	var warning = __webpack_require__(12);
 
 	var createElement = ReactElement.createElement;
@@ -68394,7 +71008,7 @@
 	var cloneElement = ReactElement.cloneElement;
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(361);
+	  var ReactElementValidator = __webpack_require__(362);
 	  createElement = ReactElementValidator.createElement;
 	  createFactory = ReactElementValidator.createFactory;
 	  cloneElement = ReactElementValidator.cloneElement;
@@ -68453,7 +71067,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -68469,11 +71083,11 @@
 
 	'use strict';
 
-	var PooledClass = __webpack_require__(344);
-	var ReactElement = __webpack_require__(346);
+	var PooledClass = __webpack_require__(345);
+	var ReactElement = __webpack_require__(347);
 
 	var emptyFunction = __webpack_require__(13);
-	var traverseAllChildren = __webpack_require__(349);
+	var traverseAllChildren = __webpack_require__(350);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
 	var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -68649,7 +71263,7 @@
 	module.exports = ReactChildren;
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -68665,7 +71279,7 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(345);
+	var _prodInvariant = __webpack_require__(346);
 
 	var invariant = __webpack_require__(9);
 
@@ -68776,7 +71390,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports) {
 
 	/**
@@ -68820,7 +71434,7 @@
 	module.exports = reactProdInvariant;
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -68838,10 +71452,10 @@
 
 	var _assign = __webpack_require__(5);
 
-	var ReactCurrentOwner = __webpack_require__(347);
+	var ReactCurrentOwner = __webpack_require__(348);
 
 	var warning = __webpack_require__(12);
-	var canDefineProperty = __webpack_require__(348);
+	var canDefineProperty = __webpack_require__(349);
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 	// The Symbol used to tag the ReactElement type. If there is no native Symbol
@@ -69178,7 +71792,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports) {
 
 	/**
@@ -69214,7 +71828,7 @@
 	module.exports = ReactCurrentOwner;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -69244,7 +71858,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -69260,14 +71874,14 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(345);
+	var _prodInvariant = __webpack_require__(346);
 
-	var ReactCurrentOwner = __webpack_require__(347);
-	var ReactElement = __webpack_require__(346);
+	var ReactCurrentOwner = __webpack_require__(348);
+	var ReactElement = __webpack_require__(347);
 
-	var getIteratorFn = __webpack_require__(350);
+	var getIteratorFn = __webpack_require__(351);
 	var invariant = __webpack_require__(9);
-	var KeyEscapeUtils = __webpack_require__(351);
+	var KeyEscapeUtils = __webpack_require__(352);
 	var warning = __webpack_require__(12);
 
 	var SEPARATOR = '.';
@@ -69410,7 +72024,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports) {
 
 	/**
@@ -69456,7 +72070,7 @@
 	module.exports = getIteratorFn;
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports) {
 
 	/**
@@ -69520,7 +72134,7 @@
 	module.exports = KeyEscapeUtils;
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -69536,11 +72150,11 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(345);
+	var _prodInvariant = __webpack_require__(346);
 
-	var ReactNoopUpdateQueue = __webpack_require__(353);
+	var ReactNoopUpdateQueue = __webpack_require__(354);
 
-	var canDefineProperty = __webpack_require__(348);
+	var canDefineProperty = __webpack_require__(349);
 	var emptyObject = __webpack_require__(21);
 	var invariant = __webpack_require__(9);
 	var warning = __webpack_require__(12);
@@ -69644,7 +72258,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -69746,7 +72360,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -69762,19 +72376,19 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(345),
+	var _prodInvariant = __webpack_require__(346),
 	    _assign = __webpack_require__(5);
 
-	var ReactComponent = __webpack_require__(352);
-	var ReactElement = __webpack_require__(346);
-	var ReactPropTypeLocations = __webpack_require__(355);
-	var ReactPropTypeLocationNames = __webpack_require__(357);
-	var ReactNoopUpdateQueue = __webpack_require__(353);
+	var ReactComponent = __webpack_require__(353);
+	var ReactElement = __webpack_require__(347);
+	var ReactPropTypeLocations = __webpack_require__(356);
+	var ReactPropTypeLocationNames = __webpack_require__(358);
+	var ReactNoopUpdateQueue = __webpack_require__(354);
 
 	var emptyObject = __webpack_require__(21);
 	var invariant = __webpack_require__(9);
-	var keyMirror = __webpack_require__(356);
-	var keyOf = __webpack_require__(358);
+	var keyMirror = __webpack_require__(357);
+	var keyOf = __webpack_require__(359);
 	var warning = __webpack_require__(12);
 
 	var MIXINS_KEY = keyOf({ mixins: null });
@@ -70477,7 +73091,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -70493,7 +73107,7 @@
 
 	'use strict';
 
-	var keyMirror = __webpack_require__(356);
+	var keyMirror = __webpack_require__(357);
 
 	var ReactPropTypeLocations = keyMirror({
 	  prop: null,
@@ -70504,7 +73118,7 @@
 	module.exports = ReactPropTypeLocations;
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -70557,7 +73171,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -70587,7 +73201,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -70626,7 +73240,7 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -70642,9 +73256,9 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(346);
+	var ReactElement = __webpack_require__(347);
 
-	var mapObject = __webpack_require__(360);
+	var mapObject = __webpack_require__(361);
 
 	/**
 	 * Create a factory that creates HTML tag elements.
@@ -70654,7 +73268,7 @@
 	 */
 	function createDOMFactory(tag) {
 	  if (process.env.NODE_ENV !== 'production') {
-	    var ReactElementValidator = __webpack_require__(361);
+	    var ReactElementValidator = __webpack_require__(362);
 	    return ReactElementValidator.createFactory(tag);
 	  }
 	  return ReactElement.createFactory(tag);
@@ -70808,7 +73422,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 360 */
+/* 361 */
 /***/ function(module, exports) {
 
 	/**
@@ -70863,7 +73477,7 @@
 	module.exports = mapObject;
 
 /***/ },
-/* 361 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -70886,15 +73500,15 @@
 
 	'use strict';
 
-	var ReactCurrentOwner = __webpack_require__(347);
-	var ReactComponentTreeDevtool = __webpack_require__(362);
-	var ReactElement = __webpack_require__(346);
-	var ReactPropTypeLocations = __webpack_require__(355);
+	var ReactCurrentOwner = __webpack_require__(348);
+	var ReactComponentTreeDevtool = __webpack_require__(363);
+	var ReactElement = __webpack_require__(347);
+	var ReactPropTypeLocations = __webpack_require__(356);
 
-	var checkReactTypeSpec = __webpack_require__(363);
+	var checkReactTypeSpec = __webpack_require__(364);
 
-	var canDefineProperty = __webpack_require__(348);
-	var getIteratorFn = __webpack_require__(350);
+	var canDefineProperty = __webpack_require__(349);
+	var getIteratorFn = __webpack_require__(351);
 	var warning = __webpack_require__(12);
 
 	function getDeclarationErrorAddendum() {
@@ -71095,7 +73709,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 362 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -71111,9 +73725,9 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(345);
+	var _prodInvariant = __webpack_require__(346);
 
-	var ReactCurrentOwner = __webpack_require__(347);
+	var ReactCurrentOwner = __webpack_require__(348);
 
 	var invariant = __webpack_require__(9);
 	var warning = __webpack_require__(12);
@@ -71319,7 +73933,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 363 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -71335,9 +73949,9 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(345);
+	var _prodInvariant = __webpack_require__(346);
 
-	var ReactPropTypeLocationNames = __webpack_require__(357);
+	var ReactPropTypeLocationNames = __webpack_require__(358);
 
 	var invariant = __webpack_require__(9);
 	var warning = __webpack_require__(12);
@@ -71380,7 +73994,7 @@
 	        var componentStackInfo = '';
 
 	        if (process.env.NODE_ENV !== 'production') {
-	          var ReactComponentTreeDevtool = __webpack_require__(362);
+	          var ReactComponentTreeDevtool = __webpack_require__(363);
 	          if (debugID !== null) {
 	            componentStackInfo = ReactComponentTreeDevtool.getStackAddendumByID(debugID);
 	          } else if (element !== null) {
@@ -71398,7 +74012,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 364 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -71414,11 +74028,11 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(346);
-	var ReactPropTypeLocationNames = __webpack_require__(357);
+	var ReactElement = __webpack_require__(347);
+	var ReactPropTypeLocationNames = __webpack_require__(358);
 
 	var emptyFunction = __webpack_require__(13);
-	var getIteratorFn = __webpack_require__(350);
+	var getIteratorFn = __webpack_require__(351);
 
 	/**
 	 * Collection of methods that allow declaration and validation of props that are
@@ -71806,7 +74420,7 @@
 	module.exports = ReactPropTypes;
 
 /***/ },
-/* 365 */
+/* 366 */
 /***/ function(module, exports) {
 
 	/**
@@ -71825,7 +74439,7 @@
 	module.exports = '15.2.1';
 
 /***/ },
-/* 366 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -71840,9 +74454,9 @@
 	 */
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(345);
+	var _prodInvariant = __webpack_require__(346);
 
-	var ReactElement = __webpack_require__(346);
+	var ReactElement = __webpack_require__(347);
 
 	var invariant = __webpack_require__(9);
 
@@ -71869,7 +74483,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 367 */
+/* 368 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -71899,13 +74513,13 @@
 	};
 
 /***/ },
-/* 368 */
+/* 369 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 369 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(jQuery) {'use strict';
@@ -73247,7 +75861,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(225)))
 
 /***/ },
-/* 370 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73326,6 +75940,354 @@
 	    Retina.init(root);
 	  }
 	})();
+
+/***/ },
+/* 372 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(373);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(375)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../css-loader/index.js?root=.!./react-datepicker.css", function() {
+				var newContent = require("!!./../../css-loader/index.js?root=.!./react-datepicker.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 373 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(374)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".react-datepicker__tether-element-attached-top .react-datepicker__triangle, .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow {\n  margin-left: -8px;\n  position: absolute;\n}\n.react-datepicker__tether-element-attached-top .react-datepicker__triangle, .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow, .react-datepicker__tether-element-attached-top .react-datepicker__triangle::before, .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before {\n  box-sizing: content-box;\n  position: absolute;\n  border: 8px solid transparent;\n  height: 0;\n  width: 1px;\n}\n.react-datepicker__tether-element-attached-top .react-datepicker__triangle::before, .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before {\n  content: \"\";\n  z-index: -1;\n  border-width: 8px;\n  left: -8px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker__tether-element-attached-top .react-datepicker__triangle {\n  top: 0;\n  margin-top: -8px;\n}\n.react-datepicker__tether-element-attached-top .react-datepicker__triangle, .react-datepicker__tether-element-attached-top .react-datepicker__triangle::before {\n  border-top: none;\n  border-bottom-color: #f0f0f0;\n}\n.react-datepicker__tether-element-attached-top .react-datepicker__triangle::before {\n  top: -1px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker__tether-element-attached-bottom .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow {\n  bottom: 0;\n  margin-bottom: -8px;\n}\n.react-datepicker__tether-element-attached-bottom .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow, .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before {\n  border-bottom: none;\n  border-top-color: #fff;\n}\n.react-datepicker__tether-element-attached-bottom .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before {\n  bottom: -1px;\n  border-top-color: #aeaeae;\n}\n\n.react-datepicker {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 0.8rem;\n  background-color: #fff;\n  color: #000;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  display: inline-block;\n  position: relative;\n}\n\n.react-datepicker__triangle {\n  position: absolute;\n  left: 50px;\n}\n\n.react-datepicker__tether-element-attached-bottom.react-datepicker__tether-element {\n  margin-top: -20px;\n}\n\n.react-datepicker__header {\n  text-align: center;\n  background-color: #f0f0f0;\n  border-bottom: 1px solid #aeaeae;\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n  padding-top: 8px;\n  position: relative;\n}\n\n.react-datepicker__year-dropdown-container--select,\n.react-datepicker__month-dropdown-container--select,\n.react-datepicker__year-dropdown-container--scroll,\n.react-datepicker__month-dropdown-container--scroll {\n  display: inline-block;\n  margin: 0 2px;\n}\n\n.react-datepicker__current-month {\n  margin-top: 0;\n  color: #000;\n  font-weight: bold;\n  font-size: 0.944rem;\n}\n\n.react-datepicker__navigation {\n  line-height: 1.7rem;\n  text-align: center;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  width: 0;\n  border: 0.45rem solid transparent;\n  z-index: 1;\n}\n.react-datepicker__navigation--previous {\n  left: 10px;\n  border-right-color: #ccc;\n}\n.react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n.react-datepicker__navigation--next {\n  right: 10px;\n  border-left-color: #ccc;\n}\n.react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n.react-datepicker__navigation--years {\n  position: relative;\n  top: 0;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.react-datepicker__navigation--years-previous {\n  top: 4px;\n  border-top-color: #ccc;\n}\n.react-datepicker__navigation--years-previous:hover {\n  border-top-color: #b3b3b3;\n}\n.react-datepicker__navigation--years-upcoming {\n  top: -4px;\n  border-bottom-color: #ccc;\n}\n.react-datepicker__navigation--years-upcoming:hover {\n  border-bottom-color: #b3b3b3;\n}\n\n.react-datepicker__month-container {\n  display: inline;\n  float: left;\n}\n\n.react-datepicker__month {\n  margin: 0.4rem;\n  text-align: center;\n}\n\n.react-datepicker__week-number {\n  color: #ccc;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__day-name,\n.react-datepicker__day {\n  color: #000;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__day {\n  cursor: pointer;\n}\n.react-datepicker__day:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n.react-datepicker__day--today {\n  font-weight: bold;\n}\n.react-datepicker__day--highlighted {\n  border-radius: 0.3rem;\n  background-color: #3dcc4a;\n  color: #fff;\n}\n.react-datepicker__day--highlighted:hover {\n  background-color: #32be3f;\n}\n.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range {\n  border-radius: 0.3rem;\n  background-color: #216ba5;\n  color: #fff;\n}\n.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {\n  background-color: #1d5d90;\n}\n.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {\n  background-color: rgba(33, 107, 165, 0.5);\n}\n.react-datepicker__month--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range) {\n  background-color: #f0f0f0;\n  color: #000;\n}\n.react-datepicker__day--disabled {\n  cursor: default;\n  color: #ccc;\n}\n.react-datepicker__day--disabled:hover {\n  background-color: transparent;\n}\n\n.react-datepicker__input-container {\n  position: relative;\n  display: inline-block;\n}\n\n.react-datepicker__year-read-view,\n.react-datepicker__month-read-view {\n  border: 1px solid transparent;\n  border-radius: 0.3rem;\n}\n.react-datepicker__year-read-view:hover,\n.react-datepicker__month-read-view:hover {\n  cursor: pointer;\n}\n.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__year-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__month-read-view--down-arrow {\n  border-top-color: #b3b3b3;\n}\n.react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow {\n  border-top-color: #ccc;\n  float: right;\n  margin-left: 20px;\n  top: 8px;\n  position: relative;\n  border-width: 0.45rem;\n}\n\n.react-datepicker__year-dropdown,\n.react-datepicker__month-dropdown {\n  background-color: #f0f0f0;\n  position: absolute;\n  width: 50%;\n  left: 25%;\n  top: 30px;\n  text-align: center;\n  border-radius: 0.3rem;\n  border: 1px solid #aeaeae;\n}\n.react-datepicker__year-dropdown:hover,\n.react-datepicker__month-dropdown:hover {\n  cursor: pointer;\n}\n.react-datepicker__year-dropdown--scrollable,\n.react-datepicker__month-dropdown--scrollable {\n  height: 150px;\n  overflow-y: scroll;\n}\n\n.react-datepicker__year-option,\n.react-datepicker__month-option {\n  line-height: 20px;\n  width: 100%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.react-datepicker__year-option:first-of-type,\n.react-datepicker__month-option:first-of-type {\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n}\n.react-datepicker__year-option:last-of-type,\n.react-datepicker__month-option:last-of-type {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  border-bottom-left-radius: 0.3rem;\n  border-bottom-right-radius: 0.3rem;\n}\n.react-datepicker__year-option:hover,\n.react-datepicker__month-option:hover {\n  background-color: #ccc;\n}\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-upcoming {\n  border-bottom-color: #b3b3b3;\n}\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-previous {\n  border-top-color: #b3b3b3;\n}\n.react-datepicker__year-option--selected,\n.react-datepicker__month-option--selected {\n  position: absolute;\n  left: 15px;\n}\n\n.react-datepicker__close-icon {\n  background-color: transparent;\n  border: 0;\n  cursor: pointer;\n  display: inline-block;\n  height: 0;\n  outline: 0;\n  padding: 0;\n  vertical-align: middle;\n}\n.react-datepicker__close-icon::after {\n  background-color: #216ba5;\n  border-radius: 50%;\n  bottom: 0;\n  box-sizing: border-box;\n  color: #fff;\n  content: \"\\D7\";\n  cursor: pointer;\n  font-size: 12px;\n  height: 16px;\n  width: 16px;\n  line-height: 1;\n  margin: -8px auto 0;\n  padding: 2px;\n  position: absolute;\n  right: 7px;\n  text-align: center;\n  top: 50%;\n}\n\n.react-datepicker__today-button {\n  background: #f0f0f0;\n  border-top: 1px solid #aeaeae;\n  cursor: pointer;\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0;\n  clear: left;\n}\n\n.react-datepicker__tether-element {\n  z-index: 2147483647;\n}\n\n.react-datepicker__portal {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.8);\n  left: 0;\n  top: 0;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  z-index: 2147483647;\n}\n.react-datepicker__portal .react-datepicker__day-name,\n.react-datepicker__portal .react-datepicker__day {\n  width: 3rem;\n  line-height: 3rem;\n}\n@media (max-width: 400px), (max-height: 550px) {\n  .react-datepicker__portal .react-datepicker__day-name,\n  .react-datepicker__portal .react-datepicker__day {\n    width: 2rem;\n    line-height: 2rem;\n  }\n}\n.react-datepicker__portal .react-datepicker__current-month {\n  font-size: 1.44rem;\n}\n.react-datepicker__portal .react-datepicker__navigation {\n  border: 0.81rem solid transparent;\n}\n.react-datepicker__portal .react-datepicker__navigation--previous {\n  border-right-color: #ccc;\n}\n.react-datepicker__portal .react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n.react-datepicker__portal .react-datepicker__navigation--next {\n  border-left-color: #ccc;\n}\n.react-datepicker__portal .react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 374 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 375 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
 
 /***/ }
 /******/ ]);

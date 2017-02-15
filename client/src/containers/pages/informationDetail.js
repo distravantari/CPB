@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
+import Form from 'components_path/Form'
+// import DatePicker from 'react-datepicker'
+// import moment from 'moment'
+
 
 //redux
 import fetchFeature from 'app_path/actions/Feature'
@@ -16,7 +20,9 @@ class Trip extends React.Component{
 
   constructor(props) {
     super(props);
-    this.state = {}
+    // this.state = {
+    //     startDate: moment()
+    // }
   }
 
   componentDidMount(){}
@@ -25,11 +31,18 @@ class Trip extends React.Component{
     this.setState({})
   }
 
+//   handeDate(date) {
+//       this.setState({
+//           startDate: date
+//       })
+//   }
+
   render(){
     let detail = this.props.routes[1].path.split("-")[0]
     console.log('props ',this.props)
     let index = this.props.location.search.split('?')[1]
-    console.log('index ',index)
+    console.log('index dexxxxx',index)
+    let form = new Form()
     return(
       <div>
         <div className="main">
@@ -40,6 +53,10 @@ class Trip extends React.Component{
             </div>
             <div className="row">
               <Desc detail={ detail } trip={ this.props.trip.list[index].DETAIL } voucher={ this.props.voucher.list[index].DETAIL } />
+            </div>
+            <div className="row">
+                { form.decider(this.props.trip.list[index].FORM) }
+                <Form />
             </div>
           </div>
 
@@ -73,7 +90,6 @@ const Desc = ({ detail, voucher, trip }) => {
           </div>
       )
     }
-
 }
 
 const mapStateToProps = (state) => {

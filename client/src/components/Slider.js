@@ -17,19 +17,19 @@ class Slider extends React.Component{
   }
 
   // DEPRECATED
-  // renderNews(){
-  //   $('.news').bxSlider({
-	// 	  speed: 600,
-	// 	  touchEnabled: true,
-	// 	  nextSelector: ".breaking>.controls .next",
-	// 	  prevSelector: ".breaking>.controls .prev",
-	// 	  pager: false,
-	// 	  infiniteLoop: true,
-	// 	  adaptiveHeight: true,
-	// 	  auto: true,
-	// 	  pause: 4000
-	// 	});
-  // }
+  renderNews(){
+    $('.news').bxSlider({
+		  speed: 600,
+		  touchEnabled: true,
+		  nextSelector: ".breaking>.controls .next",
+		  prevSelector: ".breaking>.controls .prev",
+		  pager: false,
+		  infiniteLoop: true,
+		  adaptiveHeight: true,
+		  auto: true,
+		  pause: 4000
+		});
+  }
 
   renderSlider(){
     $('.post-slider .slides').bxSlider({
@@ -39,7 +39,7 @@ class Slider extends React.Component{
 		  infiniteLoop: true,
 		  nextSelector: ".post-slider .controls .next",
 		  prevSelector: ".post-slider .controls .prev",
-		  fadeText: true,
+		  fadeText: false,
 		  auto: true,
 		  pause: 4000
 		});
