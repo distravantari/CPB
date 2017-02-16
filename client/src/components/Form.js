@@ -170,14 +170,14 @@ class Form extends Component {
             sanurarea3: "",
             sinaraja3: "",
             tuban3: "",
-            tulamban3: "",
+            tulamben3: "",
             ubud3: "",
             uluwatu3: "",
             ungasan3: "",
             beachfront3: "",
             business3: "",
             golfcourse3: "",
-            kidsfarm3: "",
+            kidsfam3: "",
             nearthebeach3: "",
             nearmountain3: "",
             nearrestaurant3: "",
@@ -204,7 +204,6 @@ class Form extends Component {
     handleChange(e,key) {
         switch(key) {
             case 'name1':
-                console.log(key)
                 this.setState({
                     name1: e.target.value    
                 })
@@ -785,6 +784,353 @@ class Form extends Component {
                     remarks2: e.target.value   
                 })
                 break
+            case 'name3':
+                this.setState({
+                    name3: e.target.value    
+                })
+                break
+            case 'national3':
+                this.setState({
+                    national3: e.target.value    
+                })
+                break
+            case 'telp3':
+                this.setState({
+                    telp3: e.target.value    
+                })
+                break
+            case 'email3':
+                this.setState({
+                    email3: e.target.value    
+                })
+                break
+            case 'startdate3':
+                let startdate3 = e.split('T')[0]
+                this.setState({
+                    startdate3: startdate3  
+                })
+                break
+            case 'starttime3':
+                this.setState({
+                    starttime3: e.target.value    
+                })
+                break
+            case 'enddate3':
+                let enddate3 = e.split('T')[0]
+                this.setState({
+                    enddate3: enddate3    
+                })
+                break
+            case 'endtime3':
+                this.setState({
+                    endtime3: e.target.value    
+                })
+                break
+            case 'tentative3':
+                this.setState({
+                    tentative3: " *still tentative" 
+                })
+                break
+            case 'numroom3':
+                this.setState({
+                    numroom3: e.target.value    
+                })
+                break
+            case 'venue3':
+                this.setState({
+                    venue3: e.target.value    
+                })
+                break
+            case 'numad3':
+                this.setState({
+                    numad3: e.target.value    
+                })
+                break
+            case 'numkid3':
+                this.setState({
+                    numkid3: e.target.value    
+                })
+                break
+            case 'esti3':
+                this.setState({
+                    esti3: e.target.value    
+                })
+                break
+            case 'amed3':
+                this.setState({
+                    amed3: " Amed"    
+                })
+                break
+            case 'candi3':
+                this.setState({
+                    candi3: " Candidasa"  
+                })
+                break
+            case 'cangguarea3':
+                this.setState({
+                    cangguarea3: " Canggu area"
+                })
+                break
+            case 'canggubeach3':
+                this.setState({
+                    canggubeach3: " Canggu beach"    
+                })
+                break
+            case 'jimbaran3':
+                this.setState({
+                    jimbaran3: " Jimbaran"    
+                })
+                break
+            case 'karang3':
+                this.setState({
+                    karang3: " Karangasem"    
+                })
+                break
+            case 'kerobokan3':
+                this.setState({
+                    kerobokan3: " Kerobokan"    
+                })
+                break
+            case 'kids3':
+                this.setState({
+                    kids3: " Kids/Family Friendly"    
+                })
+                break
+            case 'kutaarea3':
+                this.setState({
+                    kutaarea3: " Kuta area"    
+                })
+                break
+            case 'kutabeach3':
+                this.setState({
+                    kutabeach3: " Kuta beach"    
+                })
+                break
+            case 'legianarea3':
+                this.setState({
+                    legianarea3: " Legian area"    
+                })
+                break
+            case 'legianbeach3':
+                this.setState({
+                    legianbeach3: " Legian beach"    
+                })
+                break
+            case 'lembongan3':
+                this.setState({
+                    lembongan3: " Lembongan"    
+                })
+                break
+            case 'lovinabeach3':
+                this.setState({
+                    lovinabeach3: " Lovina beach"    
+                })
+                break
+            case 'lovina3':
+                this.setState({
+                    lovina3: " Lovina"   
+                })
+                break
+            case 'menjangan3':
+                this.setState({
+                    menjangan3: " Menjangan"    
+                })
+                break
+            case 'nearbeach3':
+                this.setState({
+                    nearbeach3: " Near the beach"    
+                })
+                break
+            case 'nusadua3':
+                this.setState({
+                    nusadua3: " Nusadua beach"    
+                })
+                break
+            case 'petit3':
+                this.setState({
+                    petit3: " Petitenget"    
+                })
+                break
+            case 'seminyakbeach3':
+                this.setState({
+                    seminyakbeach3: " Seminyak beach"    
+                })
+                break
+            case 'seminyak3':
+                this.setState({
+                    seminyak3: " Seminyak"    
+                })
+                break
+            case 'tabanan3':
+                this.setState({
+                    tabanan3: " Tabanan"    
+                })
+                break
+            case 'tanjung3':
+                this.setState({
+                    tanjung3: " Tanjung Benoa"    
+                })
+                break
+            case 'sanurbeach3':
+                this.setState({
+                    sanurbeach3: " Sanur beach"    
+                })
+                break
+            case 'sanurarea3':
+                this.setState({
+                    sanurarea3: " Sanur area"    
+                })
+                break
+            case 'sinaraja3':
+                this.setState({
+                    sinaraja3: " Sinaraja"    
+                })
+                break
+            case 'tuban3':
+                this.setState({
+                    tuban3: " Tuban"    
+                })
+                break
+            case 'tulamben3':
+                this.setState({
+                    tulamben3: " Tulamben"    
+                })
+                break
+            case 'ubud3':
+                this.setState({
+                    ubud3: " Ubud"    
+                })
+                break
+            case 'uluwatu3':
+                this.setState({
+                    uluwatu3: " Uluwatu"    
+                })
+                break
+            case 'ungasan3':
+                this.setState({
+                    ungasan3: " Ungasan"    
+                })
+                break
+            case 'beachfront3':
+                this.setState({
+                    beachfront3: " Beachfront"    
+                })
+                break
+            case 'business3':
+                this.setState({
+                    business3: " Business facilities"    
+                })
+                break
+            case 'golfcourse3':
+                this.setState({
+                    golfcourse3: " Golf course"    
+                })
+                break
+            case 'kidsfam3':
+                this.setState({
+                    kidsfam3: " Kids/family friendly"    
+                })
+                break
+            case 'nearthebeach3':
+                this.setState({
+                    nearthebeach3: " Near the beach"    
+                })
+                break
+            case 'nearmountain3':
+                this.setState({
+                    nearmountain3: " Near mountain"    
+                })
+                break
+            case 'nearrestaurant3':
+                this.setState({
+                    nearrestaurant3: " Near restaurant"    
+                })
+                break
+            case 'heart3':
+                this.setState({
+                    heart3: " Heart of the city"    
+                })
+                break
+            case 'tranquil3':
+                this.setState({
+                    tranquil3: " Tranquil area"    
+                })
+                break
+            case 'nearnight3':
+                this.setState({
+                    nearnight3: " Near nightclub"    
+                })
+                break
+            case 'family3':
+                this.setState({
+                    family3: " Family room"    
+                })
+                break
+            case 'fitness3':
+                this.setState({
+                    fitness3: " Fitness centre"    
+                })
+                break
+            case 'pool3':
+                this.setState({
+                    pool3: " Pool"    
+                })
+                break
+            case 'private3':
+                this.setState({
+                    private3: " Private pool"    
+                })
+                break
+            case 'wifi3':
+                this.setState({
+                    wifi3: " WIFI"    
+                })
+                break
+            case 'nonsmoking3':
+                this.setState({
+                    nonsmoking3: " Non-smoking room"    
+                })
+                break
+            case 'smoking3':
+                this.setState({
+                    smoking3: " Smoking room"    
+                })
+                break
+            case 'spa3':
+                this.setState({
+                    spa3: " Spa & Wellness centre"    
+                })
+                break
+            case 'rest3':
+                this.setState({
+                    rest3: " Restaurant"    
+                })
+                break
+            case 'otherrequest3':
+                this.setState({
+                    otherrequest3: e.target.value    
+                })
+                break
+            case 'transporty3':
+                this.setState({
+                    transporty3: " yes, we need a transportation"    
+                })
+                break
+            case 'transportn3':
+                this.setState({
+                    transportn3: " no, we don't need transportation"    
+                })
+                break
+            case 'dettransport3':
+                this.setState({
+                    dettransport3: e.target.value    
+                })
+                break
+            case 'remarks3':
+                this.setState({
+                    remarks3: e.target.value    
+                })
+                break
         }
     }
 
@@ -804,15 +1150,15 @@ class Form extends Component {
     handleSubmit(e) {
         e.preventDefault()
         if(this.props.index==0) {
-            let message = "Name: " + this.state.name1 + ". Company name: " + this.state.compName1 + ". Telephone: " + this.state.telp1 + ". E-mail: " + this.state.email1 + ". Start date: " + this.state.startdate1 + ". Start time: "+ this.state.starttime1 + ". End date: " + this.state.enddate1 + ". End time: " + this.state.endtime1 + ". Event type: " + this.state.type1 + ". Guest gender of attendees: " + this.state.gender1 + ". Age profile of attendees: " + this.state.age1 + ". Special characteristics of attendees: " + this.state.character1 + ". Number of attendees: " + this.state.num1 + ". Managerial level of attendees: " + this.state.level1 + ". Theme: " + this.state.theme1 + ". Venue/hotel: " + this.state.venue + " stars. Number of adults: " + this.state.numad1 + ". Number of kids: " + this.state.numkid1 + ". Estimation accommodation budget (per-night, per-room: " + this.state.esti1 + ". Bedding type: " + this.state.bed1 + ". Hotel area: " + this.state.area1 + ". Hotel Facility: " + this.state.fac1 + ". Other request: " + this.state.otherrequest1 + this.state.meetingy1 + this.state.meetingn1 + ". Details for meeting: " + this.state.detmeeting1 + this.state.outingy1 + this.state.outingn1 + ". Details for outing: " + this.state.detouting1 + this.state.toursy1 + this.state.toursn1 + ". Details for tours: " + this.state.dettours1 + this.state.transporty1 + this.state.transportn1 + ". Details for transport: " + this.state.dettransport1 + this.state.eventy1 + this.state.eventn1 + ". Details for event: " + this.state.detevent1 + ". Talent or entertainment need: " + this.state.homeband1 + this.state.keyboardist1 + this.state.popband1 + this.state.openingdance1 + this.state.traddance1 + this.state.moddance1 + this.state.dj1 + this.state.mc1 + this.state.ushers1 + ". Other talent need: " + this.state.othertalent1 + ". Technical support need: " + this.state.sound1 + this.state.lighting1 + this.state.led1 + this.state.backdrop1 + this.state.projector1 + this.state.lcd1 + this.state.photo1 + this.state.video1 + this.state.digital1 + "Other technical support need: " + this.state.otherTech1 + ". Indicative budget: " + this.state.budget1 + ". Special remarks: " + this.state.remarks1
+            let message = "Name: " + this.state.name1 + ". Company name: " + this.state.compName1 + ". Telephone: " + this.state.telp1 + ". E-mail: " + this.state.email1 + ". Start date: " + this.state.startdate1 + ". Start time: "+ this.state.starttime1 + ". End date: " + this.state.enddate1 + ". End time: " + this.state.endtime1 + ". Event type: " + this.state.type1 + ". Guest gender of attendees: " + this.state.gender1 + ". Age profile of attendees: " + this.state.age1 + ". Special characteristics of attendees: " + this.state.character1 + ". Number of attendees: " + this.state.num1 + ". Managerial level of attendees: " + this.state.level1 + ". Theme: " + this.state.theme1 + ". Venue/hotel: " + this.state.venue + " stars. Number of adults: " + this.state.numad1 + ". Number of kids: " + this.state.numkid1 + ". Estimation accommodation budget (per-night, per-room: Rp." + this.state.esti1 + ". Bedding type: " + this.state.bed1 + ". Hotel area: " + this.state.area1 + ". Hotel Facility: " + this.state.fac1 + ". Other request: " + this.state.otherrequest1 + this.state.meetingy1 + this.state.meetingn1 + ". Details for meeting: " + this.state.detmeeting1 + this.state.outingy1 + this.state.outingn1 + ". Details for outing: " + this.state.detouting1 + this.state.toursy1 + this.state.toursn1 + ". Details for tours: " + this.state.dettours1 + this.state.transporty1 + this.state.transportn1 + ". Details for transport: " + this.state.dettransport1 + this.state.eventy1 + this.state.eventn1 + ". Details for event: " + this.state.detevent1 + ". Talent or entertainment need: " + this.state.homeband1 + this.state.keyboardist1 + this.state.popband1 + this.state.openingdance1 + this.state.traddance1 + this.state.moddance1 + this.state.dj1 + this.state.mc1 + this.state.ushers1 + ". Other talent need: " + this.state.othertalent1 + ". Technical support need: " + this.state.sound1 + this.state.lighting1 + this.state.led1 + this.state.backdrop1 + this.state.projector1 + this.state.lcd1 + this.state.photo1 + this.state.video1 + this.state.digital1 + "Other technical support need: " + this.state.otherTech1 + ". Indicative budget: " + this.state.budget1 + ". Special remarks: " + this.state.remarks1
             console.log("AKHIRNYA",message)
         }
         else if(this.props.index==1) {
-            let message = "Name: " + this.state.name2 + ". Nationality: " + this.state.national2 + ". Telephone: " + this.state.telp2 + ". E-mail: " + this.state.email2 + ". Start date: " + this.state.startdate2 + ". Start time: " + this.state.starttime2 + ". End date: " + this.state.enddate2 + ". End time: " + this.state.endtime2 + this.state.tentative2 + ". Event type: " + this.state.type2 + ". Venue/hotel: " + this.state.venue2 + ". Number of adults: " + this.state.numad2 + ". Number of kids: " + this.state.numkid2 + ". Estimation accommodation budget (per-night,per-room): " + this.state.esti2 + ". Bedding type: " + this.state.single2 + this.state.twinking2 + this.state.twinbed2 + this.state.triple2 + ". Hotel area: " + this.state.area2 + ". Hotel Preference: " + this.state.beachfront2 + this.state.business2 + this.state.golfcourse2 + this.state.kids2 + this.state.nearbeach2 + this.state.nearmountain2 + this.state.nearrestaurant2 + this.state.heart2 + this.state.tranquil2 + this.state.nearnight2 + ". Hotel facility: " + this.state.family2 + this.state.fitness2 + this.state.pool2 + this.state.private2 + this.state.wifi2 + this.state.nonsmoking2 + this.state.smoking2 + this.state.spa2 + this.state.rest2 + ". Other request: " + this.state.otherrequest2 + this.state.transporty2 + this.state.transportn2 + ". Transportation details: " + this.state.dettransport2 + this.state.toursy2 + this.state.toursy2 + ". Tours details: " + this.state.dettours2 + this.state.acty2 + this.state.acty2 + this.state.mealsy2 + this.state.mealsn2 + this.state.breakfast2 + this.state.half2 + this.state.full2 + ". Indicative budget: " + this.state.budget2 + ". Special remarks: " + this.state.remarks2
+            let message = "Name: " + this.state.name2 + ". Nationality: " + this.state.national2 + ". Telephone: " + this.state.telp2 + ". E-mail: " + this.state.email2 + ". Start date: " + this.state.startdate2 + ". Start time: " + this.state.starttime2 + ". End date: " + this.state.enddate2 + ". End time: " + this.state.endtime2 + this.state.tentative2 + ". Event type: " + this.state.type2 + ". Venue/hotel: " + this.state.venue2 + ". Number of adults: " + this.state.numad2 + ". Number of kids: " + this.state.numkid2 + ". Estimation accommodation budget (per-night,per-room): Rp." + this.state.esti2 + ". Bedding type: " + this.state.single2 + this.state.twinking2 + this.state.twinbed2 + this.state.triple2 + ". Hotel area: " + this.state.area2 + ". Hotel Preference: " + this.state.beachfront2 + this.state.business2 + this.state.golfcourse2 + this.state.kids2 + this.state.nearbeach2 + this.state.nearmountain2 + this.state.nearrestaurant2 + this.state.heart2 + this.state.tranquil2 + this.state.nearnight2 + ". Hotel facility: " + this.state.family2 + this.state.fitness2 + this.state.pool2 + this.state.private2 + this.state.wifi2 + this.state.nonsmoking2 + this.state.smoking2 + this.state.spa2 + this.state.rest2 + ". Other request: " + this.state.otherrequest2 + this.state.transporty2 + this.state.transportn2 + ". Transportation details: " + this.state.dettransport2 + this.state.toursy2 + this.state.toursy2 + ". Tours details: " + this.state.dettours2 + this.state.acty2 + this.state.acty2 + this.state.mealsy2 + this.state.mealsn2 + this.state.breakfast2 + this.state.half2 + this.state.full2 + ". Indicative budget: " + this.state.budget2 + ". Special remarks: " + this.state.remarks2
             console.log("HEHEHE",message)
         }
         else if(this.props.index==2) {
-            let message = "Name: "
+            let message = "Name: " + this.state.name3 + ". Nationality: " + this.state.national3 + ". Telephone: " + this.state.telp3 + ". E-mail: " + this.state.email3 + ". Start date: " + this.state.startdate3 + ". Start time: " + this.state.starttime3 + ". End date: " + this.state.enddate3 + ". End time: " + this.state.endtime3 + this.state.tentative3 + ". Number of rooms: " + this.state.numroom3 + ". Venue/Hotel: " + this.state.venue3 + ". Number of adult: " + this.state.numad3 + ". Number of kids: " + this.state.numkid3 + ". Estimation accommodation budget (per-night,per-room): Rp." + this.state.esti3 + ". Hotel area: " + this.state.amed3 + this.state.candi3 + this.state.cangguarea3 + this.state.canggubeach3 + this.state.jimbaran3 + this.state.karang3 + this.state.kerobokan3 + this.state.kids3 + this.state.kutaarea3 + this.state.kutabeach3 + this.state.legianarea3 + this.state.legianbeach3 + this.state.lembongan3 + this.state.lovinabeach3 + this.state.lovina3 + this.state.menjangan3 + this.state.nearbeach3 + this.state.nusadua3 + this.state.petit3 + this.state.seminyakbeach3 + this.state.seminyak3 + this.state.tabanan3 + this.state.tanjung3 + this.state.sanurbeach3 + this.state.sanurarea3 + this.state.sinaraja3 + this.state.tuban3 + this.state.tulamben3 + this.state.ubud3 + this.state.uluwatu3 + this.state.ungasan3 + ". Hotel preference: " + this.state.beachfront3 + this.state.business3 + this.state.golfcourse3 + this.state.kidsfam3 + this.state.nearthebeach3 + this.state.nearmountain3 + this.state.nearrestaurant3 + this.state.heart3 + this.state.tranquil3 + this.state.nearnight3 + ". Hotel facility: " + this.state.family3 + this.state.fitness3 + this.state.pool3 + this.state.private3 + this.state.wifi3 + this.state.nonsmoking3 + this.state.smoking3 + this.state.spa3 + this.state.rest3 + ". Other request: " + this.state.otherrequest3 + this.state.transporty3 + this.state.transportn3 + ". Details for transport: " + this.state.dettransport3 + ". Special remarks: " + this.state.remarks3
             console.log("hihihhiihihhihhihihh",message)
         }
         
@@ -918,7 +1264,7 @@ class Form extends Component {
                             <input type="number" className="form-control" value={this.state.numkid1} onChange={(e) => this.handleChange(e,'numkid1')} id="numkid" />
                         </div>
                         <div className="form-group">
-                            <label for="esti">Estimation accommodation budget (per-night, per-room) :</label>
+                            <label for="esti">Estimation accommodation budget (per-night, per-room) in IDR :</label>
                             <input type="number" className="form-control" value={this.state.esti1} onChange={(e) => this.handleChange(e,'esti1')} id="esti" />
                         </div>
                         <h5>REQUEST :</h5>
@@ -1173,7 +1519,7 @@ class Form extends Component {
                             <input type="number" className="form-control" value={this.state.numkid2} onChange={(e) => this.handleChange(e,'numkid2')} id="phone" />
                         </div>
                         <div className="form-group">
-                            <label for="email">Estimation accommodation budget (per-night, per-room) :</label>
+                            <label for="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
                             <input type="number" className="form-control" value={this.state.esti2} onChange={(e) => this.handleChange(e,'esti2')} id="email" />
                         </div>
                         <h5>REQUEST :</h5>
@@ -1391,7 +1737,7 @@ class Form extends Component {
                         </div>
                         <div className="form-group">
                             <label for="phone">Number of Rooms :</label>
-                            <input type="number" className="form-control" value={this.state.numroom3} onChange={(e) => this.handleChange(e,'numroom3')}  id="phone" required/>
+                            <input type="number" className="form-control" value={this.state.numroom3} onChange={(e) => this.handleChange(e,'numroom3')}  id="phone" />
                         </div>
                     </div>
                     <br/>
@@ -1411,15 +1757,15 @@ class Form extends Component {
                         </div>
                         <div className="form-group">
                             <label for="comp-name">Number of Adult :</label>
-                            <input type="text" className="form-control" value={this.state.numad3} onChange={(e) => this.handleChange(e,'numad3')} id="comp-name" required/>
+                            <input type="number" className="form-control" value={this.state.numad3} onChange={(e) => this.handleChange(e,'numad3')} id="comp-name" />
                         </div>
                         <div className="form-group">
                             <label for="phone">Number of Kids (if there are any) : </label>
-                            <input type="number" className="form-control" value={this.state.numkid3} onChange={(e) => this.handleChange(e,'numkid3')} id="phone" required/>
+                            <input type="number" className="form-control" value={this.state.numkid3} onChange={(e) => this.handleChange(e,'numkid3')} id="phone" />
                         </div>
                         <div className="form-group">
-                            <label for="email">Estimation accommodation budget (per-night, per-room) :</label>
-                            <input type="email" className="form-control" value={this.state.esti3} onChange={(e) => this.handleChange(e,'esti3')} id="email" required/>
+                            <label for="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
+                            <input type="number" className="form-control" value={this.state.esti3} onChange={(e) => this.handleChange(e,'esti3')} id="email" />
                         </div>
                         <h5>REQUEST :</h5>
                         <div className="form-section">
@@ -1507,7 +1853,7 @@ class Form extends Component {
                                     <label><input type="checkbox" value={this.state.tuban3} onChange={(e) => this.handleChange(e,'tuban3')}/>Tuban</label>
                                 </div>
                                 <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.tulamban3} onChange={(e) => this.handleChange(e,'tulamban3')}/>Tulamben</label>
+                                    <label><input type="checkbox" value={this.state.tulamben3} onChange={(e) => this.handleChange(e,'tulamben3')}/>Tulamben</label>
                                 </div>
                                 <div className="checkbox">
                                     <label><input type="checkbox" value={this.state.ubud3} onChange={(e) => this.handleChange(e,'ubud3')}/>Ubud</label>
@@ -1584,30 +1930,30 @@ class Form extends Component {
                             </div>
                             <div className="form-group">
                                 <label for="email">Others :</label>
-                                <input type="email" className="form-control" value={this.state.otherrequest3} onChange={(e) => this.handleChange(e,'otherrequest3')} id="email" required/>
+                                <input type="text" className="form-control" value={this.state.otherrequest3} onChange={(e) => this.handleChange(e,'otherrequest3')} id="email" />
                             </div>
                         </div>    
                     </div>
                     <br/>
                     <div className="form-group">
                         <label for="name">TRANPORTATION :</label>
-                        <div className="checkbox-inline">
-                            <label><input type="checkbox" value={this.state.transporty3} onChange={(e) => this.handleChange(e,'transporty3')}/>Yes</label>
+                        <div className="radio-inline">
+                            <label><input name="transport3" type="radio" value={this.state.transporty3} onChange={(e) => this.handleChange(e,'transporty3')}/>Yes</label>
                         </div>
-                        <div className="checkbox-inline">
-                            <label><input type="checkbox" value={this.state.transportn3} onChange={(e) => this.handleChange(e,'transportn3')}/>No</label>
+                        <div className="radio-inline">
+                            <label><input name="transport3" type="radio" value={this.state.transportn3} onChange={(e) => this.handleChange(e,'transportn3')}/>No</label>
                         </div>
                     </div>
                     <div className="form-group">
                         <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.dettransport3} onChange={(e) => this.handleChange(e,'dettransport3')} id="comp-name" required/>
+                        <input type="text" className="form-control" value={this.state.dettransport3} onChange={(e) => this.handleChange(e,'dettransport3')} id="comp-name" />
                     </div>
                     <div className="form-group">
                         <label for="email">Special Remarks :</label>
-                        <input type="email" className="form-control" value={this.state.remarks3} onChange={(e) => this.handleChange(e,'remarks3')} id="email" required/>
+                        <input type="text" className="form-control" value={this.state.remarks3} onChange={(e) => this.handleChange(e,'remarks3')} id="email" />
                     </div>
                     <br/>
-                    <button type="submit" className="btn btn-default">Submit</button>
+                    <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
                 </form>
             </div>
         )
