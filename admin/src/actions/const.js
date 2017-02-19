@@ -11,3 +11,14 @@ export const routes = [
     "Trip",
     "Form"
 ]
+
+export const authentication = {
+  username : "balizee",
+  password : "damn5hitfuck5ake"
+}
+
+const draganddropstyle = {
+  width: '200px',
+  height: '200px',
+  border: 'dashed 2px rgb(102, 102, 102)'
+}

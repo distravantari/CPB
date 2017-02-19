@@ -13,7 +13,7 @@ import * as constant from 'app_path/actions/const'
 import { ContactDetail, GetInTouch } from 'app_path/containers/pages/contact'
 
 class Content extends React.Component{
-  constructor(props,context){
+  constructor(props, context){
     super(props)
     context.router
   }
@@ -52,13 +52,6 @@ const Vouchers = ({ vouchers, url }) => {
                   <div className="overlay"></div>
                 </div>
                 <div className="info">
-                  <p className="tags">
-
-                    { list.TAGS.map((tag, idx) => (
-                      <a key={ idx } > { tag } </a>
-                    )) }
-
-                  </p>
                   <h1><Link to={ `${list.URL}` }> { list.TITTLE } </Link></h1>
                   <p className="details"> {list.DATE} <a> {list.CREATEDBY} </a></p>
                   <p className="text">
@@ -66,14 +59,6 @@ const Vouchers = ({ vouchers, url }) => {
                   </p>
 
                 </div>
-                <ul className="counters list-inline">
-                  <li>
-                    <a ><i className="fa fa-comment"></i> {list.NOTIFICATION.COMMENT} </a>
-                  </li>
-                  <li>
-                    <a ><i className="fa fa-heart"></i> {list.NOTIFICATION.LIKES} </a>
-                  </li>
-                </ul>
               </article>
             ))}
 

@@ -47,7 +47,7 @@ class Index extends React.Component{
 
  }
 
-export const Main = ( {contact, map, addToMail} ) => {
+const Main = ( {contact, map, addToMail} ) => {
     return (
         <div className="main">
             <div className="row">
@@ -108,7 +108,7 @@ export const ContactDetail = ({ contact }) => {
   )
 }
 
-class GetInTouch extends React.Component {
+export class GetInTouch extends React.Component {
     constructor(props,context){
       super(props)
       context.router
