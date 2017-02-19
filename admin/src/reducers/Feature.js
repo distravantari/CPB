@@ -6,7 +6,8 @@ const initialState = {
   contact: {},
   packets: {},
   slider:{},
-  vouchers:{}
+  vouchers:{},
+  news:{}
 }
 
 const receiveFeature = (state = initialState, action) => {
@@ -18,7 +19,8 @@ const receiveFeature = (state = initialState, action) => {
         contact: _.filter(result.response, ['key', 'contact']),
         packets: _.filter(result.response, ['key', 'packets']),
         slider: _.filter(result.response, ['key', 'slider']),
-        vouchers: _.filter(result.response, ['key', 'vouchers'])
+        vouchers: _.filter(result.response, ['key', 'vouchers']),
+        news: _.filter(result.response, ['key', 'news'])
       })
     }
   }

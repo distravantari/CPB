@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import _ from 'lodash'
 import Dropzone from 'react-dropzone'
 
-import fetchFeature, { editSlider, addSlider, editVouchers, addVouchers } from '../../actions/Feature'
+import fetchFeature, { editSlider, addSlider, editVouchers, addVouchers, addNews, editNews } from '../../actions/Feature'
 import fetchSocial, { editSocial } from '../../actions/Social'
 import { updateImage } from '../../actions/UploadImage'
 
@@ -37,9 +37,10 @@ class Home extends React.Component{
           <div className="clearfix"></div>
 
           <div className="row">
-            <Slider slider = {this.props.slider} editSlider = {this.props.editSlider} addSlider = {this.props.addSlider} updateImage={ this.props.updateImage }/>
-            <Social social = {this.props.social} editSocial={this.props.editSocial}/>
-            <Voucher vouchers = {this.props.vouchers} editVouchers={this.props.editVouchers} addVouchers={this.props.addVouchers} updateImage={ this.props.updateImage}/>
+            <News news = {this.props.news} editNews={this.props.editNews} addNews={this.props.addNews} />
+            <Slider slider = {this.props.slider} editSlider = {this.props.editSlider} addSlider = {this.props.addSlider} updateImage={ this.props.updateImage } />
+            <Social social = {this.props.social} editSocial={this.props.editSocial} />
+            <Voucher vouchers = {this.props.vouchers} editVouchers={this.props.editVouchers} addVouchers={this.props.addVouchers} updateImage={ this.props.updateImage} />
           </div>
         </div>
       </div>
@@ -47,55 +48,143 @@ class Home extends React.Component{
   }
 }
 
-const News = () => {
-  return(
+class News extends React.Component {
+  constructor(props, context){
+    super(props)
+    context.router
+    this.state = {
+      TEXT : '',
+    }
+  }
+
+  editNews(val, index){
+    let text = this.state.TEXT
+
+    if(!text) text = _.values(this.props.vouchers)[index].TEXT
+
+    const news = {
+      IMPORTANT : text,
+    }
+
+    this.props.editNews(`list/${index}`, news)
+    .then(() => {
+       alert('success, changed content saved')
+    })
+    .catch(() => {
+       alert('fail, changed content cannot be saved')
+    })
+  }
+
+  addNews(val){
+    val.preventDefault()
+    const newNews = {
+      IMPORTANT : this.newTextRef.value,
+    }
+
+    this.props.addNews(this.props.news.length, newNews)
+    .then(() => {
+      alert('success, new content saved')
+      this.newTextRef.value = ''
+    })
+    .catch(() => {
+       alert('fail, new content cannot be saved')
+    })
+  }
+
+  handleChange(val, key){
+    val.preventDefault()
+    if(key == `text`){
+      this.setState({
+        TEXT: val.target.value
+      })
+    }else {
+      this.setState({
+        TITTLE: val.target.value
+      })
+    }
+  }
+
+  render(){
+    return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
           <div className="x_title">
-            <h2>News <small>Click to validate</small></h2>
-            <ul className="nav navbar-right panel_toolbox">
-              <li><a className="collapse-link"><i className="fa fa-chevron-up"></i></a>
-              </li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i className="fa fa-wrench"></i></a>
-                <ul className="dropdown-menu" role="menu">
-                  <li><a href="#">Settings 1</a>
-                  </li>
-                  <li><a href="#">Settings 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a className="close-link"><i className="fa fa-close"></i></a>
-              </li>
-            </ul>
+            <h2>NEWS</h2>
             <div className="clearfix"></div>
           </div>
-
           <div className="x_content">
+            <div id="alerts"></div>
 
-            <form id="demo-form" data-parsley-validate>
+            <div className="" role="tabpanel" data-example-id="togglable-tabs">
+              <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
+                { _.values(this.props.news).map((news, index) => (
+                      <li key={index} role="presentation" className={ index == 0 ? 'active':''}>
+                        <a href={`#tab_news${index+1}`} role="tab" data-toggle="tab" aria-expanded={index == 0 ? 'true' : 'false'}>
+                          {`News${index+1}`}
+                        </a>
+                      </li>
+                  ))
+                }
+                <li role="presentation" className=''>
+                  <a href='#tab_newnews' role="tab" data-toggle="tab" aria-expanded='false'><span className='fa fa-plus'></span></a>
+                </li>
+              </ul>
 
-              <label for="heard">IMPORTANT Message</label>
-              <select id="heard" className="form-control" required>
-                <option value="">Choose..</option>
-                <option value="press">HOT!</option>
-                <option value="net">CLICK HERE!</option>
-                <option value="mouth">CHECK THIS OUT</option>
-              </select>
+              <div id="myTabContent" className="tab-content">
+                {
+                  _.values(this.props.news).map((news, index) => {
+                    return (
+                      <div key={index} role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_news${index+1}`} aria-labelledby="home-tab">
 
-              <label for="message">News Text (20 chars min, 100 max) :</label>
-              <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                data-parsley-validation-threshold="10"></textarea>
+                        <div className="col-md-7 col-sm-7 col-xs-12">
+                          <form className="form-horizontal form-label-left">
 
-              <br/>
-              <button type="submit" className="btn btn-success">Edit</button>
-              <span className="btn btn-primary">Add</span>
+                            <div className="form-group">
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100"
+                                  data-parsley-validation-threshold="10" style={{height:"130px"}} defaultValue={_.values(this.props.news)[index].IMPORTANT} onChange={(ref) => this.handleChange(ref, `text`)}></textarea>
+                              </div>
+                            </div>
 
-            </form>
+                            <div className="form-group">
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <button type="submit" className="btn btn-success"onClick={(val) => this.editNews(val, index)}>Edit</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
+                <div role="tabpanel" className='tab-pane fade' id='tab_newnews' aria-labelledby="home-tab">
+
+                  <div className="col-md-7 col-sm-7 col-xs-12">
+                    <form className="form-horizontal form-label-left">
+
+                      <div className="form-group">
+                        <div className="col-md-9 col-sm-9 col-xs-12">
+                          <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100"
+                            data-parsley-validation-threshold="10" style={{height:"130px"}} defaultValue='' ref={(ref) => this.newTextRef = ref} ></textarea>
+                        </div>
+                      </div>
+
+                      <div className="form-group">
+                        <div className="col-md-9 col-sm-9 col-xs-12">
+                          <button type="" className="btn btn-primary" onClick={(val) => this.addNews(val)}>Add</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
   )
+  }
 }
 
 class Slider extends React.Component {
@@ -400,6 +489,7 @@ class Slider extends React.Component {
 
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -747,7 +837,8 @@ const mapsStateToProps = (state) => {
     return{
       slider : state.feature.slider[0].big.list,
       social : state.social,
-      vouchers : state.feature.vouchers[0].list
+      vouchers : state.feature.vouchers[0].list,
+      news : state.feature.news[0].list
     }
   }else return{}
 }
@@ -761,6 +852,8 @@ const mapsDispatchToProps = (dispatch) => {
     addSlider: (index, data) => addSlider(index, data),
     editVouchers: (key, data) => editVouchers(key, data),
     addVouchers: (index, data) => addVouchers(index, data),
+    editNews: (key, data) => editNews(key, data),
+    addNews: (index, data) => addNews(index, data),
     updateImage: (data) => updateImage(data)
   }
 }
