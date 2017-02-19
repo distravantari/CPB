@@ -47,11 +47,12 @@ class Slider extends React.Component{
 
   render(){
     if(!this.props.slider) return (<h1> Loading ... </h1>)
+    console.log("keluar kek",this.props.slider.list[0])
     return (
       <div className="col-md-12 col-sm-12">
 
         {/*DEPRECATED*/}
-        {/*<News news={ this.props.news.list } />*/}
+        {<News news={ this.props.news.list } />}
 
         <BigSlider big_slider={ this.props.slider.list } />
 
@@ -65,33 +66,33 @@ class Slider extends React.Component{
 // COMPONENTS
 
 // DEPRECATED
-// const News = ({ news }) => {
-//   if(!news) return (<h1>loading ..</h1>)
-//   return (
-//     <div className="row">
-//         <div className="breaking col-md-12 col-sm-12">
-//           <div className="controls">
-//             <p className="prev"><i className="fa fa-angle-left"></i></p>
-//             <p className="next"><i className="fa fa-angle-right"></i></p>
-//           </div>
-//
-//           <ul className="news">
-//
-//             { news.map((list, index) => (
-//
-//               <li key={index} >
-//                 <span> { list.IMPORTANT } </span>
-//
-//               </li>
-//
-//             ))}
-//
-//           </ul>
-//
-//         </div>
-//       </div>
-//   )
-// }
+const News = ({ news }) => {
+  if(!news) return (<h1>loading ..</h1>)
+  return (
+    <div className="row">
+        <div className="breaking col-md-12 col-sm-12">
+          <div className="controls">
+            <p className="prev"><i className="fa fa-angle-left"></i></p>
+            <p className="next"><i className="fa fa-angle-right"></i></p>
+          </div>
+
+          <ul className="news">
+
+            { news.map((list, index) => (
+
+              <li key={index} >
+                <span> { list.IMPORTANT } </span>
+
+              </li>
+
+            ))}
+
+          </ul>
+
+        </div>
+      </div>
+  )
+}
 
 const BigSlider = ({ big_slider }) => {
   return (
@@ -122,14 +123,6 @@ const BigSlider = ({ big_slider }) => {
                   </p>
                   <p className="details"> { list.DATE } <a> { list.CREATE } </a></p>
                 </div>
-                <ul className="counters list-inline">
-                  <li>
-                    <a><i className="fa fa-comment"></i> { list.COMMENT } </a>
-                  </li>
-                  <li>
-                    <a><i className="fa fa-heart"></i> { list.LIKE } </a>
-                  </li>
-                </ul>
               </article>
           ))}
 
@@ -143,7 +136,8 @@ const BigSlider = ({ big_slider }) => {
 const mapStateToProps = (state) => {
     if(state.feature.slider[0]){
       return {
-          slider: state.feature.slider[0].big
+          slider: state.feature.slider[0].big,
+          news: state.feature.news[0]
       }
     }else return {}
 }

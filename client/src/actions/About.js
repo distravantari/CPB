@@ -22,4 +22,4 @@ let receiveAbout = (response) => {
             response
         }
     }
-}
+} 

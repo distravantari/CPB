@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "production": "webpack -p",
-    "start": "webpack-dev-server --content-base www/"
+    "start": "webpack-dev-server --port 3010 --content-base www/ "
   },
-  "author": "Distra Vantari & Michael Theodore",
+  "author": "Distra Vantari, Nancy Valentina, Renaldy",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",

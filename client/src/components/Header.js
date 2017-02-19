@@ -11,8 +11,7 @@ class Header extends React.Component{
     return (
 
       <header>
-        <div className="container">
-          <a href="" className="logo"><img src={ this.props.logo.IMG } alt="logo" /></a>
+        <div className="container" style ={ { backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/headerbalizee.jpg?alt=media&token=ee7365d0-fc7a-4e59-9d99-a5993d420e09')" } }>
           <nav className="clearfix">
             <a href="" id="header-menu-button"><i className="fa fa-bars"></i></a>
             <ul className="list-inline">
