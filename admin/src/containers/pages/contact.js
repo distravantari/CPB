@@ -55,8 +55,12 @@ class ContactDetail extends React.Component{
     const contact = {
       ADDRESS : [this.addressRef.value,""],
       EMAIL : [this.emailRef.value,this.altEmailRef.value],
-      FACEBOOK : [this.facebookRef.value,this.altFacebookRef.value],
-      PHONE : [this.phoneRef.value,this.altPhoneRef.value]
+      FACEBOOK : [this.facebookRef.value],
+      PHONE : [this.phoneRef.value],
+      BBM: this.bbmRef.value,
+      FAX: this.faxRef.value,
+      LINE: this.lineRef.value,
+      WHATSAPP: [this.whatssappRef.value]
     }
 
     this.props.editMaps(maps)
@@ -104,14 +108,7 @@ class ContactDetail extends React.Component{
                   <div className="form-group">
                     <label className="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
                     <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Phone Number" defaultValue={ this.props.contact.PHONE[0] } ref={(ref) => this.phoneRef = ref}/>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Alternative Phone Number</label>
-                    <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Alternative Phone Number" defaultValue={ this.props.contact.PHONE[1] } ref={(ref) => this.altPhoneRef = ref}/>
+                      <input type="text" className="form-control" placeholder="Phone Number" defaultValue={ this.props.contact.PHONE } ref={(ref) => this.phoneRef = ref}/>
                     </div>
                   </div>
 
@@ -137,9 +134,30 @@ class ContactDetail extends React.Component{
                   </div>
 
                   <div className="form-group">
-                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Alternative Facebook</label>
+                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Whatssapp</label>
                     <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Alternative Facebook" defaultValue={ this.props.contact.FACEBOOK[1] }  ref={(ref) => this.altFacebookRef = ref}/>
+                      <input type="text" className="form-control" placeholder="Alternative Facebook" defaultValue={ this.props.contact.WHATSAPP }  ref={(ref) => this.whatssappRef = ref}/>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="control-label col-md-3 col-sm-3 col-xs-12">BBM</label>
+                    <div className="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" className="form-control" placeholder="Alternative Facebook" defaultValue={ this.props.contact.BBM }  ref={(ref) => this.bbmRef = ref}/>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Fax</label>
+                    <div className="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" className="form-control" placeholder="Alternative Facebook" defaultValue={ this.props.contact.FAX }  ref={(ref) => this.faxRef = ref}/>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Line</label>
+                    <div className="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" className="form-control" placeholder="Alternative Facebook" defaultValue={ this.props.contact.LINE }  ref={(ref) => this.lineRef = ref}/>
                     </div>
                   </div>
 
