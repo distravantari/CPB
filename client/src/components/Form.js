@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Datepicker from './Datepicker'
+import receiveForm from '../actions/Form'
+import { connect } from 'react-redux'
 
 class Form extends Component {
 
@@ -399,47 +401,47 @@ class Form extends Component {
                 break
             case 'homeband1':
                 this.setState({
-                    homeband1: " Home band"    
+                    homeband1: " Home band/n"    
                 })
                 break
             case 'keyboardist1':
                 this.setState({
-                    keyboardist1: " Keyboardist + Singer"    
+                    keyboardist1: " Keyboardist + Singer/n"    
                 })
                 break
             case 'popband1':
                 this.setState({
-                    popband1: " Pop band"    
+                    popband1: " Pop band\n"    
                 })
                 break
             case 'openingdance1':
                 this.setState({
-                    openingdance1: " Opening dance"    
+                    openingdance1: " Opening dance\n"    
                 })
                 break
             case 'traddance1':
                 this.setState({
-                    traddance1: " Tradiotional dance"    
+                    traddance1: " Tradiotional dance\n"    
                 })
                 break
             case 'moddance1':
                 this.setState({
-                    moddance1: " Modern dance"    
+                    moddance1: " Modern dance\n"    
                 })
                 break
             case 'dj1':
                 this.setState({
-                    dj1: " DJ"    
+                    dj1: " DJ\n"    
                 })
                 break
             case 'mc1':
                 this.setState({
-                    mc1: " MC"    
+                    mc1: " MC\n"    
                 })
                 break
             case 'ushers1':
                 this.setState({
-                    ushers1: " Ushers"    
+                    ushers1: " Ushers\n"    
                 })
                 break
             case 'othertalent1':
@@ -449,47 +451,47 @@ class Form extends Component {
                 break
             case 'sound1':
                 this.setState({
-                    sound1: " Sound"    
+                    sound1: " Sound\n"    
                 })
                 break
             case 'lighting1':
                 this.setState({
-                    lighting1: " Lighting"    
+                    lighting1: " Lighting\n"    
                 })
                 break
             case 'led1':
                 this.setState({
-                    led1: " LED backdrop"    
+                    led1: " LED backdrop\n"    
                 })
                 break
             case 'backdrop1':
                 this.setState({
-                    backdrop1: " 3D backdrop"    
+                    backdrop1: " 3D backdrop\n"    
                 })
                 break
             case 'projector1':
                 this.setState({
-                    projector1: " Projector"    
+                    projector1: " Projector\n"    
                 })
                 break
             case 'lcd1':
                 this.setState({
-                    lcd1: " LCD/PlasmaTV"    
+                    lcd1: " LCD/PlasmaTV\n"    
                 })
                 break
             case 'photo1':
                 this.setState({
-                    photo1: " Photography"    
+                    photo1: " Photography\n"    
                 })
                 break
             case 'video1':
                 this.setState({
-                    video1: " Videography"    
+                    video1: " Videography\n"    
                 })
                 break
             case 'digital1':
                 this.setState({
-                    digital1: " Digital printing backdrop"    
+                    digital1: " Digital printing backdrop\n"    
                 })
                 break
             case 'otherTech1':
@@ -581,22 +583,22 @@ class Form extends Component {
                 break
             case 'single2':
                 this.setState({
-                    single2: "Single Occupancy (King/Queensize) "    
+                    single2: " Single Occupancy (King/Queensize)\n"    
                 })
                 break
             case 'twinking2':
                 this.setState({
-                    twinking2: "Twin Sharing (King/Queensize) "    
+                    twinking2: " Twin Sharing (King/Queensize)\n"    
                 })
                 break
             case 'twinbed2':
                 this.setState({
-                    twinbed2: "Twin Sharing (Twin bed) "    
+                    twinbed2: " Twin Sharing (Twin bed)\n"    
                 })
                 break
             case 'triple2':
                 this.setState({
-                    triple2: "Triple Sharing (add extrabed) "    
+                    triple2: " Triple Sharing (add extrabed)\n"    
                 })
                 break
             case 'area2':
@@ -606,97 +608,97 @@ class Form extends Component {
                 break
             case 'beachfront2':
                 this.setState({
-                    beachfront2: "Beachfront "    
+                    beachfront2: " Beachfront\n"    
                 })
                 break
             case 'business2':
                 this.setState({
-                    business2: "Business facilities "    
+                    business2: " Business facilities\n"    
                 })
                 break
             case 'golfcourse2':
                 this.setState({
-                    golfcourse2: "Golf course "    
+                    golfcourse2: " Golf course\n"    
                 })
                 break
             case 'kids2':
                 this.setState({
-                    kids2: "Kids/Family Friendly "    
+                    kids2: " Kids/Family Friendly\n"    
                 })
                 break
             case 'nearbeach2':
                 this.setState({
-                    nearbeach2: "Near The Beach "    
+                    nearbeach2: " Near The Beach\n"    
                 })
                 break
             case 'nearmountain2':
                 this.setState({
-                    nearmountain2: "Near Mountain "    
+                    nearmountain2: " Near Mountain\n"    
                 })
                 break
             case 'nearrestaurant':
                 this.setState({
-                    nearrestaurant2: "Near Restaurant "  
+                    nearrestaurant2: " Near Restaurant\n"  
                 })
                 break
             case 'heart2':
                 this.setState({
-                    heart2: "Heart of the City "    
+                    heart2: " Heart of the City\n"    
                 })
                 break
             case 'tranquil2':
                 this.setState({
-                    tranquil2: "Tranquil Area "    
+                    tranquil2: " Tranquil Area\n"    
                 })
                 break
             case 'nearnight21':
                 this.setState({
-                    nearnight2: "Near nightclub "    
+                    nearnight2: " Near nightclub\n"    
                 })
                 break
             case 'family2':
                 this.setState({
-                    family2: "Family room "    
+                    family2: " Family room\n"    
                 })
                 break
             case 'fitness2':
                 this.setState({
-                    fitness2: "Fitness centre "    
+                    fitness2: " Fitness centre\n"    
                 })
                 break
             case 'pool2':
                 this.setState({
-                    pool2: "Pool "    
+                    pool2: " Pool\n"    
                 })
                 break
             case 'private2':
                 this.setState({
-                    private2: "Private pool "    
+                    private2: " Private pool\n"    
                 })
                 break
             case 'wifi2':
                 this.setState({
-                    wifi2: "WIFI "    
+                    wifi2: " WIFI\n"    
                 })
                 break
             case 'nonsmoking2':
                 this.setState({
-                    nonsmoking2: "Non-smoking room "    
+                    nonsmoking2: " Non-smoking room\n"    
                 })
                 break
             case 'smoking2':
                 this.setState({
-                    smoking2: "Smoking room "    
+                    smoking2: " Smoking room\n"    
                 })
                 break
             case 'spa2':
                 this.setState({
-                    spa2: "Spa and wellness center "    
+                    spa2: " Spa and wellness center\n"    
                 })
                 break
             case 'rest2':
                 this.setState({
-                    rest2: "Restaurant"    
+                    rest2: " Restaurant\n"    
                 })
                 break
             case 'otherrequest2':
@@ -761,17 +763,17 @@ class Form extends Component {
                 break
             case 'breakfast2':
                 this.setState({
-                    breakfast2: "Breakfast included "    
+                    breakfast2: " Breakfast included\n"    
                 })
                 break
             case 'half2':
                 this.setState({
-                    half2: "Halfboard Included "    
+                    half2: " Halfboard Included\n"    
                 })
                 break
             case 'full2':
                 this.setState({
-                    full2: "Fullboard "    
+                    full2: " Fullboard\n"    
                 })
                 break
             case 'budget2':
@@ -858,252 +860,252 @@ class Form extends Component {
                 break
             case 'amed3':
                 this.setState({
-                    amed3: " Amed"    
+                    amed3: " Amed\n"    
                 })
                 break
             case 'candi3':
                 this.setState({
-                    candi3: " Candidasa"  
+                    candi3: " Candidasa\n"  
                 })
                 break
             case 'cangguarea3':
                 this.setState({
-                    cangguarea3: " Canggu area"
+                    cangguarea3: " Canggu area\n"
                 })
                 break
             case 'canggubeach3':
                 this.setState({
-                    canggubeach3: " Canggu beach"    
+                    canggubeach3: " Canggu beach\n"    
                 })
                 break
             case 'jimbaran3':
                 this.setState({
-                    jimbaran3: " Jimbaran"    
+                    jimbaran3: " Jimbaran\n"    
                 })
                 break
             case 'karang3':
                 this.setState({
-                    karang3: " Karangasem"    
+                    karang3: " Karangasem\n"    
                 })
                 break
             case 'kerobokan3':
                 this.setState({
-                    kerobokan3: " Kerobokan"    
+                    kerobokan3: " Kerobokan\n"    
                 })
                 break
             case 'kids3':
                 this.setState({
-                    kids3: " Kids/Family Friendly"    
+                    kids3: " Kids/Family Friendly\n"    
                 })
                 break
             case 'kutaarea3':
                 this.setState({
-                    kutaarea3: " Kuta area"    
+                    kutaarea3: " Kuta area\n"    
                 })
                 break
             case 'kutabeach3':
                 this.setState({
-                    kutabeach3: " Kuta beach"    
+                    kutabeach3: " Kuta beach\n"    
                 })
                 break
             case 'legianarea3':
                 this.setState({
-                    legianarea3: " Legian area"    
+                    legianarea3: " Legian area\n"    
                 })
                 break
             case 'legianbeach3':
                 this.setState({
-                    legianbeach3: " Legian beach"    
+                    legianbeach3: " Legian beach\n"    
                 })
                 break
             case 'lembongan3':
                 this.setState({
-                    lembongan3: " Lembongan"    
+                    lembongan3: " Lembongan\n"    
                 })
                 break
             case 'lovinabeach3':
                 this.setState({
-                    lovinabeach3: " Lovina beach"    
+                    lovinabeach3: " Lovina beach\n"    
                 })
                 break
             case 'lovina3':
                 this.setState({
-                    lovina3: " Lovina"   
+                    lovina3: " Lovina\n"   
                 })
                 break
             case 'menjangan3':
                 this.setState({
-                    menjangan3: " Menjangan"    
+                    menjangan3: " Menjangan\n"    
                 })
                 break
             case 'nearbeach3':
                 this.setState({
-                    nearbeach3: " Near the beach"    
+                    nearbeach3: " Near the beach\n"    
                 })
                 break
             case 'nusadua3':
                 this.setState({
-                    nusadua3: " Nusadua beach"    
+                    nusadua3: " Nusadua beach\n"    
                 })
                 break
             case 'petit3':
                 this.setState({
-                    petit3: " Petitenget"    
+                    petit3: " Petitenget\n"    
                 })
                 break
             case 'seminyakbeach3':
                 this.setState({
-                    seminyakbeach3: " Seminyak beach"    
+                    seminyakbeach3: " Seminyak beach\n"    
                 })
                 break
             case 'seminyak3':
                 this.setState({
-                    seminyak3: " Seminyak"    
+                    seminyak3: " Seminyak\n"    
                 })
                 break
             case 'tabanan3':
                 this.setState({
-                    tabanan3: " Tabanan"    
+                    tabanan3: " Tabanan\n"    
                 })
                 break
             case 'tanjung3':
                 this.setState({
-                    tanjung3: " Tanjung Benoa"    
+                    tanjung3: " Tanjung Benoa\n"    
                 })
                 break
             case 'sanurbeach3':
                 this.setState({
-                    sanurbeach3: " Sanur beach"    
+                    sanurbeach3: " Sanur beach\n"    
                 })
                 break
             case 'sanurarea3':
                 this.setState({
-                    sanurarea3: " Sanur area"    
+                    sanurarea3: " Sanur area\n"    
                 })
                 break
             case 'sinaraja3':
                 this.setState({
-                    sinaraja3: " Sinaraja"    
+                    sinaraja3: " Sinaraja\n"    
                 })
                 break
             case 'tuban3':
                 this.setState({
-                    tuban3: " Tuban"    
+                    tuban3: " Tuban\n"    
                 })
                 break
             case 'tulamben3':
                 this.setState({
-                    tulamben3: " Tulamben"    
+                    tulamben3: " Tulamben\n"    
                 })
                 break
             case 'ubud3':
                 this.setState({
-                    ubud3: " Ubud"    
+                    ubud3: " Ubud\n"    
                 })
                 break
             case 'uluwatu3':
                 this.setState({
-                    uluwatu3: " Uluwatu"    
+                    uluwatu3: " Uluwatu\n"    
                 })
                 break
             case 'ungasan3':
                 this.setState({
-                    ungasan3: " Ungasan"    
+                    ungasan3: " Ungasan\n"    
                 })
                 break
             case 'beachfront3':
                 this.setState({
-                    beachfront3: " Beachfront"    
+                    beachfront3: " Beachfront\n"    
                 })
                 break
             case 'business3':
                 this.setState({
-                    business3: " Business facilities"    
+                    business3: " Business facilities\n"    
                 })
                 break
             case 'golfcourse3':
                 this.setState({
-                    golfcourse3: " Golf course"    
+                    golfcourse3: " Golf course\n"    
                 })
                 break
             case 'kidsfam3':
                 this.setState({
-                    kidsfam3: " Kids/family friendly"    
+                    kidsfam3: " Kids/family friendly\n"    
                 })
                 break
             case 'nearthebeach3':
                 this.setState({
-                    nearthebeach3: " Near the beach"    
+                    nearthebeach3: " Near the beach\n"    
                 })
                 break
             case 'nearmountain3':
                 this.setState({
-                    nearmountain3: " Near mountain"    
+                    nearmountain3: " Near mountain\n"    
                 })
                 break
             case 'nearrestaurant3':
                 this.setState({
-                    nearrestaurant3: " Near restaurant"    
+                    nearrestaurant3: " Near restaurant\n"    
                 })
                 break
             case 'heart3':
                 this.setState({
-                    heart3: " Heart of the city"    
+                    heart3: " Heart of the city\n"    
                 })
                 break
             case 'tranquil3':
                 this.setState({
-                    tranquil3: " Tranquil area"    
+                    tranquil3: " Tranquil area\n"    
                 })
                 break
             case 'nearnight3':
                 this.setState({
-                    nearnight3: " Near nightclub"    
+                    nearnight3: " Near nightclub\n"    
                 })
                 break
             case 'family3':
                 this.setState({
-                    family3: " Family room"    
+                    family3: " Family room\n"    
                 })
                 break
             case 'fitness3':
                 this.setState({
-                    fitness3: " Fitness centre"    
+                    fitness3: " Fitness centre\n"    
                 })
                 break
             case 'pool3':
                 this.setState({
-                    pool3: " Pool"    
+                    pool3: " Pool\n"    
                 })
                 break
             case 'private3':
                 this.setState({
-                    private3: " Private pool"    
+                    private3: " Private pool\n"    
                 })
                 break
             case 'wifi3':
                 this.setState({
-                    wifi3: " WIFI"    
+                    wifi3: " WIFI\n"    
                 })
                 break
             case 'nonsmoking3':
                 this.setState({
-                    nonsmoking3: " Non-smoking room"    
+                    nonsmoking3: " Non-smoking room\n"    
                 })
                 break
             case 'smoking3':
                 this.setState({
-                    smoking3: " Smoking room"    
+                    smoking3: " Smoking room\n"    
                 })
                 break
             case 'spa3':
                 this.setState({
-                    spa3: " Spa & Wellness centre"    
+                    spa3: " Spa & Wellness centre\n"    
                 })
                 break
             case 'rest3':
                 this.setState({
-                    rest3: " Restaurant"    
+                    rest3: " Restaurant\n"    
                 })
                 break
             case 'otherrequest3':
@@ -1146,22 +1148,29 @@ class Form extends Component {
         }
     }
 
-
     handleSubmit(e) {
         e.preventDefault()
+        let message = "default"
+        let subj = ""
         if(this.props.index==0) {
-            let message = "Name: " + this.state.name1 + ". Company name: " + this.state.compName1 + ". Telephone: " + this.state.telp1 + ". E-mail: " + this.state.email1 + ". Start date: " + this.state.startdate1 + ". Start time: "+ this.state.starttime1 + ". End date: " + this.state.enddate1 + ". End time: " + this.state.endtime1 + ". Event type: " + this.state.type1 + ". Guest gender of attendees: " + this.state.gender1 + ". Age profile of attendees: " + this.state.age1 + ". Special characteristics of attendees: " + this.state.character1 + ". Number of attendees: " + this.state.num1 + ". Managerial level of attendees: " + this.state.level1 + ". Theme: " + this.state.theme1 + ". Venue/hotel: " + this.state.venue + " stars. Number of adults: " + this.state.numad1 + ". Number of kids: " + this.state.numkid1 + ". Estimation accommodation budget (per-night, per-room: Rp." + this.state.esti1 + ". Bedding type: " + this.state.bed1 + ". Hotel area: " + this.state.area1 + ". Hotel Facility: " + this.state.fac1 + ". Other request: " + this.state.otherrequest1 + this.state.meetingy1 + this.state.meetingn1 + ". Details for meeting: " + this.state.detmeeting1 + this.state.outingy1 + this.state.outingn1 + ". Details for outing: " + this.state.detouting1 + this.state.toursy1 + this.state.toursn1 + ". Details for tours: " + this.state.dettours1 + this.state.transporty1 + this.state.transportn1 + ". Details for transport: " + this.state.dettransport1 + this.state.eventy1 + this.state.eventn1 + ". Details for event: " + this.state.detevent1 + ". Talent or entertainment need: " + this.state.homeband1 + this.state.keyboardist1 + this.state.popband1 + this.state.openingdance1 + this.state.traddance1 + this.state.moddance1 + this.state.dj1 + this.state.mc1 + this.state.ushers1 + ". Other talent need: " + this.state.othertalent1 + ". Technical support need: " + this.state.sound1 + this.state.lighting1 + this.state.led1 + this.state.backdrop1 + this.state.projector1 + this.state.lcd1 + this.state.photo1 + this.state.video1 + this.state.digital1 + "Other technical support need: " + this.state.otherTech1 + ". Indicative budget: " + this.state.budget1 + ". Special remarks: " + this.state.remarks1
-            console.log("AKHIRNYA",message)
+            subj = "Form " + this.props.index
+            message = "Name: " + this.state.name1 + "\nCompany name: " + this.state.compName1 + "\nTelephone: " + this.state.telp1 + "\nE-mail: " + this.state.email1 + "\nStart date: " + this.state.startdate1 + "\nStart time: "+ this.state.starttime1 + "\nEnd date: " + this.state.enddate1 + "\nEnd time: " + this.state.endtime1 + "\nEvent type: " + this.state.type1 + "\nGuest gender of attendees: " + this.state.gender1 + "\nAge profile of attendees: " + this.state.age1 + "\nSpecial characteristics of attendees: " + this.state.character1 + "\nNumber of attendees: " + this.state.num1 + "\nManagerial level of attendees: " + this.state.level1 + "\nTheme: " + this.state.theme1 + "\nVenue/hotel: " + this.state.venue + "\nNumber of adults: " + this.state.numad1 + "\nNumber of kids: " + this.state.numkid1 + "\nEstimation accommodation budget (per-night, per-room: Rp." + this.state.esti1 + "\nBedding type: " + this.state.bed1 + "\nHotel area: " + this.state.area1 + "\nHotel Facility: " + this.state.fac1 + "\nOther request: " + this.state.otherrequest1 + "\n" + this.state.meetingy1 + this.state.meetingn1 + "\nDetails for meeting: " + this.state.detmeeting1 + "\n" + this.state.outingy1 + this.state.outingn1 + "\nDetails for outing: " + this.state.detouting1 + "\n" + this.state.toursy1 + this.state.toursn1 + "\nDetails for tours: " + this.state.dettours1 + "\n" +this.state.transporty1 + this.state.transportn1 + "\nDetails for transport: " + this.state.dettransport1 + "\n" + this.state.eventy1 + this.state.eventn1 + "\nDetails for event: " + this.state.detevent1 + "\nTalent or entertainment need: " + this.state.homeband1 + this.state.keyboardist1 + this.state.popband1 + this.state.openingdance1 + this.state.traddance1 + this.state.moddance1 + this.state.dj1 + this.state.mc1 + this.state.ushers1 + "\nOther talent need: " + this.state.othertalent1 + "\nTechnical support need: " + this.state.sound1 + this.state.lighting1 + this.state.led1 + this.state.backdrop1 + this.state.projector1 + this.state.lcd1 + this.state.photo1 + this.state.video1 + this.state.digital1 + "\nOther technical support need: " + this.state.otherTech1 + "\nIndicative budget: " + this.state.budget1 + "\nSpecial remarks: " + this.state.remarks1
         }
         else if(this.props.index==1) {
-            let message = "Name: " + this.state.name2 + ". Nationality: " + this.state.national2 + ". Telephone: " + this.state.telp2 + ". E-mail: " + this.state.email2 + ". Start date: " + this.state.startdate2 + ". Start time: " + this.state.starttime2 + ". End date: " + this.state.enddate2 + ". End time: " + this.state.endtime2 + this.state.tentative2 + ". Event type: " + this.state.type2 + ". Venue/hotel: " + this.state.venue2 + ". Number of adults: " + this.state.numad2 + ". Number of kids: " + this.state.numkid2 + ". Estimation accommodation budget (per-night,per-room): Rp." + this.state.esti2 + ". Bedding type: " + this.state.single2 + this.state.twinking2 + this.state.twinbed2 + this.state.triple2 + ". Hotel area: " + this.state.area2 + ". Hotel Preference: " + this.state.beachfront2 + this.state.business2 + this.state.golfcourse2 + this.state.kids2 + this.state.nearbeach2 + this.state.nearmountain2 + this.state.nearrestaurant2 + this.state.heart2 + this.state.tranquil2 + this.state.nearnight2 + ". Hotel facility: " + this.state.family2 + this.state.fitness2 + this.state.pool2 + this.state.private2 + this.state.wifi2 + this.state.nonsmoking2 + this.state.smoking2 + this.state.spa2 + this.state.rest2 + ". Other request: " + this.state.otherrequest2 + this.state.transporty2 + this.state.transportn2 + ". Transportation details: " + this.state.dettransport2 + this.state.toursy2 + this.state.toursy2 + ". Tours details: " + this.state.dettours2 + this.state.acty2 + this.state.acty2 + this.state.mealsy2 + this.state.mealsn2 + this.state.breakfast2 + this.state.half2 + this.state.full2 + ". Indicative budget: " + this.state.budget2 + ". Special remarks: " + this.state.remarks2
-            console.log("HEHEHE",message)
+            subj = "Form " + this.props.index
+            message = "Name: " + this.state.name2 + "\nNationality: " + this.state.national2 + "\nTelephone: " + this.state.telp2 + "\nE-mail: " + this.state.email2 + "\nStart date: " + this.state.startdate2 + "\nStart time: " + this.state.starttime2 + "\nEnd date: " + this.state.enddate2 + "\nEnd time: " + this.state.endtime2 + "\n" + this.state.tentative2 + "\nEvent type: " + this.state.type2 + "\nVenue/hotel: " + this.state.venue2 + "\nNumber of adults: " + this.state.numad2 + "\nNumber of kids: " + this.state.numkid2 + "\nEstimation accommodation budget (per-night,per-room): Rp." + this.state.esti2 + "\nBedding type: " + this.state.single2 + this.state.twinking2 + this.state.twinbed2 + this.state.triple2 + "\nHotel area: " + this.state.area2 + "\nHotel Preference: " + this.state.beachfront2 + this.state.business2 + this.state.golfcourse2 + this.state.kids2 + this.state.nearbeach2 + this.state.nearmountain2 + this.state.nearrestaurant2 + this.state.heart2 + this.state.tranquil2 + this.state.nearnight2 + "\nHotel facility: " + this.state.family2 + this.state.fitness2 + this.state.pool2 + this.state.private2 + this.state.wifi2 + this.state.nonsmoking2 + this.state.smoking2 + this.state.spa2 + this.state.rest2 + "\nOther request: " + this.state.otherrequest2 + this.state.transporty2 + this.state.transportn2 + "\nTransportation details: " + this.state.dettransport2 + this.state.toursy2 + this.state.toursy2 + "\nTours details: " + this.state.dettours2 + this.state.acty2 + this.state.acty2 + this.state.mealsy2 + this.state.mealsn2 + this.state.breakfast2 + this.state.half2 + this.state.full2 + "\nIndicative budget: " + this.state.budget2 + "\nSpecial remarks: " + this.state.remarks2
         }
         else if(this.props.index==2) {
-            let message = "Name: " + this.state.name3 + ". Nationality: " + this.state.national3 + ". Telephone: " + this.state.telp3 + ". E-mail: " + this.state.email3 + ". Start date: " + this.state.startdate3 + ". Start time: " + this.state.starttime3 + ". End date: " + this.state.enddate3 + ". End time: " + this.state.endtime3 + this.state.tentative3 + ". Number of rooms: " + this.state.numroom3 + ". Venue/Hotel: " + this.state.venue3 + ". Number of adult: " + this.state.numad3 + ". Number of kids: " + this.state.numkid3 + ". Estimation accommodation budget (per-night,per-room): Rp." + this.state.esti3 + ". Hotel area: " + this.state.amed3 + this.state.candi3 + this.state.cangguarea3 + this.state.canggubeach3 + this.state.jimbaran3 + this.state.karang3 + this.state.kerobokan3 + this.state.kids3 + this.state.kutaarea3 + this.state.kutabeach3 + this.state.legianarea3 + this.state.legianbeach3 + this.state.lembongan3 + this.state.lovinabeach3 + this.state.lovina3 + this.state.menjangan3 + this.state.nearbeach3 + this.state.nusadua3 + this.state.petit3 + this.state.seminyakbeach3 + this.state.seminyak3 + this.state.tabanan3 + this.state.tanjung3 + this.state.sanurbeach3 + this.state.sanurarea3 + this.state.sinaraja3 + this.state.tuban3 + this.state.tulamben3 + this.state.ubud3 + this.state.uluwatu3 + this.state.ungasan3 + ". Hotel preference: " + this.state.beachfront3 + this.state.business3 + this.state.golfcourse3 + this.state.kidsfam3 + this.state.nearthebeach3 + this.state.nearmountain3 + this.state.nearrestaurant3 + this.state.heart3 + this.state.tranquil3 + this.state.nearnight3 + ". Hotel facility: " + this.state.family3 + this.state.fitness3 + this.state.pool3 + this.state.private3 + this.state.wifi3 + this.state.nonsmoking3 + this.state.smoking3 + this.state.spa3 + this.state.rest3 + ". Other request: " + this.state.otherrequest3 + this.state.transporty3 + this.state.transportn3 + ". Details for transport: " + this.state.dettransport3 + ". Special remarks: " + this.state.remarks3
-            console.log("hihihhiihihhihhihihh",message)
+            subj = "Form " + this.props.index
+            message = "Name: " + this.state.name3 + "\nNationality: " + this.state.national3 + "\nTelephone: " + this.state.telp3 + "\nE-mail: " + this.state.email3 + "\nStart date: " + this.state.startdate3 + "\nStart time: " + this.state.starttime3 + "\nEnd date: " + this.state.enddate3 + "\nEnd time: " + this.state.endtime3 + this.state.tentative3 + "\nNumber of rooms: " + this.state.numroom3 + "\nVenue/Hotel: " + this.state.venue3 + "\nNumber of adult: " + this.state.numad3 + "\nNumber of kids: " + this.state.numkid3 + "\nEstimation accommodation budget (per-night,per-room): Rp." + this.state.esti3 + "\nHotel area: " + this.state.amed3 + this.state.candi3 + this.state.cangguarea3 + this.state.canggubeach3 + this.state.jimbaran3 + this.state.karang3 + this.state.kerobokan3 + this.state.kids3 + this.state.kutaarea3 + this.state.kutabeach3 + this.state.legianarea3 + this.state.legianbeach3 + this.state.lembongan3 + this.state.lovinabeach3 + this.state.lovina3 + this.state.menjangan3 + this.state.nearbeach3 + this.state.nusadua3 + this.state.petit3 + this.state.seminyakbeach3 + this.state.seminyak3 + this.state.tabanan3 + this.state.tanjung3 + this.state.sanurbeach3 + this.state.sanurarea3 + this.state.sinaraja3 + this.state.tuban3 + this.state.tulamben3 + this.state.ubud3 + this.state.uluwatu3 + this.state.ungasan3 + "\nHotel preference: " + this.state.beachfront3 + this.state.business3 + this.state.golfcourse3 + this.state.kidsfam3 + this.state.nearthebeach3 + this.state.nearmountain3 + this.state.nearrestaurant3 + this.state.heart3 + this.state.tranquil3 + this.state.nearnight3 + "\nHotel facility: " + this.state.family3 + this.state.fitness3 + this.state.pool3 + this.state.private3 + this.state.wifi3 + this.state.nonsmoking3 + this.state.smoking3 + this.state.spa3 + this.state.rest3 + "\nOther request: " + this.state.otherrequest3 + this.state.transporty3 + this.state.transportn3 + "\nDetails for transport: " + this.state.dettransport3 + "\nSpecial remarks: " + this.state.remarks3
         }
-        
+        this.props.receiveForm(subj,message)
+        .then(() => {
+            console.log('berhasil nih kak')
+        })
+        .catch(() => {
+            console.log('yah gagal kak')
+        })
     }
 
     form0() {
@@ -1960,4 +1969,10 @@ class Form extends Component {
     }
 }
 
-export default Form
+const mapDispatchToProps = (dispatch) => {
+  return{
+    receiveForm:(data1, data2) => receiveForm(data1, data2)
+  }
+}
+
+export default connect(null, mapDispatchToProps) (Form)

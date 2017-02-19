@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
 import Form from 'components_path/Form'
+import { Link } from 'react-router'
 // import DatePicker from 'react-datepicker'
 // import moment from 'moment'
 
@@ -42,23 +43,15 @@ class Trip extends React.Component{
     console.log('props ',this.props)
     let index = this.props.location.search.split('?')[1]
     console.log('index dexxxxx',index)
-    let form = new Form()
+    console.log('NANCY  ',this.props.voucher)
     return(
       <div>
         <div className="main">
-
           <div>
             <div className="row">
-
-            </div>
-            <div className="row">
-              <Desc detail={ detail } trip={ this.props.trip.list[index].DETAIL } voucher={ this.props.voucher.list[index].DETAIL } />
-            </div>
-            <div className="row">
-                <Form index={ this.props.trip.list[index].FORM } />
-            </div>
+              <Desc detail={ detail } trip={ this.props.trip.list[index] } voucher={ this.props.voucher.list[index] } />
+            </div>  
           </div>
-
         </div>
       </div>
     )
@@ -66,19 +59,40 @@ class Trip extends React.Component{
  }
 
 const Desc = ({ detail, voucher, trip }) => {
+  console.log('hah ',trip)
     if(detail == "/Trip"){
-      console.log(trip)
       return (
-          <div className="info col-md-offset-1 col-md-10">
-              <h1>{ trip.TITTLE }</h1>
+          <div>
+            <div className="info col-md-offset-1 col-md-10">
+                <h1>{ trip.DETAIL.TITTLE }</h1>
 
-              <div className="text">
-                  <p>{ trip.TEXT }</p>
+                <div className="text">
+                    <p>{ trip.DETAIL.TEXT }</p>
+                </div>
+            </div>
+            <div className="row">
+                {trip.CHILD.list.map((list, index) => (
+                    <article className="col-md-3 col-sm-6 mid" key={index}>
+                          <div className="img">
+                              <img src={ list.IMG } alt="post" />
+                              <div className="overlay"></div>
+                          </div>
+                          <div className="info">
+                              <h1><Link to={ `${list.URL}` }>{ list.TITLE }</Link></h1>
+                              <p className="text">
+                                  { list.TEXT }
+                              </p>
+                          </div>
+                      </article>
+                ))}
               </div>
-          </div>
+              <div className="row">
+                  <Form index={ trip.FORM } />
+              </div>
+            </div>
       )
     }else{
-      console.log(voucher)
+      console.log("voucher",voucher)
       return (
           <div className="info col-md-offset-1 col-md-10">
               <h1>{ voucher.TITTLE }</h1>

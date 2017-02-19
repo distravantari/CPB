@@ -3,6 +3,7 @@ export const ACTReceiveFeature = "RECEIVE FEATURES"
 export const ACTReceiveContainer = "RECEIVE CONTAINERS"
 export const ACTReceiveSocial = "RECEIVE SOCIAL"
 export const ACTReceiveAbout = "RECEIVE ABOUT"
+export const ACTReceiveForm = "RECEIVE FORM"
 
 //ROUTES
 export const routes = [
