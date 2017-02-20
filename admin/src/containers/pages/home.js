@@ -149,6 +149,7 @@ class News extends React.Component {
                             <div className="form-group">
                               <div className="col-md-9 col-sm-9 col-xs-12">
                                 <button type="submit" className="btn btn-success"onClick={(val) => this.editNews(val, index)}>Edit</button>
+                                <button type="" className="btn btn-danger">Delete</button>
                               </div>
                             </div>
                           </form>
@@ -421,6 +422,7 @@ class Slider extends React.Component {
                         <div className="form-group">
                           <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                             <button type="" className="btn btn-success" onClick={(val) => this.editSlider(val, index)}>Edit</button>
+                            <button type="" className="btn btn-danger">Delete</button>
                           </div>
                         </div>
                      </div>
@@ -798,6 +800,7 @@ class Voucher extends React.Component {
                             <div className="form-group">
                               <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                                 <button type="submit" className="btn btn-success"onClick={(val) => this.editVouchers(val, index)}>Edit</button>
+                                <button type="" className="btn btn-danger">Delete</button>
                               </div>
                             </div>
                           </form>
