@@ -27,7 +27,7 @@
                   "Inspiration",
                   "Lifestyle"
               ],
-              "TITTLE": "This is Tittle",
+              "TITTLE": "Company Trip",
               "DATE": "Sep 25, 2013",
               "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
               "NOTIFICATION": {
@@ -38,7 +38,8 @@
               "DETAIL": {
                 "TITTLE": "This is TRIP Tittle 0",
                 "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              }
+              },
+              "FORM": "0" 
           },{
               "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
               "TAGS": [
@@ -46,7 +47,7 @@
                   "Inspiration",
                   "Lifestyle"
               ],
-              "TITTLE": "This is Tittle",
+              "TITTLE": "FIT",
               "DATE": "Sep 25, 2013",
               "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
               "NOTIFICATION": {
@@ -57,7 +58,8 @@
               "DETAIL": {
                 "TITTLE": "This is TRIP Tittle 1",
                 "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              }
+              },
+              "FORM": "1" 
           },{
               "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
               "TAGS": [
@@ -65,7 +67,7 @@
                   "Inspiration",
                   "Lifestyle"
               ],
-              "TITTLE": "This is Tittle",
+              "TITTLE": "Honeymoon",
               "DATE": "Sep 25, 2013",
               "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
               "NOTIFICATION": {
@@ -76,7 +78,8 @@
               "DETAIL": {
                 "TITTLE": "This is TRIP Tittle 2",
                 "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              }
+              },
+              "FORM": "1" 
           },{
               "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
               "TAGS": [
@@ -95,7 +98,8 @@
               "DETAIL": {
                 "TITTLE": "This is TRIP Tittle 3",
                 "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              }
+              },
+              "FORM": "1" 
           }
       ],
       "shortdesc": {
