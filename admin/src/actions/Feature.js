@@ -52,6 +52,18 @@ export const addVouchers = (index, data) => {
     })
 }
 
+export const editNews = (key, data) => {
+  return base.post((`feature/news/${key}`),{
+    data : data
+  })
+}
+
+export const addNews = (index, data) => {
+    return base.post((`feature/news/list/${index}`), {
+      data: data
+    })
+}
+
 export const editPackets = (key, data) => {
   return base.post((`feature/packets/${key}`),{
     data : data
