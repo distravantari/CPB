@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "feature" : {
     "contact" : {
       "ADDRESS": [
@@ -133,170 +134,400 @@
             }
           ]
       }
+=======
+  "about" : {
+    "team" : {
+      "list" : [ {
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
+        "IMGURL" : "url",
+        "NAME" : "Trevis Marshal",
+        "POSITION" : [ "founder", "CEO" ],
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }, {
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
+        "IMGURL" : "url",
+        "NAME" : "Julia Stanford",
+        "POSITION" : [ "founder", "CEO" ],
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }, {
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
+        "IMGURL" : "url",
+        "NAME" : "Alex Grosville",
+        "POSITION" : [ "founder", "CEO" ],
+        "TEXT" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      } ]
+>>>>>>> c4eaf1891a0ee8ca6a33d900f80c16e9b6a936fb
     },
-    "vouchers" : {
-      "list": [
-          {
-            "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
-            "TITTLE": "Designer Stuff",
-            "DATE": "Sep 25, 2013 |",
-            "CREATEDBY": "Balizee",
-            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-            "NOTIFICATION": {
-                "COMMENT": "25",
-                "LIKES": "724"
-            },
-            "URL":"voucher-detail?0",
-            "DETAIL": {
-              "TITTLE": "This is VOUCHERS Tittle 0",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            }
-        },{
-            "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
-            "TITTLE": "Designer Stuff",
-            "DATE": "Sep 25, 2013 |",
-            "CREATEDBY": "Balizee",
-            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-            "NOTIFICATION": {
-                "COMMENT": "25",
-                "LIKES": "724"
-            },
-            "URL":"voucher-detail?1",
-            "DETAIL": {
-              "TITTLE": "This is VOUCHERS Tittle 1",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            }
-        },{
-            "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
-            "TITTLE": "Designer Stuff",
-            "DATE": "Sep 25, 2013 |",
-            "CREATEDBY": "Balizee",
-            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-            "NOTIFICATION": {
-                "COMMENT": "25",
-                "LIKES": "724"
-            },
-            "URL":"voucher-detail?2",
-            "DETAIL": {
-              "TITTLE": "This is VOUCHERS Tittle 2",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            }
-        },{
-            "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-            "TAGS": [ "Fashion", "Inspiration", "lifestyle" ],
-            "TITTLE": "Designer Stuff",
-            "DATE": "Sep 25, 2013 |",
-            "CREATEDBY": "Balizee",
-            "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-            "NOTIFICATION": {
-                "COMMENT": "25",
-                "LIKES": "724"
-            },
-            "URL":"voucher-detail?3",
-            "DETAIL": {
-              "TITTLE": "This is VOUCHERS Tittle 3",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            }
-        }
-      ]
+    "us" : {
+      "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/imagesmanchester_united_wallpaper_by_iskariota666-d5fd2p2.jpg?alt=media&token=c3473bc1-d74d-4318-b729-00bfffbaa7a9",
+      "IMGURL" : "url",
+      "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "TITTLE" : "Who we are and what we do?"
     },
-    "404" : {
-        "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/404.jpg?alt=media&token=a5f20d90-91b2-468c-8060-3384db324ff7",
-        "TITTLE": "That's an error.",
-        "MESSAGE": "The requested URL /URL was not found on this server. That’s all we know."
+    "web" : {
+      "comment" : "244,967",
+      "download" : "239",
+      "image" : "32,234",
+      "post" : "2,139",
+      "users" : "17,435"
     }
   },
   "container" : {
-    "main_menu": {
-      "list": [
-          "Home",
-          "Contact",
-          "About"
-      ]
-    },
     "footer" : {
       "allrightreserve" : "© 2016 All rights reserved.",
-      "design": "Radion"
+      "design" : "Radion"
     },
     "footer_components" : {
-        "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/about-logo.png?alt=media&token=abe5eb54-e82a-46cd-8ddf-295cfe059cef",
-        "TITTLE": "About Modarama fashion magazine",
-        "TEXT": "This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
+      "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/about-logo.png?alt=media&token=abe5eb54-e82a-46cd-8ddf-295cfe059cef",
+      "TEXT" : "This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.",
+      "TITTLE" : "About Modarama fashion magazine"
     },
     "logo" : {
-        "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/logo.png?alt=media&token=212a3091-3e67-4805-96c0-c3ae07b892f6"
+      "IMG" : ""
+    },
+    "main_menu" : {
+      "list" : [ "Home", "Contact", "About" ]
     }
   },
-  "social" : {
-    "maps" : {
-      "location" : "Kota Bali",
-      "url" : "https://www.google.com/maps?q=-6.903429,107.5030708&output=embed",
-      "latitude": "-6.903429",
-      "longitude": "107.5030708"
+  "feature" : {
+    "404" : {
+      "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/404.jpg?alt=media&token=a5f20d90-91b2-468c-8060-3384db324ff7",
+      "MESSAGE" : "The requested URL /URL was not found on this server. That’s all we know.",
+      "TITTLE" : "That's an error."
     },
-    "twitter" : {
-        "TITTLE": "Latest tweets",
-        "LINK": "https://twitter.com/envato",
-        "WIDGET_ID": "400278156189237248",
-        "LINK_COLOR": "#f1284e",
-        "DATA_CHROME": "noheader nofooter noscrollbar",
-        "LANG": "EN",
-        "LIMIT": "3"
+    "contact" : {
+      "ADDRESS" : [ "Jl Yudistira - Gg Cemara no 8 Seminyak", "Bali 80361 Indonesia" ],
+      "EMAIL" : [ "info@balizee.com", "admin@balizee.com" ],
+      "FACEBOOK" : [ "https://www.facebook.com/balizeetravel", "www.facebook.com/modarama_magazine" ],
+      "PHONE" : [ "62 (0)361 4740954", "62 (0)819-9933-3396" ]
     },
-    "instagram" : {
-        "URL": "https://www.instagram.com/valentinancy/"
+    "packets" : {
+      "list" : [ {
+        "CHILD" : {
+          "list" : [ {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "Seminar"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "Meeting"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "sub paket 1"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "sub paket 2"
+          } ]
+        },
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "Company Trip / MICE"
+        },
+        "FORM" : "0",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "TITTLE" : "Company Trip",
+        "URL" : "Trip-detail?0"
+      }, {
+        "CHILD" : {
+          "list" : [ {
+            "TEXT" : "description of child packages",
+            "TITLE" : "package 2 child package 1"
+          }, {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child2"
+          } ]
+        },
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is TRIP Tittle 1"
+        },
+        "FORM" : "1",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "Lifestyle" ],
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "TITTLE" : "FIT",
+        "URL" : "Trip-detail?1"
+      }, {
+        "CHILD" : {
+          "list" : [ {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child1"
+          }, {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child2"
+          } ]
+        },
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is TRIP Tittle 2"
+        },
+        "FORM" : "2",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "Lifestyle" ],
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "TITTLE" : "Honeymoon",
+        "URL" : "Trip-detail?2"
+      }, {
+        "CHILD" : {
+          "list" : [ {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child1"
+          }, {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child2"
+          } ]
+        },
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is TRIP Tittle 2"
+        },
+        "FORM" : "2",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "Lifestyle" ],
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "TITTLE" : "Honeymoon",
+        "URL" : "Trip-detail?2"
+      }, {
+        "CHILD" : {
+          "list" : [ {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child1"
+          }, {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child2"
+          } ]
+        },
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is TRIP Tittle 2"
+        },
+        "FORM" : "2",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "Lifestyle" ],
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "TITTLE" : "Honeymoon",
+        "URL" : "Trip-detail?2"
+      }, {
+        "CHILD" : {
+          "list" : [ {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child1"
+          }, {
+            "TEXT" : "description of child packages",
+            "TITLE" : "child2"
+          } ]
+        },
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is TRIP Tittle 3"
+        },
+        "FORM" : "1",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "Lifestyle" ],
+        "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "TITTLE" : "This is Tittle",
+        "URL" : "Trip-detail?3"
+      } ],
+      "shortdesc" : {
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "tittle" : "ALTERNATIVE SOURCES OF ENERGY"
+      }
     },
-    "facebook" : {
-        "URL": "https://www.facebook.com/valentinancy/",
-        "ICON": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/facebook_.jpg?alt=media&token=1cfef65e-293c-4562-8fc6-84a124468976"
-    }
-  },
-  "about" : {
-    "us" : {
-        "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/about.jpg?alt=media&token=ca8aeb31-1078-4fd3-8d86-2088053faa6a",
-        "TITTLE": "Who we are and what we do?",
-        "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "IMGURL": "url"
+    "slider" : {
+      "big" : {
+        "list" : [ {
+          "COMMENT" : "",
+          "CREATE" : "",
+          "DATE" : "",
+          "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
+          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "LIKE" : "",
+          "TITTLE" : "Corporate Trip / MICE",
+          "TYPE" : "Trip Organizer",
+          "URL" : "Trip-detail?0"
+        }, {
+          "COMMENT" : "",
+          "CREATE" : "",
+          "DATE" : "",
+          "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
+          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "LIKE" : "",
+          "TITTLE" : "FIT / Individual Tours",
+          "TYPE" : "Trip Organizer",
+          "URL" : "Trip-organizer"
+        }, {
+          "COMMENT" : "",
+          "CREATE" : "",
+          "DATE" : "",
+          "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
+          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "LIKE" : "",
+          "TITTLE" : "Honeymoon",
+          "TYPE" : "Trip Organizer",
+          "URL" : "Trip-organizer"
+        }, {
+          "COMMENT" : "",
+          "CREATE" : "",
+          "DATE" : "",
+          "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
+          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "LIKE" : "",
+          "TITTLE" : "Wedding Organizer",
+          "TYPE" : "Trip Organizer",
+          "URL" : "Trip-organizer"
+        }, {
+          "COMMENT" : "",
+          "CREATE" : "",
+          "DATE" : "",
+          "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
+          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "LIKE" : "",
+          "TITTLE" : "Special Package",
+          "TYPE" : "Trip Organizer",
+          "URL" : "Trip-organizer"
+        }, {
+          "COMMENT" : "",
+          "CREATE" : "",
+          "DATE" : "",
+          "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
+          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "LIKE" : "",
+          "TITTLE" : "Beyond Bali",
+          "TYPE" : "Trip Organizer",
+          "URL" : "Trip-organizer"
+        } ]
+      }
     },
-    "team" : {
+    "vouchers" : {
+      "list" : [ {
+        "CREATEDBY" : "",
+        "DATE" : "",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/best-deal-hotels.jpg?alt=media&token=4ad26004-4063-4cfb-a8ec-e4d49319a0e2",
+        "TEXT" : "The most luxurious resort in the Island and yet we will offer you the secret deal. Please contact us or check our instagram",
+        "TITTLE" : "@BaliTopNotch",
+        "URL" : "voucher-detail?0",
+        "INSTAGRAM" : "instagram.com/hai"
+      }, {
+        "CREATEDBY" : "",
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is VOUCHERS Tittle 1"
+        },
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/best-deal-villas.jpg?alt=media&token=c8d424aa-fcbf-457d-812e-2b353c7f753c",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "lifestyle" ],
+        "TEXT" : "Only choose the Best Deal Hotel with fair price and best quality. Please  contact us or check our instagram for latest promo",
+        "TITTLE" : "@BestDealBaLiHotels",
+        "URL" : "voucher-detail?1"
+      }, {
+        "CREATEDBY" : "",
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is VOUCHERS Tittle 2"
+        },
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/best-deal-hotels.jpg?alt=media&token=4ad26004-4063-4cfb-a8ec-e4d49319a0e2",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "lifestyle" ],
+        "TEXT" : "We self pick our favorite villas option from luxurious to homie feeling just to make sure you'll find the most suitable private villas",
+        "TITTLE" : "@BestDealBaLiVillas",
+        "URL" : "voucher-detail?2"
+      }, {
+        "CREATEDBY" : "",
+        "DATE" : "",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is VOUCHERS Tittle 3"
+        },
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/top-notch.jpg?alt=media&token=601a24ec-53e1-4d63-9457-8fc0d7b4a267",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "lifestyle" ],
+        "TEXT" : "Offering special price Bali's most favorite experiences",
+        "TITTLE" : "@BestDealBaLiVouchers",
+        "URL" : "voucher-detail?3"
+      } ]
+    },
+    "news" : {
       "list" : [
-          {
-              "IMG":"https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
-              "POSITION": ["founder", "CEO"],
-              "NAME": "Trevis Marshal",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              "IMGURL": "url"
-          },{
-              "IMG":"https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
-              "POSITION": ["founder", "CEO"],
-              "NAME": "Julia Stanford",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              "IMGURL": "url"
-          },{
-              "IMG":"https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/team.jpg?alt=media&token=96da91e2-1855-4c31-8d42-7a7b72c93bf8",
-              "POSITION": ["founder", "CEO"],
-              "NAME": "Alex Grosville",
-              "TEXT": " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              "IMGURL": "url"
-          }
+        { "IMPORTANT": "news1"},
+        { "IMPORTANT": "news2"},
+        { "IMPORTANT": "news3"}
       ]
-    },
-    "web" : {
-      "users": "17,435",
-      "post": "2,139",
-      "comment": "244,967",
-      "download": "239",
-      "image": "32,234"
     }
   },
   "inbox" : {
-    "list": [{
-        "name" : "distra",
-        "email" : "distravantari@gmail.com",
-        "text" : "this is text"
-    }]
+    "list" : [ {
+      "email" : "distravantari@gmail.com",
+      "name" : "distra",
+      "text" : "this is text"
+    } ]
+  },
+  "social" : {
+    "facebook" : {
+      "ICON" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/facebook_.jpg?alt=media&token=1cfef65e-293c-4562-8fc6-84a124468976",
+      "URL" : "https://www.facebook.com/balizeetravel"
+    },
+    "instagram" : {
+      "URL" : "https://www.instagram.com/valentinancy/"
+    },
+    "maps" : {
+      "latitude" : "-6.903429",
+      "location" : "Kota Bali",
+      "longitude" : "107.5030708",
+      "url" : "https://www.google.com/maps?q=-6.903429,107.5030708&output=embed"
+    },
+    "twitter" : {
+      "DATA_CHROME" : "noheader nofooter noscrollbar",
+      "LANG" : "EN",
+      "LIMIT" : "3",
+      "LINK" : "https://twitter.com/envato",
+      "LINK_COLOR" : "#f1284e",
+      "TITTLE" : "Latest tweets",
+      "WIDGET_ID" : "400278156189237248"
+    }
   }
 }
