@@ -52887,6 +52887,7 @@
 	      IMG: '',
 	      TEXT: '',
 	      TITTLE: '',
+	      INSTAGRAM: '',
 	      URL: '',
 	      filename: []
 	    };
@@ -52937,6 +52938,7 @@
 	        var text = _this14.state.TEXT;
 	        var tittle = _this14.state.TITTLE;
 	        var url = _this14.state.URL;
+	        var instagram = _this14.state.INSTAGRAM;
 
 	        if (!createdby) createdby = _lodash2.default.values(_this14.props.vouchers)[index].CREATEDBY;
 	        if (!date) date = _lodash2.default.values(_this14.props.vouchers)[index].DATE;
@@ -52944,6 +52946,7 @@
 	        if (!text) text = _lodash2.default.values(_this14.props.vouchers)[index].TEXT;
 	        if (!tittle) tittle = _lodash2.default.values(_this14.props.vouchers)[index].TITTLE;
 	        if (!url) url = _lodash2.default.values(_this14.props.vouchers)[index].URL;
+	        if (!instagram) instagram = _lodash2.default.values(_this14.props.vouchers)[index].INSTAGRAM;
 
 	        var vouchers = {
 	          CREATEDBY: createdby,
@@ -52951,7 +52954,8 @@
 	          IMG: img,
 	          TEXT: text,
 	          TITTLE: tittle,
-	          URL: url
+	          URL: url,
+	          INSTAGRAM: instagram
 	        };
 
 	        _this14.props.editVouchers('list/' + index, vouchers).then(function () {
@@ -52974,6 +52978,7 @@
 	          IMG: dlurl,
 	          TEXT: _this15.newTextRef.value,
 	          TITTLE: _this15.newTitleRef.value,
+	          INSTAGRAM: _this15.newInstagramRef.value,
 	          URL: ''
 	        };
 
@@ -52981,6 +52986,7 @@
 	          alert('success, new content saved');
 	          _this15.newTitleRef.value = '';
 	          _this15.newTextRef.value = '';
+	          _this15.newInstagramRef.value = '';
 	        }).catch(function () {
 	          alert('fail, new content cannot be saved');
 	        });
@@ -52994,9 +53000,13 @@
 	        this.setState({
 	          TEXT: val.target.value
 	        });
-	      } else {
+	      } else if (key == 'title') {
 	        this.setState({
 	          TITTLE: val.target.value
+	        });
+	      } else {
+	        this.setState({
+	          INSTAGRAM: val.target.value
 	        });
 	      }
 	    }
@@ -53005,6 +53015,7 @@
 	    value: function render() {
 	      var _this16 = this;
 
+	      console.log('disra ', this.state);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col-md-12 col-sm-12 col-xs-12' },
@@ -53097,7 +53108,7 @@
 	                            'div',
 	                            { className: 'col-md-9 col-sm-9 col-xs-12' },
 	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: _lodash2.default.values(_this16.props.vouchers)[index].TITTLE, onChange: function onChange(ref) {
-	                                return _this16.handleChange(ref, 'tittle');
+	                                return _this16.handleChange(ref, 'title');
 	                              } })
 	                          )
 	                        ),
@@ -53115,6 +53126,22 @@
 	                            _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
 	                              'data-parsley-validation-threshold': '10', style: { height: "130px" }, defaultValue: _lodash2.default.values(_this16.props.vouchers)[index].TEXT, onChange: function onChange(ref) {
 	                                return _this16.handleChange(ref, 'text');
+	                              } })
+	                          )
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'form-group' },
+	                          _react2.default.createElement(
+	                            'label',
+	                            { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                            'Instagram'
+	                          ),
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Instagram link', defaultValue: _lodash2.default.values(_this16.props.vouchers)[index].INSTAGRAM, onChange: function onChange(ref) {
+	                                return _this16.handleChange(ref, 'instagram');
 	                              } })
 	                          )
 	                        ),
@@ -53196,6 +53223,22 @@
 	                          _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
 	                            'data-parsley-validation-threshold': '10', style: { height: "130px" }, defaultValue: '', ref: function ref(_ref13) {
 	                              return _this16.newTextRef = _ref13;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                          'Instagram'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: '', ref: function ref(_ref14) {
+	                              return _this16.newInstagramRef = _ref14;
 	                            } })
 	                        )
 	                      ),

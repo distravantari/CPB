@@ -613,6 +613,7 @@ class Voucher extends React.Component {
       IMG : '',
       TEXT : '',
       TITTLE : '',
+      INSTAGRAM: '',
       URL : '',
       filename : []
     }
@@ -655,6 +656,7 @@ class Voucher extends React.Component {
       let text = this.state.TEXT
       let tittle = this.state.TITTLE
       let url = this.state.URL
+      let instagram = this.state.INSTAGRAM
 
       if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
       if(!date) date = _.values(this.props.vouchers)[index].DATE
@@ -662,6 +664,7 @@ class Voucher extends React.Component {
       if(!text) text = _.values(this.props.vouchers)[index].TEXT
       if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
       if(!url) url = _.values(this.props.vouchers)[index].URL
+      if(!instagram) instagram = _.values(this.props.vouchers)[index].INSTAGRAM
 
       const vouchers = {
         CREATEDBY : createdby,
@@ -669,7 +672,8 @@ class Voucher extends React.Component {
         IMG : img,
         TEXT : text,
         TITTLE : tittle,
-        URL : url
+        URL : url,
+        INSTAGRAM: instagram
       }
 
       this.props.editVouchers(`list/${index}`, vouchers)
@@ -692,6 +696,7 @@ class Voucher extends React.Component {
         IMG : dlurl,
         TEXT : this.newTextRef.value,
         TITTLE : this.newTitleRef.value,
+        INSTAGRAM : this.newInstagramRef.value,
         URL : ''
       }
 
@@ -700,6 +705,7 @@ class Voucher extends React.Component {
         alert('success, new content saved')
         this.newTitleRef.value = ''
         this.newTextRef.value = ''
+        this.newInstagramRef.value = ''
       })
       .catch(() => {
          alert('fail, new content cannot be saved')
@@ -713,14 +719,19 @@ class Voucher extends React.Component {
       this.setState({
         TEXT: val.target.value
       })
-    }else {
+    }else if(key == `title`) {
       this.setState({
         TITTLE: val.target.value
+      })
+    }else{
+      this.setState({
+        INSTAGRAM: val.target.value
       })
     }
   }
 
   render(){
+    console.log('disra ',this.state)
     return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
@@ -765,7 +776,7 @@ class Voucher extends React.Component {
                             <div className="form-group">
                               <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
                               <div className="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" className="form-control" placeholder="Tittle" defaultValue={_.values(this.props.vouchers)[index].TITTLE} onChange={(ref) => this.handleChange(ref, `tittle`)}/>
+                                <input type="text" className="form-control" placeholder="Tittle" defaultValue={_.values(this.props.vouchers)[index].TITTLE} onChange={(ref) => this.handleChange(ref, `title`)}/>
                               </div>
                             </div>
 
@@ -774,6 +785,13 @@ class Voucher extends React.Component {
                               <div className="col-md-9 col-sm-9 col-xs-12">
                                 <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                                   data-parsley-validation-threshold="10" style={{height:"130px"}} defaultValue={_.values(this.props.vouchers)[index].TEXT} onChange={(ref) => this.handleChange(ref, `text`)}></textarea>
+                              </div>
+                            </div>
+
+                            <div className="form-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Instagram</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" className="form-control" placeholder="Instagram link" defaultValue={_.values(this.props.vouchers)[index].INSTAGRAM} onChange={(ref) => this.handleChange(ref, `instagram`)}/>
                               </div>
                             </div>
 
@@ -812,6 +830,13 @@ class Voucher extends React.Component {
                         <div className="col-md-9 col-sm-9 col-xs-12">
                           <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                             data-parsley-validation-threshold="10" style={{height:"130px"}} defaultValue='' ref={(ref) => this.newTextRef = ref} ></textarea>
+                        </div>
+                      </div>
+
+                      <div className="form-group">
+                        <label className="control-label col-md-3 col-sm-3 col-xs-12">Instagram</label>
+                        <div className="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" className="form-control" placeholder="Tittle" defaultValue='' ref={(ref) => this.newInstagramRef = ref} />
                         </div>
                       </div>
 

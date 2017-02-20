@@ -302,7 +302,8 @@
         "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/best-deal-hotels.jpg?alt=media&token=4ad26004-4063-4cfb-a8ec-e4d49319a0e2",
         "TEXT" : "The most luxurious resort in the Island and yet we will offer you the secret deal. Please contact us or check our instagram",
         "TITTLE" : "@BaliTopNotch",
-        "URL" : "voucher-detail?0"
+        "URL" : "voucher-detail?0",
+        "INSTAGRAM" : "instagram.com/hai"
       }, {
         "CREATEDBY" : "",
         "DATE" : "",
