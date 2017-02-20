@@ -56,7 +56,7 @@ class Trip extends React.Component{
       </div>
     )
   }
- }
+ }  
 
 const Desc = ({ detail, voucher, trip }) => {
   console.log('hah ',trip)
