@@ -71,6 +71,7 @@ const Desc = ({ detail, voucher, trip }) => {
                 </div>
             </div>
             <div className="row">
+              <div className="wrapper">
                 {trip.CHILD.list.map((list, index) => (
                     <article className="col-md-3 col-sm-6 mid" key={index}>
                           <div className="img">
@@ -85,6 +86,7 @@ const Desc = ({ detail, voucher, trip }) => {
                           </div>
                       </article>
                 ))}
+              </div>
               </div>
               <div className="row">
                   <Form index={ trip.FORM } />

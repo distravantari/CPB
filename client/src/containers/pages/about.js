@@ -62,7 +62,7 @@ const Main = ({ about_us, team, web }) => {
 
 					<OurTeam our_team = { team }/>
 
-					<Stats web={ web }/>
+					{/*<Stats web={ web }/>*/}
 
 				</div>
 			</div>
@@ -93,12 +93,13 @@ const OurTeam = ({ our_team }) => {
 									{ list.TEXT }
 								</p>
 							</div>
-							<ul className="social list-inline">
+							{/*<ul className="social list-inline">
 								<li><a><i className="fa fa-facebook"></i></a></li>
 								<li><a><i className="fa fa-twitter"></i></a></li>
 								<li><a><i className="fa fa-google-plus"></i></a></li>
 								<li><a><i className="fa  fa-tumblr"></i></a></li>
 							</ul>
+							*/}
 						</article>
 					))}
 

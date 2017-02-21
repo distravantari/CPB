@@ -90,10 +90,28 @@ export const ContactDetail = ({ contact }) => {
           </div>
         </li>
         <li>
-          <i class="fa fa-whatsapp"></i>
+          <i className="fa fa-fax"></i>
           <div>
-            <p><span>Email:</span> { contact.EMAIL[0] }</p>
-            <p>{ contact.EMAIL[1] }</p>
+            <p><span>Fax:</span> { contact.FAX[0] }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-commenting"></i>
+          <div>
+            <p><span>Line:</span> { contact.LINE[0] }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-whatsapp"></i>
+          <div>
+            <p><span>Whatsapp:</span> { contact.WHATSAPP[0] }, { contact.WHATSAPP[1] }, { contact.WHATSAPP[2] }</p>
+            
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-commenting"></i>
+          <div>
+            <p><span>BBM:</span> { contact.BBM[0] }</p>
           </div>
         </li>
         <li>
