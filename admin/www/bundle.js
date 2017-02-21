@@ -51733,7 +51733,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.deleteChild = exports.editChild = exports.addChild = exports.deletePackets = exports.addPackets = exports.editPackets = exports.addNews = exports.editNews = exports.addVouchers = exports.editVouchers = exports.addSlider = exports.editSlider = exports.editContact = undefined;
+	exports.deleteChild = exports.editChild = exports.addChild = exports.deletePackets = exports.addPackets = exports.editPackets = exports.deleteNews = exports.addNews = exports.editNews = exports.deleteVouchers = exports.addVouchers = exports.editVouchers = exports.deleteSlider = exports.addSlider = exports.editSlider = exports.editContact = undefined;
 
 	var _const = __webpack_require__(213);
 
@@ -51786,6 +51786,10 @@
 	  });
 	};
 
+	var deleteSlider = exports.deleteSlider = function deleteSlider(index) {
+	  return _db2.default.remove('feature/slider/big/list/' + index);
+	};
+
 	var editVouchers = exports.editVouchers = function editVouchers(key, data) {
 	  return _db2.default.post('feature/vouchers/' + key, {
 	    data: data
@@ -51798,6 +51802,10 @@
 	  });
 	};
 
+	var deleteVouchers = exports.deleteVouchers = function deleteVouchers(index) {
+	  return _db2.default.remove('feature/vouchers/list/' + index);
+	};
+
 	var editNews = exports.editNews = function editNews(key, data) {
 	  return _db2.default.post('feature/news/' + key, {
 	    data: data
@@ -51808,6 +51816,10 @@
 	  return _db2.default.post('feature/news/list/' + index, {
 	    data: data
 	  });
+	};
+
+	var deleteNews = exports.deleteNews = function deleteNews(index) {
+	  return _db2.default.remove('feature/news/list/' + index);
 	};
 
 	var editPackets = exports.editPackets = function editPackets(key, data) {
@@ -51998,10 +52010,10 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
-	            _react2.default.createElement(News, { news: this.props.news, editNews: this.props.editNews, addNews: this.props.addNews }),
-	            _react2.default.createElement(Slider, { slider: this.props.slider, editSlider: this.props.editSlider, addSlider: this.props.addSlider, updateImage: this.props.updateImage }),
+	            _react2.default.createElement(News, { news: this.props.news, editNews: this.props.editNews, addNews: this.props.addNews, deleteNews: this.props.deleteNews }),
+	            _react2.default.createElement(Slider, { slider: this.props.slider, editSlider: this.props.editSlider, addSlider: this.props.addSlider, updateImage: this.props.updateImage, deleteSlider: this.props.deleteSlider }),
 	            _react2.default.createElement(Social, { social: this.props.social, editSocial: this.props.editSocial }),
-	            _react2.default.createElement(Voucher, { vouchers: this.props.vouchers, editVouchers: this.props.editVouchers, addVouchers: this.props.addVouchers, updateImage: this.props.updateImage })
+	            _react2.default.createElement(Voucher, { vouchers: this.props.vouchers, editVouchers: this.props.editVouchers, addVouchers: this.props.addVouchers, updateImage: this.props.updateImage, deleteVoucher: this.props.deleteVouchers })
 	          )
 	        )
 	      );
@@ -52058,6 +52070,16 @@
 	        _this3.newTextRef.value = '';
 	      }).catch(function () {
 	        alert('fail, new content cannot be saved');
+	      });
+	    }
+	  }, {
+	    key: 'deleteNews',
+	    value: function deleteNews(val, index) {
+	      val.preventDefault();
+	      this.props.deleteNews(index).then(function () {
+	        alert('successfully delete news');
+	      }).catch(function () {
+	        alert('fail, cannot delete news');
 	      });
 	    }
 	  }, {
@@ -52163,6 +52185,13 @@
 	                                  return _this4.editNews(val, index);
 	                                } },
 	                              'Edit'
+	                            ),
+	                            _react2.default.createElement(
+	                              'button',
+	                              { type: '', className: 'btn btn-danger', onClick: function onClick(val) {
+	                                  return _this4.deleteNews(val, index);
+	                                } },
+	                              'Delete'
 	                            )
 	                          )
 	                        )
@@ -52380,6 +52409,16 @@
 	      }
 	    }
 	  }, {
+	    key: 'deleteSlider',
+	    value: function deleteSlider(val, index) {
+	      val.preventDefault();
+	      this.props.deleteSlider(index).then(function () {
+	        alert('successfully delete slider');
+	      }).catch(function () {
+	        alert('err, cannot delete slider');
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this9 = this;
@@ -52550,6 +52589,13 @@
 	                              return _this9.editSlider(val, index);
 	                            } },
 	                          'Edit'
+	                        ),
+	                        _react2.default.createElement(
+	                          'button',
+	                          { type: '', className: 'btn btn-danger', onClick: function onClick(val) {
+	                              return _this9.deleteSlider(val, index);
+	                            } },
+	                          'Delete'
 	                        )
 	                      )
 	                    )
@@ -53011,6 +53057,16 @@
 	      }
 	    }
 	  }, {
+	    key: 'deleteVouchers',
+	    value: function deleteVouchers(val, index) {
+	      val.preventDefault();
+	      this.props.deleteVoucher(index).then(function () {
+	        alert('successfully delete voucher');
+	      }).catch(function () {
+	        alert('err, cannot delete voucher');
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this16 = this;
@@ -53067,7 +53123,7 @@
 	                'div',
 	                { id: 'myTabContent', className: 'tab-content' },
 	                _lodash2.default.values(this.props.vouchers).map(function (voucher, index) {
-	                  return _react2.default.createElement(
+	                  if (_this16.props.vouchers[index]) return _react2.default.createElement(
 	                    'div',
 	                    { key: index, role: 'tabpanel', className: index == 0 ? 'tab-pane fade active in' : 'tab-pane fade', id: 'tab_voucher' + (index + 1), 'aria-labelledby': 'home-tab' },
 	                    _react2.default.createElement(
@@ -53157,6 +53213,13 @@
 	                                  return _this16.editVouchers(val, index);
 	                                } },
 	                              'Edit'
+	                            ),
+	                            _react2.default.createElement(
+	                              'button',
+	                              { type: '', className: 'btn btn-danger', onClick: function onClick(val) {
+	                                  return _this16.deleteVouchers(val, index);
+	                                } },
+	                              'Delete'
 	                            )
 	                          )
 	                        )
@@ -53313,6 +53376,15 @@
 	    },
 	    updateImage: function updateImage(data) {
 	      return (0, _UploadImage.updateImage)(data);
+	    },
+	    deleteSlider: function deleteSlider(index) {
+	      return (0, _Feature.deleteSlider)(index);
+	    },
+	    deleteNews: function deleteNews(index) {
+	      return (0, _Feature.deleteNews)(index);
+	    },
+	    deleteVouchers: function deleteVouchers(index) {
+	      return (0, _Feature.deleteVouchers)(index);
 	    }
 	  };
 	};

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import _ from 'lodash'
 import Dropzone from 'react-dropzone'
 
-import fetchFeature, { editSlider, addSlider, editVouchers, addVouchers, addNews, editNews } from '../../actions/Feature'
+import fetchFeature, { editSlider, addSlider, editVouchers, addVouchers, addNews, editNews, deleteVouchers, deleteNews, deleteSlider } from '../../actions/Feature'
 import fetchSocial, { editSocial } from '../../actions/Social'
 import { updateImage } from '../../actions/UploadImage'
 
@@ -37,10 +37,10 @@ class Home extends React.Component{
           <div className="clearfix"></div>
 
           <div className="row">
-            <News news = {this.props.news} editNews={this.props.editNews} addNews={this.props.addNews} />
-            <Slider slider = {this.props.slider} editSlider = {this.props.editSlider} addSlider = {this.props.addSlider} updateImage={ this.props.updateImage } />
+            <News news = {this.props.news} editNews={this.props.editNews} addNews={this.props.addNews} deleteNews={this.props.deleteNews}/>
+            <Slider slider = {this.props.slider} editSlider = {this.props.editSlider} addSlider = {this.props.addSlider} updateImage={ this.props.updateImage } deleteSlider={this.props.deleteSlider}/>
             <Social social = {this.props.social} editSocial={this.props.editSocial} />
-            <Voucher vouchers = {this.props.vouchers} editVouchers={this.props.editVouchers} addVouchers={this.props.addVouchers} updateImage={ this.props.updateImage} />
+            <Voucher vouchers = {this.props.vouchers} editVouchers={this.props.editVouchers} addVouchers={this.props.addVouchers} updateImage={ this.props.updateImage} deleteVoucher={this.props.deleteVouchers}/>
           </div>
         </div>
       </div>
@@ -88,6 +88,17 @@ class News extends React.Component {
     })
     .catch(() => {
        alert('fail, new content cannot be saved')
+    })
+  }
+
+  deleteNews(val, index){
+    val.preventDefault()
+    this.props.deleteNews(index)
+    .then(() => {
+      alert('successfully delete news')
+    })
+    .catch(() => {
+       alert('fail, cannot delete news')
     })
   }
 
@@ -149,7 +160,7 @@ class News extends React.Component {
                             <div className="form-group">
                               <div className="col-md-9 col-sm-9 col-xs-12">
                                 <button type="submit" className="btn btn-success"onClick={(val) => this.editNews(val, index)}>Edit</button>
-                                <button type="" className="btn btn-danger">Delete</button>
+                                <button type="" className="btn btn-danger" onClick={(val) => this.deleteNews(val, index)}>Delete</button>
                               </div>
                             </div>
                           </form>
@@ -337,6 +348,17 @@ class Slider extends React.Component {
 
   }
 
+  deleteSlider(val, index){
+    val.preventDefault()
+    this.props.deleteSlider(index)
+    .then(() => {
+      alert('successfully delete slider')
+    })
+    .catch(() => {
+      alert('err, cannot delete slider')
+    })
+  }
+
   render(){
     return(
       <div className="col-md-12 col-sm-12 col-xs-12">
@@ -422,7 +444,7 @@ class Slider extends React.Component {
                         <div className="form-group">
                           <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                             <button type="" className="btn btn-success" onClick={(val) => this.editSlider(val, index)}>Edit</button>
-                            <button type="" className="btn btn-danger">Delete</button>
+                            <button type="" className="btn btn-danger" onClick={(val) => this.deleteSlider(val, index)}>Delete</button>
                           </div>
                         </div>
                      </div>
@@ -732,6 +754,17 @@ class Voucher extends React.Component {
     }
   }
 
+  deleteVouchers(val, index){
+    val.preventDefault()
+    this.props.deleteVoucher(index)
+    .then(() => {
+      alert('successfully delete voucher')
+    })
+    .catch(() => {
+      alert('err, cannot delete voucher')
+    })
+  }
+
   render(){
     console.log('disra ',this.state)
     return(
@@ -761,8 +794,8 @@ class Voucher extends React.Component {
 
               <div id="myTabContent" className="tab-content">
                 {
-                  _.values(this.props.vouchers).map((voucher, index) => {
-                    return (
+                 _.values(this.props.vouchers).map((voucher, index) => {
+                    if(this.props.vouchers[index]) return (
                       <div key={index} role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab_voucher${index+1}`} aria-labelledby="home-tab">
                         <div className="col-md-5 col-sm-5 col-xs-12">
                           <div>
@@ -799,8 +832,8 @@ class Voucher extends React.Component {
 
                             <div className="form-group">
                               <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                <button type="submit" className="btn btn-success"onClick={(val) => this.editVouchers(val, index)}>Edit</button>
-                                <button type="" className="btn btn-danger">Delete</button>
+                                <button type="submit" className="btn btn-success" onClick={(val) => this.editVouchers(val, index)}>Edit</button>
+                                <button type="" className="btn btn-danger" onClick={(val) => this.deleteVouchers(val, index)}>Delete</button>
                               </div>
                             </div>
                           </form>
@@ -882,7 +915,10 @@ const mapsDispatchToProps = (dispatch) => {
     addVouchers: (index, data) => addVouchers(index, data),
     editNews: (key, data) => editNews(key, data),
     addNews: (index, data) => addNews(index, data),
-    updateImage: (data) => updateImage(data)
+    updateImage: (data) => updateImage(data),
+    deleteSlider: (index) => deleteSlider(index),
+    deleteNews: (index) => deleteNews(index),
+    deleteVouchers: (index) => deleteVouchers(index)
   }
 }
 

@@ -40,6 +40,10 @@ export const addSlider = (index, data) => {
     })
 }
 
+export const deleteSlider = (index) => {
+    return base.remove(`feature/slider/big/list/${index}`)
+}
+
 export const editVouchers = (key, data) => {
   return base.post((`feature/vouchers/${key}`),{
     data : data
@@ -52,6 +56,10 @@ export const addVouchers = (index, data) => {
     })
 }
 
+export const deleteVouchers = (index) => {
+    return base.remove(`feature/vouchers/list/${index}`)
+}
+
 export const editNews = (key, data) => {
   return base.post((`feature/news/${key}`),{
     data : data
@@ -62,6 +70,10 @@ export const addNews = (index, data) => {
     return base.post((`feature/news/list/${index}`), {
       data: data
     })
+}
+
+export const deleteNews = (index) => {
+    return base.remove(`feature/news/list/${index}`)
 }
 
 export const editPackets = (key, data) => {
