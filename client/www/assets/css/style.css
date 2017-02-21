@@ -204,6 +204,10 @@ body {
   padding-left: 30px;
   padding-bottom: 30px; }
 
+.short-input {
+  width: 200px !important;
+  display: block; }
+
 .radio-inline {
   padding-left: 50px; }
 
@@ -227,7 +231,6 @@ iframe {
   border: none; }
 
 header .container {
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/header.jpg?alt=media&token=5010bbbc-35e6-4003-a33e-fd445f010cd3);
   position: relative;
   height: 340px;
   text-align: center; }

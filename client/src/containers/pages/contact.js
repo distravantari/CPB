@@ -90,6 +90,13 @@ export const ContactDetail = ({ contact }) => {
           </div>
         </li>
         <li>
+          <i class="fa fa-whatsapp"></i>
+          <div>
+            <p><span>Email:</span> { contact.EMAIL[0] }</p>
+            <p>{ contact.EMAIL[1] }</p>
+          </div>
+        </li>
+        <li>
           <i className="fa fa-envelope-o"></i>
           <div>
             <p><span>Email:</span> { contact.EMAIL[0] }</p>

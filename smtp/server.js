@@ -1,3 +1,5 @@
+"use strict"
+
 var express = require('express');
 const bunyan = require('bunyan');
 const bodyParser = require("body-parser");
@@ -12,16 +14,30 @@ function error(status, msg) {
 }
 
 // for website purpose
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // end of bodyParser
+
+var allowCrossDomain = function(req, res, next) {
+res.header('Access-Control-Allow-Origin', '*');
+res.header('Access-Control-Allow-Methods', 'POST');
+res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+// intercept OPTIONS method
+if ('OPTIONS' == req.method) {
+    res.sendStatus(200);
+} else {
+    next();
+}
+};
+
+app.use(allowCrossDomain);
 
 let transporter = nodemailer.createTransport({
     service: 'Gmail',
