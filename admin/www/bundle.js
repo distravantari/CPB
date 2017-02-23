@@ -79,27 +79,27 @@
 
 	var _dashboard2 = _interopRequireDefault(_dashboard);
 
-	var _about = __webpack_require__(288);
+	var _about = __webpack_require__(325);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _contact = __webpack_require__(326);
+	var _contact = __webpack_require__(327);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
-	var _home = __webpack_require__(329);
+	var _home = __webpack_require__(330);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _trip = __webpack_require__(330);
+	var _trip = __webpack_require__(331);
 
 	var _trip2 = _interopRequireDefault(_trip);
 
-	var _form = __webpack_require__(331);
+	var _form = __webpack_require__(332);
 
 	var _form2 = _interopRequireDefault(_form);
 
-	var _login = __webpack_require__(332);
+	var _login = __webpack_require__(333);
 
 	var _login2 = _interopRequireDefault(_login);
 
@@ -46767,13 +46767,13 @@
 
 	var con = _interopRequireWildcard(_const);
 
-	var _reactDropzone = __webpack_require__(289);
+	var _reactDropzone = __webpack_require__(288);
 
 	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
-	var _UploadImage = __webpack_require__(325);
+	var _UploadImage = __webpack_require__(289);
 
-	var _Container = __webpack_require__(333);
+	var _Container = __webpack_require__(324);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -47080,539 +47080,6 @@
 
 /***/ },
 /* 288 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Main = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(179);
-
-	var _reactDropzone = __webpack_require__(289);
-
-	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
-
-	var _About = __webpack_require__(290);
-
-	var _About2 = _interopRequireDefault(_About);
-
-	var _UploadImage = __webpack_require__(325);
-
-	var _const = __webpack_require__(213);
-
-	var constant = _interopRequireWildcard(_const);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var About = function (_React$Component) {
-	  _inherits(About, _React$Component);
-
-	  function About(props) {
-	    _classCallCheck(this, About);
-
-	    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
-
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(About, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.props.getAbout(this);
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps() {
-	      this.setState({});
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      if (!this.props.team) {
-	        return _react2.default.createElement(
-	          'div',
-	          null,
-	          'Loading ..'
-	        );
-	      }
-	      return _react2.default.createElement(Main, { aboutus: this.props.aboutus, team: this.props.team.list, editAbout: this.props.editAbout, updateImage: this.props.updateImage });
-	    }
-	  }]);
-
-	  return About;
-	}(_react2.default.Component);
-
-	var Main = exports.Main = function Main(_ref) {
-	  var aboutus = _ref.aboutus,
-	      team = _ref.team,
-	      editAbout = _ref.editAbout,
-	      updateImage = _ref.updateImage;
-
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'right_col', role: 'main' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'page-title' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'title_left' },
-	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'About Page'
-	        )
-	      )
-	    ),
-	    _react2.default.createElement('div', { className: 'clearfix' }),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
-	      _react2.default.createElement(AboutUs, { about_us: aboutus, editAbout: editAbout, updateImage: updateImage })
-	    )
-	  );
-	};
-
-	var AboutUs = function (_React$Component2) {
-	  _inherits(AboutUs, _React$Component2);
-
-	  function AboutUs(props, context) {
-	    _classCallCheck(this, AboutUs);
-
-	    var _this2 = _possibleConstructorReturn(this, (AboutUs.__proto__ || Object.getPrototypeOf(AboutUs)).call(this, props));
-
-	    context.router;
-	    _this2.state = {
-	      filename: []
-	    };
-	    return _this2;
-	  }
-
-	  _createClass(AboutUs, [{
-	    key: 'onDrop',
-	    value: function onDrop(e) {
-	      var _this3 = this;
-
-	      var img = new Image();
-	      var file = e[0];
-	      img.src = window.URL.createObjectURL(file);
-	      var h = this.state.height;
-	      var w = this.state.width;
-	      img.onload = function () {
-	        // REFACTORIN
-	        _this3.setState({
-	          naturalHeight: img.naturalHeight,
-	          naturalWidth: img.naturalWidth
-	        });
-	        handleImageChange(file);
-	      };
-
-	      var handleImageChange = function handleImageChange(file) {
-	        var reader = new FileReader();
-
-	        reader.onloadend = function () {
-	          _this3.setState({
-	            filename: e[0].name,
-	            file: file,
-	            imagePreviewUrl: reader.result
-	          });
-	        };
-	        reader.readAsDataURL(file);
-	      };
-	    }
-	  }, {
-	    key: 'editAboutUs',
-	    value: function editAboutUs(val) {
-	      var _this4 = this;
-
-	      this.props.updateImage(this.state.file).then(function (url) {
-	        var us = {
-	          TITTLE: _this4.titleRef.value,
-	          TEXT: _this4.textAboutRef.value,
-	          IMG: url,
-	          IMGURL: _this4.props.about_us.IMGURL
-	        };
-	        _this4.props.editAbout("us", us).then(function () {
-	          alert('success, changed content saved');
-	        }).catch(function () {
-	          alert('fail, changed content cannot be saved');
-	        });
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this5 = this;
-
-	      if (!this.props.about_us && !this.state.files) {
-	        return _react2.default.createElement(
-	          'div',
-	          null,
-	          'Loading ..'
-	        );
-	      }
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-md-12 col-sm-12 col-xs-12' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'x_panel' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'x_title' },
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                'About Us'
-	              ),
-	              _react2.default.createElement('div', { className: 'clearfix' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'x_content' },
-	              _react2.default.createElement('div', { id: 'alerts' }),
-	              _react2.default.createElement(
-	                'form',
-	                { id: 'formabout', onSubmit: function onSubmit(val) {
-	                    return _this5.editAboutUs(val);
-	                  } },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-md-3 col-sm-3 col-xs-12' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                      _reactDropzone2.default,
-	                      { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
-	                          return _this5.onDrop(e);
-	                        } },
-	                      _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        this.state.filename
-	                      )
-	                    ),
-	                    'image size: 470 x 220'
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group' },
-	                    _react2.default.createElement(
-	                      'div',
-	                      { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                      _react2.default.createElement('textarea', { className: 'resizable_textarea form-control', placeholder: 'Title Here ..', defaultValue: this.props.about_us.TITTLE, ref: function ref(_ref2) {
-	                          return _this5.titleRef = _ref2;
-	                        } })
-	                    )
-	                  ),
-	                  _react2.default.createElement('br', null),
-	                  _react2.default.createElement('br', null),
-	                  _react2.default.createElement('br', null),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-md-12 col-sm-12 col-xs-12' },
-	                    _react2.default.createElement('textarea', { className: 'resizable_textarea form-control', placeholder: 'Content Here ..', style: { height: "230px" }, defaultValue: this.props.about_us.TEXT, ref: function ref(_ref3) {
-	                        return _this5.textAboutRef = _ref3;
-	                      } })
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11' },
-	                  _react2.default.createElement('input', { className: 'btn btn-success', type: 'submit', name: 'submit' })
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return AboutUs;
-	}(_react2.default.Component);
-
-	var OurTeam = function (_React$Component3) {
-	  _inherits(OurTeam, _React$Component3);
-
-	  function OurTeam(props, context) {
-	    _classCallCheck(this, OurTeam);
-
-	    var _this6 = _possibleConstructorReturn(this, (OurTeam.__proto__ || Object.getPrototypeOf(OurTeam)).call(this, props));
-
-	    context.router;
-	    _this6.state = {
-	      NAME: '',
-	      POSITION: '',
-	      TEXT: '',
-	      filename: []
-	    };
-	    return _this6;
-	  }
-
-	  _createClass(OurTeam, [{
-	    key: 'onDrop',
-	    value: function onDrop(e) {
-	      var _this7 = this;
-
-	      var img = new Image();
-	      var file = e[0];
-	      img.src = window.URL.createObjectURL(file);
-	      var h = this.state.height;
-	      var w = this.state.width;
-	      img.onload = function () {
-	        // REFACTORIN
-	        _this7.setState({
-	          naturalHeight: img.naturalHeight,
-	          naturalWidth: img.naturalWidth
-	        });
-	        handleImageChange(file);
-	      };
-
-	      var handleImageChange = function handleImageChange(file) {
-	        var reader = new FileReader();
-
-	        reader.onloadend = function () {
-	          _this7.setState({
-	            filename: e[0].name,
-	            file: file,
-	            imagePreviewUrl: reader.result
-	          });
-	        };
-	        reader.readAsDataURL(file);
-	      };
-	    }
-	  }, {
-	    key: 'editTeam',
-	    value: function editTeam(val, index) {
-	      var _this8 = this;
-
-	      this.props.updateImage(this.state.file).then(function (url) {
-	        var name = _this8.state.NAME;
-	        var text = _this8.state.TEXT;
-	        var position = _this8.state.POSITION;
-	        if (!name) name = _this8.props.team[index].NAME;
-	        if (!text) text = _this8.props.team[index].TEXT;
-	        if (!position) position = _this8.props.team[index].POSITION;
-
-	        var team = {
-	          IMG: url,
-	          IMGURL: "url",
-	          NAME: name,
-	          POSITION: position,
-	          TEXT: text
-	        };
-
-	        _this8.props.editAbout('team/list/' + index, team).then(function () {
-	          alert('success, changed content saved');
-	        }).catch(function () {
-	          alert('fail, changed content cannot be saved');
-	        });
-	      });
-	    }
-	  }, {
-	    key: 'handleChange',
-	    value: function handleChange(val, key, index) {
-	      val.preventDefault();
-	      if (key == 'name') {
-	        this.setState({
-	          NAME: val.target.value
-	        });
-	      } else if (key == 'position') {
-	        this.setState({
-	          POSITION: val.target.value
-	        });
-	      } else {
-	        this.setState({
-	          TEXT: val.target.value
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _this9 = this;
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-md-12 col-sm-12 col-xs-12' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'x_panel' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'x_title' },
-	              _react2.default.createElement(
-	                'h2',
-	                null,
-	                ' Our Team'
-	              ),
-	              _react2.default.createElement('div', { className: 'clearfix' })
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'x_content' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: '', role: 'tabpanel', 'data-example-id': 'togglable-tabs' },
-	                _react2.default.createElement(
-	                  'ul',
-	                  { id: 'myTab', className: 'nav nav-tabs bar_tabs', role: 'tablist' },
-	                  this.props.team && this.props.team.map(function (team, index) {
-	                    return _react2.default.createElement(
-	                      'li',
-	                      { key: index, role: 'presentation', className: index == 0 ? 'active' : '' },
-	                      _react2.default.createElement(
-	                        'a',
-	                        { href: '#tab_team' + (index + 1), role: 'tab', 'data-toggle': 'tab', 'aria-expanded': index == 0 ? 'true' : 'false' },
-	                        _this9.props.team[index].NAME
-	                      )
-	                    );
-	                  })
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { id: 'myTabContent', className: 'tab-content' },
-	                  this.props.team && this.props.team.map(function (team, index) {
-	                    return _react2.default.createElement(
-	                      'div',
-	                      _defineProperty({ key: index, role: 'tabpanel', className: index == 0 ? 'tab-pane fade active in' : 'tab-pane fade', id: 'tab_team' + (index + 1), 'aria-labelledby': 'home-tab' }, 'key', index),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'x_content' },
-	                        _react2.default.createElement('div', { id: 'alerts' }),
-	                        _react2.default.createElement(
-	                          'form',
-	                          { id: 'formteam' },
-	                          _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-md-3 col-sm-3 col-xs-12' },
-	                            _react2.default.createElement(
-	                              'div',
-	                              null,
-	                              _react2.default.createElement(
-	                                _reactDropzone2.default,
-	                                { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
-	                                    return _this9.onDrop(e);
-	                                  } },
-	                                _react2.default.createElement(
-	                                  'div',
-	                                  null,
-	                                  _this9.state.filename
-	                                )
-	                              ),
-	                              'image size: 470 x 220'
-	                            )
-	                          ),
-	                          _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                            _react2.default.createElement(
-	                              'div',
-	                              { className: 'form-group' },
-	                              _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                                _react2.default.createElement('input', { placeholder: 'Position', defaultValue: _this9.props.team[index].POSITION, onChange: function onChange(ref) {
-	                                    return _this9.handleChange(ref, 'position');
-	                                  } }),
-	                                _react2.default.createElement('input', { placeholder: 'Name', style: { width: "500px" }, defaultValue: _this9.props.team[index].NAME, onChange: function onChange(ref) {
-	                                    return _this9.handleChange(ref, 'name');
-	                                  } })
-	                              )
-	                            ),
-	                            _react2.default.createElement('br', null),
-	                            _react2.default.createElement('br', null),
-	                            _react2.default.createElement('br', null),
-	                            _react2.default.createElement(
-	                              'div',
-	                              { className: 'col-md-12 col-sm-12 col-xs-12' },
-	                              _react2.default.createElement('textarea', { className: 'resizable_textarea form-control', placeholder: 'Short Desc', style: { height: "230px" }, defaultValue: _this9.props.team[index].TEXT, onChange: function onChange(ref) {
-	                                  return _this9.handleChange(ref, 'text');
-	                                } })
-	                            )
-	                          ),
-	                          _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11' },
-	                            _react2.default.createElement('input', { className: 'btn btn-success', type: 'submit', name: 'submit', onClick: function onClick(val) {
-	                                return _this9.editTeam(val, index);
-	                              } })
-	                          )
-	                        )
-	                      )
-	                    );
-	                  })
-	                )
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return OurTeam;
-	}(_react2.default.Component);
-
-	var mapStateToProps = function mapStateToProps(state) {
-	  if (state.about) {
-	    return {
-	      team: state.about.team[0],
-	      aboutus: state.about.us[0]
-	    };
-	  } else return {};
-	};
-
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    getAbout: function getAbout(context) {
-	      return dispatch((0, _About2.default)(context));
-	    },
-	    editAbout: function editAbout(key, data) {
-	      return (0, _About.editAbout)(key, data);
-	    },
-	    updateImage: function updateImage(data) {
-	      return (0, _UploadImage.updateImage)(data);
-	    }
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(About);
-
-/***/ },
-/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -48128,7 +47595,7 @@
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 290 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48136,9 +47603,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.editAbout = undefined;
+	exports.updateImage = undefined;
 
-	var _axios = __webpack_require__(291);
+	var _axios = __webpack_require__(290);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -48146,7 +47613,7 @@
 
 	var con = _interopRequireWildcard(_const);
 
-	var _db = __webpack_require__(316);
+	var _db = __webpack_require__(315);
 
 	var _db2 = _interopRequireDefault(_db);
 
@@ -48154,49 +47621,64 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (context) {
-	  return function (dispatch) {
-	    _db2.default.listenTo('about', {
-	      context: context,
-	      asArray: true,
-	      then: function then(data) {
-	        dispatch(receiveAbout(data));
+	var updateImage = exports.updateImage = function updateImage(file) {
+	  return new Promise(function (resolve, reject) {
+	    var storageRef = _db2.default.storage().ref();
+	    var metaData = {
+	      contentType: 'image/jpeg'
+	    };
+	    var uploadTask = storageRef.child('images' + file.name).put(file, metaData);
+	    uploadTask.on(_db2.default.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+	    function (snapshot) {
+	      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+	      var progress = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+	      console.log('Upload is ' + progress + '% done');
+	      switch (snapshot.state) {
+	        case _db2.default.storage.TaskState.PAUSED:
+	          // or 'paused'
+	          console.log('Upload is paused');
+	          break;
+	        case _db2.default.storage.TaskState.RUNNING:
+	          // or 'running'
+	          console.log('Upload is running');
+	          break;
 	      }
+	    }, function (error) {
+	      switch (error.code) {
+	        case 'storage/unauthorized':
+	          // User doesn't have permission to access the object
+	          break;
+	        case 'storage/canceled':
+	          // User canceled the upload
+	          break;
+	        case 'storage/unknown':
+	          // Unknown error occurred, inspect error.serverResponse
+	          break;
+	      }
+	    }, function () {
+	      // Upload completed successfully, now we can get the download URL
+	      var downloadURL = uploadTask.snapshot.downloadURL;
+	      resolve(downloadURL);
 	    });
-	  };
-	};
-
-	var receiveAbout = function receiveAbout(response) {
-	  return {
-	    type: con.ACTReceiveAbout,
-	    payload: {
-	      response: response
-	    }
-	  };
-	};
-
-	var editAbout = exports.editAbout = function editAbout(key, data) {
-	  return _db2.default.post('about/' + key, {
-	    data: data
 	  });
 	};
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(291);
 
 /***/ },
 /* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(292);
-
-/***/ },
-/* 292 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	var utils = __webpack_require__(293);
-	var bind = __webpack_require__(294);
-	var Axios = __webpack_require__(295);
-	var defaults = __webpack_require__(296);
+	var utils = __webpack_require__(292);
+	var bind = __webpack_require__(293);
+	var Axios = __webpack_require__(294);
+	var defaults = __webpack_require__(295);
 
 	/**
 	 * Create an instance of Axios
@@ -48229,15 +47711,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(313);
-	axios.CancelToken = __webpack_require__(314);
-	axios.isCancel = __webpack_require__(310);
+	axios.Cancel = __webpack_require__(312);
+	axios.CancelToken = __webpack_require__(313);
+	axios.isCancel = __webpack_require__(309);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(315);
+	axios.spread = __webpack_require__(314);
 
 	module.exports = axios;
 
@@ -48246,12 +47728,12 @@
 
 
 /***/ },
-/* 293 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var bind = __webpack_require__(294);
+	var bind = __webpack_require__(293);
 
 	/*global toString:true*/
 
@@ -48551,7 +48033,7 @@
 
 
 /***/ },
-/* 294 */
+/* 293 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48568,17 +48050,17 @@
 
 
 /***/ },
-/* 295 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(296);
-	var utils = __webpack_require__(293);
-	var InterceptorManager = __webpack_require__(307);
-	var dispatchRequest = __webpack_require__(308);
-	var isAbsoluteURL = __webpack_require__(311);
-	var combineURLs = __webpack_require__(312);
+	var defaults = __webpack_require__(295);
+	var utils = __webpack_require__(292);
+	var InterceptorManager = __webpack_require__(306);
+	var dispatchRequest = __webpack_require__(307);
+	var isAbsoluteURL = __webpack_require__(310);
+	var combineURLs = __webpack_require__(311);
 
 	/**
 	 * Create a new instance of Axios
@@ -48659,13 +48141,13 @@
 
 
 /***/ },
-/* 296 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(293);
-	var normalizeHeaderName = __webpack_require__(297);
+	var utils = __webpack_require__(292);
+	var normalizeHeaderName = __webpack_require__(296);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -48682,10 +48164,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(298);
+	    adapter = __webpack_require__(297);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(298);
+	    adapter = __webpack_require__(297);
 	  }
 	  return adapter;
 	}
@@ -48759,12 +48241,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 297 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
+	var utils = __webpack_require__(292);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -48777,18 +48259,18 @@
 
 
 /***/ },
-/* 298 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(293);
-	var settle = __webpack_require__(299);
-	var buildURL = __webpack_require__(302);
-	var parseHeaders = __webpack_require__(303);
-	var isURLSameOrigin = __webpack_require__(304);
-	var createError = __webpack_require__(300);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(305);
+	var utils = __webpack_require__(292);
+	var settle = __webpack_require__(298);
+	var buildURL = __webpack_require__(301);
+	var parseHeaders = __webpack_require__(302);
+	var isURLSameOrigin = __webpack_require__(303);
+	var createError = __webpack_require__(299);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(304);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -48884,7 +48366,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(306);
+	      var cookies = __webpack_require__(305);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -48961,12 +48443,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 299 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(300);
+	var createError = __webpack_require__(299);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -48992,12 +48474,12 @@
 
 
 /***/ },
-/* 300 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(301);
+	var enhanceError = __webpack_require__(300);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -49015,7 +48497,7 @@
 
 
 /***/ },
-/* 301 */
+/* 300 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49040,12 +48522,12 @@
 
 
 /***/ },
-/* 302 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
+	var utils = __webpack_require__(292);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -49114,12 +48596,12 @@
 
 
 /***/ },
-/* 303 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
+	var utils = __webpack_require__(292);
 
 	/**
 	 * Parse headers into an object
@@ -49157,12 +48639,12 @@
 
 
 /***/ },
-/* 304 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
+	var utils = __webpack_require__(292);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -49231,7 +48713,7 @@
 
 
 /***/ },
-/* 305 */
+/* 304 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49273,12 +48755,12 @@
 
 
 /***/ },
-/* 306 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
+	var utils = __webpack_require__(292);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -49332,12 +48814,12 @@
 
 
 /***/ },
-/* 307 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
+	var utils = __webpack_require__(292);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -49390,15 +48872,15 @@
 
 
 /***/ },
-/* 308 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
-	var transformData = __webpack_require__(309);
-	var isCancel = __webpack_require__(310);
-	var defaults = __webpack_require__(296);
+	var utils = __webpack_require__(292);
+	var transformData = __webpack_require__(308);
+	var isCancel = __webpack_require__(309);
+	var defaults = __webpack_require__(295);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -49475,12 +48957,12 @@
 
 
 /***/ },
-/* 309 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(293);
+	var utils = __webpack_require__(292);
 
 	/**
 	 * Transform the data for a request or a response
@@ -49501,7 +48983,7 @@
 
 
 /***/ },
-/* 310 */
+/* 309 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49512,7 +48994,7 @@
 
 
 /***/ },
-/* 311 */
+/* 310 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49532,7 +49014,7 @@
 
 
 /***/ },
-/* 312 */
+/* 311 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49550,7 +49032,7 @@
 
 
 /***/ },
-/* 313 */
+/* 312 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49575,12 +49057,12 @@
 
 
 /***/ },
-/* 314 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(313);
+	var Cancel = __webpack_require__(312);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -49638,7 +49120,7 @@
 
 
 /***/ },
-/* 315 */
+/* 314 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49671,7 +49153,7 @@
 
 
 /***/ },
-/* 316 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49680,7 +49162,7 @@
 	    value: true
 	});
 
-	var _reBase = __webpack_require__(317);
+	var _reBase = __webpack_require__(316);
 
 	var _reBase2 = _interopRequireDefault(_reBase);
 
@@ -49697,20 +49179,20 @@
 	exports.default = base;
 
 /***/ },
-/* 317 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(318);
+	module.exports = __webpack_require__(317);
 
 
 
 /***/ },
-/* 318 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
 		if(true)
-			module.exports = factory(__webpack_require__(319));
+			module.exports = factory(__webpack_require__(318));
 		else if(typeof define === 'function' && define.amd)
 			define(["firebase"], factory);
 		else {
@@ -50876,7 +50358,7 @@
 	;
 
 /***/ },
-/* 319 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -50886,16 +50368,16 @@
 	 *
 	 *   firebase = require('firebase');
 	 */
-	var firebase = __webpack_require__(320);
+	var firebase = __webpack_require__(319);
+	__webpack_require__(320);
 	__webpack_require__(321);
 	__webpack_require__(322);
 	__webpack_require__(323);
-	__webpack_require__(324);
 	module.exports = firebase;
 
 
 /***/ },
-/* 320 */
+/* 319 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {var firebase = (function(){
@@ -50935,10 +50417,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 321 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(320);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(319);
 	(function(){
 	/*! @license Firebase v3.6.3
 	    Build: 3.6.3-rc.6
@@ -51161,10 +50643,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 322 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(320);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(319);
 	(function(){
 	/*! @license Firebase v3.6.3
 	    Build: 3.6.3-rc.6
@@ -51432,10 +50914,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(320);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(319);
 	(function(){
 	/*! @license Firebase v3.6.3
 	    Build: 3.6.3-rc.6
@@ -51492,10 +50974,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(320);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(319);
 	(function(){
 	/*! @license Firebase v3.6.3
 	    Build: 3.6.3-rc.6
@@ -51537,6 +51019,62 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+/* 324 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.editFooter = exports.editHeader = undefined;
+
+	var _const = __webpack_require__(213);
+
+	var con = _interopRequireWildcard(_const);
+
+	var _db = __webpack_require__(315);
+
+	var _db2 = _interopRequireDefault(_db);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	exports.default = function (context) {
+	  return function (dispatch) {
+	    _db2.default.listenTo('container', {
+	      context: context,
+	      asArray: true,
+	      then: function then(data) {
+	        dispatch(receiveContainer(data));
+	      }
+	    });
+	  };
+	};
+
+	var receiveContainer = function receiveContainer(response) {
+	  return {
+	    type: con.ACTReceiveContainer,
+	    payload: {
+	      response: response
+	    }
+	  };
+	};
+
+	var editHeader = exports.editHeader = function editHeader(data) {
+	  return _db2.default.post('container/header/IMG', {
+	    data: data
+	  });
+	};
+
+	var editFooter = exports.editFooter = function editFooter(data) {
+	  return _db2.default.post('container/footer_components/IMG', {
+	    data: data
+	  });
+	};
+
+/***/ },
 /* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -51545,9 +51083,542 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.updateImage = undefined;
+	exports.Main = undefined;
 
-	var _axios = __webpack_require__(291);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(179);
+
+	var _reactDropzone = __webpack_require__(288);
+
+	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
+
+	var _About = __webpack_require__(326);
+
+	var _About2 = _interopRequireDefault(_About);
+
+	var _UploadImage = __webpack_require__(289);
+
+	var _const = __webpack_require__(213);
+
+	var constant = _interopRequireWildcard(_const);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var About = function (_React$Component) {
+	  _inherits(About, _React$Component);
+
+	  function About(props) {
+	    _classCallCheck(this, About);
+
+	    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(About, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.props.getAbout(this);
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps() {
+	      this.setState({});
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (!this.props.team) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          'Loading ..'
+	        );
+	      }
+	      return _react2.default.createElement(Main, { aboutus: this.props.aboutus, team: this.props.team.list, editAbout: this.props.editAbout, updateImage: this.props.updateImage });
+	    }
+	  }]);
+
+	  return About;
+	}(_react2.default.Component);
+
+	var Main = exports.Main = function Main(_ref) {
+	  var aboutus = _ref.aboutus,
+	      team = _ref.team,
+	      editAbout = _ref.editAbout,
+	      updateImage = _ref.updateImage;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'right_col', role: 'main' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'page-title' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'title_left' },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'About Page'
+	        )
+	      )
+	    ),
+	    _react2.default.createElement('div', { className: 'clearfix' }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'row' },
+	      _react2.default.createElement(AboutUs, { about_us: aboutus, editAbout: editAbout, updateImage: updateImage })
+	    )
+	  );
+	};
+
+	var AboutUs = function (_React$Component2) {
+	  _inherits(AboutUs, _React$Component2);
+
+	  function AboutUs(props, context) {
+	    _classCallCheck(this, AboutUs);
+
+	    var _this2 = _possibleConstructorReturn(this, (AboutUs.__proto__ || Object.getPrototypeOf(AboutUs)).call(this, props));
+
+	    context.router;
+	    _this2.state = {
+	      filename: []
+	    };
+	    return _this2;
+	  }
+
+	  _createClass(AboutUs, [{
+	    key: 'onDrop',
+	    value: function onDrop(e) {
+	      var _this3 = this;
+
+	      var img = new Image();
+	      var file = e[0];
+	      img.src = window.URL.createObjectURL(file);
+	      var h = this.state.height;
+	      var w = this.state.width;
+	      img.onload = function () {
+	        // REFACTORIN
+	        _this3.setState({
+	          naturalHeight: img.naturalHeight,
+	          naturalWidth: img.naturalWidth
+	        });
+	        handleImageChange(file);
+	      };
+
+	      var handleImageChange = function handleImageChange(file) {
+	        var reader = new FileReader();
+
+	        reader.onloadend = function () {
+	          _this3.setState({
+	            filename: e[0].name,
+	            file: file,
+	            imagePreviewUrl: reader.result
+	          });
+	        };
+	        reader.readAsDataURL(file);
+	      };
+	    }
+	  }, {
+	    key: 'editAboutUs',
+	    value: function editAboutUs(val) {
+	      var _this4 = this;
+
+	      this.props.updateImage(this.state.file).then(function (url) {
+	        var us = {
+	          TITTLE: _this4.titleRef.value,
+	          TEXT: _this4.textAboutRef.value,
+	          IMG: url,
+	          IMGURL: _this4.props.about_us.IMGURL
+	        };
+	        _this4.props.editAbout("us", us).then(function () {
+	          alert('success, changed content saved');
+	        }).catch(function () {
+	          alert('fail, changed content cannot be saved');
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this5 = this;
+
+	      if (!this.props.about_us && !this.state.files) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          'Loading ..'
+	        );
+	      }
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-12 col-sm-12 col-xs-12' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'x_panel' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'x_title' },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'About Us'
+	              ),
+	              _react2.default.createElement('div', { className: 'clearfix' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'x_content' },
+	              _react2.default.createElement('div', { id: 'alerts' }),
+	              _react2.default.createElement(
+	                'form',
+	                { id: 'formabout', onSubmit: function onSubmit(val) {
+	                    return _this5.editAboutUs(val);
+	                  } },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-md-3 col-sm-3 col-xs-12' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                      _reactDropzone2.default,
+	                      { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                          return _this5.onDrop(e);
+	                        } },
+	                      _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        this.state.filename
+	                      )
+	                    ),
+	                    'image size: 470 x 220'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                      _react2.default.createElement('textarea', { className: 'resizable_textarea form-control', placeholder: 'Title Here ..', defaultValue: this.props.about_us.TITTLE, ref: function ref(_ref2) {
+	                          return _this5.titleRef = _ref2;
+	                        } })
+	                    )
+	                  ),
+	                  _react2.default.createElement('br', null),
+	                  _react2.default.createElement('br', null),
+	                  _react2.default.createElement('br', null),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-12 col-sm-12 col-xs-12' },
+	                    _react2.default.createElement('textarea', { className: 'resizable_textarea form-control', placeholder: 'Content Here ..', style: { height: "230px" }, defaultValue: this.props.about_us.TEXT, ref: function ref(_ref3) {
+	                        return _this5.textAboutRef = _ref3;
+	                      } })
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11' },
+	                  _react2.default.createElement('input', { className: 'btn btn-success', type: 'submit', name: 'submit' })
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return AboutUs;
+	}(_react2.default.Component);
+
+	var OurTeam = function (_React$Component3) {
+	  _inherits(OurTeam, _React$Component3);
+
+	  function OurTeam(props, context) {
+	    _classCallCheck(this, OurTeam);
+
+	    var _this6 = _possibleConstructorReturn(this, (OurTeam.__proto__ || Object.getPrototypeOf(OurTeam)).call(this, props));
+
+	    context.router;
+	    _this6.state = {
+	      NAME: '',
+	      POSITION: '',
+	      TEXT: '',
+	      filename: []
+	    };
+	    return _this6;
+	  }
+
+	  _createClass(OurTeam, [{
+	    key: 'onDrop',
+	    value: function onDrop(e) {
+	      var _this7 = this;
+
+	      var img = new Image();
+	      var file = e[0];
+	      img.src = window.URL.createObjectURL(file);
+	      var h = this.state.height;
+	      var w = this.state.width;
+	      img.onload = function () {
+	        // REFACTORIN
+	        _this7.setState({
+	          naturalHeight: img.naturalHeight,
+	          naturalWidth: img.naturalWidth
+	        });
+	        handleImageChange(file);
+	      };
+
+	      var handleImageChange = function handleImageChange(file) {
+	        var reader = new FileReader();
+
+	        reader.onloadend = function () {
+	          _this7.setState({
+	            filename: e[0].name,
+	            file: file,
+	            imagePreviewUrl: reader.result
+	          });
+	        };
+	        reader.readAsDataURL(file);
+	      };
+	    }
+	  }, {
+	    key: 'editTeam',
+	    value: function editTeam(val, index) {
+	      var _this8 = this;
+
+	      this.props.updateImage(this.state.file).then(function (url) {
+	        var name = _this8.state.NAME;
+	        var text = _this8.state.TEXT;
+	        var position = _this8.state.POSITION;
+	        if (!name) name = _this8.props.team[index].NAME;
+	        if (!text) text = _this8.props.team[index].TEXT;
+	        if (!position) position = _this8.props.team[index].POSITION;
+
+	        var team = {
+	          IMG: url,
+	          IMGURL: "url",
+	          NAME: name,
+	          POSITION: position,
+	          TEXT: text
+	        };
+
+	        _this8.props.editAbout('team/list/' + index, team).then(function () {
+	          alert('success, changed content saved');
+	        }).catch(function () {
+	          alert('fail, changed content cannot be saved');
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(val, key, index) {
+	      val.preventDefault();
+	      if (key == 'name') {
+	        this.setState({
+	          NAME: val.target.value
+	        });
+	      } else if (key == 'position') {
+	        this.setState({
+	          POSITION: val.target.value
+	        });
+	      } else {
+	        this.setState({
+	          TEXT: val.target.value
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this9 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-12 col-sm-12 col-xs-12' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'x_panel' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'x_title' },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                ' Our Team'
+	              ),
+	              _react2.default.createElement('div', { className: 'clearfix' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'x_content' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: '', role: 'tabpanel', 'data-example-id': 'togglable-tabs' },
+	                _react2.default.createElement(
+	                  'ul',
+	                  { id: 'myTab', className: 'nav nav-tabs bar_tabs', role: 'tablist' },
+	                  this.props.team && this.props.team.map(function (team, index) {
+	                    return _react2.default.createElement(
+	                      'li',
+	                      { key: index, role: 'presentation', className: index == 0 ? 'active' : '' },
+	                      _react2.default.createElement(
+	                        'a',
+	                        { href: '#tab_team' + (index + 1), role: 'tab', 'data-toggle': 'tab', 'aria-expanded': index == 0 ? 'true' : 'false' },
+	                        _this9.props.team[index].NAME
+	                      )
+	                    );
+	                  })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { id: 'myTabContent', className: 'tab-content' },
+	                  this.props.team && this.props.team.map(function (team, index) {
+	                    return _react2.default.createElement(
+	                      'div',
+	                      _defineProperty({ key: index, role: 'tabpanel', className: index == 0 ? 'tab-pane fade active in' : 'tab-pane fade', id: 'tab_team' + (index + 1), 'aria-labelledby': 'home-tab' }, 'key', index),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'x_content' },
+	                        _react2.default.createElement('div', { id: 'alerts' }),
+	                        _react2.default.createElement(
+	                          'form',
+	                          { id: 'formteam' },
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-3 col-sm-3 col-xs-12' },
+	                            _react2.default.createElement(
+	                              'div',
+	                              null,
+	                              _react2.default.createElement(
+	                                _reactDropzone2.default,
+	                                { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                                    return _this9.onDrop(e);
+	                                  } },
+	                                _react2.default.createElement(
+	                                  'div',
+	                                  null,
+	                                  _this9.state.filename
+	                                )
+	                              ),
+	                              'image size: 470 x 220'
+	                            )
+	                          ),
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'form-group' },
+	                              _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                                _react2.default.createElement('input', { placeholder: 'Position', defaultValue: _this9.props.team[index].POSITION, onChange: function onChange(ref) {
+	                                    return _this9.handleChange(ref, 'position');
+	                                  } }),
+	                                _react2.default.createElement('input', { placeholder: 'Name', style: { width: "500px" }, defaultValue: _this9.props.team[index].NAME, onChange: function onChange(ref) {
+	                                    return _this9.handleChange(ref, 'name');
+	                                  } })
+	                              )
+	                            ),
+	                            _react2.default.createElement('br', null),
+	                            _react2.default.createElement('br', null),
+	                            _react2.default.createElement('br', null),
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'col-md-12 col-sm-12 col-xs-12' },
+	                              _react2.default.createElement('textarea', { className: 'resizable_textarea form-control', placeholder: 'Short Desc', style: { height: "230px" }, defaultValue: _this9.props.team[index].TEXT, onChange: function onChange(ref) {
+	                                  return _this9.handleChange(ref, 'text');
+	                                } })
+	                            )
+	                          ),
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11' },
+	                            _react2.default.createElement('input', { className: 'btn btn-success', type: 'submit', name: 'submit', onClick: function onClick(val) {
+	                                return _this9.editTeam(val, index);
+	                              } })
+	                          )
+	                        )
+	                      )
+	                    );
+	                  })
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return OurTeam;
+	}(_react2.default.Component);
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  if (state.about) {
+	    return {
+	      team: state.about.team[0],
+	      aboutus: state.about.us[0]
+	    };
+	  } else return {};
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    getAbout: function getAbout(context) {
+	      return dispatch((0, _About2.default)(context));
+	    },
+	    editAbout: function editAbout(key, data) {
+	      return (0, _About.editAbout)(key, data);
+	    },
+	    updateImage: function updateImage(data) {
+	      return (0, _UploadImage.updateImage)(data);
+	    }
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(About);
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.editAbout = undefined;
+
+	var _axios = __webpack_require__(290);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -51555,7 +51626,7 @@
 
 	var con = _interopRequireWildcard(_const);
 
-	var _db = __webpack_require__(316);
+	var _db = __webpack_require__(315);
 
 	var _db2 = _interopRequireDefault(_db);
 
@@ -51563,50 +51634,35 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var updateImage = exports.updateImage = function updateImage(file) {
-	  return new Promise(function (resolve, reject) {
-	    var storageRef = _db2.default.storage().ref();
-	    var metaData = {
-	      contentType: 'image/jpeg'
-	    };
-	    var uploadTask = storageRef.child('images' + file.name).put(file, metaData);
-	    uploadTask.on(_db2.default.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-	    function (snapshot) {
-	      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-	      var progress = snapshot.bytesTransferred / snapshot.totalBytes * 100;
-	      console.log('Upload is ' + progress + '% done');
-	      switch (snapshot.state) {
-	        case _db2.default.storage.TaskState.PAUSED:
-	          // or 'paused'
-	          console.log('Upload is paused');
-	          break;
-	        case _db2.default.storage.TaskState.RUNNING:
-	          // or 'running'
-	          console.log('Upload is running');
-	          break;
+	exports.default = function (context) {
+	  return function (dispatch) {
+	    _db2.default.listenTo('about', {
+	      context: context,
+	      asArray: true,
+	      then: function then(data) {
+	        dispatch(receiveAbout(data));
 	      }
-	    }, function (error) {
-	      switch (error.code) {
-	        case 'storage/unauthorized':
-	          // User doesn't have permission to access the object
-	          break;
-	        case 'storage/canceled':
-	          // User canceled the upload
-	          break;
-	        case 'storage/unknown':
-	          // Unknown error occurred, inspect error.serverResponse
-	          break;
-	      }
-	    }, function () {
-	      // Upload completed successfully, now we can get the download URL
-	      var downloadURL = uploadTask.snapshot.downloadURL;
-	      resolve(downloadURL);
 	    });
+	  };
+	};
+
+	var receiveAbout = function receiveAbout(response) {
+	  return {
+	    type: con.ACTReceiveAbout,
+	    payload: {
+	      response: response
+	    }
+	  };
+	};
+
+	var editAbout = exports.editAbout = function editAbout(key, data) {
+	  return _db2.default.post('about/' + key, {
+	    data: data
 	  });
 	};
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51623,11 +51679,11 @@
 
 	var _reactRedux = __webpack_require__(179);
 
-	var _Feature = __webpack_require__(327);
+	var _Feature = __webpack_require__(328);
 
 	var _Feature2 = _interopRequireDefault(_Feature);
 
-	var _Social = __webpack_require__(328);
+	var _Social = __webpack_require__(329);
 
 	var _Social2 = _interopRequireDefault(_Social);
 
@@ -51987,7 +52043,7 @@
 	exports.default = (0, _reactRedux.connect)(mapsStateToProps, mapsDispatchToProps)(Contact);
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52001,7 +52057,7 @@
 
 	var con = _interopRequireWildcard(_const);
 
-	var _db = __webpack_require__(316);
+	var _db = __webpack_require__(315);
 
 	var _db2 = _interopRequireDefault(_db);
 
@@ -52118,7 +52174,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52132,7 +52188,7 @@
 
 	var con = _interopRequireWildcard(_const);
 
-	var _db = __webpack_require__(316);
+	var _db = __webpack_require__(315);
 
 	var _db2 = _interopRequireDefault(_db);
 
@@ -52174,7 +52230,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52195,19 +52251,19 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _reactDropzone = __webpack_require__(289);
+	var _reactDropzone = __webpack_require__(288);
 
 	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
-	var _Feature = __webpack_require__(327);
+	var _Feature = __webpack_require__(328);
 
 	var _Feature2 = _interopRequireDefault(_Feature);
 
-	var _Social = __webpack_require__(328);
+	var _Social = __webpack_require__(329);
 
 	var _Social2 = _interopRequireDefault(_Social);
 
-	var _UploadImage = __webpack_require__(325);
+	var _UploadImage = __webpack_require__(289);
 
 	var _const = __webpack_require__(213);
 
@@ -53239,39 +53295,74 @@
 	    value: function editVouchers(val, index) {
 	      var _this14 = this;
 
-	      this.props.updateImage(this.state.file).then(function (dlurl) {
-	        var createdby = _this14.state.CREATEDBY;
-	        var date = _this14.state.DATE;
-	        var img = _this14.state.IMG;
-	        var text = _this14.state.TEXT;
-	        var tittle = _this14.state.TITTLE;
-	        var url = _this14.state.URL;
-	        var instagram = _this14.state.INSTAGRAM;
+	      val.preventDefault();
+	      if (this.state.file) {
+	        this.props.updateImage(this.state.file).then(function (dlurl) {
+	          var createdby = _this14.state.CREATEDBY;
+	          var date = _this14.state.DATE;
+	          var img = _this14.state.IMG;
+	          var text = _this14.state.TEXT;
+	          var tittle = _this14.state.TITTLE;
+	          var url = _this14.state.URL;
+	          var instagram = _this14.state.INSTAGRAM;
 
-	        if (!createdby) createdby = _lodash2.default.values(_this14.props.vouchers)[index].CREATEDBY;
-	        if (!date) date = _lodash2.default.values(_this14.props.vouchers)[index].DATE;
-	        if (!img) img = dlurl;
-	        if (!text) text = _lodash2.default.values(_this14.props.vouchers)[index].TEXT;
-	        if (!tittle) tittle = _lodash2.default.values(_this14.props.vouchers)[index].TITTLE;
-	        if (!url) url = _lodash2.default.values(_this14.props.vouchers)[index].URL;
-	        if (!instagram) instagram = _lodash2.default.values(_this14.props.vouchers)[index].INSTAGRAM;
+	          if (!createdby) createdby = _lodash2.default.values(_this14.props.vouchers)[index].CREATEDBY;
+	          if (!date) date = _lodash2.default.values(_this14.props.vouchers)[index].DATE;
+	          if (!img) img = dlurl;
+	          if (!text) text = _lodash2.default.values(_this14.props.vouchers)[index].TEXT;
+	          if (!tittle) tittle = _lodash2.default.values(_this14.props.vouchers)[index].TITTLE;
+	          if (!url) url = _lodash2.default.values(_this14.props.vouchers)[index].URL;
+	          if (!instagram) instagram = _lodash2.default.values(_this14.props.vouchers)[index].INSTAGRAM;
+
+	          var vouchers = {
+	            CREATEDBY: createdby,
+	            DATE: date,
+	            IMG: img,
+	            TEXT: text,
+	            TITTLE: tittle,
+	            URL: url,
+	            INSTAGRAM: instagram
+	          };
+
+	          _this14.props.editVouchers('list/' + index, vouchers).then(function () {
+	            alert('success, changed content saved');
+	          }).catch(function () {
+	            alert('fail, changed content cannot be saved');
+	          });
+	        });
+	      } else {
+	        var createdby = this.state.CREATEDBY;
+	        var date = this.state.DATE;
+	        var text = this.state.TEXT;
+	        var img = this.state.IMG;
+	        var tittle = this.state.TITTLE;
+	        var url = this.state.URL;
+	        var instagram = this.state.INSTAGRAM;
+
+	        if (!createdby) createdby = _lodash2.default.values(this.props.vouchers)[index].CREATEDBY;
+	        if (!date) date = _lodash2.default.values(this.props.vouchers)[index].DATE;
+	        if (!text) text = _lodash2.default.values(this.props.vouchers)[index].TEXT;
+	        if (!img) img = _lodash2.default.values(this.props.vouchers)[index].IMG;
+	        if (!tittle) tittle = _lodash2.default.values(this.props.vouchers)[index].TITTLE;
+	        if (!url) url = _lodash2.default.values(this.props.vouchers)[index].URL;
+	        if (!instagram) instagram = _lodash2.default.values(this.props.vouchers)[index].INSTAGRAM;
 
 	        var vouchers = {
 	          CREATEDBY: createdby,
 	          DATE: date,
-	          IMG: img,
 	          TEXT: text,
+	          IMG: img,
 	          TITTLE: tittle,
 	          URL: url,
 	          INSTAGRAM: instagram
 	        };
 
-	        _this14.props.editVouchers('list/' + index, vouchers).then(function () {
+	        this.props.editVouchers('list/' + index, vouchers).then(function () {
 	          alert('success, changed content saved');
 	        }).catch(function () {
 	          alert('fail, changed content cannot be saved');
 	        });
-	      });
+	      }
 	    }
 	  }, {
 	    key: 'addVouchers',
@@ -53288,7 +53379,8 @@
 	            TEXT: _this15.newTextRef.value,
 	            TITTLE: _this15.newTitleRef.value,
 	            INSTAGRAM: _this15.newInstagramRef.value,
-	            URL: ''
+	            URL: _this15.newUrlRef.value,
+	            DESCRIPTION: _this15.newDescriptionRef.value
 	          };
 
 	          _this15.props.addVouchers(_this15.props.vouchers.length, newvoucher).then(function () {
@@ -53296,6 +53388,8 @@
 	            _this15.newTitleRef.value = '';
 	            _this15.newTextRef.value = '';
 	            _this15.newInstagramRef.value = '';
+	            _this15.newUrlRef.value = '';
+	            _this15.newDescriptionRef.value = '';
 	          }).catch(function () {
 	            alert('fail, new content cannot be saved');
 	          });
@@ -53470,6 +53564,38 @@
 	                          'div',
 	                          { className: 'form-group' },
 	                          _react2.default.createElement(
+	                            'label',
+	                            { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                            'URL'
+	                          ),
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                            _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Voucher URL', defaultValue: _lodash2.default.values(_this16.props.vouchers)[index].URL, onChange: function onChange(ref) {
+	                                return _this16.handleChange(ref, 'url');
+	                              } })
+	                          )
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'form-group' },
+	                          _react2.default.createElement(
+	                            'label',
+	                            { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                            'Description'
+	                          ),
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                            _react2.default.createElement('textarea', { type: 'text', className: 'form-control', placeholder: 'Voucher Description', defaultValue: _lodash2.default.values(_this16.props.vouchers)[index].DESCRIPTION, onChange: function onChange(ref) {
+	                                return _this16.handleChange(ref, 'description');
+	                              } })
+	                          )
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'form-group' },
+	                          _react2.default.createElement(
 	                            'div',
 	                            { className: 'col-md-9 col-sm-9 col-xs-12 col-md-offset-3' },
 	                            _react2.default.createElement(
@@ -53574,6 +53700,38 @@
 	                        'div',
 	                        { className: 'form-group' },
 	                        _react2.default.createElement(
+	                          'label',
+	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                          'URL'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Voucher URL', defaultValue: '', ref: function ref(_ref15) {
+	                              return _this16.newUrlRef = _ref15;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                          'Description'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                          _react2.default.createElement('textarea', { type: 'text', className: 'form-control', placeholder: 'Voucher Description', defaultValue: '', ref: function ref(_ref16) {
+	                              return _this16.newDescriptionRef = _ref16;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
 	                          'div',
 	                          { className: 'col-md-9 col-sm-9 col-xs-12 col-md-offset-3' },
 	                          _react2.default.createElement(
@@ -53657,7 +53815,7 @@
 	exports.default = (0, _reactRedux.connect)(mapsStateToProps, mapsDispatchToProps)(Home);
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53678,15 +53836,15 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _reactDropzone = __webpack_require__(289);
+	var _reactDropzone = __webpack_require__(288);
 
 	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
-	var _Feature = __webpack_require__(327);
+	var _Feature = __webpack_require__(328);
 
 	var _Feature2 = _interopRequireDefault(_Feature);
 
-	var _UploadImage = __webpack_require__(325);
+	var _UploadImage = __webpack_require__(289);
 
 	var _const = __webpack_require__(213);
 
@@ -54606,7 +54764,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Trip);
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54669,7 +54827,7 @@
 	exports.default = Welcome;
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54881,62 +55039,6 @@
 	}(_react2.default.Component);
 
 	exports.default = Login;
-
-/***/ },
-/* 333 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.editFooter = exports.editHeader = undefined;
-
-	var _const = __webpack_require__(213);
-
-	var con = _interopRequireWildcard(_const);
-
-	var _db = __webpack_require__(316);
-
-	var _db2 = _interopRequireDefault(_db);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	exports.default = function (context) {
-	  return function (dispatch) {
-	    _db2.default.listenTo('container', {
-	      context: context,
-	      asArray: true,
-	      then: function then(data) {
-	        dispatch(receiveContainer(data));
-	      }
-	    });
-	  };
-	};
-
-	var receiveContainer = function receiveContainer(response) {
-	  return {
-	    type: con.ACTReceiveContainer,
-	    payload: {
-	      response: response
-	    }
-	  };
-	};
-
-	var editHeader = exports.editHeader = function editHeader(data) {
-	  return _db2.default.post('container/header/IMG', {
-	    data: data
-	  });
-	};
-
-	var editFooter = exports.editFooter = function editFooter(data) {
-	  return _db2.default.post('container/footer_components/IMG', {
-	    data: data
-	  });
-	};
 
 /***/ }
 /******/ ]);

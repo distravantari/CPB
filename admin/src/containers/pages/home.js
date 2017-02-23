@@ -672,20 +672,57 @@ class Voucher extends React.Component {
   }
 
   editVouchers(val, index){
-    this.props.updateImage(this.state.file)
-    .then((dlurl) => {
+    val.preventDefault()
+    if(this.state.file){
+      this.props.updateImage(this.state.file)
+      .then((dlurl) => {
+        let createdby = this.state.CREATEDBY
+        let date = this.state.DATE
+        let img = this.state.IMG
+        let text = this.state.TEXT
+        let tittle = this.state.TITTLE
+        let url = this.state.URL
+        let instagram = this.state.INSTAGRAM
+
+        if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
+        if(!date) date = _.values(this.props.vouchers)[index].DATE
+        if(!img) img = dlurl
+        if(!text) text = _.values(this.props.vouchers)[index].TEXT
+        if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
+        if(!url) url = _.values(this.props.vouchers)[index].URL
+        if(!instagram) instagram = _.values(this.props.vouchers)[index].INSTAGRAM
+
+        const vouchers = {
+          CREATEDBY : createdby,
+          DATE : date,
+          IMG : img,
+          TEXT : text,
+          TITTLE : tittle,
+          URL : url,
+          INSTAGRAM: instagram
+        }
+
+        this.props.editVouchers(`list/${index}`, vouchers)
+        .then(() => {
+           alert('success, changed content saved')
+        })
+        .catch(() => {
+           alert('fail, changed content cannot be saved')
+        })
+      })
+    }else{
       let createdby = this.state.CREATEDBY
       let date = this.state.DATE
-      let img = this.state.IMG
       let text = this.state.TEXT
+      let img = this.state.IMG
       let tittle = this.state.TITTLE
       let url = this.state.URL
       let instagram = this.state.INSTAGRAM
 
       if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
       if(!date) date = _.values(this.props.vouchers)[index].DATE
-      if(!img) img = dlurl
       if(!text) text = _.values(this.props.vouchers)[index].TEXT
+      if(!img) img = _.values(this.props.vouchers)[index].IMG
       if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
       if(!url) url = _.values(this.props.vouchers)[index].URL
       if(!instagram) instagram = _.values(this.props.vouchers)[index].INSTAGRAM
@@ -693,8 +730,8 @@ class Voucher extends React.Component {
       const vouchers = {
         CREATEDBY : createdby,
         DATE : date,
-        IMG : img,
         TEXT : text,
+        IMG : img,
         TITTLE : tittle,
         URL : url,
         INSTAGRAM: instagram
@@ -707,7 +744,7 @@ class Voucher extends React.Component {
       .catch(() => {
          alert('fail, changed content cannot be saved')
       })
-    })
+    }
   }
 
   addVouchers(val){
@@ -722,7 +759,8 @@ class Voucher extends React.Component {
           TEXT : this.newTextRef.value,
           TITTLE : this.newTitleRef.value,
           INSTAGRAM : this.newInstagramRef.value,
-          URL : ''
+          URL : this.newUrlRef.value,
+          DESCRIPTION : this.newDescriptionRef.value,
         }
 
         this.props.addVouchers(this.props.vouchers.length, newvoucher)
@@ -731,6 +769,8 @@ class Voucher extends React.Component {
           this.newTitleRef.value = ''
           this.newTextRef.value = ''
           this.newInstagramRef.value = ''
+          this.newUrlRef.value = ''
+          this.newDescriptionRef.value = ''
         })
         .catch(() => {
            alert('fail, new content cannot be saved')
@@ -834,6 +874,20 @@ class Voucher extends React.Component {
                             </div>
 
                             <div className="form-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">URL</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <input type="text" className="form-control" placeholder="Voucher URL" defaultValue={_.values(this.props.vouchers)[index].URL} onChange={(ref) => this.handleChange(ref, `url`)}/>
+                              </div>
+                            </div>
+
+                            <div className="form-group">
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                              <div className="col-md-9 col-sm-9 col-xs-12">
+                                <textarea type="text" className="form-control" placeholder="Voucher Description" defaultValue={_.values(this.props.vouchers)[index].DESCRIPTION} onChange={(ref) => this.handleChange(ref, `description`)}/>
+                              </div>
+                            </div>
+
+                            <div className="form-group">
                               <div className="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                                 <button type="submit" className="btn btn-success" onClick={(val) => this.editVouchers(val, index)}>Edit</button>
                                 <button type="" className="btn btn-danger" onClick={(val) => this.deleteVouchers(val, index)}>Delete</button>
@@ -876,6 +930,20 @@ class Voucher extends React.Component {
                         <label className="control-label col-md-3 col-sm-3 col-xs-12">Instagram</label>
                         <div className="col-md-9 col-sm-9 col-xs-12">
                           <input type="text" className="form-control" placeholder="Tittle" defaultValue='' ref={(ref) => this.newInstagramRef = ref} />
+                        </div>
+                      </div>
+
+                      <div className="form-group">
+                        <label className="control-label col-md-3 col-sm-3 col-xs-12">URL</label>
+                        <div className="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" className="form-control" placeholder="Voucher URL" defaultValue='' ref={(ref) => this.newUrlRef = ref}/>
+                        </div>
+                      </div>
+
+                      <div className="form-group">
+                        <label className="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                        <div className="col-md-9 col-sm-9 col-xs-12">
+                          <textarea type="text" className="form-control" placeholder="Voucher Description" defaultValue='' ref={(ref) => this.newDescriptionRef = ref} />
                         </div>
                       </div>
 
