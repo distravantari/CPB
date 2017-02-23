@@ -40487,7 +40487,7 @@
 	var ACTReceiveSocial = exports.ACTReceiveSocial = "RECEIVE SOCIAL";
 	var ACTReceiveAbout = exports.ACTReceiveAbout = "RECEIVE ABOUT";
 
-	var routes = exports.routes = ["About", "Contact", "Home", "Trip", "Form"];
+	var routes = exports.routes = ["About", "Contact", "Home", "Trip"];
 
 	var authentication = exports.authentication = {
 	  username: "distra",
@@ -46925,8 +46925,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'row' },
-	      _react2.default.createElement(AboutUs, { about_us: aboutus, editAbout: editAbout, updateImage: updateImage }),
-	      _react2.default.createElement(OurTeam, { team: team, editAbout: editAbout, updateImage: updateImage })
+	      _react2.default.createElement(AboutUs, { about_us: aboutus, editAbout: editAbout, updateImage: updateImage })
 	    )
 	  );
 	};
@@ -54445,12 +54444,12 @@
 	  _createClass(Login, [{
 	    key: 'authenticate',
 	    value: function authenticate(val) {
+	      val.preventDefault();
 	      if (this.usernameRef.value === constant.authentication.username && this.passwordRef.value === constant.authentication.password) {
 	        alert('success');
 	        this.props.history.push('/dashboard');
 	      } else {
 	        alert('failed');
-	        this.props.history.push('/');
 	      }
 	    }
 	  }, {

@@ -8,8 +8,7 @@ export const routes = [
     "About",
     "Contact",
     "Home",
-    "Trip",
-    "Form"
+    "Trip"
 ]
 
 export const authentication = {
