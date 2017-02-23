@@ -46761,9 +46761,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(179);
+
 	var _const = __webpack_require__(213);
 
 	var con = _interopRequireWildcard(_const);
+
+	var _reactDropzone = __webpack_require__(289);
+
+	var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
+
+	var _UploadImage = __webpack_require__(325);
+
+	var _Container = __webpack_require__(333);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -46804,7 +46814,13 @@
 	            )
 	          ),
 	          _react2.default.createElement('div', { className: 'clearfix' }),
-	          _react2.default.createElement('div', { className: 'row' })
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(Header, { updateImage: _UploadImage.updateImage, editHeader: _Container.editHeader }),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(Footer, { updateImage: _UploadImage.updateImage, editFooter: _Container.editFooter })
+	          )
 	        )
 	      );
 	    }
@@ -46813,7 +46829,254 @@
 	  return Dashboard;
 	}(_react2.default.Component);
 
-	exports.default = Dashboard;
+	var Header = function (_React$Component2) {
+	  _inherits(Header, _React$Component2);
+
+	  function Header(props) {
+	    _classCallCheck(this, Header);
+
+	    var _this2 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+	    _this2.state = {
+	      filename: []
+	    };
+	    return _this2;
+	  }
+
+	  _createClass(Header, [{
+	    key: 'onDrop',
+	    value: function onDrop(e) {
+	      var _this3 = this;
+
+	      var img = new Image();
+	      var file = e[0];
+	      img.src = window.URL.createObjectURL(file);
+	      var h = this.state.height;
+	      var w = this.state.width;
+	      img.onload = function () {
+	        // REFACTORIN
+	        _this3.setState({
+	          naturalHeight: img.naturalHeight,
+	          naturalWidth: img.naturalWidth
+	        });
+	        handleImageChange(file);
+	      };
+
+	      var handleImageChange = function handleImageChange(file) {
+	        var reader = new FileReader();
+
+	        reader.onloadend = function () {
+	          _this3.setState({
+	            filename: e[0].name,
+	            file: file,
+	            imagePreviewUrl: reader.result
+	          });
+	        };
+	        reader.readAsDataURL(file);
+	      };
+	    }
+	  }, {
+	    key: 'editHeader',
+	    value: function editHeader(val) {
+	      var _this4 = this;
+
+	      val.preventDefault();
+	      this.props.updateImage(this.state.file).then(function (img_url) {
+	        console.log('yeay ', img_url);
+	        return _this4.props.editHeader(img_url);
+	      }).then(function () {
+	        alert('success, edit header');
+	      }).catch(function () {
+	        alert('err .., somthing wrong');
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this5 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { role: 'main' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: '' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'page-title' },
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'HEADER'
+	            )
+	          ),
+	          _react2.default.createElement('div', { className: 'clearfix' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { style: { 'marginLeft': '10px !important' } },
+	              _react2.default.createElement(
+	                _reactDropzone2.default,
+	                { style: con.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                    return _this5.onDrop(e);
+	                  } },
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  this.state.filename
+	                )
+	              ),
+	              'image size: 1182 x 350',
+	              _react2.default.createElement('br', null),
+	              _react2.default.createElement(
+	                'button',
+	                { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
+	                    return _this5.editHeader(val);
+	                  } },
+	                'Edit'
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Header;
+	}(_react2.default.Component);
+
+	var Footer = function (_React$Component3) {
+	  _inherits(Footer, _React$Component3);
+
+	  function Footer(props) {
+	    _classCallCheck(this, Footer);
+
+	    var _this6 = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+
+	    _this6.state = {
+	      filename: []
+	    };
+	    return _this6;
+	  }
+
+	  _createClass(Footer, [{
+	    key: 'onDrop',
+	    value: function onDrop(e) {
+	      var _this7 = this;
+
+	      var img = new Image();
+	      var file = e[0];
+	      img.src = window.URL.createObjectURL(file);
+	      var h = this.state.height;
+	      var w = this.state.width;
+	      img.onload = function () {
+	        // REFACTORIN
+	        _this7.setState({
+	          naturalHeight: img.naturalHeight,
+	          naturalWidth: img.naturalWidth
+	        });
+	        handleImageChange(file);
+	      };
+
+	      var handleImageChange = function handleImageChange(file) {
+	        var reader = new FileReader();
+
+	        reader.onloadend = function () {
+	          _this7.setState({
+	            filename: e[0].name,
+	            file: file,
+	            imagePreviewUrl: reader.result
+	          });
+	        };
+	        reader.readAsDataURL(file);
+	      };
+	    }
+	  }, {
+	    key: 'editFooter',
+	    value: function editFooter(val) {
+	      var _this8 = this;
+
+	      val.preventDefault();
+	      this.props.updateImage(this.state.file).then(function (img_url) {
+	        console.log('yeay ', img_url);
+	        return _this8.props.editFooter(img_url);
+	      }).then(function () {
+	        alert('success, edit Footer');
+	      }).catch(function () {
+	        alert('err .., somthing wrong');
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this9 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { role: 'main' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: '' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'page-title' },
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'FOOTER'
+	            )
+	          ),
+	          _react2.default.createElement('div', { className: 'clearfix' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                _reactDropzone2.default,
+	                { style: con.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                    return _this9.onDrop(e);
+	                  } },
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  this.state.filename
+	                )
+	              ),
+	              'image size: 135 x 40',
+	              _react2.default.createElement('br', null),
+	              _react2.default.createElement(
+	                'button',
+	                { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
+	                    return _this9.editFooter(val);
+	                  } },
+	                'Edit'
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Footer;
+	}(_react2.default.Component);
+
+	var mapsDispatchToProps = function mapsDispatchToProps(dispatch) {
+	  return {
+	    editHeader: function editHeader(context) {
+	      return dispatch((0, _Container.editHeader)(context));
+	    },
+	    editFooter: function editFooter(context) {
+	      return dispatch((0, _Container.editFooter)(context));
+	    }
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(null, mapsDispatchToProps)(Dashboard);
 
 /***/ },
 /* 288 */
@@ -53016,26 +53279,30 @@
 	      var _this15 = this;
 
 	      val.preventDefault();
-	      this.props.updateImage(this.state.file).then(function (dlurl) {
-	        var newvoucher = {
-	          CREATEDBY: '',
-	          DATE: '',
-	          IMG: dlurl,
-	          TEXT: _this15.newTextRef.value,
-	          TITTLE: _this15.newTitleRef.value,
-	          INSTAGRAM: _this15.newInstagramRef.value,
-	          URL: ''
-	        };
+	      if (this.state.file) {
+	        this.props.updateImage(this.state.file).then(function (dlurl) {
+	          var newvoucher = {
+	            CREATEDBY: '',
+	            DATE: '',
+	            IMG: dlurl,
+	            TEXT: _this15.newTextRef.value,
+	            TITTLE: _this15.newTitleRef.value,
+	            INSTAGRAM: _this15.newInstagramRef.value,
+	            URL: ''
+	          };
 
-	        _this15.props.addVouchers(_this15.props.vouchers.length, newvoucher).then(function () {
-	          alert('success, new content saved');
-	          _this15.newTitleRef.value = '';
-	          _this15.newTextRef.value = '';
-	          _this15.newInstagramRef.value = '';
-	        }).catch(function () {
-	          alert('fail, new content cannot be saved');
+	          _this15.props.addVouchers(_this15.props.vouchers.length, newvoucher).then(function () {
+	            alert('success, new content saved');
+	            _this15.newTitleRef.value = '';
+	            _this15.newTextRef.value = '';
+	            _this15.newInstagramRef.value = '';
+	          }).catch(function () {
+	            alert('fail, new content cannot be saved');
+	          });
 	        });
-	      });
+	      } else {
+	        alert('please insert image');
+	      }
 	    }
 	  }, {
 	    key: 'handleChange',
@@ -53070,7 +53337,6 @@
 	    value: function render() {
 	      var _this16 = this;
 
-	      console.log('disra ', this.state);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'col-md-12 col-sm-12 col-xs-12' },
@@ -54615,6 +54881,62 @@
 	}(_react2.default.Component);
 
 	exports.default = Login;
+
+/***/ },
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.editFooter = exports.editHeader = undefined;
+
+	var _const = __webpack_require__(213);
+
+	var con = _interopRequireWildcard(_const);
+
+	var _db = __webpack_require__(316);
+
+	var _db2 = _interopRequireDefault(_db);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	exports.default = function (context) {
+	  return function (dispatch) {
+	    _db2.default.listenTo('container', {
+	      context: context,
+	      asArray: true,
+	      then: function then(data) {
+	        dispatch(receiveContainer(data));
+	      }
+	    });
+	  };
+	};
+
+	var receiveContainer = function receiveContainer(response) {
+	  return {
+	    type: con.ACTReceiveContainer,
+	    payload: {
+	      response: response
+	    }
+	  };
+	};
+
+	var editHeader = exports.editHeader = function editHeader(data) {
+	  return _db2.default.post('container/header/IMG', {
+	    data: data
+	  });
+	};
+
+	var editFooter = exports.editFooter = function editFooter(data) {
+	  return _db2.default.post('container/footer_components/IMG', {
+	    data: data
+	  });
+	};
 
 /***/ }
 /******/ ]);

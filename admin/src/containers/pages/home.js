@@ -712,29 +712,33 @@ class Voucher extends React.Component {
 
   addVouchers(val){
     val.preventDefault()
-    this.props.updateImage(this.state.file)
-    .then((dlurl) => {
-      const newvoucher = {
-        CREATEDBY : '',
-        DATE : '',
-        IMG : dlurl,
-        TEXT : this.newTextRef.value,
-        TITTLE : this.newTitleRef.value,
-        INSTAGRAM : this.newInstagramRef.value,
-        URL : ''
-      }
+    if(this.state.file) {
+      this.props.updateImage(this.state.file)
+      .then((dlurl) => {
+        const newvoucher = {
+          CREATEDBY : '',
+          DATE : '',
+          IMG : dlurl,
+          TEXT : this.newTextRef.value,
+          TITTLE : this.newTitleRef.value,
+          INSTAGRAM : this.newInstagramRef.value,
+          URL : ''
+        }
 
-      this.props.addVouchers(this.props.vouchers.length, newvoucher)
-      .then(() => {
-        alert('success, new content saved')
-        this.newTitleRef.value = ''
-        this.newTextRef.value = ''
-        this.newInstagramRef.value = ''
+        this.props.addVouchers(this.props.vouchers.length, newvoucher)
+        .then(() => {
+          alert('success, new content saved')
+          this.newTitleRef.value = ''
+          this.newTextRef.value = ''
+          this.newInstagramRef.value = ''
+        })
+        .catch(() => {
+           alert('fail, new content cannot be saved')
+        })
       })
-      .catch(() => {
-         alert('fail, new content cannot be saved')
-      })
-    })
+    }else{
+      alert('please insert image')
+    }
   }
 
   handleChange(val, key){
@@ -766,7 +770,6 @@ class Voucher extends React.Component {
   }
 
   render(){
-    console.log('disra ',this.state)
     return(
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
