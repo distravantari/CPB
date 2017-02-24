@@ -63,6 +63,7 @@ class TripPackage extends React.Component {
       TAGS : [],
       TEXT : '',
       TITTLE : '',
+      VIDEO: '',
       URL : '',
       filename : [],
       CHILD : {
@@ -74,39 +75,45 @@ class TripPackage extends React.Component {
 
   addPackets(val){
     val.preventDefault()
-    this.props.updateImage(this.state.file)
-    .then((url) => {
-      const newpackets = {
-        DATE : this.newDateRef.value,
-        DETAIL : {
-          TITTLE : this.newTitleDescRef.value,
-          TEXT : this.newTextDescRef.value
-        },
-        FORM : '',
-        IMG : '',
-        NOTIFICATION : {
-          COMMENT : '',
-          LIKES : ''
-        },
-        TAGS : [],
-        TEXT : this.newTextRef.value,
-        TITTLE : this.newTitleRef.value,
-        URL : ''
-      }
+    if(this.state.file){
+      this.props.updateImage(this.state.file)
+      .then((url) => {
+        const newpackets = {
+          DATE : '',
+          DETAIL : {
+            TITTLE : this.newTitleDescRef.value,
+            TEXT : this.newTextDescRef.value
+          },
+          FORM : '',
+          IMG : url,
+          NOTIFICATION : {
+            COMMENT : '',
+            LIKES : ''
+          },
+          TAGS : [],
+          TEXT : this.newTextRef.value,
+          TITTLE : this.newTitleRef.value,
+          VIDEO : this.newVideoRef.value,
+          URL : ''
+        }
 
-      this.props.addPackets(this.props.packets.length, newpackets)
-      .then(() => {
-        alert('success, new content saved')
-        this.newDateRef.value = ''
-        this.newTitleDescRef.value = ''
-        this.newTextDescRef.value = ''
-        this.newTextRef.value =''
-        this.newTitleRef.value =''
+        this.props.addPackets(this.props.packets.length, newpackets)
+        .then(() => {
+          alert('success, new content saved')
+          this.newDateRef.value = ''
+          this.newTitleDescRef.value = ''
+          this.newTextDescRef.value = ''
+          this.newTextRef.value =''
+          this.newTitleRef.value =''
+          this.newVideoRef.value =''
+        })
+        .catch(() => {
+           alert('fail, new content cannot be saved')
+        })
       })
-      .catch(() => {
-         alert('fail, new content cannot be saved')
-      })
-    })
+    }else{
+      alert('please insert image')
+    }
   }
 
   onDrop(e) {
@@ -138,8 +145,56 @@ class TripPackage extends React.Component {
     }
 
   editPackets(val, index){
-    this.props.updateImage(this.state.file)
-    .then((dlurl) => {
+    if(this.state.file) {
+      this.props.updateImage(this.state.file)
+      .then((dlurl) => {
+        let date = this.state.DATE
+        let detail = this.state.DETAIL
+        let form = this.state.FORM
+        let img = this.state.IMG
+        let notification = this.state.NOTIFICATION
+        let tags = this.state.TAGS
+        let text = this.state.TEXT
+        let tittle = this.state.TITTLE
+        let video = this.state.VIDEO
+        let url = this.state.URL
+        let child = this.state.CHILD
+
+        if(!date) date = _.values(this.props.packets)[index].DATE
+        if(!detail) detail = _.values(this.props.packets)[index].DETAIL
+        if(!form) form = _.values(this.props.packets)[index].FORM
+        if(!img) img = dlurl
+        if(!video) video = _.values(this.props.packets)[index].VIDEO
+        if(!notification.LIKES) notification = _.values(this.props.packets)[index].NOTIFICATION
+        if(!tags) tags = _.values(this.props.packets)[index].TAGS
+        if(!text) text = _.values(this.props.packets)[index].TEXT
+        if(!tittle) tittle = _.values(this.props.packets)[index].TITTLE
+        if(!url) url = _.values(this.props.packets)[index].URL
+        if(!child) child = _.values(this.props.packets)[index].CHILD
+
+        const packets = {
+          DATE : date,
+          DETAIL : detail,
+          FORM : form,
+          IMG : img,
+          NOTIFICATION : notification,
+          TAGS : tags,
+          TEXT : text,
+          VIDEO : video,
+          TITTLE : tittle,
+          URL : url,
+          CHILD : child
+        }
+
+        this.props.editPackets(`list/${index}`, packets)
+        .then(() => {
+           alert('success, content changed')
+        })
+        .catch(() => {
+           alert('fail, content cannot be change')
+        })
+      })
+    }else{
       let date = this.state.DATE
       let detail = this.state.DETAIL
       let form = this.state.FORM
@@ -148,13 +203,15 @@ class TripPackage extends React.Component {
       let tags = this.state.TAGS
       let text = this.state.TEXT
       let tittle = this.state.TITTLE
+      let video = this.state.VIDEO
       let url = this.state.URL
       let child = this.state.CHILD
 
       if(!date) date = _.values(this.props.packets)[index].DATE
       if(!detail) detail = _.values(this.props.packets)[index].DETAIL
       if(!form) form = _.values(this.props.packets)[index].FORM
-      if(!img) img = dlurl
+      if(!img) img = _.values(this.props.packets)[index].IMG
+      if(!video) video = _.values(this.props.packets)[index].VIDEO
       if(!notification.LIKES) notification = _.values(this.props.packets)[index].NOTIFICATION
       if(!tags) tags = _.values(this.props.packets)[index].TAGS
       if(!text) text = _.values(this.props.packets)[index].TEXT
@@ -172,6 +229,7 @@ class TripPackage extends React.Component {
         TEXT : text,
         TITTLE : tittle,
         URL : url,
+        VIDEO: video,
         CHILD : child
       }
 
@@ -182,7 +240,7 @@ class TripPackage extends React.Component {
       .catch(() => {
          alert('fail, content cannot be change')
       })
-    })
+    }
   }
 
   deletePackets(val, index){
@@ -212,6 +270,10 @@ class TripPackage extends React.Component {
           TITTLE : val.target.value,
           TEXT : _.values(this.props.packets)[index].TEXT
         }
+      })
+    }else if(key == `video`) {
+      this.setState({
+        VIDEO: val.target.value
       })
     }
     else{
@@ -283,9 +345,16 @@ class TripPackage extends React.Component {
                           <div className="form-group">
                             <label className="control-label col-md-3 col-sm-3 col-xs-12">Text</label>
                             <div className="col-md-9 col-sm-9 col-xs-12">
-                            <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                              data-parsley-validation-threshold="10" style={{height:"130px"}} defaultValue={packet.TEXT} onChange={(ref) => this.handleChange(ref, `text`)}></textarea>
+                              <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                                data-parsley-validation-threshold="10" style={{height:"130px"}} defaultValue={packet.TEXT} onChange={(ref) => this.handleChange(ref, `text`)}></textarea>
+                            </div>
                           </div>
+
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Video embeded URL</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="<iframe .." defaultValue={packet.VIDEO} onChange={(ref) => this.handleChange(ref, `video`)}/>
+                            </div>
                           </div>
 
                         </form>
@@ -323,7 +392,7 @@ class TripPackage extends React.Component {
                         </div>
                       </div>
 
-                      <ChildPackage childpackets={packet.CHILD} indexParent={index} editChild={this.props.editChild} addChild={this.props.addChild} deleteChild={this.props.deleteChild}/>
+                      <ChildPackage childpackets={packet.CHILD} indexParent={index} editChild={this.props.editChild} addChild={this.props.addChild} deleteChild={this.props.deleteChild} updateImage={this.props.updateImage}/>
                     </div>
                   )
                   }
@@ -354,6 +423,13 @@ class TripPackage extends React.Component {
                       <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                         data-parsley-validation-threshold="10" style={{height:"130px"}} defaultValue=''  ref={(ref) => this.newTextRef = ref}></textarea>
                     </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="control-label col-md-3 col-sm-3 col-xs-12">Video embeded URL</label>
+                      <div className="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" className="form-control" placeholder="<iframe .." defaultValue='' ref={(ref) => this.newVideoRef = ref}/>
+                      </div>
                     </div>
 
                   </form>
@@ -404,48 +480,166 @@ class ChildPackage extends React.Component {
     super(props)
     context.router
     this.state = {
+      IMG : '',
       TEXT : '',
-      TITLE : ''
+      TITLE : '',
+      MYSLIDER: []
     }
   }
-  addChild(val){
-    val.preventDefault()
-    const newchild = {
-      TEXT : this.newChildTextDescRef.value,
-      TITLE : this.newChildTitleDescRef.value,
+
+  onDrop(e) {
+    let img = new Image();
+    let file = e[0];
+    img.src = window.URL.createObjectURL( file )
+    let h = this.state.height
+    let w = this.state.width
+    img.onload = () => {// REFACTORIN
+      this.setState({
+        naturalHeight: img.naturalHeight,
+        naturalWidth: img.naturalWidth
+      })
+      handleImageChange(file)
     }
 
-    this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
-    .then(() => {
-      alert('success, new content saved')
-      this.newChildTitleDescRef.value = ''
-      this.newChildTextDescRef.value = ''
+    let handleImageChange = (file) => {
+      let reader = new FileReader();
+
+      reader.onloadend = () => {
+        this.setState({
+          filename: e[0].name,
+          file: file,
+          imagePreviewUrl: reader.result
+        });
+      }
+      console.log('juju on taht beat ',file)
+      reader.readAsDataURL(file)
+    }
+  }
+
+  onSliderDrop(e) {
+    let img = new Image();
+    let file = e;
+
+    file.map((list, index) => {
+      img.src = window.URL.createObjectURL( list)
+      let h = this.state.height
+      let w = this.state.width
+      img.onload = () => {// REFACTORIN
+        this.setState({
+          naturalHeight: img.naturalHeight,
+          naturalWidth: img.naturalWidth
+        })
+        handleImageChange()
+      }
+
+      let handleImageChange = () => {
+        let reader = new FileReader();
+
+        reader.onloadend = () => {
+          this.setState({
+            sliderFile: file
+          });
+        }
+        reader.readAsDataURL(list)
+      }
     })
-    .catch((err) => {
-       alert('fail, new content cannot be saved')
-       alert(err)
-    })
+  }
+
+  addChild(val){
+    val.preventDefault()
+    let uri
+    let chils = []
+    if(this.state.file){
+      this.props.updateImage(this.state.file)
+      .then((url) => {
+        uri = url
+        return this.props.updateImage(this.state.sliderFile[0])
+      })
+      .then((sliderUrl) => {
+        chils.push(sliderUrl)
+        return this.props.updateImage(this.state.sliderFile[1])
+      })
+      .then((sliderUrl) => {
+        chils.push(sliderUrl)
+        const newchild = {
+          TEXT : this.newChildTextDescRef.value,
+          TITLE : this.newChildTitleDescRef.value,
+          IMG: uri,
+          SLIDER: chils
+        }
+        return newchild
+      })
+      .then((newchild) => {
+        return this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
+      })
+      .then(() => {
+        alert('success, new content saved')
+        this.newChildTitleDescRef.value = ''
+        this.newChildTextDescRef.value = ''
+      })
+      .catch((err) => {
+         alert('fail, new content cannot be saved')
+         alert(err)
+      })
+
+    }else{
+      alert('please insert image')
+    }
+
   }
 
   editChild(val, index){
-    let text = this.state.TEXT
-    let title = this.state.TITLE
+    if(this.state.file) {
+      this.props.updateImage(this.state.file)
+      .then((dlurl) => {
+        let text = this.state.TEXT
+        let title = this.state.TITLE
+        let img = this.state.IMG
 
-    if(!text) text = this.props.childpackets.list[index].TEXT
-    if(!title) title = this.props.childpackets.list[index].TITLE
+        if(!text) text = this.props.childpackets.list[index].TEXT
+        if(!title) title = this.props.childpackets.list[index].TITLE
+        if(!img) img = dlurl
 
-    const packets = {
-      TEXT : text,
-      TITLE : title,
+        const packets = {
+          TEXT : text,
+          TITLE : title,
+          IMG: img
+        }
+
+        this.props.editChild(this.props.indexParent, `list/${index}`, packets)
+        .then(() => {
+           alert('success, child package content changed')
+        })
+        .catch(() => {
+           alert('fail, child package content cannot be changed')
+        })
+      })
+      .catch(() => {
+        alert('err .. cannot upload image')
+      })
+    }else{
+      let text = this.state.TEXT
+      let title = this.state.TITLE
+      let img = this.state.IMG
+
+      if(!text) text = this.props.childpackets.list[index].TEXT
+      if(!title) title = this.props.childpackets.list[index].TITLE
+      if(!img) img = this.props.childpackets.list[index].IMG
+
+      const packets = {
+        TEXT : text,
+        TITLE : title,
+        IMG: img
+      }
+
+      this.props.editChild(this.props.indexParent, `list/${index}`, packets)
+      .then(() => {
+         alert('success, child package content changed')
+      })
+      .catch(() => {
+         alert('fail, child package content cannot be changed')
+      })
     }
-
-    this.props.editChild(this.props.indexParent, `list/${index}`, packets)
-    .then(() => {
-       alert('success, child package content changed')
-    })
-    .catch(() => {
-       alert('fail, child package content cannot be changed')
-    })
   }
 
   deleteChild(val, index){
@@ -486,7 +680,7 @@ class ChildPackage extends React.Component {
           <div className="" role="tabpanel" data-example-id="togglable-tabs">
             <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
               {
-                _.values(this.props.childpackets.list).map((packet, index) => {
+                this.props.childpackets && _.values(this.props.childpackets.list).map((packet, index) => {
                   if(packet != null){
                     return(
                       <li key={index} role="presentation" className={ index == 0 ? 'active':''}>
@@ -505,11 +699,16 @@ class ChildPackage extends React.Component {
 
             <div id="myTabContent" className="tab-content">
               {
-                _.values(this.props.childpackets.list).map((packet, index) => {
+                this.props.childpackets && _.values(this.props.childpackets.list).map((packet, index) => {
                   if(packet != null){
                     return(
                       <div key={index} role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab${this.props.indexParent}_child${index+1}`} aria-labelledby="home-tab">
-                        <div className='x_panel col-md-12 col-sm-12 col-xs-12'>
+                        <div className="x_panel col-md-6 col-sm-12 col-sm-12">
+                          <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                            <div>{ this.state.filename }</div>
+                          </Dropzone>
+                        </div>
+                        <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
                           <div className="form-group">
                             <label className="">Tittle</label>
                             <div className="">
@@ -539,8 +738,24 @@ class ChildPackage extends React.Component {
                 })
               }
               <div role="tabpanel" className='tab-pane fade' id={`tab${this.props.indexParent}_newchild`} aria-labelledby="home-tab">
+                <div className="x_panel col-md-6 col-sm-12 col-sm-12">
+                  <div className="col-md-4 col-sm-12 col-sm-12">
+                    CHILD IMAGE
+                    <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                      <div>{ this.state.filename }</div>
+                    </Dropzone>
+                  </div>
+                  <div className="col-md-8 col-sm-12 col-sm-12">
+                    <div className="col-md-4 col-sm-12 col-sm-12">
+                      SLIDER
+                      <Dropzone style={ constant.draganddropstyle } multiple={ true } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
+                        <div>{ this.state.slidername }</div>
+                      </Dropzone>
+                    </div>
+                  </div>
+                </div>
 
-                <div className='x_panel col-md-12 col-sm-12 col-xs-12'>
+                <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
                   <div className="form-group">
                     <label className="">Tittle</label>
                     <div className="">

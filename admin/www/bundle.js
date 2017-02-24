@@ -53942,6 +53942,7 @@
 	      TAGS: [],
 	      TEXT: '',
 	      TITTLE: '',
+	      VIDEO: '',
 	      URL: '',
 	      filename: [],
 	      CHILD: {
@@ -53958,36 +53959,42 @@
 	      var _this3 = this;
 
 	      val.preventDefault();
-	      this.props.updateImage(this.state.file).then(function (url) {
-	        var newpackets = {
-	          DATE: _this3.newDateRef.value,
-	          DETAIL: {
-	            TITTLE: _this3.newTitleDescRef.value,
-	            TEXT: _this3.newTextDescRef.value
-	          },
-	          FORM: '',
-	          IMG: '',
-	          NOTIFICATION: {
-	            COMMENT: '',
-	            LIKES: ''
-	          },
-	          TAGS: [],
-	          TEXT: _this3.newTextRef.value,
-	          TITTLE: _this3.newTitleRef.value,
-	          URL: ''
-	        };
+	      if (this.state.file) {
+	        this.props.updateImage(this.state.file).then(function (url) {
+	          var newpackets = {
+	            DATE: '',
+	            DETAIL: {
+	              TITTLE: _this3.newTitleDescRef.value,
+	              TEXT: _this3.newTextDescRef.value
+	            },
+	            FORM: '',
+	            IMG: url,
+	            NOTIFICATION: {
+	              COMMENT: '',
+	              LIKES: ''
+	            },
+	            TAGS: [],
+	            TEXT: _this3.newTextRef.value,
+	            TITTLE: _this3.newTitleRef.value,
+	            VIDEO: _this3.newVideoRef.value,
+	            URL: ''
+	          };
 
-	        _this3.props.addPackets(_this3.props.packets.length, newpackets).then(function () {
-	          alert('success, new content saved');
-	          _this3.newDateRef.value = '';
-	          _this3.newTitleDescRef.value = '';
-	          _this3.newTextDescRef.value = '';
-	          _this3.newTextRef.value = '';
-	          _this3.newTitleRef.value = '';
-	        }).catch(function () {
-	          alert('fail, new content cannot be saved');
+	          _this3.props.addPackets(_this3.props.packets.length, newpackets).then(function () {
+	            alert('success, new content saved');
+	            _this3.newDateRef.value = '';
+	            _this3.newTitleDescRef.value = '';
+	            _this3.newTextDescRef.value = '';
+	            _this3.newTextRef.value = '';
+	            _this3.newTitleRef.value = '';
+	            _this3.newVideoRef.value = '';
+	          }).catch(function () {
+	            alert('fail, new content cannot be saved');
+	          });
 	        });
-	      });
+	      } else {
+	        alert('please insert image');
+	      }
 	    }
 	  }, {
 	    key: 'onDrop',
@@ -54026,28 +54033,76 @@
 	    value: function editPackets(val, index) {
 	      var _this5 = this;
 
-	      this.props.updateImage(this.state.file).then(function (dlurl) {
-	        var date = _this5.state.DATE;
-	        var detail = _this5.state.DETAIL;
-	        var form = _this5.state.FORM;
-	        var img = _this5.state.IMG;
-	        var notification = _this5.state.NOTIFICATION;
-	        var tags = _this5.state.TAGS;
-	        var text = _this5.state.TEXT;
-	        var tittle = _this5.state.TITTLE;
-	        var url = _this5.state.URL;
-	        var child = _this5.state.CHILD;
+	      if (this.state.file) {
+	        this.props.updateImage(this.state.file).then(function (dlurl) {
+	          var date = _this5.state.DATE;
+	          var detail = _this5.state.DETAIL;
+	          var form = _this5.state.FORM;
+	          var img = _this5.state.IMG;
+	          var notification = _this5.state.NOTIFICATION;
+	          var tags = _this5.state.TAGS;
+	          var text = _this5.state.TEXT;
+	          var tittle = _this5.state.TITTLE;
+	          var video = _this5.state.VIDEO;
+	          var url = _this5.state.URL;
+	          var child = _this5.state.CHILD;
 
-	        if (!date) date = _lodash2.default.values(_this5.props.packets)[index].DATE;
-	        if (!detail) detail = _lodash2.default.values(_this5.props.packets)[index].DETAIL;
-	        if (!form) form = _lodash2.default.values(_this5.props.packets)[index].FORM;
-	        if (!img) img = dlurl;
-	        if (!notification.LIKES) notification = _lodash2.default.values(_this5.props.packets)[index].NOTIFICATION;
-	        if (!tags) tags = _lodash2.default.values(_this5.props.packets)[index].TAGS;
-	        if (!text) text = _lodash2.default.values(_this5.props.packets)[index].TEXT;
-	        if (!tittle) tittle = _lodash2.default.values(_this5.props.packets)[index].TITTLE;
-	        if (!url) url = _lodash2.default.values(_this5.props.packets)[index].URL;
-	        if (!child) child = _lodash2.default.values(_this5.props.packets)[index].CHILD;
+	          if (!date) date = _lodash2.default.values(_this5.props.packets)[index].DATE;
+	          if (!detail) detail = _lodash2.default.values(_this5.props.packets)[index].DETAIL;
+	          if (!form) form = _lodash2.default.values(_this5.props.packets)[index].FORM;
+	          if (!img) img = dlurl;
+	          if (!video) video = _lodash2.default.values(_this5.props.packets)[index].VIDEO;
+	          if (!notification.LIKES) notification = _lodash2.default.values(_this5.props.packets)[index].NOTIFICATION;
+	          if (!tags) tags = _lodash2.default.values(_this5.props.packets)[index].TAGS;
+	          if (!text) text = _lodash2.default.values(_this5.props.packets)[index].TEXT;
+	          if (!tittle) tittle = _lodash2.default.values(_this5.props.packets)[index].TITTLE;
+	          if (!url) url = _lodash2.default.values(_this5.props.packets)[index].URL;
+	          if (!child) child = _lodash2.default.values(_this5.props.packets)[index].CHILD;
+
+	          var packets = {
+	            DATE: date,
+	            DETAIL: detail,
+	            FORM: form,
+	            IMG: img,
+	            NOTIFICATION: notification,
+	            TAGS: tags,
+	            TEXT: text,
+	            VIDEO: video,
+	            TITTLE: tittle,
+	            URL: url,
+	            CHILD: child
+	          };
+
+	          _this5.props.editPackets('list/' + index, packets).then(function () {
+	            alert('success, content changed');
+	          }).catch(function () {
+	            alert('fail, content cannot be change');
+	          });
+	        });
+	      } else {
+	        var date = this.state.DATE;
+	        var detail = this.state.DETAIL;
+	        var form = this.state.FORM;
+	        var img = this.state.IMG;
+	        var notification = this.state.NOTIFICATION;
+	        var tags = this.state.TAGS;
+	        var text = this.state.TEXT;
+	        var tittle = this.state.TITTLE;
+	        var video = this.state.VIDEO;
+	        var url = this.state.URL;
+	        var child = this.state.CHILD;
+
+	        if (!date) date = _lodash2.default.values(this.props.packets)[index].DATE;
+	        if (!detail) detail = _lodash2.default.values(this.props.packets)[index].DETAIL;
+	        if (!form) form = _lodash2.default.values(this.props.packets)[index].FORM;
+	        if (!img) img = _lodash2.default.values(this.props.packets)[index].IMG;
+	        if (!video) video = _lodash2.default.values(this.props.packets)[index].VIDEO;
+	        if (!notification.LIKES) notification = _lodash2.default.values(this.props.packets)[index].NOTIFICATION;
+	        if (!tags) tags = _lodash2.default.values(this.props.packets)[index].TAGS;
+	        if (!text) text = _lodash2.default.values(this.props.packets)[index].TEXT;
+	        if (!tittle) tittle = _lodash2.default.values(this.props.packets)[index].TITTLE;
+	        if (!url) url = _lodash2.default.values(this.props.packets)[index].URL;
+	        if (!child) child = _lodash2.default.values(this.props.packets)[index].CHILD;
 
 	        var packets = {
 	          DATE: date,
@@ -54059,15 +54114,16 @@
 	          TEXT: text,
 	          TITTLE: tittle,
 	          URL: url,
+	          VIDEO: video,
 	          CHILD: child
 	        };
 
-	        _this5.props.editPackets('list/' + index, packets).then(function () {
+	        this.props.editPackets('list/' + index, packets).then(function () {
 	          alert('success, content changed');
 	        }).catch(function () {
 	          alert('fail, content cannot be change');
 	        });
-	      });
+	      }
 	    }
 	  }, {
 	    key: 'deletePackets',
@@ -54097,6 +54153,10 @@
 	            TITTLE: val.target.value,
 	            TEXT: _lodash2.default.values(this.props.packets)[index].TEXT
 	          }
+	        });
+	      } else if (key == 'video') {
+	        this.setState({
+	          VIDEO: val.target.value
 	        });
 	      } else {
 	        this.setState({
@@ -54226,6 +54286,22 @@
 	                                  return _this6.handleChange(ref, 'text');
 	                                } })
 	                            )
+	                          ),
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                              'label',
+	                              { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                              'Video embeded URL'
+	                            ),
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                              _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: '<iframe ..', defaultValue: packet.VIDEO, onChange: function onChange(ref) {
+	                                  return _this6.handleChange(ref, 'video');
+	                                } })
+	                            )
 	                          )
 	                        )
 	                      ),
@@ -54307,7 +54383,7 @@
 	                          )
 	                        )
 	                      ),
-	                      _react2.default.createElement(ChildPackage, { childpackets: packet.CHILD, indexParent: index, editChild: _this6.props.editChild, addChild: _this6.props.addChild, deleteChild: _this6.props.deleteChild })
+	                      _react2.default.createElement(ChildPackage, { childpackets: packet.CHILD, indexParent: index, editChild: _this6.props.editChild, addChild: _this6.props.addChild, deleteChild: _this6.props.deleteChild, updateImage: _this6.props.updateImage })
 	                    );
 	                  }
 	                }),
@@ -54371,6 +54447,22 @@
 	                              return _this6.newTextRef = _ref2;
 	                            } })
 	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                          'Video embeded URL'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: '<iframe ..', defaultValue: '', ref: function ref(_ref3) {
+	                              return _this6.newVideoRef = _ref3;
+	                            } })
+	                        )
 	                      )
 	                    )
 	                  ),
@@ -54406,8 +54498,8 @@
 	                        _react2.default.createElement(
 	                          'div',
 	                          { className: '' },
-	                          _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref3) {
-	                              return _this6.newTitleDescRef = _ref3;
+	                          _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref4) {
+	                              return _this6.newTitleDescRef = _ref4;
 	                            } })
 	                        )
 	                      ),
@@ -54423,8 +54515,8 @@
 	                          'div',
 	                          { className: '' },
 	                          _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                            'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref4) {
-	                              return _this6.newTextDescRef = _ref4;
+	                            'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref5) {
+	                              return _this6.newTextDescRef = _ref5;
 	                            } })
 	                        )
 	                      ),
@@ -54467,51 +54559,168 @@
 
 	    context.router;
 	    _this7.state = {
+	      IMG: '',
 	      TEXT: '',
-	      TITLE: ''
+	      TITLE: '',
+	      MYSLIDER: []
 	    };
 	    return _this7;
 	  }
 
 	  _createClass(ChildPackage, [{
-	    key: 'addChild',
-	    value: function addChild(val) {
+	    key: 'onDrop',
+	    value: function onDrop(e) {
 	      var _this8 = this;
 
-	      val.preventDefault();
-	      var newchild = {
-	        TEXT: this.newChildTextDescRef.value,
-	        TITLE: this.newChildTitleDescRef.value
+	      var img = new Image();
+	      var file = e[0];
+	      img.src = window.URL.createObjectURL(file);
+	      var h = this.state.height;
+	      var w = this.state.width;
+	      img.onload = function () {
+	        // REFACTORIN
+	        _this8.setState({
+	          naturalHeight: img.naturalHeight,
+	          naturalWidth: img.naturalWidth
+	        });
+	        handleImageChange(file);
 	      };
 
-	      this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild).then(function () {
-	        alert('success, new content saved');
-	        _this8.newChildTitleDescRef.value = '';
-	        _this8.newChildTextDescRef.value = '';
-	      }).catch(function (err) {
-	        alert('fail, new content cannot be saved');
-	        alert(err);
+	      var handleImageChange = function handleImageChange(file) {
+	        var reader = new FileReader();
+
+	        reader.onloadend = function () {
+	          _this8.setState({
+	            filename: e[0].name,
+	            file: file,
+	            imagePreviewUrl: reader.result
+	          });
+	        };
+	        console.log('juju on taht beat ', file);
+	        reader.readAsDataURL(file);
+	      };
+	    }
+	  }, {
+	    key: 'onSliderDrop',
+	    value: function onSliderDrop(e) {
+	      var _this9 = this;
+
+	      var img = new Image();
+	      var file = e;
+
+	      file.map(function (list, index) {
+	        img.src = window.URL.createObjectURL(list);
+	        var h = _this9.state.height;
+	        var w = _this9.state.width;
+	        img.onload = function () {
+	          // REFACTORIN
+	          _this9.setState({
+	            naturalHeight: img.naturalHeight,
+	            naturalWidth: img.naturalWidth
+	          });
+	          handleImageChange();
+	        };
+
+	        var handleImageChange = function handleImageChange() {
+	          var reader = new FileReader();
+
+	          reader.onloadend = function () {
+	            _this9.setState({
+	              sliderFile: file
+	            });
+	          };
+	          reader.readAsDataURL(list);
+	        };
 	      });
+	    }
+	  }, {
+	    key: 'addChild',
+	    value: function addChild(val) {
+	      var _this10 = this;
+
+	      val.preventDefault();
+	      var uri = void 0;
+	      var chils = [];
+	      if (this.state.file) {
+	        this.props.updateImage(this.state.file).then(function (url) {
+	          uri = url;
+	          return _this10.props.updateImage(_this10.state.sliderFile[0]);
+	        }).then(function (sliderUrl) {
+	          chils.push(sliderUrl);
+	          return _this10.props.updateImage(_this10.state.sliderFile[1]);
+	        }).then(function (sliderUrl) {
+	          chils.push(sliderUrl);
+	          var newchild = {
+	            TEXT: _this10.newChildTextDescRef.value,
+	            TITLE: _this10.newChildTitleDescRef.value,
+	            IMG: uri,
+	            SLIDER: chils
+	          };
+	          return newchild;
+	        }).then(function (newchild) {
+	          return _this10.props.addChild(_this10.props.indexParent, _this10.props.childpackets.list.length, newchild);
+	        }).then(function () {
+	          alert('success, new content saved');
+	          _this10.newChildTitleDescRef.value = '';
+	          _this10.newChildTextDescRef.value = '';
+	        }).catch(function (err) {
+	          alert('fail, new content cannot be saved');
+	          alert(err);
+	        });
+	      } else {
+	        alert('please insert image');
+	      }
 	    }
 	  }, {
 	    key: 'editChild',
 	    value: function editChild(val, index) {
-	      var text = this.state.TEXT;
-	      var title = this.state.TITLE;
+	      var _this11 = this;
 
-	      if (!text) text = this.props.childpackets.list[index].TEXT;
-	      if (!title) title = this.props.childpackets.list[index].TITLE;
+	      if (this.state.file) {
+	        this.props.updateImage(this.state.file).then(function (dlurl) {
+	          var text = _this11.state.TEXT;
+	          var title = _this11.state.TITLE;
+	          var img = _this11.state.IMG;
 
-	      var packets = {
-	        TEXT: text,
-	        TITLE: title
-	      };
+	          if (!text) text = _this11.props.childpackets.list[index].TEXT;
+	          if (!title) title = _this11.props.childpackets.list[index].TITLE;
+	          if (!img) img = dlurl;
 
-	      this.props.editChild(this.props.indexParent, 'list/' + index, packets).then(function () {
-	        alert('success, child package content changed');
-	      }).catch(function () {
-	        alert('fail, child package content cannot be changed');
-	      });
+	          var packets = {
+	            TEXT: text,
+	            TITLE: title,
+	            IMG: img
+	          };
+
+	          _this11.props.editChild(_this11.props.indexParent, 'list/' + index, packets).then(function () {
+	            alert('success, child package content changed');
+	          }).catch(function () {
+	            alert('fail, child package content cannot be changed');
+	          });
+	        }).catch(function () {
+	          alert('err .. cannot upload image');
+	        });
+	      } else {
+	        var text = this.state.TEXT;
+	        var title = this.state.TITLE;
+	        var img = this.state.IMG;
+
+	        if (!text) text = this.props.childpackets.list[index].TEXT;
+	        if (!title) title = this.props.childpackets.list[index].TITLE;
+	        if (!img) img = this.props.childpackets.list[index].IMG;
+
+	        var packets = {
+	          TEXT: text,
+	          TITLE: title,
+	          IMG: img
+	        };
+
+	        this.props.editChild(this.props.indexParent, 'list/' + index, packets).then(function () {
+	          alert('success, child package content changed');
+	        }).catch(function () {
+	          alert('fail, child package content cannot be changed');
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'deleteChild',
@@ -54540,7 +54749,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this9 = this;
+	      var _this12 = this;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -54565,14 +54774,14 @@
 	            _react2.default.createElement(
 	              'ul',
 	              { id: 'myTab', className: 'nav nav-tabs bar_tabs', role: 'tablist' },
-	              _lodash2.default.values(this.props.childpackets.list).map(function (packet, index) {
+	              this.props.childpackets && _lodash2.default.values(this.props.childpackets.list).map(function (packet, index) {
 	                if (packet != null) {
 	                  return _react2.default.createElement(
 	                    'li',
 	                    { key: index, role: 'presentation', className: index == 0 ? 'active' : '' },
 	                    _react2.default.createElement(
 	                      'a',
-	                      { href: '#tab' + _this9.props.indexParent + '_child' + (index + 1), role: 'tab', 'data-toggle': 'tab', 'aria-expanded': index == 0 ? 'true' : 'false' },
+	                      { href: '#tab' + _this12.props.indexParent + '_child' + (index + 1), role: 'tab', 'data-toggle': 'tab', 'aria-expanded': index == 0 ? 'true' : 'false' },
 	                      packet.TITLE
 	                    )
 	                  );
@@ -54591,14 +54800,29 @@
 	            _react2.default.createElement(
 	              'div',
 	              { id: 'myTabContent', className: 'tab-content' },
-	              _lodash2.default.values(this.props.childpackets.list).map(function (packet, index) {
+	              this.props.childpackets && _lodash2.default.values(this.props.childpackets.list).map(function (packet, index) {
 	                if (packet != null) {
 	                  return _react2.default.createElement(
 	                    'div',
-	                    { key: index, role: 'tabpanel', className: index == 0 ? 'tab-pane fade active in' : 'tab-pane fade', id: 'tab' + _this9.props.indexParent + '_child' + (index + 1), 'aria-labelledby': 'home-tab' },
+	                    { key: index, role: 'tabpanel', className: index == 0 ? 'tab-pane fade active in' : 'tab-pane fade', id: 'tab' + _this12.props.indexParent + '_child' + (index + 1), 'aria-labelledby': 'home-tab' },
 	                    _react2.default.createElement(
 	                      'div',
-	                      { className: 'x_panel col-md-12 col-sm-12 col-xs-12' },
+	                      { className: 'x_panel col-md-6 col-sm-12 col-sm-12' },
+	                      _react2.default.createElement(
+	                        _reactDropzone2.default,
+	                        { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                            return _this12.onDrop(e);
+	                          } },
+	                        _react2.default.createElement(
+	                          'div',
+	                          null,
+	                          _this12.state.filename
+	                        )
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'x_panel col-md-6 col-sm-12 col-xs-12' },
 	                      _react2.default.createElement(
 	                        'div',
 	                        { className: 'form-group' },
@@ -54611,7 +54835,7 @@
 	                          'div',
 	                          { className: '' },
 	                          _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: packet.TITLE, onChange: function onChange(ref) {
-	                              return _this9.handleChange(ref, 'title');
+	                              return _this12.handleChange(ref, 'title');
 	                            } })
 	                        )
 	                      ),
@@ -54628,7 +54852,7 @@
 	                          { className: '' },
 	                          _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
 	                            'data-parsley-validation-threshold': '10', defaultValue: packet.TEXT, onChange: function onChange(ref) {
-	                              return _this9.handleChange(ref, 'text');
+	                              return _this12.handleChange(ref, 'text');
 	                            } })
 	                        )
 	                      ),
@@ -54641,14 +54865,14 @@
 	                          _react2.default.createElement(
 	                            'button',
 	                            { type: '', className: 'btn btn-success', onClick: function onClick(val) {
-	                                return _this9.editChild(val, index);
+	                                return _this12.editChild(val, index);
 	                              } },
 	                            'Edit'
 	                          ),
 	                          _react2.default.createElement(
 	                            'button',
 	                            { type: '', className: 'btn btn-danger', onClick: function onClick(val) {
-	                                return _this9.deleteChild(val, index);
+	                                return _this12.deleteChild(val, index);
 	                              } },
 	                            'Delete'
 	                          )
@@ -54663,7 +54887,47 @@
 	                { role: 'tabpanel', className: 'tab-pane fade', id: 'tab' + this.props.indexParent + '_newchild', 'aria-labelledby': 'home-tab' },
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'x_panel col-md-12 col-sm-12 col-xs-12' },
+	                  { className: 'x_panel col-md-6 col-sm-12 col-sm-12' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-4 col-sm-12 col-sm-12' },
+	                    'CHILD IMAGE',
+	                    _react2.default.createElement(
+	                      _reactDropzone2.default,
+	                      { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                          return _this12.onDrop(e);
+	                        } },
+	                      _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        this.state.filename
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-8 col-sm-12 col-sm-12' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'col-md-4 col-sm-12 col-sm-12' },
+	                      'SLIDER',
+	                      _react2.default.createElement(
+	                        _reactDropzone2.default,
+	                        { style: constant.draganddropstyle, multiple: true, accept: 'image/*', onDrop: function onDrop(e) {
+	                            return _this12.onSliderDrop(e);
+	                          } },
+	                        _react2.default.createElement(
+	                          'div',
+	                          null,
+	                          this.state.slidername
+	                        )
+	                      )
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'x_panel col-md-6 col-sm-12 col-xs-12' },
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'form-group' },
@@ -54675,8 +54939,8 @@
 	                    _react2.default.createElement(
 	                      'div',
 	                      { className: '' },
-	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref5) {
-	                          return _this9.newChildTitleDescRef = _ref5;
+	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref6) {
+	                          return _this12.newChildTitleDescRef = _ref6;
 	                        } })
 	                    )
 	                  ),
@@ -54692,8 +54956,8 @@
 	                      'div',
 	                      { className: '' },
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref6) {
-	                          return _this9.newChildTextDescRef = _ref6;
+	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref7) {
+	                          return _this12.newChildTextDescRef = _ref7;
 	                        } })
 	                    )
 	                  ),
@@ -54706,7 +54970,7 @@
 	                      _react2.default.createElement(
 	                        'button',
 	                        { type: '', className: 'btn btn-primary', onClick: function onClick(val) {
-	                            return _this9.addChild(val);
+	                            return _this12.addChild(val);
 	                          } },
 	                        'Add'
 	                      )
