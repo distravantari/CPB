@@ -26,14 +26,14 @@ class About extends React.Component{
   }
 
   render(){
-	  if(!this.props.team) return (<h1> Loading ... </h1>)
+	  if(!this.props.aboutus) return (<h1> Loading ... </h1>)
     return(
       <div>
     		<div className="main">
 
     			<div>
     				<div className="row">
-    					<Main about_us={ this.props.aboutus } team={ this.props.team.list } web={ this.props.web } />
+    					<Main about_us={ this.props.aboutus } />
     				</div>
     			</div>
 
@@ -44,7 +44,7 @@ class About extends React.Component{
 
 }
 
-const Main = ({ about_us, team, web }) => {
+const Main = ({ about_us }) => {
     return (
       <div className="main">
 			<div className="row">
@@ -102,46 +102,44 @@ const Main = ({ about_us, team, web }) => {
 // 	)
 // }
 
-const Stats = ({ web }) => {
-	return (
-		<div className="statistic row">
-			<ul className="statistic list-inline col-md-12 col-sm-12">
-				<li>
-					<i className="fa fa-user"></i>
-					<h3>{ web.users }</h3>
-					<p>Users</p>
-				</li>
-				<li>
-					<i className="fa fa-pencil-square-o"></i>
-					<h3>{ web.post }</h3>
-					<p>Posts</p>
-				</li>
-				<li>
-					<i className="fa fa-comment"></i>
-					<h3>{ web.comment }</h3>
-					<p>Comments</p>
-				</li>
-				<li>
-					<i className="fa fa-download"></i>
-					<h3>{ web.download }</h3>
-					<p>Downloads</p>
-				</li>
-				<li>
-					<i className="fa fa-picture-o"></i>
-					<h3>{ web.image }</h3>
-					<p>Images</p>
-				</li>
-			</ul>
-		</div>
-	)
-}
+// const Stats = ({ web }) => {
+// 	return (
+// 		<div className="statistic row">
+// 			<ul className="statistic list-inline col-md-12 col-sm-12">
+// 				<li>
+// 					<i className="fa fa-user"></i>
+// 					<h3>{ web.users }</h3>
+// 					<p>Users</p>
+// 				</li>
+// 				<li>
+// 					<i className="fa fa-pencil-square-o"></i>
+// 					<h3>{ web.post }</h3>
+// 					<p>Posts</p>
+// 				</li>
+// 				<li>
+// 					<i className="fa fa-comment"></i>
+// 					<h3>{ web.comment }</h3>
+// 					<p>Comments</p>
+// 				</li>
+// 				<li>
+// 					<i className="fa fa-download"></i>
+// 					<h3>{ web.download }</h3>
+// 					<p>Downloads</p>
+// 				</li>
+// 				<li>
+// 					<i className="fa fa-picture-o"></i>
+// 					<h3>{ web.image }</h3>
+// 					<p>Images</p>
+// 				</li>
+// 			</ul>
+// 		</div>
+// 	)
+// }
 
 const mapStateToProps = (state) => {
 		if(state.about){
 			return {
-				team: state.about.team[0],
-				aboutus: state.about.us[0],
-				web: state.about.status[0]
+				aboutus: state.about.us,
 			};
 		}else return {}
 }

@@ -40598,9 +40598,7 @@
 	//ALL CONSTATNTA FIELD
 
 	var initialState = {
-	    us: {},
-	    team: [],
-	    status: {}
+	    us: {}
 	};
 
 	var receiveAbout = function receiveAbout() {
@@ -40611,11 +40609,9 @@
 	        case con.ACTReceiveAbout:
 	            {
 	                var result = action.payload;
-	                console.log('receiveAbout ', result.response);
+	                console.log('receiveAbout ', result);
 	                return Object.assign({}, state, {
-	                    us: _lodash2.default.filter(result.response, ['key', 'us']),
-	                    team: _lodash2.default.filter(result.response, ['key', 'team']),
-	                    status: _lodash2.default.filter(result.response, ['key', 'web'])
+	                    us: result.response
 	                });
 	            }
 	    }
@@ -65918,7 +65914,7 @@
 	    return function (dispatch) {
 	        _db2.default.listenTo('about', {
 	            context: context,
-	            asArray: true,
+	            asArray: false,
 	            then: function then(data) {
 	                dispatch(receiveAbout(data));
 	            }
@@ -67357,7 +67353,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -67405,111 +67401,109 @@
 
 
 	var About = function (_React$Component) {
-		_inherits(About, _React$Component);
+	  _inherits(About, _React$Component);
 
-		function About(props) {
-			_classCallCheck(this, About);
+	  function About(props) {
+	    _classCallCheck(this, About);
 
-			var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
 
-			_this.state = {};
-			return _this;
-		}
+	    _this.state = {};
+	    return _this;
+	  }
 
-		_createClass(About, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				this.props.getAbout(this);
-			}
-		}, {
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {
-				this.setState({});
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				if (!this.props.team) return _react2.default.createElement(
-					'h1',
-					null,
-					' Loading ... '
-				);
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'div',
-						{ className: 'main' },
-						_react2.default.createElement(
-							'div',
-							null,
-							_react2.default.createElement(
-								'div',
-								{ className: 'row' },
-								_react2.default.createElement(Main, { about_us: this.props.aboutus, team: this.props.team.list, web: this.props.web })
-							)
-						)
-					)
-				);
-			}
-		}]);
+	  _createClass(About, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.props.getAbout(this);
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps() {
+	      this.setState({});
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (!this.props.aboutus) return _react2.default.createElement(
+	        'h1',
+	        null,
+	        ' Loading ... '
+	      );
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'main' },
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(Main, { about_us: this.props.aboutus })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
 
-		return About;
+	  return About;
 	}(_react2.default.Component);
 
 	var Main = function Main(_ref) {
-		var about_us = _ref.about_us,
-		    team = _ref.team,
-		    web = _ref.web;
+	  var about_us = _ref.about_us;
 
-		return _react2.default.createElement(
-			'div',
-			{ className: 'main' },
-			_react2.default.createElement(
-				'div',
-				{ className: 'row' },
-				_react2.default.createElement(
-					'div',
-					{ className: 'col-md-12 col-sm-12' },
-					_react2.default.createElement(
-						'h2',
-						null,
-						'About us'
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'about-us col-md-12 col-sm-12' },
-							_react2.default.createElement('img', { src: about_us.IMG, alt: 'about' }),
-							_react2.default.createElement(
-								'div',
-								{ className: 'info' },
-								_react2.default.createElement(
-									'h1',
-									null,
-									_react2.default.createElement(
-										'small',
-										null,
-										' ',
-										about_us.TITTLE,
-										' '
-									)
-								),
-								_react2.default.createElement(
-									'p',
-									null,
-									' ',
-									about_us.TEXT,
-									' '
-								)
-							)
-						)
-					)
-				)
-			)
-		);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'main' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'row' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-12 col-sm-12' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'About us'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'about-us col-md-12 col-sm-12' },
+	            _react2.default.createElement('img', { src: about_us.IMG, alt: 'about' }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'info' },
+	              _react2.default.createElement(
+	                'h1',
+	                null,
+	                _react2.default.createElement(
+	                  'small',
+	                  null,
+	                  ' ',
+	                  about_us.TITTLE,
+	                  ' '
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                ' ',
+	                about_us.TEXT,
+	                ' '
+	              )
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
 	};
 
 	// const OurTeam = ({ our_team }) => {
@@ -67544,110 +67538,54 @@
 	// 	)
 	// }
 
-	var Stats = function Stats(_ref2) {
-		var web = _ref2.web;
-
-		return _react2.default.createElement(
-			'div',
-			{ className: 'statistic row' },
-			_react2.default.createElement(
-				'ul',
-				{ className: 'statistic list-inline col-md-12 col-sm-12' },
-				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement('i', { className: 'fa fa-user' }),
-					_react2.default.createElement(
-						'h3',
-						null,
-						web.users
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Users'
-					)
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement('i', { className: 'fa fa-pencil-square-o' }),
-					_react2.default.createElement(
-						'h3',
-						null,
-						web.post
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Posts'
-					)
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement('i', { className: 'fa fa-comment' }),
-					_react2.default.createElement(
-						'h3',
-						null,
-						web.comment
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Comments'
-					)
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement('i', { className: 'fa fa-download' }),
-					_react2.default.createElement(
-						'h3',
-						null,
-						web.download
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Downloads'
-					)
-				),
-				_react2.default.createElement(
-					'li',
-					null,
-					_react2.default.createElement('i', { className: 'fa fa-picture-o' }),
-					_react2.default.createElement(
-						'h3',
-						null,
-						web.image
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Images'
-					)
-				)
-			)
-		);
-	};
+	// const Stats = ({ web }) => {
+	// 	return (
+	// 		<div className="statistic row">
+	// 			<ul className="statistic list-inline col-md-12 col-sm-12">
+	// 				<li>
+	// 					<i className="fa fa-user"></i>
+	// 					<h3>{ web.users }</h3>
+	// 					<p>Users</p>
+	// 				</li>
+	// 				<li>
+	// 					<i className="fa fa-pencil-square-o"></i>
+	// 					<h3>{ web.post }</h3>
+	// 					<p>Posts</p>
+	// 				</li>
+	// 				<li>
+	// 					<i className="fa fa-comment"></i>
+	// 					<h3>{ web.comment }</h3>
+	// 					<p>Comments</p>
+	// 				</li>
+	// 				<li>
+	// 					<i className="fa fa-download"></i>
+	// 					<h3>{ web.download }</h3>
+	// 					<p>Downloads</p>
+	// 				</li>
+	// 				<li>
+	// 					<i className="fa fa-picture-o"></i>
+	// 					<h3>{ web.image }</h3>
+	// 					<p>Images</p>
+	// 				</li>
+	// 			</ul>
+	// 		</div>
+	// 	)
+	// }
 
 	var mapStateToProps = function mapStateToProps(state) {
-		if (state.about) {
-			return {
-				team: state.about.team[0],
-				aboutus: state.about.us[0],
-				web: state.about.status[0]
-			};
-		} else return {};
+	  if (state.about) {
+	    return {
+	      aboutus: state.about.us
+	    };
+	  } else return {};
 	};
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-		return {
-			getAbout: function getAbout(context) {
-				return dispatch((0, _About2.default)(context));
-			}
-		};
+	  return {
+	    getAbout: function getAbout(context) {
+	      return dispatch((0, _About2.default)(context));
+	    }
+	  };
 	};
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(About);
