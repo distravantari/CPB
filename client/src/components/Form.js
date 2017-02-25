@@ -1150,7 +1150,7 @@ class Form extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        let message = "default"
+        let message = ""
         let subj = ""
         if(this.props.index==0) {
             subj = "Form " + this.props.index

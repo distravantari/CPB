@@ -53,11 +53,10 @@ const Vouchers = ({ vouchers, url }) => {
                 </div>
                 <div className="info">
                   <h1><Link to={ `${list.URL}` }> { list.TITTLE } </Link></h1>
-                  <p className="details"> {list.DATE} <a> {list.CREATEDBY} </a></p>
+                  {/*<p className="details"> {list.DATE} <a> {list.CREATEDBY} </a></p>*/}
                   <p className="text">
                     { list.TEXT }
                   </p>
-
                 </div>
               </article>
             ))}

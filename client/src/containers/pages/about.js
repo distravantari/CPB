@@ -60,7 +60,7 @@ const Main = ({ about_us, team, web }) => {
 						</div>
 					</div>
 
-					<OurTeam our_team = { team }/>
+					{/*<OurTeam our_team = { team }/>*/}
 
 					{/*<Stats web={ web }/>*/}
 
@@ -70,43 +70,37 @@ const Main = ({ about_us, team, web }) => {
     )
 }
 
-const OurTeam = ({ our_team }) => {
-	return (
-		<div>
-			<h3>Our team</h3>
-				<div className="team row">
+// const OurTeam = ({ our_team }) => {
+// 	return (
+// 		<div>
+// 			<h3>Our team</h3>
+// 				<div className="team row">
 
-					{ our_team.map((list, index) => (
-						<article className="col-md-4 col-sm-4 mid member" key={ index }>
-							<div className="img">
-								<img src={ list.IMG } alt="post2" />
-								<div className="overlay"></div>
-							</div>
-							<div className="info">
-								<p className="tags">
-									{ list.POSITION.map((pos, idx) => (
-										<a key={ idx }>{ pos }</a>
-									))}
-								</p>
-								<h1><a>{ list.NAME }</a></h1>
-								<p className="text">
-									{ list.TEXT }
-								</p>
-							</div>
-							{/*<ul className="social list-inline">
-								<li><a><i className="fa fa-facebook"></i></a></li>
-								<li><a><i className="fa fa-twitter"></i></a></li>
-								<li><a><i className="fa fa-google-plus"></i></a></li>
-								<li><a><i className="fa  fa-tumblr"></i></a></li>
-							</ul>
-							*/}
-						</article>
-					))}
+// 					{ our_team.map((list, index) => (
+// 						<article className="col-md-4 col-sm-4 mid member" key={ index }>
+// 							<div className="img">
+// 								<img src={ list.IMG } alt="post2" />
+// 								<div className="overlay"></div>
+// 							</div>
+// 							<div className="info">
+// 								<p className="tags">
+// 									{ list.POSITION.map((pos, idx) => (
+// 										<a key={ idx }>{ pos }</a>
+// 									))}
+// 								</p>
+// 								<h1><a>{ list.NAME }</a></h1>
+// 								<p className="text">
+// 									{ list.TEXT }
+// 								</p>
+// 							</div>
+// 							*/}
+// 						</article>
+// 					))}
 
-				</div>
-		</div>
-	)
-}
+// 				</div>
+// 		</div>
+// 	)
+// }
 
 const Stats = ({ web }) => {
 	return (

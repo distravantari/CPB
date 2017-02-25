@@ -71,22 +71,16 @@ const News = ({ news }) => {
   return (
     <div className="row">
         <div className="breaking col-md-12 col-sm-12">
-          <div className="controls">
+          {/*<div className="controls">
             <p className="prev"><i className="fa fa-angle-left"></i></p>
             <p className="next"><i className="fa fa-angle-right"></i></p>
-          </div>
-
+          </div>*/}
           <ul className="news">
-
             { news.map((list, index) => (
-
               <li key={index} >
                 <span> { list.IMPORTANT } </span>
-
               </li>
-
             ))}
-
           </ul>
 
         </div>
@@ -104,7 +98,6 @@ const BigSlider = ({ big_slider }) => {
         </div>
 
         <div className="slides">
-
           {
             big_slider.map((list, index) => (
               <article className="big clearfix" key={ index }>
@@ -125,7 +118,6 @@ const BigSlider = ({ big_slider }) => {
                 </div>
               </article>
           ))}
-
         </div>
 
       </div>

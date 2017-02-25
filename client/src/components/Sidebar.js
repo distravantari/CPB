@@ -15,6 +15,7 @@ class Sidebar extends React.Component{
   }
 
   render(){
+    console.log('distra', this.props.twitter)
     if(!this.props.twitter) return (<h1> Loading ... </h1>)
     return (
       <aside className="col-md-3 col-sm-12">
@@ -24,7 +25,7 @@ class Sidebar extends React.Component{
         <div id="twitter" className="col-md-12 col-sm-6">
           <h4 > { this.props.twitter.TITTLE } <i className="fa fa-refresh" id="refresh" onClick={() => this.refresh()}></i> </h4> 
           <div>
-            <a  className="twitter-timeline" href={ this.props.twitter.LINK } data-widget-id={ this.props.twitter.WIDGET_ID } 
+            <a  className="twitter-timeline" href="https://twitter.com/valentinancy" data-widget-id={ this.props.twitter.WIDGET_ID } 
                 data-link-color={ this.props.twitter.LINK_COLOR } data-chrome={ this.props.twitter.DATA_CHROME } 
                 lang={ this.props.twitter.LANG } data-tweet-limit={ this.props.twitter.LIMIT }>
             </a>

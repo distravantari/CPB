@@ -18,12 +18,16 @@ import Immutable from 'immutable'
 import Slider from 'components_path/Slider'
 
 class Trip extends React.Component{
+  static get contextTypes() {
+    return {
+      router: PropTypes.object.isRequired,
+    }
+  }
 
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //     startDate: moment()
-    // }
+  constructor(props, context){
+    super(props)
+    context.router
+
   }
 
   componentDidMount(){}
@@ -39,17 +43,19 @@ class Trip extends React.Component{
 //   }
 
   render(){
+    let hal = ''
+    if(!this.props.location.search.split('?')[2]){
+      hal = this.props.location.search.split('?')[2]
+    }
     let detail = this.props.routes[1].path.split("-")[0]
-    console.log('props ',this.props)
     let index = this.props.location.search.split('?')[1]
-    console.log('index dexxxxx',index)
-    console.log('NANCY  ',this.props.voucher)
+    console.log(index, detail)
     return(
       <div>
         <div className="main">
           <div>
             <div className="row">
-              <Desc detail={ detail } trip={ this.props.trip.list[index] } voucher={ this.props.voucher.list[index] } />
+              <Desc hal={ hal } context={ this.context } detail={ detail } trip={ this.props.trip.list[index] } voucher={ this.props.voucher.list[index] } />
             </div>  
           </div>
         </div>
@@ -58,11 +64,26 @@ class Trip extends React.Component{
   }
  }  
 
-const Desc = ({ detail, voucher, trip }) => {
-  console.log('hah ',trip)
-    if(detail == "/Trip"){
+const Desc = ({ detail, voucher, trip, context, hal }) => {
+    if((detail == "/Trip") && (hal)){
+      console.log("halalala",hal)
+      const url = trip.URL
+      console.log("url",url)
       return (
           <div>
+            <div className="post-slider col-md-12 col-sm-12">
+              <div className="controls">
+                <p className="prev"><i className="fa fa-angle-left"></i></p>
+                <p className="next"><i className="fa fa-angle-right"></i></p>
+              </div>
+              <div className="slides">
+                {trip.CHILD.list.map((list, index) => (
+                    <article className="big clearfix" key={ index }>
+                      <img src={ list.SLIDER[0] } alt="post1" />
+                    </article>
+                ))}
+              </div>
+            </div>
             <div className="info col-md-offset-1 col-md-10">
                 <h1>{ trip.DETAIL.TITTLE }</h1>
 
@@ -73,18 +94,18 @@ const Desc = ({ detail, voucher, trip }) => {
             <div className="row">
               <div className="wrapper">
                 {trip.CHILD.list.map((list, index) => (
-                    <article className="col-md-3 col-sm-6 mid" key={index}>
-                          <div className="img">
-                              <img src={ list.IMG } alt="post" />
-                              <div className="overlay"></div>
-                          </div>
-                          <div className="info">
-                              <h1><Link to={ `${list.URL}` }>{ list.TITLE }</Link></h1>
-                              <p className="text">
-                                  { list.TEXT }
-                              </p>
-                          </div>
-                      </article>
+                      <article className="col-md-3 col-sm-6 mid" key={index}>
+                            <div className="img">
+                                <img src={ list.IMG } alt="post" />
+                                <div className="overlay"></div>
+                            </div>
+                            <div className="info">
+                                <h1 onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
+                                <p className="text">
+                                    { list.TEXT }
+                                </p>
+                            </div>
+                        </article>
                 ))}
               </div>
               </div>
@@ -93,15 +114,43 @@ const Desc = ({ detail, voucher, trip }) => {
               </div>
             </div>
       )
-    }else{
-      console.log("voucher",voucher)
+    }else if(detail == "/Voucher"){
       return (
           <div className="info col-md-offset-1 col-md-10">
+              <iframe src="https://www.youtube.com/embed/8mv9r0mUlbo?ecver=2" width="640" height="360" frameborder="0" allowfullscreen></iframe>
               <h1>{ voucher.TITTLE }</h1>
-
               <div className="text">
-                  <p>{ voucher.TEXT }</p>
+                  <p>{ voucher.DESCRIPTION }</p>
               </div>
+              <div className="text">
+                <p>Please contact us or check our instagram for latest promo <a href={ voucher.INSTAGRAM }>{ voucher.INSTAGRAM }</a></p>
+              </div>
+          </div>
+      )
+    }
+    else {
+      return(
+        <div>
+            <div className="post-slider col-md-12 col-sm-12">
+              <div className="controls">
+                <p className="prev"><i className="fa fa-angle-left"></i></p>
+                <p className="next"><i className="fa fa-angle-right"></i></p>
+              </div>
+              <div className="slides">
+                {trip.CHILD.list[hal].SLIDER.map((slider, index) => (
+                    <article className="big clearfix" key={ index }>
+                      <img src={ slider } alt="post1" />
+                    </article>
+                ))}
+              </div>
+            </div>
+            <div className="info col-md-offset-1 col-md-10">
+                <h1>{ trip.DETAIL.TITTLE }</h1>
+
+                <div className="text">
+                    <p>{ trip.DETAIL.TEXT }</p>
+                </div>
+            </div>
           </div>
       )
     }

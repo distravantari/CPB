@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
+import receiveForm from '../../actions/Form'
 
 //constanta
 import * as constant from 'app_path/actions/const'
@@ -36,7 +37,7 @@ class Index extends React.Component{
 
           <div>
             <div className="row">
-              <Main contact={ this.props.contact } map={ this.props.map[0] } addToMail={ this.props.addToMail} />
+              <Main contact={ this.props.contact } map={ this.props.map[0] } addToMail={ this.props.addToMail} receiveForm={ this.props.receiveForm }/>
             </div>
           </div>
 
@@ -47,7 +48,7 @@ class Index extends React.Component{
 
  }
 
-const Main = ( {contact, map, addToMail} ) => {
+const Main = ( {contact, map, addToMail, receiveForm} ) => {
     return (
         <div className="main">
             <div className="row">
@@ -62,7 +63,7 @@ const Main = ( {contact, map, addToMail} ) => {
                     <div className="row">
                         <ContactDetail contact={ contact } />
 
-                        <GetInTouch addToMail = {addToMail}/>
+                        <GetInTouch addToMail = {addToMail} receiveForm={ receiveForm }/>
                     </div>
                 </div>
             </div>
@@ -85,33 +86,32 @@ export const ContactDetail = ({ contact }) => {
         <li>
           <i className="fa fa-phone"></i>
           <div>
-            <p>{ contact.PHONE[0] }</p>
-            <p>{ contact.PHONE[1] }</p>
+            <p>{ contact.PHONE }</p>
           </div>
         </li>
         <li>
           <i className="fa fa-fax"></i>
           <div>
-            <p><span>Fax:</span> { contact.FAX[0] }</p>
+            <p><span>Fax:</span> { contact.FAX }</p>
           </div>
         </li>
         <li>
           <i className="fa fa-commenting"></i>
           <div>
-            <p><span>Line:</span> { contact.LINE[0] }</p>
+            <p><span>Line:</span> { contact.LINE }</p>
           </div>
         </li>
         <li>
           <i className="fa fa-whatsapp"></i>
           <div>
-            <p><span>Whatsapp:</span> { contact.WHATSAPP[0] }, { contact.WHATSAPP[1] }, { contact.WHATSAPP[2] }</p>
+            <p><span>Whatsapp:</span> { contact.WHATSAPP[0] } </p>
             
           </div>
         </li>
         <li>
           <i className="fa fa-commenting"></i>
           <div>
-            <p><span>BBM:</span> { contact.BBM[0] }</p>
+            <p><span>BBM:</span> { contact.BBM }</p>
           </div>
         </li>
         <li>
@@ -125,7 +125,6 @@ export const ContactDetail = ({ contact }) => {
           <i className="fa fa-facebook"></i>
           <div>
             <p><span>Facebook:</span> { contact.FACEBOOK[0] }</p>
-            <p>{ contact.FACEBOOK[1] }</p>
           </div>
         </li>
       </ul>
@@ -141,8 +140,17 @@ export class GetInTouch extends React.Component {
 
     email(val) {
       val.preventDefault()
-      this.props.addToMail(this.nameRef.value,this.emailRef.value,this.textRef.value)
       alert('success, thank you for subsribing us');
+      let message = "Name: " + this.nameRef.value + "\nEmail: " + this.emailRef.value + "\nMessage: " + this.textRef.value
+      let subj = "Form Get in Touch"
+      console.log("udah", message)
+      this.props.receiveForm(subj,message)
+        .then(() => {
+            console.log('berhasil nih kak')
+        })
+        .catch(() => {
+            console.log('yah gagal kak')
+        })
       this.nameRef.value = ""
       this.emailRef.value= ""
       this.textRef.value = ""
@@ -201,7 +209,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
       getContact: (context) => dispatch(fetchFeature(context)),
       getSocial: (context) => dispatch(fetchMap(context)),
-      addToMail: (name, email, text) => addEmail(name, email, text)
+      receiveForm:(data1, data2) => receiveForm(data1, data2)
     };
 }
 
