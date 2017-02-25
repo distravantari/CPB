@@ -53253,7 +53253,8 @@
 	      TITTLE: '',
 	      INSTAGRAM: '',
 	      URL: '',
-	      filename: []
+	      filename: [],
+	      DESCRIPTION: ''
 	    };
 	    return _this12;
 	  }
@@ -53305,6 +53306,7 @@
 	          var tittle = _this14.state.TITTLE;
 	          var url = _this14.state.URL;
 	          var instagram = _this14.state.INSTAGRAM;
+	          var description = _this14.state.DESCRIPTION;
 
 	          if (!createdby) createdby = _lodash2.default.values(_this14.props.vouchers)[index].CREATEDBY;
 	          if (!date) date = _lodash2.default.values(_this14.props.vouchers)[index].DATE;
@@ -53313,6 +53315,7 @@
 	          if (!tittle) tittle = _lodash2.default.values(_this14.props.vouchers)[index].TITTLE;
 	          if (!url) url = _lodash2.default.values(_this14.props.vouchers)[index].URL;
 	          if (!instagram) instagram = _lodash2.default.values(_this14.props.vouchers)[index].INSTAGRAM;
+	          if (!description) description = _lodash2.default.values(_this14.props.vouchers)[index].DESCRIPTION;
 
 	          var vouchers = {
 	            CREATEDBY: createdby,
@@ -53321,7 +53324,8 @@
 	            TEXT: text,
 	            TITTLE: tittle,
 	            URL: url,
-	            INSTAGRAM: instagram
+	            INSTAGRAM: instagram,
+	            DESCRIPTION: description
 	          };
 
 	          _this14.props.editVouchers('list/' + index, vouchers).then(function () {
@@ -53338,6 +53342,7 @@
 	        var tittle = this.state.TITTLE;
 	        var url = this.state.URL;
 	        var instagram = this.state.INSTAGRAM;
+	        var description = this.state.DESCRIPTION;
 
 	        if (!createdby) createdby = _lodash2.default.values(this.props.vouchers)[index].CREATEDBY;
 	        if (!date) date = _lodash2.default.values(this.props.vouchers)[index].DATE;
@@ -53346,6 +53351,7 @@
 	        if (!tittle) tittle = _lodash2.default.values(this.props.vouchers)[index].TITTLE;
 	        if (!url) url = _lodash2.default.values(this.props.vouchers)[index].URL;
 	        if (!instagram) instagram = _lodash2.default.values(this.props.vouchers)[index].INSTAGRAM;
+	        if (!description) description = _lodash2.default.values(this.props.vouchers)[index].DESCRIPTION;
 
 	        var vouchers = {
 	          CREATEDBY: createdby,
@@ -53354,7 +53360,8 @@
 	          IMG: img,
 	          TITTLE: tittle,
 	          URL: url,
-	          INSTAGRAM: instagram
+	          INSTAGRAM: instagram,
+	          DESCRIPTION: description
 	        };
 
 	        this.props.editVouchers('list/' + index, vouchers).then(function () {
@@ -53409,6 +53416,10 @@
 	      } else if (key == 'title') {
 	        this.setState({
 	          TITTLE: val.target.value
+	        });
+	      } else if (key == 'description') {
+	        this.setState({
+	          DESCRIPTION: val.target.value
 	        });
 	      } else {
 	        this.setState({
@@ -53945,10 +53956,7 @@
 	      VIDEO: '',
 	      URL: '',
 	      filename: [],
-	      CHILD: {
-	        TITTLE: '',
-	        TEXT: ''
-	      }
+	      CHILD: []
 	    };
 	    return _this2;
 	  }
@@ -54302,6 +54310,22 @@
 	                                  return _this6.handleChange(ref, 'video');
 	                                } })
 	                            )
+	                          ),
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                              'label',
+	                              { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                              'Form'
+	                            ),
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                              _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: '0-4', defaultValue: packet.FORM, onChange: function onChange(ref) {
+	                                  return _this6.handleChange(ref, 'form');
+	                                } })
+	                            )
 	                          )
 	                        )
 	                      ),
@@ -54461,6 +54485,22 @@
 	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
 	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: '<iframe ..', defaultValue: '', ref: function ref(_ref3) {
 	                              return _this6.newVideoRef = _ref3;
+	                            } })
+	                        )
+	                      ),
+	                      _react2.default.createElement(
+	                        'div',
+	                        { className: 'form-group' },
+	                        _react2.default.createElement(
+	                          'label',
+	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
+	                          'Form'
+	                        ),
+	                        _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: '0-4', defaultValue: '', onChange: function onChange(ref) {
+	                              return _this6.handleChange(ref, 'form');
 	                            } })
 	                        )
 	                      )

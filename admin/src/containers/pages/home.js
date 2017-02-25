@@ -639,7 +639,8 @@ class Voucher extends React.Component {
       TITTLE : '',
       INSTAGRAM: '',
       URL : '',
-      filename : []
+      filename : [],
+      DESCRIPTION: ''
     }
   }
 
@@ -683,6 +684,7 @@ class Voucher extends React.Component {
         let tittle = this.state.TITTLE
         let url = this.state.URL
         let instagram = this.state.INSTAGRAM
+        let description = this.state.DESCRIPTION
 
         if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
         if(!date) date = _.values(this.props.vouchers)[index].DATE
@@ -691,6 +693,7 @@ class Voucher extends React.Component {
         if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
         if(!url) url = _.values(this.props.vouchers)[index].URL
         if(!instagram) instagram = _.values(this.props.vouchers)[index].INSTAGRAM
+        if(!description) description = _.values(this.props.vouchers)[index].DESCRIPTION
 
         const vouchers = {
           CREATEDBY : createdby,
@@ -699,7 +702,8 @@ class Voucher extends React.Component {
           TEXT : text,
           TITTLE : tittle,
           URL : url,
-          INSTAGRAM: instagram
+          INSTAGRAM: instagram,
+          DESCRIPTION: description
         }
 
         this.props.editVouchers(`list/${index}`, vouchers)
@@ -718,6 +722,7 @@ class Voucher extends React.Component {
       let tittle = this.state.TITTLE
       let url = this.state.URL
       let instagram = this.state.INSTAGRAM
+      let description = this.state.DESCRIPTION
 
       if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
       if(!date) date = _.values(this.props.vouchers)[index].DATE
@@ -726,6 +731,7 @@ class Voucher extends React.Component {
       if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
       if(!url) url = _.values(this.props.vouchers)[index].URL
       if(!instagram) instagram = _.values(this.props.vouchers)[index].INSTAGRAM
+      if(!description) description = _.values(this.props.vouchers)[index].DESCRIPTION
 
       const vouchers = {
         CREATEDBY : createdby,
@@ -734,7 +740,8 @@ class Voucher extends React.Component {
         IMG : img,
         TITTLE : tittle,
         URL : url,
-        INSTAGRAM: instagram
+        INSTAGRAM: instagram,
+        DESCRIPTION: description
       }
 
       this.props.editVouchers(`list/${index}`, vouchers)
@@ -790,6 +797,10 @@ class Voucher extends React.Component {
     }else if(key == `title`) {
       this.setState({
         TITTLE: val.target.value
+      })
+    }else if(key == `description`) {
+      this.setState({
+        DESCRIPTION: val.target.value
       })
     }else{
       this.setState({

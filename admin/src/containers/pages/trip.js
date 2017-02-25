@@ -66,10 +66,7 @@ class TripPackage extends React.Component {
       VIDEO: '',
       URL : '',
       filename : [],
-      CHILD : {
-        TITTLE : '',
-        TEXT : ''
-      }
+      CHILD : []
     }
   }
 
@@ -357,6 +354,13 @@ class TripPackage extends React.Component {
                             </div>
                           </div>
 
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Form</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="0-4" defaultValue={packet.FORM} onChange={(ref) => this.handleChange(ref, `form`)}/>
+                            </div>
+                          </div>
+
                         </form>
                       </div>
 
@@ -429,6 +433,13 @@ class TripPackage extends React.Component {
                       <label className="control-label col-md-3 col-sm-3 col-xs-12">Video embeded URL</label>
                       <div className="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" className="form-control" placeholder="<iframe .." defaultValue='' ref={(ref) => this.newVideoRef = ref}/>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="control-label col-md-3 col-sm-3 col-xs-12">Form</label>
+                      <div className="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" className="form-control" placeholder="0-4" defaultValue='' onChange={(ref) => this.handleChange(ref, `form`)}/>
                       </div>
                     </div>
 
