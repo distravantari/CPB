@@ -47,7 +47,6 @@ class Slider extends React.Component{
 
   render(){
     if(!this.props.slider) return (<h1> Loading ... </h1>)
-    console.log("keluar kek",this.props.slider.list[0])
     return (
       <div className="col-md-12 col-sm-12">
 
@@ -107,7 +106,7 @@ const BigSlider = ({ big_slider }) => {
                     <a> { list.TYPE } </a>
                   </p>
                   <h1>
-                    <Link to={ list.URL }> { list.TITTLE } </Link>
+                    <Link to={ list.URL }> { list.TITLE } </Link>
                   </h1>
                   <p className="text">
                     {

@@ -43,13 +43,13 @@ class Trip extends React.Component{
 //   }
 
   render(){
-    let hal = ''
-    if(!this.props.location.search.split('?')[2]){
-      hal = this.props.location.search.split('?')[2]
+    let hal = 'kosong'
+    if(this.props.location.search.split('&')[1]){
+      hal = this.props.location.search.split('&')[1]
     }
     let detail = this.props.routes[1].path.split("-")[0]
-    let index = this.props.location.search.split('?')[1]
-    console.log(index, detail)
+    let index = this.props.location.search.split('?')[1].split('&')[0]
+    console.log("halalal adalah: ", hal)
     return(
       <div>
         <div className="main">
@@ -80,7 +80,7 @@ const Video = ({ trip }) => {
 }
 
 const Desc = ({ detail, voucher, trip, context, hal }) => {
-    if((detail == "/Trip") && (hal)){
+    if((detail == "/Trip") && (hal=="kosong")){
       console.log("halalala",hal)
       const url = trip.URL
       console.log("url",url)
@@ -100,27 +100,27 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
               </div>
             </div>
             <div className="info col-md-offset-1 col-md-10">
-                <h1>{ trip.DETAIL.TITTLE }</h1>
+                <h1>{ trip.TITLE }</h1>
 
                 <div className="text">
-                    <p>{ trip.DETAIL.TEXT }</p>
+                    <p>{ trip.DESCRIPTION }</p>
                 </div>
             </div>
             <div className="row">
               <div className="wrapper">
                 {trip.CHILD.list.map((list, index) => (
-                      <article className="col-md-3 col-sm-6 mid" key={index}>
-                            <div className="img">
-                                <img src={ list.IMG } alt="post" />
-                                <div className="overlay"></div>
-                            </div>
-                            <div className="info">
-                                <h1 onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
-                                <p className="text">
-                                    { list.TEXT }
-                                </p>
-                            </div>
-                        </article>
+                  <article className="col-md-3 col-sm-6 mid" key={index}>
+                        <div className="img">
+                            <img src={ list.IMG } alt="post" />
+                            <div className="overlay"></div>
+                        </div>
+                        <div className="info">
+                            <h1 onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
+                            <p className="text">
+                                { list.TEXT }
+                            </p>
+                        </div>
+                    </article>
                 ))}
               </div>
               </div>
@@ -133,7 +133,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
       return (
           <div className="info col-md-offset-1 col-md-10">
               <iframe src="https://www.youtube.com/embed/8mv9r0mUlbo?ecver=2" width="640" height="360" frameborder="0" allowfullscreen></iframe>
-              <h1>{ voucher.TITTLE }</h1>
+              <h1>{ voucher.TITLE }</h1>
               <div className="text">
                   <p>{ voucher.DESCRIPTION }</p>
               </div>
@@ -160,10 +160,9 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
               </div>
             </div>
             <div className="info col-md-offset-1 col-md-10">
-                <h1>{ trip.DETAIL.TITTLE }</h1>
-
+                <h1>{ trip.CHILD.list[hal].TITLE }</h1>
                 <div className="text">
-                    <p>{ trip.DETAIL.TEXT }</p>
+                    <p>{ trip.CHILD.list[hal].DESCRIPTION }</p>
                 </div>
             </div>
           </div>

@@ -26,7 +26,7 @@ class About extends React.Component{
   }
 
   render(){
-	  if(!this.props.team) return (<h1> Loading ... </h1>)
+	if(!this.props.team) return (<h1> Loading ... </h1>)
     return(
       <div>
     		<div className="main">

@@ -11,11 +11,10 @@ class Sidebar extends React.Component{
   }
 
   refresh(){
-    window.location.reload()
+    window.location.reload() 
   }
 
   render(){
-    console.log('distra', this.props.twitter)
     if(!this.props.twitter) return (<h1> Loading ... </h1>)
     return (
       <aside className="col-md-3 col-sm-12">
@@ -30,7 +29,7 @@ class Sidebar extends React.Component{
                 lang={ this.props.twitter.LANG } data-tweet-limit={ this.props.twitter.LIMIT }>
             </a>*/}
             <a className="twitter-timeline" href="https://twitter.com/Balizeetnb">
-              Tweets by TwitterDev
+              Tweets by nancy
             </a>
             <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
@@ -47,8 +46,8 @@ class Sidebar extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        twitter: state.social.twitter[0],
-        facebook: state.social.facebook[0]
+        twitter: state.social.twitter,
+        facebook: state.social.facebook
     }
 }
 

@@ -8,10 +8,9 @@ import * as constant from 'app_path/actions/const'
 
 //redux
 import fetchFeature, { addEmail } from 'app_path/actions/Feature'
-import fetchMap from 'app_path/actions/Social'
+import fetchSocial from 'app_path/actions/Social'
 
 class Index extends React.Component{
-
   constructor(props) {
     super(props);
     this.state = {
@@ -29,26 +28,22 @@ class Index extends React.Component{
   }
 
   render(){
-    // contact={ this.props.contact } map={ this.props.map[0] }
-    if(!this.props.map) return (<h1>Loading ..</h1>)
+    if(!this.props.facebook) return (<h1>Loading ..</h1>)
     return(
       <div>
         <div className="main">
-
           <div>
             <div className="row">
-              <Main contact={ this.props.contact } map={ this.props.map[0] } addToMail={ this.props.addToMail} receiveForm={ this.props.receiveForm }/>
+              <Main contact={ this.props.contact } facebook={this.props.facebook} addToMail={ this.props.addToMail} receiveForm={ this.props.receiveForm } map={this.props.map} />
             </div>
           </div>
-
         </div>
       </div>
     )
   }
-
  }
 
-const Main = ( {contact, map, addToMail, receiveForm} ) => {
+const Main = ( {contact, facebook, addToMail, receiveForm, map} ) => {
     return (
         <div className="main">
             <div className="row">
@@ -59,11 +54,10 @@ const Main = ( {contact, map, addToMail, receiveForm} ) => {
                             <iframe src={ `https://www.google.com/maps?q=${map.latitude},${map.longitude}&output=embed` }></iframe>
                         </div>
                     </div>
-
                     <div className="row">
-                        <ContactDetail contact={ contact } />
+                        <ContactDetail facebook={ facebook } contact={ contact } />
 
-                        <GetInTouch addToMail = {addToMail} receiveForm={ receiveForm }/>
+                        <GetInTouch addToMail = { addToMail } receiveForm={ receiveForm }/>
                     </div>
                 </div>
             </div>
@@ -71,7 +65,8 @@ const Main = ( {contact, map, addToMail, receiveForm} ) => {
     )
 }
 
-export const ContactDetail = ({ contact }) => {
+export const ContactDetail = ({ contact, facebook }) => {
+  console.log("facebook url",facebook)
   return (
     <div className="col-md-6 col-sm-6">
       <h3>Contact details</h3>
@@ -124,7 +119,7 @@ export const ContactDetail = ({ contact }) => {
         <li>
           <i className="fa fa-facebook"></i>
           <div>
-            <p><span>Facebook:</span> { contact.FACEBOOK[0] }</p>
+            <p><span>Facebook:</span> { facebook.URL } </p>
           </div>
         </li>
       </ul>
@@ -199,8 +194,10 @@ export class GetInTouch extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log("state facebook",state)
     return {
       contact: state.feature.contact[0],
+      facebook: state.social.facebook,
       map: state.social.map
     };
 }
@@ -208,7 +205,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       getContact: (context) => dispatch(fetchFeature(context)),
-      getSocial: (context) => dispatch(fetchMap(context)),
+      getSocial: (context) => dispatch(fetchSocial(context)),
       receiveForm:(data1, data2) => receiveForm(data1, data2)
     };
 }
