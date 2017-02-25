@@ -13,10 +13,10 @@ const receiveSocial = (state = initialState, action) => {
     case con.ACTReceiveSocial:{
       const result = action.payload
       return Object.assign({}, state,{
-        facebook: _.filter(result.response, ['key', 'facebook']),
-        instagram: _.filter(result.response, ['key', 'instagram']),
-        maps: _.filter(result.response,['key', 'maps']),
-        twitter: _.filter(result.response, ['key', 'twitter'])
+        facebook: _.filter(result.response, ['key', 'facebook'])[0],
+        instagram: _.filter(result.response, ['key', 'instagram'])[0],
+        maps: _.filter(result.response,['key', 'maps'])[0],
+        twitter: _.filter(result.response, ['key', 'twitter'])[0]
       })
     }
   }
