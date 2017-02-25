@@ -21,6 +21,7 @@ class Contact extends React.Component{
   }
 
   render(){
+    if(!this.props.maps) return <div>Loading .. </div>
     return(
       <div className="right_col" role="main">
         <div className="">
@@ -39,6 +40,7 @@ class Contact extends React.Component{
     )
   }
 }
+
 class ContactDetail extends React.Component{
   constructor(props,context){
     super(props)
@@ -46,25 +48,27 @@ class ContactDetail extends React.Component{
   }
 
   editContactDetail(val){
+    val.preventDefault()
     const maps = {
       latitude : this.mapsLatRef.value,
       longitude : this.mapsLongRef.value,
       location : this.props.maps.location,
       url : this.props.maps.url
     }
-    const contact = {
-      ADDRESS : [this.addressRef.value,""],
-      EMAIL : [this.emailRef.value,this.altEmailRef.value],
-      FACEBOOK : [this.facebookRef.value],
-      PHONE : [this.phoneRef.value],
-      BBM: this.bbmRef.value,
-      FAX: this.faxRef.value,
-      LINE: this.lineRef.value,
-      WHATSAPP: [this.whatssappRef.value]
-    }
 
     this.props.editMaps(maps)
-    this.props.editContact("contact",contact)
+    .then(() => {
+      const contact = {
+        ADDRESS : [this.addressRef.value,""],
+        EMAIL : [this.emailRef.value,this.altEmailRef.value],
+        PHONE : [this.phoneRef.value],
+        BBM: this.bbmRef.value,
+        FAX: this.faxRef.value,
+        LINE: this.lineRef.value,
+        WHATSAPP: [this.whatssappRef.value]
+      }
+      return this.props.editContact("contact",contact)
+    })
     .then(() => {
        alert('success, changed content saved')
     })
@@ -127,13 +131,6 @@ class ContactDetail extends React.Component{
                   </div>
 
                   <div className="form-group">
-                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Facebook</label>
-                    <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Facebook" defaultValue={ this.props.contact.FACEBOOK[0] }  ref={(ref) => this.facebookRef = ref}/>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
                     <label className="control-label col-md-3 col-sm-3 col-xs-12">Whatssapp</label>
                     <div className="col-md-9 col-sm-9 col-xs-12">
                       <input type="text" className="form-control" placeholder="Alternative Facebook" defaultValue={ this.props.contact.WHATSAPP }  ref={(ref) => this.whatssappRef = ref}/>
@@ -180,8 +177,8 @@ class ContactDetail extends React.Component{
 const mapsStateToProps =(state) => {
   if(state.feature){
     return{
-      maps : state.social.maps[0],
-      contact : state.feature.contact[0]
+      maps : state.social.maps,
+      contact : state.feature.contact
     }
   }else return{}
 }
