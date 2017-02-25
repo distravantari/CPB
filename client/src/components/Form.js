@@ -199,7 +199,60 @@ class Form extends Component {
             transporty3: "",
             transportn3: "",
             dettransport3: "",
-            remarks3: ""
+            remarks3: "",
+            name4: "",
+            national4: "",
+            telp4: "",
+            email4: "",
+            startdate4: "",
+            starttime4: "",
+            enddate4: "",
+            endtime4: "",
+            tentative4: "",
+            numroom4: "",
+            esti4: "",
+            area4: "",
+            beachfront4: "",
+            business4: "",
+            golfcourse4: "",
+            kidsfam4: "",
+            nearthebeach4: "",
+            nearmountain4: "",
+            nearrestaurant4: "",
+            heart4: "",
+            tranquil4: "",
+            nearnight4: "",
+            family4: "",
+            fitness4: "",
+            pool4: "",
+            private4: "",
+            wifi4: "",
+            nonsmoking4: "",
+            smoking4: "",
+            spa4: "",
+            rest4: "",
+            otherrequest4: "",
+            transporty4: "",
+            transportn4: "",
+            dettransport4: "",
+            toursy4: "",
+            toursn4: "",
+            dettours4: "",
+            acty4: "",
+            actn4: "",
+            detact4: "",
+            mealsy4: "",
+            mealsn4: "",
+            breakfast4: "",
+            half4: "",
+            full4: "",
+            budget4: "",
+            remarks4: "",
+            name5: "",
+            national5: "",
+            telp5: "",
+            email5: "",
+            message5: ""
         }
     }
 
@@ -258,7 +311,6 @@ class Form extends Component {
                 })
                 break
             case 'age1':
-                console.log(key)
                 this.setState({
                     age1: e.target.value
                 })
@@ -284,7 +336,6 @@ class Form extends Component {
                 })
                 break
             case 'venue':
-                console.log(key)
                 this.setState({
                     venue: e.target.value
                 })
@@ -1133,6 +1184,218 @@ class Form extends Component {
                     remarks3: e.target.value
                 })
                 break
+            case 'name4':
+                this.setState({
+                    name4: e.target.value
+                })
+            case 'national4':
+                this.setState({
+                    national4: e.target.value
+                })
+            case 'telp4':
+                this.setState({
+                    telp4: e.target.value
+                })
+            case 'email4':
+                this.setState({
+                    email4: e.target.value
+                })
+             case 'startdate4':
+                let startdate4 = e.split('T')[0]
+                this.setState({
+                    startdate4: startdate4  
+                })
+                break
+            case 'starttime4':
+                this.setState({
+                    starttime4: e.target.value
+                })
+             case 'enddate4':
+                let enddate4 = e.split('T')[0]
+                this.setState({
+                    enddate4: enddate4  
+                })
+                break
+            case 'endtime4':
+                this.setState({
+                    endtime4: e.target.value
+                })
+            case 'tentative4':
+                this.setState({
+                    tentative4: " *still tentative\n"
+                })
+            case 'numroom4':
+                this.setState({
+                    numroom4: e.target.value
+                })
+            case 'esti4':
+                this.setState({
+                    esti4: e.target.value
+                })
+            case 'beachfront4':
+                this.setState({
+                    beachfront4: " Beach front\n"
+                })
+            case 'business4':
+                this.setState({
+                    business4: " Business facilities\n"
+                })
+            case 'golfcourse4':
+                this.setState({
+                    golfcourse4: " Golf Course\n"
+                })
+            case 'kidsfam4':
+                this.setState({
+                    kidsfam4: " Kids/Family Friendly\n"
+                })
+            case 'nearthebeach4':
+                this.setState({
+                    nearthebeach4: " Near The Beach\n"
+                })
+            case 'nearmountain4':
+                this.setState({
+                    nearmountain4: " Near Mountain\n"
+                })
+            case 'nearrestaurant4':
+                this.setState({
+                    nearrestaurant4: " Near Restaurant\n"
+                })
+            case 'heart4':
+                this.setState({
+                    heart4: " Heart of the City\n"
+                })
+            case 'tranquil4':
+                this.setState({
+                    tranquil4: " Tranquil Area\n"
+                })
+            case 'nearnight4':
+                this.setState({
+                    nearnight4: " Near Nightclub\n"
+                })
+            case 'family4':
+                this.setState({
+                    family4: " Family Room\n"
+                })
+            case 'fitness4':
+                this.setState({
+                    fitness4: " Fitness Centre\n"
+                })
+            case 'pool4':
+                this.setState({
+                    pool4: " Pool\n"
+                })
+            case 'private4':
+                this.setState({
+                    private4: " Private Pool\n"
+                })
+            case 'wifi4':
+                this.setState({
+                    wifi4: " WIFI\n"
+                })
+            case 'nonsmoking4':
+                this.setState({
+                    nonsmoking4: " Non-smoking room\n"
+                })
+            case 'smoking4':
+                this.setState({
+                    smoking4: " Smoking room\n"
+                })
+            case 'spa4':
+                this.setState({
+                    spa4: " Spa & Wellness Center\n"
+                })
+            case 'rest4':
+                this.setState({
+                    rest4: " Restaurant\n"
+                })
+            case 'otherrequest4':
+                this.setState({
+                    otherrequest4: e.target.value
+                })
+            case 'transporty4':
+                this.setState({
+                    transporty4: " yes, we need a transportation\n"
+                })
+            case 'transportn4':
+                this.setState({
+                    transportn4: " no, we don't need a transportation\n"
+                })
+            case 'dettransport4':
+                this.setState({
+                    dettransport4: e.target.value
+                })
+            case 'toursy4':
+                this.setState({
+                    toursy4: " yes, we need a tour\n"
+                })
+            case 'toursn4':
+                this.setState({
+                    toursn4: " no, we dont need a tour\n"
+                })
+            case 'dettours4':
+                this.setState({
+                    dettours4: e.target.value
+                })
+            case 'acty4':
+                this.setState({
+                    acty4: " yes, we need an activities\n"
+                })
+            case 'actn4':
+                this.setState({
+                    actn4: " no, we don't need an activites\n"
+                })
+            case 'detact4':
+                this.setState({
+                    detact4: e.target.value
+                })
+            case 'mealsy4':
+                this.setState({
+                    mealsy4: " yes, we need meals\n"
+                })
+            case 'mealsn4':
+                this.setState({
+                    mealsn4: " no, we don't need meals\n"
+                })
+            case 'breakfast4':
+                this.setState({
+                    breakfast4: " Breakfast included\n"
+                })
+            case 'half4':
+                this.setState({
+                    half4: " Halfboard Included\n" 
+                })
+            case 'full4':
+                this.setState({
+                    full4: " Fullboard\n"  
+                })
+            case 'budget4':
+                this.setState({
+                    budget4: e.target.value
+                })
+            case 'remarks4':
+                this.setState({
+                    remarks4: e.target.value
+                })
+            case 'name5':
+                this.setState({
+                    name5: e.target.value
+                })
+            case 'national5':
+                this.setState({
+                    national5: e.target.value
+                })
+            case 'telp5':
+                this.setState({
+                    telp5: e.target.value
+                })
+            case 'email5':
+                this.setState({
+                    email5: e.target.value
+                })
+            case 'message5':
+                this.setState({
+                    message5: e.target.value
+                })
         }
     }
 
@@ -1163,6 +1426,14 @@ class Form extends Component {
         else if(this.props.index==2) {
             subj = "Form " + this.props.index
             message = "Name: " + this.state.name3 + "\nNationality: " + this.state.national3 + "\nTelephone: " + this.state.telp3 + "\nE-mail: " + this.state.email3 + "\nStart date: " + this.state.startdate3 + "\nStart time: " + this.state.starttime3 + "\nEnd date: " + this.state.enddate3 + "\nEnd time: " + this.state.endtime3 + this.state.tentative3 + "\nNumber of rooms: " + this.state.numroom3 + "\nVenue/Hotel: " + this.state.venue3 + "\nNumber of adult: " + this.state.numad3 + "\nNumber of kids: " + this.state.numkid3 + "\nEstimation accommodation budget (per-night,per-room): Rp." + this.state.esti3 + "\nHotel area: " + this.state.amed3 + this.state.candi3 + this.state.cangguarea3 + this.state.canggubeach3 + this.state.jimbaran3 + this.state.karang3 + this.state.kerobokan3 + this.state.kids3 + this.state.kutaarea3 + this.state.kutabeach3 + this.state.legianarea3 + this.state.legianbeach3 + this.state.lembongan3 + this.state.lovinabeach3 + this.state.lovina3 + this.state.menjangan3 + this.state.nearbeach3 + this.state.nusadua3 + this.state.petit3 + this.state.seminyakbeach3 + this.state.seminyak3 + this.state.tabanan3 + this.state.tanjung3 + this.state.sanurbeach3 + this.state.sanurarea3 + this.state.sinaraja3 + this.state.tuban3 + this.state.tulamben3 + this.state.ubud3 + this.state.uluwatu3 + this.state.ungasan3 + "\nHotel preference: " + this.state.beachfront3 + this.state.business3 + this.state.golfcourse3 + this.state.kidsfam3 + this.state.nearthebeach3 + this.state.nearmountain3 + this.state.nearrestaurant3 + this.state.heart3 + this.state.tranquil3 + this.state.nearnight3 + "\nHotel facility: " + this.state.family3 + this.state.fitness3 + this.state.pool3 + this.state.private3 + this.state.wifi3 + this.state.nonsmoking3 + this.state.smoking3 + this.state.spa3 + this.state.rest3 + "\nOther request: " + this.state.otherrequest3 + this.state.transporty3 + this.state.transportn3 + "\nDetails for transport: " + this.state.dettransport3 + "\nSpecial remarks: " + this.state.remarks3
+        }
+        else if(this.props.index==3) {
+            subj = "Form " + this.props.index
+            message = "Name: " + this.state.name4 + "\nNationality: " + this.state.national4 + "\nTelephone: " + this.state.telp4 + "\E-mail: " + this.state.email4 + "\nStart date: " + this.state.startdate4 + "\nStart time: " + this.state.starttime4 + "\nEnd date: " + this.state.enddate4 + "\nEnd time: " + this.state.endtime4 + this.state.tentative4 + "\nNumber of rooms: " + this.state.numroom4 + "\nEstimation accommodation budget (per-night,per-room): Rp." + this.state.esti4 + "\nHotel area: " + this.state.area4 + "\Hotel Preference: " + this.state.beachfront4 + this.state.business4 + this.state.golfcourse4 + this.state.kidsfam4 + this.state.nearthebeach4 + this.state.nearmountain4 + this.state.nearrestaurant4 + this.state.heart4 + this.state.tranquil4 + this.state.nearnight4 + "\nHotel Facility: " + this.state.family4 + this.state.fitness4 + this.state.pool4 + this.state.private4 + this.state.wifi4 + this.state.nonsmoking4 + this.state.smoking4 + this.state.spa4 + this.state.rest4 + "\nOther Request: " + this.state.otherrequest4 + this.state.transporty4 + this.state.transportn4 + "\nDetails for transportation: " + this.state.dettransport4 + this.state.toursy4 + this.state.toursn4 + "\nDetail for tours: " + this.state.dettours4 + this.state.acty4 + this.state.actn4 + "\nDetails for activities: " + this.state.detact4 + this.state.mealsy4 + this.state.mealsy2 + this.state.breakfast4 + this.state.half4 + this.state.full4 + "\nIndicative budget: " + this.state.budget4 + "\nSpecial remarks: " + this.state.remarks4
+        }
+        else if(this.props.index==4) {
+            subj = "Form " + this.props.index
+            message = "Name: " + this.state.name5 + "\nNationality: " + this.state.national5 + "\nTelephone: " + this.state.telp5 + "\nE-mail: " + this.state.email5 + "\nMessage: " + this.state.message5
         }
 
         this.props.receiveForm(subj,message)
@@ -1964,6 +2235,248 @@ class Form extends Component {
                     </div>
                     <br/>
                     <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
+                </form>
+            </div>
+        )
+    }
+
+    form3() {
+        return(
+            <div className="col-md-offset-1 col-md-10 form">
+                <div className="form-group">
+                    <h5>Tell us about your dream luxury stays, we want to hear from you!</h5>
+                    <p>Please contact us and fill the form for more information or with any help or advice that you may need.</p>
+                    <p>We will assist you in designing your vacation Bali. Please fill in this event brief form.</p>
+                </div>
+                <br/>
+                <form className="form-div">
+                    <div className="form-section">
+                        <div className="form-group">
+                            <label for="name">Name :</label>
+                            <input type="text" className="form-control" value={this.state.name4} onChange={(e) => this.handleChange(e,'name4')} id="name" required/>
+                        </div>
+                        <div className="form-group">
+                            <label for="name">Nationality :</label>
+                            <input type="text" className="form-control" value={this.state.national4} onChange={(e) => this.handleChange(e,'national4')} id="name" required/>
+                        </div>
+                        <div className="form-group">
+                            <label for="phone">Telephone :</label>
+                            <input type="number" className="form-control" value={this.state.telp4} onChange={(e) => this.handleChange(e,'telp4')} id="phone" required/>
+                        </div>
+                        <div className="form-group">
+                            <label for="email">E-mail :</label>
+                            <input type="email" className="form-control" value={this.state.email4} onChange={(e) => this.handleChange(e,'email4')} id="email" required/>
+                        </div>
+                    </div>
+                    <br/>
+                    <h5>TRIP DETAILS</h5>
+                    <div className="form-section">
+                        <div className="form-group">
+                            <label for="event-start">Starts from (Date) :</label>
+                            <Datepicker value={this.state.startdate4} onChange={(e) => this.handleChange(e,'startdate4')} />
+                        </div>
+                        <div className="form-group">
+                            <label for="event-start">Starts from (Time) :</label>
+                            <input type="text" className="form-control short-input" value={this.state.starttime4} onChange={(e) => this.handleChange(e,'starttime4')} id="type" />
+                        </div>
+                        <div className="form-group">
+                            <label for="event-end">Ends (Date) :</label>
+                            <Datepicker value={this.state.enddate4} onChange={(e) => this.handleChange(e,'enddate4')} />    
+                        </div>
+                        <div className="form-group">
+                            <label for="event-start">Ends (Time) :</label>
+                            <input type="text" className="form-control short-input" value={this.state.endtime4} onChange={(e) => this.handleChange(e,'endtime4')} id="type" />
+                        </div>
+                        <div className="checkbox-inline">
+                            <label><input type="checkbox" value={this.state.tentative4} onChange={(e) => this.handleChange(e,'tentative4')} />Still Tentative</label>
+                        </div>
+                        <div className="form-group">
+                            <label for="phone">Number of Rooms :</label>
+                            <input type="number" className="form-control" value={this.state.numroom4} onChange={(e) => this.handleChange(e,'numroom4')}  id="phone" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div className="form-group">
+                        <label for="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
+                        <input type="number" className="form-control" value={this.state.esti4} onChange={(e) => this.handleChange(e,'esti4')} id="email" />
+                    </div>
+                    <br/>
+                    <h5>REQUEST :</h5>
+                    <div className="form-section">
+                        <div className="form-group">
+                            <div className="form-group">
+                                <label for="phone">Hotel area :</label>
+                                <input type="text" className="form-control" value={this.state.area4} onChange={(e) => this.handleChange(e,'area4')}  id="phone" />
+                            </div>
+                            <label for="phone">Hotel Preference :</label>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.beachfront4} onChange={(e) => this.handleChange(e,'beachfront4')}/>Beachfront</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.business4} onChange={(e) => this.handleChange(e,'business4')}/>Business facilities</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.golfcourse4} onChange={(e) => this.handleChange(e,'golfcourse4')}/>Golf Course</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.kidsfam4} onChange={(e) => this.handleChange(e,'kidsfam4')}/>Kids/Family Friendly</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.nearthebeach4} onChange={(e) => this.handleChange(e,'nearthebeach4')}/>Near The Beach</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.nearmountain4} onChange={(e) => this.handleChange(e,'nearmountain4')}/>Near Mountain</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.nearrestaurant4} onChange={(e) => this.handleChange(e,'nearrestaurant4')}/>Near Restaurant</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.heart4} onChange={(e) => this.handleChange(e,'heart4')}/>Heart of the City</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.tranquil4} onChange={(e) => this.handleChange(e,'tranquil4')}/>Tranquil Area</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.nearnight4} onChange={(e) => this.handleChange(e,'nearnight4')}/>Near Nightclub</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <label for="comp-name">Hotel Facility :</label>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.family4} onChange={(e) => this.handleChange(e,'family4')}/>Family Room</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.fitness4} onChange={(e) => this.handleChange(e,'fitness4')}/>Fitness Centre</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.pool4} onChange={(e) => this.handleChange(e,'pool4')}/>Pool</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.private4} onChange={(e) => this.handleChange(e,'private4')}/>Private Pool</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.wifi4} onChange={(e) => this.handleChange(e,'wifi4')}/>WIFI</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.nonsmoking4} onChange={(e) => this.handleChange(e,'nonsmoking4')}/>Non-smoking room</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.smoking4} onChange={(e) => this.handleChange(e,'smoking4')}/>Smoking room</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.spa4} onChange={(e) => this.handleChange(e,'spa4')}/>Spa & Wellness Center</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.rest4} onChange={(e) => this.handleChange(e,'rest4')}/>Restaurant</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <label for="email">Others :</label>
+                            <input type="text" className="form-control" value={this.state.otherrequest4} onChange={(e) => this.handleChange(e,'otherrequest4')} id="email" />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label for="name">TRANPORTATION :</label>
+                        <div className="radio-inline">
+                            <label><input type="radio" name="trans" value={this.state.transporty4} onChange={(e) => this.handleChange(e,'transporty4')}/>Yes</label>
+                        </div>
+                        <div className="radio-inline">
+                            <label><input type="radio" name="trans" value={this.state.transportn4} onChange={(e) => this.handleChange(e,'transportn4')}/>No</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <p for="comp-name">Details :</p>
+                        <input type="text" className="form-control" value={this.state.dettransport4} onChange={(e) => this.handleChange(e,'dettransport4')} id="comp-name" />
+                    </div>
+                    <div className="form-group">
+                        <label for="comp-name">TOURS / SIGHTSEEING :</label>
+                        <div className="radio-inline">
+                            <label><input name="tours" type="radio" value={this.state.toursy4} onChange={(e) => this.handleChange(e,'toursy4')}/>Yes</label>
+                        </div>
+                        <div className="radio-inline">
+                            <label><input name="tours" type="radio" value={this.state.toursn4} onChange={(e) => this.handleChange(e,'toursn4')}/>No</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <p for="comp-name">Details :</p>
+                        <input type="text" className="form-control" value={this.state.dettours4} onChange={(e) => this.handleChange(e,'dettours4')} id="comp-name" />
+                    </div>
+                    <div className="form-group">
+                        <label for="comp-name">ACTIVITIES :</label>
+                        <div className="radio-inline">
+                            <label><input name="act" type="radio" value={this.state.acty4} onChange={(e) => this.handleChange(e,'acty4')}/>Yes</label>
+                        </div>
+                        <div className="radio-inline">
+                            <label><input name="act" type="radio" value={this.state.actn4} onChange={(e) => this.handleChange(e,'actn4')}/>No</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <p for="comp-name">Details :</p>
+                        <input type="text" className="form-control" value={this.state.detact4} onChange={(e) => this.handleChange(e,'detact4')} id="comp-name" />
+                    </div>
+                    <div className="form-group">
+                        <label for="comp-name">MEALS :</label>
+                        <div className="radio-inline">
+                            <label><input name="meals" type="radio" value={this.state.mealsy4} onChange={(e) => this.handleChange(e,'mealsy4')}/>Yes</label>
+                        </div>
+                        <div className="radio-inline">
+                            <label><input name="meals" type="radio" value={this.state.mealsn4} onChange={(e) => this.handleChange(e,'mealsn4')}/>No</label>
+                        </div>
+                        <div className="checkbox">
+                            <label><input type="checkbox" value={this.state.breakfast4} onChange={(e) => this.handleChange(e,'breakfast4')}/>Breakfast Included</label>
+                        </div>
+                        <div className="checkbox">
+                            <label><input type="checkbox" value={this.state.half4} onChange={(e) => this.handleChange(e,'half4')}/>Halfboard (B&L)</label>
+                        </div>
+                        <div className="checkbox">
+                            <label><input type="checkbox" value={this.state.full4} onChange={(e) => this.handleChange(e,'full4')}/>Fullboard (B,L&D)</label>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label for="email">Indicative Budget :</label>
+                        <input type="number" className="form-control" value={this.state.budget4} onChange={(e) => this.handleChange(e,'budget4')}id="email" />
+                    </div>
+                    <div className="form-group">
+                        <label for="email">Special Remarks :</label>
+                        <input type="text" className="form-control" value={this.state.remarks4} onChange={(e) => this.handleChange(e,'remarks4')} id="email" />
+                    </div>
+                    <br/>
+                    <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
+                </form>
+            </div>
+        )
+    }
+
+    form4() {
+        return(
+            <div className="col-md-offset-1 col-md-10 form">
+                <div className="form-group">
+                    <h5>We will assist you in designing your vacation Bali. Please fill in this event brief form.</h5>
+                </div>
+                <br/>
+                <form className="form-div">
+                    <div className="form-section">
+                        <div className="form-group">
+                            <label for="name">Name :</label>
+                            <input type="text" className="form-control" value={this.state.name5} onChange={(e) => this.handleChange(e,'name5')} id="name" required/>
+                        </div>
+                        <div className="form-group">
+                            <label for="name">Nationality :</label>
+                            <input type="text" className="form-control" value={this.state.national5} onChange={(e) => this.handleChange(e,'national5')} id="name" required/>
+                        </div>
+                        <div className="form-group">
+                            <label for="phone">Telephone :</label>
+                            <input type="number" className="form-control" value={this.state.telp5} onChange={(e) => this.handleChange(e,'telp5')} id="phone" required/>
+                        </div>
+                        <div className="form-group">
+                            <label for="email">E-mail :</label>
+                            <input type="email" className="form-control" value={this.state.email5} onChange={(e) => this.handleChange(e,'email5')} id="email" required/>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label for="email">Your Message :</label>
+                        <input type="text" className="form-control" value={this.state.message5} onChange={(e) => this.handleChange(e,'message5')} id="email" required/>
+                    </div>
                 </form>
             </div>
         )
