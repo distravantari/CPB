@@ -7,7 +7,7 @@ export default (context) => {
   return dispatch => {
     base.listenTo('about', {
       context: context,
-      asArray: true,
+      asArray: false,
       then(data){
         dispatch(receiveAbout(data))
       }
@@ -24,8 +24,8 @@ let receiveAbout = (response) => {
     }
 }
 
-export const editAbout = (key, data) => {
-  return base.post(`about/${key}`,{
+export const editAbout = (data) => {
+  return base.post(`about`,{
       data: data
     })
 }
