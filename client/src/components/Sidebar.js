@@ -32,7 +32,7 @@ class Sidebar extends React.Component{
             <a className="twitter-timeline" href="https://twitter.com/Balizeetnb">
               Tweets by TwitterDev
             </a>
-            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <script async src="//platform.twitter.com/widgets.js" charSet="utf-8"></script>
           </div>
         </div>
 

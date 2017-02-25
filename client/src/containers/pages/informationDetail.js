@@ -44,25 +44,27 @@ class Trip extends React.Component{
 
   render(){
     let hal = ''
-    if(!this.props.location.search.split('?')[2]){
-      hal = this.props.location.search.split('?')[2]
+    if(!this.props.location.search.split('&')[1]){
+      hal = this.props.location.search.split('&')[1]
     }
+    console.log("hal di render", hal)
     let detail = this.props.routes[1].path.split("-")[0]
-    let index = this.props.location.search.split('?')[1]
-    console.log(index, detail)
+    let index = this.props.location.search.split('?')[1].split('&')[0]
+
+    console.log('this.props.trip', this.props.trip.list+" index "+index)
     return(
       <div>
         <div className="main">
           <div>
             <div className="row">
               <Desc hal={ hal } context={ this.context } detail={ detail } trip={ this.props.trip.list[index] } voucher={ this.props.voucher.list[index] } />
-            </div>  
+            </div>
           </div>
         </div>
       </div>
     )
   }
- }  
+ }
 
 const Video = ({ trip }) => {
   if(trip.VIDEO) {
@@ -72,18 +74,12 @@ const Video = ({ trip }) => {
       </div>
     )
   }
-  else {
-    return(
-      <div></div>
-    )
-  }
 }
 
 const Desc = ({ detail, voucher, trip, context, hal }) => {
-    if((detail == "/Trip") && (hal)){
-      console.log("halalala",hal)
+    if((detail == "/Trip") && (!hal)){
+      console.log("hal di if ",trip)
       const url = trip.URL
-      console.log("url",url)
       return (
           <div>
             <div className="post-slider col-md-12 col-sm-12">
@@ -92,7 +88,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                 <p className="next"><i className="fa fa-angle-right"></i></p>
               </div>
               <div className="slides">
-                {trip.CHILD.list.map((list, index) => (
+                {trip.CHILD.list && trip.CHILD.list.map((list, index) => (
                     <article className="big clearfix" key={ index }>
                       <img src={ list.SLIDER[0] } alt="post1" />
                     </article>
@@ -108,7 +104,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
             </div>
             <div className="row">
               <div className="wrapper">
-                {trip.CHILD.list.map((list, index) => (
+                {trip.CHILD.list && trip.CHILD.list.map((list, index) => (
                       <article className="col-md-3 col-sm-6 mid" key={index}>
                             <div className="img">
                                 <img src={ list.IMG } alt="post" />
@@ -129,7 +125,8 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
               </div>
             </div>
       )
-    }else if(detail == "/Voucher"){
+    }
+    else if(detail == "/Voucher"){
       return (
           <div className="info col-md-offset-1 col-md-10">
               <iframe src="https://www.youtube.com/embed/8mv9r0mUlbo?ecver=2" width="640" height="360" frameborder="0" allowfullscreen></iframe>
@@ -144,6 +141,8 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
       )
     }
     else {
+      console.log("hal di else", hal)
+      console.log('trip .. ', trip.CHILD.list+" dx "+hal)
       return(
         <div>
             <div className="post-slider col-md-12 col-sm-12">
@@ -152,11 +151,13 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                 <p className="next"><i className="fa fa-angle-right"></i></p>
               </div>
               <div className="slides">
-                {trip.CHILD.list[hal].SLIDER.map((slider, index) => (
+                {
+                  (trip.CHILD.list[hal]) ? (trip.CHILD.list[hal].SLIDER.map((slider, index) => (
                     <article className="big clearfix" key={ index }>
                       <img src={ slider } alt="post1" />
                     </article>
-                ))}
+                ))) : <div> no content founds </div>
+                }
               </div>
             </div>
             <div className="info col-md-offset-1 col-md-10">
