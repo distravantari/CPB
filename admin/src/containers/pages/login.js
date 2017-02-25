@@ -5,13 +5,13 @@ import * as constant from '../../actions/const'
 class Login extends React.Component{
 
   authenticate(val){
+    val.preventDefault()
     if(this.usernameRef.value === constant.authentication.username && this.passwordRef.value === constant.authentication.password){
       alert('success')
       this.props.history.push('/dashboard')
     }
     else{
       alert('failed')
-      this.props.history.push('/')
     }
   }
   render(){

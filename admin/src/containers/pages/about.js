@@ -44,7 +44,11 @@ export const Main = ( {aboutus, team, editAbout, updateImage} ) => {
       <div className="clearfix"></div>
       <div className="row">
         <AboutUs about_us={aboutus} editAbout={editAbout} updateImage={updateImage}/>
-        <OurTeam team={team} editAbout={editAbout} updateImage={updateImage}/>
+
+        {/* DEPRECATED, we don't use our team component for Balizee
+          <OurTeam team={team} editAbout={editAbout} updateImage={updateImage}/>
+        */}
+
       </div>
     </div>
   )

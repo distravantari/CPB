@@ -1,140 +1,4 @@
 {
-<<<<<<< HEAD
-  "feature" : {
-    "contact" : {
-      "ADDRESS": [
-          "33 Broadway Steet, Suite 32, New York",
-          "NY 1812 United States"
-      ],
-      "PHONE": [
-          "+2 (555) 6498-241-2548",
-          "+2 (555) 6498-241-2543"
-      ],
-      "EMAIL": [
-          "admin@admin.com",
-          "contactUs@admin.com"
-      ],
-      "FACEBOOK": [
-          "www.facebook.com/modarama",
-          "www.facebook.com/modarama_magazine"
-      ]
-    },
-    "packets" : {
-      "list" : [
-          {
-              "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-              "TAGS": [
-                  "Fashion",
-                  "Inspiration",
-                  "Lifestyle"
-              ],
-              "TITTLE": "Company Trip",
-              "DATE": "Sep 25, 2013",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-              "NOTIFICATION": {
-                  "COMMENT": "25",
-                  "LIKES": "724"
-              },
-              "URL":"Trip-detail?0",
-              "DETAIL": {
-                "TITTLE": "This is TRIP Tittle 0",
-                "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              },
-              "FORM": "0" 
-          },{
-              "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-              "TAGS": [
-                  "Fashion",
-                  "Inspiration",
-                  "Lifestyle"
-              ],
-              "TITTLE": "FIT",
-              "DATE": "Sep 25, 2013",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-              "NOTIFICATION": {
-                  "COMMENT": "25",
-                  "LIKES": "724"
-              },
-              "URL":"Trip-detail?1",
-              "DETAIL": {
-                "TITTLE": "This is TRIP Tittle 1",
-                "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              },
-              "FORM": "1" 
-          },{
-              "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-              "TAGS": [
-                  "Fashion",
-                  "Inspiration",
-                  "Lifestyle"
-              ],
-              "TITTLE": "Honeymoon",
-              "DATE": "Sep 25, 2013",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-              "NOTIFICATION": {
-                  "COMMENT": "25",
-                  "LIKES": "724"
-              },
-              "URL":"Trip-detail?2",
-              "DETAIL": {
-                "TITTLE": "This is TRIP Tittle 2",
-                "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              },
-              "FORM": "1" 
-          },{
-              "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-              "TAGS": [
-                  "Fashion",
-                  "Inspiration",
-                  "Lifestyle"
-              ],
-              "TITTLE": "This is Tittle",
-              "DATE": "Sep 25, 2013",
-              "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-              "NOTIFICATION": {
-                  "COMMENT": "25",
-                  "LIKES": "724"
-              },
-              "URL":"Trip-detail?3",
-              "DETAIL": {
-                "TITTLE": "This is TRIP Tittle 3",
-                "TEXT": "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-              },
-              "FORM": "1" 
-          }
-      ],
-      "shortdesc": {
-          "tittle": "ALTERNATIVE SOURCES OF ENERGY",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      }
-    },
-    "slider" : {
-      "big": {
-          "list":[
-              {
-                "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-                "TYPE": "Fashion",
-                "TITTLE": "What To Look Forward To In 2014",
-                "INFO": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-                "DATE": "Sep 25, 2013 |",
-                "CREATE": "Alex Grosville",
-                "LIKE": "25",
-                "COMMENT": "724",
-                "URL": "Trip-organizer"
-            },{
-                "IMG": "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-                "TYPE": "Fashion",
-                "TITTLE": "What To Look Forward To In 2014",
-                "INFO": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-                "DATE": "Sep 25, 2013 |",
-                "CREATE": "Alex Grosville",
-                "LIKE": "25",
-                "COMMENT": "724",
-                "URL": "Trip-organizer"
-            }
-          ]
-      }
-=======
   "about" : {
     "team" : {
       "list" : [ {
@@ -156,7 +20,6 @@
         "POSITION" : [ "founder", "CEO" ],
         "TEXT" : " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       } ]
->>>>>>> c4eaf1891a0ee8ca6a33d900f80c16e9b6a936fb
     },
     "us" : {
       "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/imagesmanchester_united_wallpaper_by_iskariota666-d5fd2p2.jpg?alt=media&token=c3473bc1-d74d-4318-b729-00bfffbaa7a9",
@@ -173,12 +36,24 @@
     }
   },
   "container" : {
+    "header": {
+      "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/about-logo.png?alt=media&token=abe5eb54-e82a-46cd-8ddf-295cfe059cef"
+    },
     "footer" : {
       "allrightreserve" : "© 2016 All rights reserved.",
       "design" : "Radion"
     },
     "footer_components" : {
       "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/about-logo.png?alt=media&token=abe5eb54-e82a-46cd-8ddf-295cfe059cef",
+      "LINK" : {
+        "FB" : "https://www.facebook.com/balizeetravel",
+        "GOOGLE" : "https://www.google.com",
+        "INSTAGRAM" : "https://www.instagram.com/balizeetravel/",
+        "PATH" : "https://www.path.com",
+        "TRIP" : "https://www.tripadvisor.com",
+        "TWITTER" : "https://twitter.com/balizeetravel?s=03",
+        "YOUTUBE" : "https://www.youtube.com"
+      },
       "TEXT" : "This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.",
       "TITTLE" : "About Modarama fashion magazine"
     },
@@ -196,18 +71,35 @@
       "TITTLE" : "That's an error."
     },
     "contact" : {
-      "ADDRESS" : [ "Jl Yudistira - Gg Cemara no 8 Seminyak", "Bali 80361 Indonesia" ],
+      "ADDRESS" : [ "Jl Yudistira - Gg Cemara no 8 Seminyak,Bali 80361 Indonesia,", "" ],
+      "BBM" : "D64990F3",
       "EMAIL" : [ "info@balizee.com", "admin@balizee.com" ],
-      "FACEBOOK" : [ "https://www.facebook.com/balizeetravel", "www.facebook.com/modarama_magazine" ],
-      "PHONE" : [ "62 (0)361 4740954", "62 (0)819-9933-3396" ]
+      "FACEBOOK" : [ "https://www.facebook.com/balizeetravel" ],
+      "FAX" : "62 (0) 361 4740954",
+      "LINE" : "balizee",
+      "PHONE" : [ "62 (0)361 4740954,62 (0)857-2244-6660" ],
+      "WHATSAPP" : [ "62 (0)819-9933-3396,62 (0)857-2244-6660,62 (0)812-3814-9150" ]
+    },
+    "news" : {
+      "list" : [ {
+        "IMPORTANT" : "Company Leisure Trip . Meeting. Incentive. Conference. Event"
+      }, {
+        "IMPORTANT" : "Individual. Friends. Family Trip"
+      }, {
+        "IMPORTANT" : "We will customize your special day according to your dream honeymoon"
+      }, {
+        "IMPORTANT" : "One stop service providing your personality and dreams wedding."
+      }, {
+        "IMPORTANT" : "Our special promo and packages"
+      } ]
     },
     "packets" : {
       "list" : [ {
         "CHILD" : {
           "list" : [ {
-            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
-            "TEXT" : "description of child packages",
-            "TITLE" : "Seminar"
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/IMG_20170220_122504_492.jpg?alt=media&token=193b3af1-e09f-4d05-902e-b5460c64a5cd",
+            "TEXT" : "description of child packages company",
+            "TITLE" : "Company Leisure Trip"
           }, {
             "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
@@ -215,11 +107,15 @@
           }, {
             "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "sub paket 1"
+            "TITLE" : "Incentive"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child package",
+            "TITLE" : "Conference"
           }, {
             "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "sub paket 2"
+            "TITLE" : "Event"
           } ]
         },
         "DATE" : "",
@@ -239,17 +135,23 @@
       }, {
         "CHILD" : {
           "list" : [ {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "package 2 child package 1"
+            "TITLE" : "Individual"
           }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child2"
+            "TITLE" : "Friends"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "Family Trip"
           } ]
         },
         "DATE" : "",
         "DETAIL" : {
-          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-          "TITTLE" : "This is TRIP Tittle 1"
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "FIT / Individual Tours"
         },
         "FORM" : "1",
         "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
@@ -259,22 +161,28 @@
         },
         "TAGS" : [ "Fashion", "Inspiration", "Lifestyle" ],
         "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-        "TITTLE" : "FIT",
+        "TITTLE" : "FIT / Individual Tours",
         "URL" : "Trip-detail?1"
       }, {
         "CHILD" : {
           "list" : [ {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child1"
+            "TITLE" : "Sub Package 1"
           }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child2"
+            "TITLE" : "Sub Package 2"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "Sub Package 3"
           } ]
         },
         "DATE" : "",
         "DETAIL" : {
-          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-          "TITTLE" : "This is TRIP Tittle 2"
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "Honeymoon"
         },
         "FORM" : "2",
         "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
@@ -289,17 +197,23 @@
       }, {
         "CHILD" : {
           "list" : [ {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child1"
+            "TITLE" : "Sub Package 1"
           }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child2"
+            "TITLE" : "Sub Package 2"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "Sub Package 3"
           } ]
         },
         "DATE" : "",
         "DETAIL" : {
-          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-          "TITTLE" : "This is TRIP Tittle 2"
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "Wedding Organizer"
         },
         "FORM" : "2",
         "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
@@ -314,17 +228,23 @@
       }, {
         "CHILD" : {
           "list" : [ {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child1"
+            "TITLE" : "Sub Package 1"
           }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child2"
+            "TITLE" : "Sub Package 2"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "Sub Package 3"
           } ]
         },
         "DATE" : "",
         "DETAIL" : {
-          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-          "TITTLE" : "This is TRIP Tittle 2"
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "Special Package"
         },
         "FORM" : "2",
         "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
@@ -339,17 +259,23 @@
       }, {
         "CHILD" : {
           "list" : [ {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child1"
+            "TITLE" : "Sub Package 1"
           }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
             "TEXT" : "description of child packages",
-            "TITLE" : "child2"
+            "TITLE" : "Sub Package 2"
+          }, {
+            "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
+            "TEXT" : "description of child packages",
+            "TITLE" : "Sub Package 3"
           } ]
         },
         "DATE" : "",
         "DETAIL" : {
-          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-          "TITTLE" : "This is TRIP Tittle 3"
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "Beyond Bali"
         },
         "FORM" : "1",
         "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/mid.jpg?alt=media&token=8f753119-df1c-40e6-bc9c-60e0b4249685",
@@ -374,7 +300,7 @@
           "CREATE" : "",
           "DATE" : "",
           "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "INFO" : "Company Leisure Trip . Meeting. Incentive. Conference. Event",
           "LIKE" : "",
           "TITTLE" : "Corporate Trip / MICE",
           "TYPE" : "Trip Organizer",
@@ -384,51 +310,51 @@
           "CREATE" : "",
           "DATE" : "",
           "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "INFO" : "Individual. Friends. Family Trip",
           "LIKE" : "",
           "TITTLE" : "FIT / Individual Tours",
           "TYPE" : "Trip Organizer",
-          "URL" : "Trip-organizer"
+          "URL" : "Trip-detail?1"
         }, {
           "COMMENT" : "",
           "CREATE" : "",
           "DATE" : "",
           "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "INFO" : "We will customize your special day according to your dream honeymoon",
           "LIKE" : "",
           "TITTLE" : "Honeymoon",
           "TYPE" : "Trip Organizer",
-          "URL" : "Trip-organizer"
+          "URL" : "Trip-detail?2"
         }, {
           "COMMENT" : "",
           "CREATE" : "",
           "DATE" : "",
           "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "INFO" : "One stop service providing your personality and dreams wedding.",
           "LIKE" : "",
           "TITTLE" : "Wedding Organizer",
           "TYPE" : "Trip Organizer",
-          "URL" : "Trip-organizer"
+          "URL" : "Trip-detail?3"
         }, {
           "COMMENT" : "",
           "CREATE" : "",
           "DATE" : "",
           "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "INFO" : "Our special promo and packages",
           "LIKE" : "",
           "TITTLE" : "Special Package",
           "TYPE" : "Trip Organizer",
-          "URL" : "Trip-organizer"
+          "URL" : "Trip-detail?4"
         }, {
           "COMMENT" : "",
           "CREATE" : "",
           "DATE" : "",
           "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/slider12.jpg?alt=media&token=ab9420db-dde7-489d-8894-1a6abdb6056a",
-          "INFO" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "INFO" : "Travel more with us. Because Indonesia's beauty not only in Bali",
           "LIKE" : "",
           "TITTLE" : "Beyond Bali",
           "TYPE" : "Trip Organizer",
-          "URL" : "Trip-organizer"
+          "URL" : "Trip-detail?5"
         } ]
       }
     },
@@ -436,11 +362,19 @@
       "list" : [ {
         "CREATEDBY" : "",
         "DATE" : "",
-        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/best-deal-hotels.jpg?alt=media&token=4ad26004-4063-4cfb-a8ec-e4d49319a0e2",
+        "DETAIL" : {
+          "TEXT" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          "TITTLE" : "This is VOUCHERS Tittle 1"
+        },
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/best-deal-villas.jpg?alt=media&token=c8d424aa-fcbf-457d-812e-2b353c7f753c",
+        "NOTIFICATION" : {
+          "COMMENT" : "25",
+          "LIKES" : "724"
+        },
+        "TAGS" : [ "Fashion", "Inspiration", "lifestyle" ],
         "TEXT" : "The most luxurious resort in the Island and yet we will offer you the secret deal. Please contact us or check our instagram",
-        "TITTLE" : "@BaliTopNotch",
-        "URL" : "voucher-detail?0",
-        "INSTAGRAM" : "instagram.com/hai"
+        "TITTLE" : "@BaliTopNotch ",
+        "URL" : "voucher-detail?1"
       }, {
         "CREATEDBY" : "",
         "DATE" : "",
@@ -489,14 +423,15 @@
         "TEXT" : "Offering special price Bali's most favorite experiences",
         "TITTLE" : "@BestDealBaLiVouchers",
         "URL" : "voucher-detail?3"
+      }, {
+        "CREATEDBY" : "",
+        "DATE" : "",
+        "IMG" : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/imageslogo.jpg?alt=media&token=c79964d5-226e-4ded-9084-ada28b900622",
+        "INSTAGRAM" : "test",
+        "TEXT" : "inidistra",
+        "TITTLE" : "distra",
+        "URL" : ""
       } ]
-    },
-    "news" : {
-      "list" : [
-        { "IMPORTANT": "news1"},
-        { "IMPORTANT": "news2"},
-        { "IMPORTANT": "news3"}
-      ]
     }
   },
   "inbox" : {

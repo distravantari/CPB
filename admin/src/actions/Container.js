@@ -21,3 +21,15 @@ let receiveContainer = response => {
     }
   }
 }
+
+export const editHeader = (data) => {
+  return base.post((`container/header/IMG`),{
+    data : data
+  })
+}
+
+export const editFooter = (data) => {
+  return base.post((`container/footer_components/IMG`),{
+    data : data
+  })
+}
