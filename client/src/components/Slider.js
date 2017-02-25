@@ -27,7 +27,7 @@ class Slider extends React.Component{
 		  infiniteLoop: true,
 		  adaptiveHeight: true,
 		  auto: true,
-		  pause: 4000
+		  pause: 400
 		});
   }
 
@@ -41,7 +41,7 @@ class Slider extends React.Component{
 		  prevSelector: ".post-slider .controls .prev",
 		  fadeText: false,
 		  auto: true,
-		  pause: 4000
+		  pause: 400000000
 		});
   }
 
