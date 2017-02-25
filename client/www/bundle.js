@@ -66522,14 +66522,14 @@
 	        infiniteLoop: true,
 	        adaptiveHeight: true,
 	        auto: true,
-	        pause: 4000
+	        pause: 400
 	      });
 	    }
 	  }, {
 	    key: 'renderSlider',
 	    value: function renderSlider() {
 	      (0, _jquery2.default)('.post-slider .slides').bxSlider({
-	        speed: 300000000000000000000000000,
+	        speed: 300,
 	        touchEnabled: true,
 	        pager: false,
 	        infiniteLoop: true,
@@ -66537,7 +66537,7 @@
 	        prevSelector: ".post-slider .controls .prev",
 	        fadeText: false,
 	        auto: true,
-	        pause: 4000000
+	        pause: 400000000
 	      });
 	    }
 	  }, {
@@ -67790,12 +67790,30 @@
 	  return Trip;
 	}(_react2.default.Component);
 
-	var Desc = function Desc(_ref) {
-	  var detail = _ref.detail,
-	      voucher = _ref.voucher,
-	      trip = _ref.trip,
-	      context = _ref.context,
-	      hal = _ref.hal;
+	var Video = function Video(_ref) {
+	  var trip = _ref.trip;
+
+	  if (trip.VIDEO) {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'div',
+	        { style: 'position:relative;height:0;padding-bottom:56.25%' },
+	        _react2.default.createElement('iframe', { src: trip.VIDEO, width: '640', height: '360', frameborder: '0', allowfullscreen: true })
+	      )
+	    );
+	  } else {
+	    return _react2.default.createElement('div', null);
+	  }
+	};
+
+	var Desc = function Desc(_ref2) {
+	  var detail = _ref2.detail,
+	      voucher = _ref2.voucher,
+	      trip = _ref2.trip,
+	      context = _ref2.context,
+	      hal = _ref2.hal;
 
 	  if (detail == "/Trip" && hal) {
 	    var _ret = function () {

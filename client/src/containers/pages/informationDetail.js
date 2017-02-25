@@ -64,6 +64,21 @@ class Trip extends React.Component{
   }
  }  
 
+const Video = ({ trip }) => {
+  if(trip.VIDEO) {
+    return(
+      <div>
+        <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src= { trip.VIDEO } width="640" height="360" frameborder="0" allowfullscreen></iframe></div>
+      </div>
+    )
+  }
+  else {
+    return(
+      <div></div>
+    )
+  }
+}
+
 const Desc = ({ detail, voucher, trip, context, hal }) => {
     if((detail == "/Trip") && (hal)){
       console.log("halalala",hal)
