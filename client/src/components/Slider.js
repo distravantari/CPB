@@ -33,7 +33,7 @@ class Slider extends React.Component{
 
   renderSlider(){
     $('.post-slider .slides').bxSlider({
-		  speed: 300,
+		  speed: 300000000000000000000000000,
 		  touchEnabled: true,
 		  pager: false,
 		  infiniteLoop: true,
@@ -41,7 +41,7 @@ class Slider extends React.Component{
 		  prevSelector: ".post-slider .controls .prev",
 		  fadeText: false,
 		  auto: true,
-		  pause: 4000
+		  pause: 4000000
 		});
   }
 

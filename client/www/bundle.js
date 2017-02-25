@@ -65550,9 +65550,12 @@
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement('a', { className: 'twitter-timeline', href: 'https://twitter.com/valentinancy', 'data-widget-id': this.props.twitter.WIDGET_ID,
-	              'data-link-color': this.props.twitter.LINK_COLOR, 'data-chrome': this.props.twitter.DATA_CHROME,
-	              lang: this.props.twitter.LANG, 'data-tweet-limit': this.props.twitter.LIMIT })
+	            _react2.default.createElement(
+	              'a',
+	              { className: 'twitter-timeline', href: 'https://twitter.com/Balizeetnb' },
+	              'Tweets by TwitterDev'
+	            ),
+	            _react2.default.createElement('script', { async: true, src: '//platform.twitter.com/widgets.js', charset: 'utf-8' })
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -66215,31 +66218,6 @@
 	      _react2.default.createElement(
 	        'li',
 	        null,
-	        _react2.default.createElement('i', { 'class': 'fa fa-whatsapp' }),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            _react2.default.createElement(
-	              'span',
-	              null,
-	              'Email:'
-	            ),
-	            ' ',
-	            contact.EMAIL[0]
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            contact.EMAIL[1]
-	          )
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
 	        _react2.default.createElement('i', { className: 'fa fa-envelope-o' }),
 	        _react2.default.createElement(
 	          'div',
@@ -66551,7 +66529,7 @@
 	    key: 'renderSlider',
 	    value: function renderSlider() {
 	      (0, _jquery2.default)('.post-slider .slides').bxSlider({
-	        speed: 300,
+	        speed: 300000000000000000000000000,
 	        touchEnabled: true,
 	        pager: false,
 	        infiniteLoop: true,
@@ -66559,7 +66537,7 @@
 	        prevSelector: ".post-slider .controls .prev",
 	        fadeText: false,
 	        auto: true,
-	        pause: 4000
+	        pause: 4000000
 	      });
 	    }
 	  }, {
@@ -68023,11 +68001,7 @@
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(2);var _react2=_interopRequireDefault(_react);var _Datepicker=__webpack_require__(340);var _Datepicker2=_interopRequireDefault(_Datepicker);var _Form=__webpack_require__(331);var _Form2=_interopRequireDefault(_Form);var _reactRedux=__webpack_require__(179);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Form=function(_Component){_inherits(Form,_Component);function Form(props){_classCallCheck(this,Form);//  this.state = {
-=======
-	'use strict';Object.defineProperty(exports,"__esModule",{value:true});var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=__webpack_require__(2);var _react2=_interopRequireDefault(_react);var _Datepicker=__webpack_require__(339);var _Datepicker2=_interopRequireDefault(_Datepicker);var _Form=__webpack_require__(590);var _Form2=_interopRequireDefault(_Form);var _reactRedux=__webpack_require__(179);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var Form=function(_Component){_inherits(Form,_Component);function Form(props){_classCallCheck(this,Form);//  this.state = {
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 	//     value: 'ehehehe'
 	//     }
 	var _this=_possibleConstructorReturn(this,(Form.__proto__||Object.getPrototypeOf(Form)).call(this,props));_this.state={form:"",name1:"",compName1:"",telp1:"",email1:"",startdate1:"",starttime1:"",enddate1:"",endtime1:"",type1:"",gender1:"",age1:"",character1:"",num1:"",level1:"",theme1:"",venue:"",blima1:"",bempat1:"",btiga1:"",bdua1:"",numad1:"",numkid1:"",esti1:"",bed1:"",area1:"",fac1:"",otherrequest1:"",meetingy1:"",meetingn1:"",detmeeting1:"",outingy1:"",outingn1:"",detouting1:"",toursy1:"",toursn1:"",dettours1:"",transporty1:"",transportn1:"",dettransport1:"",eventy1:"",eventn1:"",detevent1:"",homeband1:"",keyboardist1:"",popband1:"",openingdance1:"",traddance1:"",moddance1:"",dj1:"",mc1:"",ushers1:"",othertalent1:"",sound1:"",lighting1:"",led1:"",backdrop1:"",projector1:"",lcd1:"",photo1:"",video1:"",digital1:"",otherTech1:"",budget1:"",remarks1:"",name2:"",national2:"",telp2:"",email2:"",startdate2:"",starttime2:"",enddate2:"",endtime2:"",tentative2:"",type2:"",venue2:"",numad2:"",numkid2:"",esti2:"",single2:"",twinking:"",twinbed2:"",triple2:"",area2:"",beachfront2:"",business2:"",golfcourse2:"",kids2:"",nearbeach2:"",nearmountain2:"",nearrestaurant2:"",heart2:"",tranquil2:"",nearnight2:"",family2:"",fitness2:"",pool2:"",private2:"",wifi2:"",nonsmoking2:"",smoking2:"",spa2:"",rest2:"",otherrequest2:"",transporty2:"",transportn2:"",dettransport2:"",toursy2:"",toursn2:"",dettours2:"",acty2:"",actn2:"",detact2:"",mealsy2:"",mealsn2:"",breakfast2:"",half2:"",full2:"",budget2:"",remarks2:"",name3:"",national3:"",telp3:"",email3:"",startdate3:"",starttime3:"",enddate3:"",endtime3:"",tentative3:"",numroom3:"",venue3:"",numad3:"",numkid3:"",esti3:"",amed3:"",candi3:"",cangguarea3:"",canggubeach3:"",jimbaran3:"",karang3:"",kerobokan3:"",kids3:"",kutaarea3:"",kutabeach3:"",legianarea3:"",legianbeach3:"",lembongan3:"",lovinabeach3:"",lovina3:"",menjangan3:"",nearbeach3:"",nusadua3:"",petit3:"",seminyakbeach3:"",seminyak3:"",tabanan3:"",tanjung3:"",sanurbeach3:"",sanurarea3:"",sinaraja3:"",tuban3:"",tulamben3:"",ubud3:"",uluwatu3:"",ungasan3:"",beachfront3:"",business3:"",golfcourse3:"",kidsfam3:"",nearthebeach3:"",nearmountain3:"",nearrestaurant3:"",heart3:"",tranquil3:"",nearnight3:"",family3:"",fitness3:"",pool3:"",private3:"",wifi3:"",nonsmoking3:"",smoking3:"",spa3:"",rest3:"",otherrequest3:"",transporty3:"",transportn3:"",dettransport3:"",remarks3:""};return _this;}_createClass(Form,[{key:'handleChange',value:function handleChange(e,key){switch(key){case'name1':this.setState({name1:e.target.value});break;case'compName1':this.setState({compName1:e.target.value});break;case'telp1':this.setState({telp1:e.target.value});break;case'email1':this.setState({email1:e.target.value});break;case'startdate1':var startdate=e.split('T')[0];this.setState({startdate1:startdate});break;case'starttime1':this.setState({starttime1:e.target.value});break;case'enddate1':var enddate=e.split('T')[0];this.setState({enddate1:enddate});break;case'endtime1':this.setState({endtime1:e.target.value});break;case'type1':this.setState({type1:e.target.value});break;case'gender1':this.setState({gender1:e.target.value});break;case'age1':console.log(key);this.setState({age1:e.target.value});break;case'character1':this.setState({character1:e.target.value});break;case'num1':this.setState({num1:e.target.value});break;case'level1':this.setState({level1:e.target.value});break;case'theme1':this.setState({theme1:e.target.value});break;case'venue':console.log(key);this.setState({venue:e.target.value});break;case'numad1':this.setState({numad1:e.target.value});break;case'numkid1':this.setState({numkid1:e.target.value});break;case'esti1':this.setState({esti1:e.target.value});break;case'bed1':this.setState({bed1:e.target.value});break;case'area1':this.setState({area1:e.target.value});break;case'fac1':this.setState({fac1:e.target.value});break;case'otherrequest1':this.setState({otherrequest1:e.target.value});break;case'meetingy1':this.setState({meetingy1:". it will be a meeting "});break;case'meetingn1':this.setState({meetingn1:". no meeting "});break;case'detmeeting1':this.setState({detmeeting1:e.target.value});break;case'outingy1':this.setState({outingy1:". it will be outing "});break;case'outingn1':this.setState({outingn1:". no outing "});break;case'detouting1':this.setState({detouting1:e.target.value});break;case'toursy1':this.setState({toursy1:". it will be tours "});break;case'toursn1':this.setState({toursn1:". no tours "});break;case'dettours1':this.setState({dettours1:e.target.value});break;case'transporty1':this.setState({transporty1:". we need transportation "});break;case'transportn1':this.setState({transportn1:". we don't need transportation "});break;case'dettransport1':this.setState({dettransport1:e.target.value});break;case'eventy1':this.setState({eventy1:". it will be event "});break;case'eventn1':this.setState({eventn1:". no event "});break;case'detevent1':this.setState({detevent1:e.target.value});break;case'homeband1':this.setState({homeband1:" Home band/n"});break;case'keyboardist1':this.setState({keyboardist1:" Keyboardist + Singer/n"});break;case'popband1':this.setState({popband1:" Pop band\n"});break;case'openingdance1':this.setState({openingdance1:" Opening dance\n"});break;case'traddance1':this.setState({traddance1:" Tradiotional dance\n"});break;case'moddance1':this.setState({moddance1:" Modern dance\n"});break;case'dj1':this.setState({dj1:" DJ\n"});break;case'mc1':this.setState({mc1:" MC\n"});break;case'ushers1':this.setState({ushers1:" Ushers\n"});break;case'othertalent1':this.setState({othertalent1:e.target.value});break;case'sound1':this.setState({sound1:" Sound\n"});break;case'lighting1':this.setState({lighting1:" Lighting\n"});break;case'led1':this.setState({led1:" LED backdrop\n"});break;case'backdrop1':this.setState({backdrop1:" 3D backdrop\n"});break;case'projector1':this.setState({projector1:" Projector\n"});break;case'lcd1':this.setState({lcd1:" LCD/PlasmaTV\n"});break;case'photo1':this.setState({photo1:" Photography\n"});break;case'video1':this.setState({video1:" Videography\n"});break;case'digital1':this.setState({digital1:" Digital printing backdrop\n"});break;case'otherTech1':this.setState({otherTech1:e.target.value});break;case'budget1':this.setState({budget1:e.target.value});break;case'remarks1':this.setState({remarks1:e.target.value});break;case'name2':this.setState({name2:e.target.value});break;case'national2':this.setState({national2:e.target.value});break;case'telp2':this.setState({telp2:e.target.value});break;case'email2':this.setState({email2:e.target.value});break;case'startdate2':var startdate2=e.split('T')[0];this.setState({startdate2:startdate2});break;case'starttime2':this.setState({starttime2:e.target.value});break;case'enddate2':var enddate2=e.split('T')[0];this.setState({enddate2:enddate2});break;case'endtime2':this.setState({endtime2:e.target.value});break;case'tentative2':this.setState({tentative2:". *still tentative"});break;case'type2':this.setState({type2:e.target.value});break;case'venue2':this.setState({venue2:e.target.value});break;case'numad2':this.setState({numad2:e.target.value});break;case'numkid2':this.setState({numkid2:e.target.value});break;case'esti2':this.setState({esti2:e.target.value});break;case'single2':this.setState({single2:" Single Occupancy (King/Queensize)\n"});break;case'twinking2':this.setState({twinking2:" Twin Sharing (King/Queensize)\n"});break;case'twinbed2':this.setState({twinbed2:" Twin Sharing (Twin bed)\n"});break;case'triple2':this.setState({triple2:" Triple Sharing (add extrabed)\n"});break;case'area2':this.setState({area2:e.target.value});break;case'beachfront2':this.setState({beachfront2:" Beachfront\n"});break;case'business2':this.setState({business2:" Business facilities\n"});break;case'golfcourse2':this.setState({golfcourse2:" Golf course\n"});break;case'kids2':this.setState({kids2:" Kids/Family Friendly\n"});break;case'nearbeach2':this.setState({nearbeach2:" Near The Beach\n"});break;case'nearmountain2':this.setState({nearmountain2:" Near Mountain\n"});break;case'nearrestaurant':this.setState({nearrestaurant2:" Near Restaurant\n"});break;case'heart2':this.setState({heart2:" Heart of the City\n"});break;case'tranquil2':this.setState({tranquil2:" Tranquil Area\n"});break;case'nearnight21':this.setState({nearnight2:" Near nightclub\n"});break;case'family2':this.setState({family2:" Family room\n"});break;case'fitness2':this.setState({fitness2:" Fitness centre\n"});break;case'pool2':this.setState({pool2:" Pool\n"});break;case'private2':this.setState({private2:" Private pool\n"});break;case'wifi2':this.setState({wifi2:" WIFI\n"});break;case'nonsmoking2':this.setState({nonsmoking2:" Non-smoking room\n"});break;case'smoking2':this.setState({smoking2:" Smoking room\n"});break;case'spa2':this.setState({spa2:" Spa and wellness center\n"});break;case'rest2':this.setState({rest2:" Restaurant\n"});break;case'otherrequest2':this.setState({otherrequest2:e.target.value});break;case'transporty2':this.setState({transporty2:"yes, we need a tranportation "});break;case'transportn2':this.setState({transportn2:"no, we don't need any transportation "});break;case'dettransport2':this.setState({dettransport2:e.target.value});break;case'toursy2':this.setState({toursy2:"yes, we need a tours "});break;case'toursn2':this.setState({toursn2:"no, we don't need any transportation "});break;case'dettours2':this.setState({dettours2:e.target.value});break;case'acty2':this.setState({acty2:"yes, we need activities "});break;case'actn2':this.setState({actn2:"no, we don't need activities "});break;case'detact2':this.setState({detact2:e.target.value});break;case'mealsy2':this.setState({mealsy2:"yes, we want meals "});break;case'mealsn2':this.setState({mealsn2:"no, we don't want meals "});break;case'breakfast2':this.setState({breakfast2:" Breakfast included\n"});break;case'half2':this.setState({half2:" Halfboard Included\n"});break;case'full2':this.setState({full2:" Fullboard\n"});break;case'budget2':this.setState({budget2:e.target.value});break;case'remarks2':this.setState({remarks2:e.target.value});break;case'name3':this.setState({name3:e.target.value});break;case'national3':this.setState({national3:e.target.value});break;case'telp3':this.setState({telp3:e.target.value});break;case'email3':this.setState({email3:e.target.value});break;case'startdate3':var startdate3=e.split('T')[0];this.setState({startdate3:startdate3});break;case'starttime3':this.setState({starttime3:e.target.value});break;case'enddate3':var enddate3=e.split('T')[0];this.setState({enddate3:enddate3});break;case'endtime3':this.setState({endtime3:e.target.value});break;case'tentative3':this.setState({tentative3:" *still tentative"});break;case'numroom3':this.setState({numroom3:e.target.value});break;case'venue3':this.setState({venue3:e.target.value});break;case'numad3':this.setState({numad3:e.target.value});break;case'numkid3':this.setState({numkid3:e.target.value});break;case'esti3':this.setState({esti3:e.target.value});break;case'amed3':this.setState({amed3:" Amed\n"});break;case'candi3':this.setState({candi3:" Candidasa\n"});break;case'cangguarea3':this.setState({cangguarea3:" Canggu area\n"});break;case'canggubeach3':this.setState({canggubeach3:" Canggu beach\n"});break;case'jimbaran3':this.setState({jimbaran3:" Jimbaran\n"});break;case'karang3':this.setState({karang3:" Karangasem\n"});break;case'kerobokan3':this.setState({kerobokan3:" Kerobokan\n"});break;case'kids3':this.setState({kids3:" Kids/Family Friendly\n"});break;case'kutaarea3':this.setState({kutaarea3:" Kuta area\n"});break;case'kutabeach3':this.setState({kutabeach3:" Kuta beach\n"});break;case'legianarea3':this.setState({legianarea3:" Legian area\n"});break;case'legianbeach3':this.setState({legianbeach3:" Legian beach\n"});break;case'lembongan3':this.setState({lembongan3:" Lembongan\n"});break;case'lovinabeach3':this.setState({lovinabeach3:" Lovina beach\n"});break;case'lovina3':this.setState({lovina3:" Lovina\n"});break;case'menjangan3':this.setState({menjangan3:" Menjangan\n"});break;case'nearbeach3':this.setState({nearbeach3:" Near the beach\n"});break;case'nusadua3':this.setState({nusadua3:" Nusadua beach\n"});break;case'petit3':this.setState({petit3:" Petitenget\n"});break;case'seminyakbeach3':this.setState({seminyakbeach3:" Seminyak beach\n"});break;case'seminyak3':this.setState({seminyak3:" Seminyak\n"});break;case'tabanan3':this.setState({tabanan3:" Tabanan\n"});break;case'tanjung3':this.setState({tanjung3:" Tanjung Benoa\n"});break;case'sanurbeach3':this.setState({sanurbeach3:" Sanur beach\n"});break;case'sanurarea3':this.setState({sanurarea3:" Sanur area\n"});break;case'sinaraja3':this.setState({sinaraja3:" Sinaraja\n"});break;case'tuban3':this.setState({tuban3:" Tuban\n"});break;case'tulamben3':this.setState({tulamben3:" Tulamben\n"});break;case'ubud3':this.setState({ubud3:" Ubud\n"});break;case'uluwatu3':this.setState({uluwatu3:" Uluwatu\n"});break;case'ungasan3':this.setState({ungasan3:" Ungasan\n"});break;case'beachfront3':this.setState({beachfront3:" Beachfront\n"});break;case'business3':this.setState({business3:" Business facilities\n"});break;case'golfcourse3':this.setState({golfcourse3:" Golf course\n"});break;case'kidsfam3':this.setState({kidsfam3:" Kids/family friendly\n"});break;case'nearthebeach3':this.setState({nearthebeach3:" Near the beach\n"});break;case'nearmountain3':this.setState({nearmountain3:" Near mountain\n"});break;case'nearrestaurant3':this.setState({nearrestaurant3:" Near restaurant\n"});break;case'heart3':this.setState({heart3:" Heart of the city\n"});break;case'tranquil3':this.setState({tranquil3:" Tranquil area\n"});break;case'nearnight3':this.setState({nearnight3:" Near nightclub\n"});break;case'family3':this.setState({family3:" Family room\n"});break;case'fitness3':this.setState({fitness3:" Fitness centre\n"});break;case'pool3':this.setState({pool3:" Pool\n"});break;case'private3':this.setState({private3:" Private pool\n"});break;case'wifi3':this.setState({wifi3:" WIFI\n"});break;case'nonsmoking3':this.setState({nonsmoking3:" Non-smoking room\n"});break;case'smoking3':this.setState({smoking3:" Smoking room\n"});break;case'spa3':this.setState({spa3:" Spa & Wellness centre\n"});break;case'rest3':this.setState({rest3:" Restaurant\n"});break;case'otherrequest3':this.setState({otherrequest3:e.target.value});break;case'transporty3':this.setState({transporty3:" yes, we need a transportation"});break;case'transportn3':this.setState({transportn3:" no, we don't need transportation"});break;case'dettransport3':this.setState({dettransport3:e.target.value});break;case'remarks3':this.setState({remarks3:e.target.value});break;}}},{key:'render',value:function render(){if(this.props.index==0){return this.form0();}else if(this.props.index==1){return this.form1();}else if(this.props.index==2){return this.form2();}}},{key:'handleSubmit',value:function handleSubmit(e){e.preventDefault();var message="";var subj="";if(this.props.index==0){subj="Form "+this.props.index;message="Name: "+this.state.name1+"\nCompany name: "+this.state.compName1+"\nTelephone: "+this.state.telp1+"\nE-mail: "+this.state.email1+"\nStart date: "+this.state.startdate1+"\nStart time: "+this.state.starttime1+"\nEnd date: "+this.state.enddate1+"\nEnd time: "+this.state.endtime1+"\nEvent type: "+this.state.type1+"\nGuest gender of attendees: "+this.state.gender1+"\nAge profile of attendees: "+this.state.age1+"\nSpecial characteristics of attendees: "+this.state.character1+"\nNumber of attendees: "+this.state.num1+"\nManagerial level of attendees: "+this.state.level1+"\nTheme: "+this.state.theme1+"\nVenue/hotel: "+this.state.venue+"\nNumber of adults: "+this.state.numad1+"\nNumber of kids: "+this.state.numkid1+"\nEstimation accommodation budget (per-night, per-room: Rp."+this.state.esti1+"\nBedding type: "+this.state.bed1+"\nHotel area: "+this.state.area1+"\nHotel Facility: "+this.state.fac1+"\nOther request: "+this.state.otherrequest1+"\n"+this.state.meetingy1+this.state.meetingn1+"\nDetails for meeting: "+this.state.detmeeting1+"\n"+this.state.outingy1+this.state.outingn1+"\nDetails for outing: "+this.state.detouting1+"\n"+this.state.toursy1+this.state.toursn1+"\nDetails for tours: "+this.state.dettours1+"\n"+this.state.transporty1+this.state.transportn1+"\nDetails for transport: "+this.state.dettransport1+"\n"+this.state.eventy1+this.state.eventn1+"\nDetails for event: "+this.state.detevent1+"\nTalent or entertainment need: "+this.state.homeband1+this.state.keyboardist1+this.state.popband1+this.state.openingdance1+this.state.traddance1+this.state.moddance1+this.state.dj1+this.state.mc1+this.state.ushers1+"\nOther talent need: "+this.state.othertalent1+"\nTechnical support need: "+this.state.sound1+this.state.lighting1+this.state.led1+this.state.backdrop1+this.state.projector1+this.state.lcd1+this.state.photo1+this.state.video1+this.state.digital1+"\nOther technical support need: "+this.state.otherTech1+"\nIndicative budget: "+this.state.budget1+"\nSpecial remarks: "+this.state.remarks1;}else if(this.props.index==1){subj="Form "+this.props.index;message="Name: "+this.state.name2+"\nNationality: "+this.state.national2+"\nTelephone: "+this.state.telp2+"\nE-mail: "+this.state.email2+"\nStart date: "+this.state.startdate2+"\nStart time: "+this.state.starttime2+"\nEnd date: "+this.state.enddate2+"\nEnd time: "+this.state.endtime2+"\n"+this.state.tentative2+"\nEvent type: "+this.state.type2+"\nVenue/hotel: "+this.state.venue2+"\nNumber of adults: "+this.state.numad2+"\nNumber of kids: "+this.state.numkid2+"\nEstimation accommodation budget (per-night,per-room): Rp."+this.state.esti2+"\nBedding type: "+this.state.single2+this.state.twinking2+this.state.twinbed2+this.state.triple2+"\nHotel area: "+this.state.area2+"\nHotel Preference: "+this.state.beachfront2+this.state.business2+this.state.golfcourse2+this.state.kids2+this.state.nearbeach2+this.state.nearmountain2+this.state.nearrestaurant2+this.state.heart2+this.state.tranquil2+this.state.nearnight2+"\nHotel facility: "+this.state.family2+this.state.fitness2+this.state.pool2+this.state.private2+this.state.wifi2+this.state.nonsmoking2+this.state.smoking2+this.state.spa2+this.state.rest2+"\nOther request: "+this.state.otherrequest2+this.state.transporty2+this.state.transportn2+"\nTransportation details: "+this.state.dettransport2+this.state.toursy2+this.state.toursy2+"\nTours details: "+this.state.dettours2+this.state.acty2+this.state.acty2+this.state.mealsy2+this.state.mealsn2+this.state.breakfast2+this.state.half2+this.state.full2+"\nIndicative budget: "+this.state.budget2+"\nSpecial remarks: "+this.state.remarks2;}else if(this.props.index==2){subj="Form "+this.props.index;message="Name: "+this.state.name3+"\nNationality: "+this.state.national3+"\nTelephone: "+this.state.telp3+"\nE-mail: "+this.state.email3+"\nStart date: "+this.state.startdate3+"\nStart time: "+this.state.starttime3+"\nEnd date: "+this.state.enddate3+"\nEnd time: "+this.state.endtime3+this.state.tentative3+"\nNumber of rooms: "+this.state.numroom3+"\nVenue/Hotel: "+this.state.venue3+"\nNumber of adult: "+this.state.numad3+"\nNumber of kids: "+this.state.numkid3+"\nEstimation accommodation budget (per-night,per-room): Rp."+this.state.esti3+"\nHotel area: "+this.state.amed3+this.state.candi3+this.state.cangguarea3+this.state.canggubeach3+this.state.jimbaran3+this.state.karang3+this.state.kerobokan3+this.state.kids3+this.state.kutaarea3+this.state.kutabeach3+this.state.legianarea3+this.state.legianbeach3+this.state.lembongan3+this.state.lovinabeach3+this.state.lovina3+this.state.menjangan3+this.state.nearbeach3+this.state.nusadua3+this.state.petit3+this.state.seminyakbeach3+this.state.seminyak3+this.state.tabanan3+this.state.tanjung3+this.state.sanurbeach3+this.state.sanurarea3+this.state.sinaraja3+this.state.tuban3+this.state.tulamben3+this.state.ubud3+this.state.uluwatu3+this.state.ungasan3+"\nHotel preference: "+this.state.beachfront3+this.state.business3+this.state.golfcourse3+this.state.kidsfam3+this.state.nearthebeach3+this.state.nearmountain3+this.state.nearrestaurant3+this.state.heart3+this.state.tranquil3+this.state.nearnight3+"\nHotel facility: "+this.state.family3+this.state.fitness3+this.state.pool3+this.state.private3+this.state.wifi3+this.state.nonsmoking3+this.state.smoking3+this.state.spa3+this.state.rest3+"\nOther request: "+this.state.otherrequest3+this.state.transporty3+this.state.transportn3+"\nDetails for transport: "+this.state.dettransport3+"\nSpecial remarks: "+this.state.remarks3;}this.props.receiveForm(subj,message).then(function(){console.log('berhasil nih kak');}).catch(function(){console.log('yah gagal kak');});}},{key:'form0',value:function form0(){var _this2=this,_React$createElement;return _react2.default.createElement('div',{className:'col-md-offset-1 col-md-10 form'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('h5',null,'Tell us about your ideal event, we want to hear from you!'),_react2.default.createElement('p',null,'Please\xA0contact us and fill the form\xA0for more information or with any help or advice that you may need.'),_react2.default.createElement('p',null,'We will assist you in designing your event in Bali. Please fill in this event brief form.')),_react2.default.createElement('br',null),_react2.default.createElement('form',{className:'form-div'},_react2.default.createElement('h5',null,'COMPANY DETAILS'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Name :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.name1,onChange:function onChange(e){return _this2.handleChange(e,'name1');},id:'name',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'Company Name :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.compName1,onChange:function onChange(e){return _this2.handleChange(e,'compName1');},id:'comp-name',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Telephone :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.telp1,onChange:function onChange(e){return _this2.handleChange(e,'telp1');},id:'phone',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'E-mail :'),function(e){return _this2.handleChange=e;},_react2.default.createElement('input',{type:'email',className:'form-control',value:this.state.email1,onChange:function onChange(e){return _this2.handleChange(e,'email1');},id:'email',required:true}))),_react2.default.createElement('br',null),_react2.default.createElement('h5',null,'EVENT DETAILS'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Starts from (Date) :'),_react2.default.createElement(_Datepicker2.default,{value:this.state.startdate1,onChange:function onChange(e){return _this2.handleChange(e,'startdate1');}})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Starts from (Time) :'),_react2.default.createElement('input',{type:'text',className:'form-control short-input',value:this.state.starttime1,onChange:function onChange(e){return _this2.handleChange(e,'starttime1');},id:'type'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-end'},'Ends (Date) :'),_react2.default.createElement(_Datepicker2.default,{value:this.state.enddate1,onChange:function onChange(e){return _this2.handleChange(e,'enddate1');}})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Ends (Time) :'),_react2.default.createElement('input',{type:'text',className:'form-control short-input',value:this.state.endtime1,onChange:function onChange(e){return _this2.handleChange(e,'endtime1');},id:'type'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'type'},'Event Type :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.type1,onChange:function onChange(e){return _this2.handleChange(e,'type1');},id:'type'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'gender'},'Guest Gender of Attendees :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.gender1,onChange:function onChange(e){return _this2.handleChange(e,'gender1');},id:'gender'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'age'},'Age Profile of Attendees :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.age1,onChange:function onChange(e){return _this2.handleChange(e,'age1');},id:'age'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'character'},'Special characteristics of Attendees :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.character1,onChange:function onChange(e){return _this2.handleChange(e,'character1');},id:'character'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'num'},'Number of Attendees :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.num1,onChange:function onChange(e){return _this2.handleChange(e,'num1');},id:'num'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'level'},'Managerial Level of Attendees :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.level1,onChange:function onChange(e){return _this2.handleChange(e,'level1');},id:'level'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'theme'},'Theme :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.theme1,onChange:function onChange(e){return _this2.handleChange(e,'theme1');},id:'theme'}))),_react2.default.createElement('br',null),_react2.default.createElement('h5',null,'ACCOMMODATION'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Venue/Hotel :'),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('select',{className:'form-control',value:this.state.venue,onChange:function onChange(e){return _this2.handleChange(e,'venue');},id:'sel1'},_react2.default.createElement('option',{value:'5'},'5'),_react2.default.createElement('option',{value:'4'},'4'),_react2.default.createElement('option',{value:'3'},'3'),_react2.default.createElement('option',{value:'2'},'2')))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'numad'},'Number of Adult :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.numad1,onChange:function onChange(e){return _this2.handleChange(e,'numad1');},id:'numad'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'numkid'},'Number of Kids (if there are any) : '),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.numkid1,onChange:function onChange(e){return _this2.handleChange(e,'numkid1');},id:'numkid'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'esti'},'Estimation accommodation budget (per-night, per-room) in IDR :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.esti1,onChange:function onChange(e){return _this2.handleChange(e,'esti1');},id:'esti'})),_react2.default.createElement('h5',null,'REQUEST :'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'bed'},'Bedding type :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.bed1,onChange:function onChange(e){return _this2.handleChange(e,'bed1');},id:'bed'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'area'},'Hotel Area or Desirable Atmosphere :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.area1,onChange:function onChange(e){return _this2.handleChange(e,'area1');},id:'area'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'fac'},'Hotel Facility :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.fac1,onChange:function onChange(e){return _this2.handleChange(e,'fac1');},id:'fac'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'other'},'Others :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.otherrequest1,onChange:function onChange(e){return _this2.handleChange(e,'otherrequest1');},id:'other'})))),_react2.default.createElement('br',null),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'MEETING/SEMINAR :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'meeting1',type:'radio',value:this.state.meetingy1,onChange:function onChange(e){return _this2.handleChange(e,'meetingy1');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'meeting1',type:'radio',value:this.state.meetingn1,onChange:function onChange(e){return _this2.handleChange(e,'meetingn1');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.detmeeting1,onChange:function onChange(e){return _this2.handleChange(e,'detmeeting1');},id:'details'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'OUTING :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'outing1',type:'radio',value:this.state.outingy1,onChange:function onChange(e){return _this2.handleChange(e,'outingy1');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'outing1',type:'radio',value:this.state.outingn1,onChange:function onChange(e){return _this2.handleChange(e,'outingn1');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.detouting1,onChange:function onChange(e){return _this2.handleChange(e,'detouting1');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'TOURS :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'tours1',type:'radio',value:this.state.toursy1,onChange:function onChange(e){return _this2.handleChange(e,'toursy1');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'tours1',type:'radio',value:this.state.toursn1,onChange:function onChange(e){return _this2.handleChange(e,'toursn1');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.dettours1,onChange:function onChange(e){return _this2.handleChange(e,'dettours1');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'TRANSPORTATION :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'transporty1',type:'radio',value:this.state.transporty1,onChange:function onChange(e){return _this2.handleChange(e,'transporty1');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'transportn1',type:'radio',value:this.state.transportn1,onChange:function onChange(e){return _this2.handleChange(e,'transportn1');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.dettransport1,onChange:function onChange(e){return _this2.handleChange(e,'dettransport1');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'EVENT :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'event1',type:'radio',value:this.state.eventy1,onChange:function onChange(e){return _this2.handleChange(e,'eventy1');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'event1',type:'radio',value:this.state.eventn1,onChange:function onChange(e){return _this2.handleChange(e,'eventn1');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',(_React$createElement={type:'text',className:'form-control'},_defineProperty(_React$createElement,'type','input'),_defineProperty(_React$createElement,'value',this.state.detevent1),_defineProperty(_React$createElement,'onChange',function onChange(e){return _this2.handleChange(e,'detevent1');}),_defineProperty(_React$createElement,'id','comp-name'),_React$createElement))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Talent or Entertainment Need :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.homeband1,onChange:function onChange(e){return _this2.handleChange(e,'homeband1');}}),'Home Band')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.keyboardist1,onChange:function onChange(e){return _this2.handleChange(e,'keyboardist1');}}),'Keyboardist + Singer')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.popband1,onChange:function onChange(e){return _this2.handleChange(e,'popband1');}}),'Popular Band')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.openingdance1,onChange:function onChange(e){return _this2.handleChange(e,'openingdance1');}}),'Opening Dance')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.traddance1,onChange:function onChange(e){return _this2.handleChange(e,'traddance1');}}),'Traditional Dance')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.moddance1,onChange:function onChange(e){return _this2.handleChange(e,'moddance1');}}),'Modern/Contemporary Dance')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.dj1,onChange:function onChange(e){return _this2.handleChange(e,'dj1');}}),'DJ')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.mc1,onChange:function onChange(e){return _this2.handleChange(e,'mc1');}}),'MC')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.ushers1,onChange:function onChange(e){return _this2.handleChange(e,'ushers1');}}),'Ushers'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Others :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.othertalent1,onChange:function onChange(e){return _this2.handleChange(e,'othertalent1');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Technical Support Need :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.sound1,onChange:function onChange(e){return _this2.handleChange(e,'sound1');}}),'Sound System')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.lighting1,onChange:function onChange(e){return _this2.handleChange(e,'lighting1');}}),'Lighting System')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.led1,onChange:function onChange(e){return _this2.handleChange(e,'led1');}}),'LED Backdrop')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.backdrop1,onChange:function onChange(e){return _this2.handleChange(e,'backdrop1');}}),'3D Backdrop')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.projector1,onChange:function onChange(e){return _this2.handleChange(e,'projector1');}}),'Projector (standard)')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.lcd1,onChange:function onChange(e){return _this2.handleChange(e,'lcd1');}}),'LCD/Plasma TV')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.photo1,onChange:function onChange(e){return _this2.handleChange(e,'photo1');}}),'Photography')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.video1,onChange:function onChange(e){return _this2.handleChange(e,'video1');}}),'Videography')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.digital1,onChange:function onChange(e){return _this2.handleChange(e,'digital1');}}),'Digital Printing Backdrop')),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Others :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.otherTech1,onChange:function onChange(e){return _this2.handleChange(e,'otherTech1');},id:'comp-name'}))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'budget'},'Indicative Budget :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.budget1,onChange:function onChange(e){return _this2.handleChange(e,'budget1');},id:'budget'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'remarks'},'Special Remarks :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.remarks1,onChange:function onChange(e){return _this2.handleChange(e,'remarks1');},id:'remarks'})),_react2.default.createElement('br',null),_react2.default.createElement('button',{type:'submit',className:'btn btn-default',onClick:function onClick(e){return _this2.handleSubmit(e);}},'Submit')));}},{key:'form1',value:function form1(){var _this3=this;return _react2.default.createElement('div',{className:'col-md-offset-1 col-md-10 form'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('h5',null,'Tell us about your ideal event, we want to hear from you!'),_react2.default.createElement('p',null,'Please\xA0contact us and fill the form\xA0for more information or with any help or advice that you may need.'),_react2.default.createElement('p',null,'We will assist you in designing your vacation Bali. Please fill in this event brief form.')),_react2.default.createElement('br',null),_react2.default.createElement('form',{className:'form-div'},_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Name :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.name2,onChange:function onChange(e){return _this3.handleChange(e,'name2');},id:'name',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Nationality :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.national2,onChange:function onChange(e){return _this3.handleChange(e,'national2');},id:'name',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Telephone :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.telp2,onChange:function onChange(e){return _this3.handleChange(e,'telp2');},id:'phone',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'E-mail :'),_react2.default.createElement('input',{type:'email',className:'form-control',value:this.state.email2,onChange:function onChange(e){return _this3.handleChange(e,'email2');},id:'email',required:true}))),_react2.default.createElement('br',null),_react2.default.createElement('h5',null,'TRIP DETAILS'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Starts from (Date) :'),_react2.default.createElement(_Datepicker2.default,{value:this.state.startdate2,onChange:function onChange(e){return _this3.handleChange(e,'startdate2');}})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Starts from (Time) :'),_react2.default.createElement('input',{type:'text',className:'form-control short-input',value:this.state.starttime2,onChange:function onChange(e){return _this3.handleChange(e,'starttime2');},id:'type'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-end'},'Ends (Date) :'),_react2.default.createElement(_Datepicker2.default,{value:this.state.enddate2,onChange:function onChange(e){return _this3.handleChange(e,'enddate2');}})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Ends (Time) :'),_react2.default.createElement('input',{type:'text',className:'form-control short-input',value:this.state.endtime2,onChange:function onChange(e){return _this3.handleChange(e,'endtime2');},id:'type'})),_react2.default.createElement('div',{className:'checkbox-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tentative2,onChange:function onChange(e){return _this3.handleChange(e,'tentative2');}}),'Still Tentative')),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Event Type :'),_react2.default.createElement('select',{className:'form-control',value:this.state.type2,onChange:function onChange(e){return _this3.handleChange(e,'type2');},id:'sel1'},_react2.default.createElement('option',{value:'Family'},'Family'),_react2.default.createElement('option',{value:'Friends'},'Friends'),_react2.default.createElement('option',{value:'Mix Group'},'Mix Group')))),_react2.default.createElement('br',null),_react2.default.createElement('h5',null,'ACCOMMODATION'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Venue/Hotel :'),_react2.default.createElement('select',{className:'form-control',value:this.state.venue2,onChange:function onChange(e){return _this3.handleChange(e,'venue2');},id:'sel1'},_react2.default.createElement('option',{value:'Apartment'},'Apartment'),_react2.default.createElement('option',{value:'Bungalow'},'Bungalow'),_react2.default.createElement('option',{value:'Guest House'},'Guest House'),_react2.default.createElement('option',{value:'5 stars'},'5 stars'),_react2.default.createElement('option',{value:'4 stars'},'4 stars'),_react2.default.createElement('option',{value:'3 stars'},'3 stars'),_react2.default.createElement('option',{value:'2 stars'},'2 stars'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'Number of Adult :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.numad2,onChange:function onChange(e){return _this3.handleChange(e,'numad2');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Number of Kids (if there are any) : '),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.numkid2,onChange:function onChange(e){return _this3.handleChange(e,'numkid2');},id:'phone'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Estimation accommodation budget (per-night, per-room) in IDR :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.esti2,onChange:function onChange(e){return _this3.handleChange(e,'esti2');},id:'email'})),_react2.default.createElement('h5',null,'REQUEST :'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Bedding type :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.single2,onChange:function onChange(e){return _this3.handleChange(e,'single2');}}),'Single Occupancy (King/Queensize)')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.twinking2,onChange:function onChange(e){return _this3.handleChange(e,'twinking2');}}),'Twin Sharing (King/Queensize)')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.twinbed2,onChange:function onChange(e){return _this3.handleChange(e,'twinbed2');}}),'Twin Sharing (Twin bed)')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.triple2,onChange:function onChange(e){return _this3.handleChange(e,'triple2');}}),'Triple Sharing (add extrabed)'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'Hotel Area :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.area2,onChange:function onChange(e){return _this3.handleChange(e,'area2');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Hotel Preference :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.beachfront2,onChange:function onChange(e){return _this3.handleChange(e,'beachfront2');}}),'Beachfront')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.business2,onChange:function onChange(e){return _this3.handleChange(e,'business2');}}),'Business facilities')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.golfcourse2,onChange:function onChange(e){return _this3.handleChange(e,'golfcourse2');}}),'Golf Course')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.kids2,onChange:function onChange(e){return _this3.handleChange(e,'kids2');}}),'Kids/Family Friendly')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearbeach2,onChange:function onChange(e){return _this3.handleChange(e,'nearbeach2');}}),'Near The Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearmountain2,onChange:function onChange(e){return _this3.handleChange(e,'nearmountain2');}}),'Near Mountain')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearrestaurant2,onChange:function onChange(e){return _this3.handleChange(e,'nearrestaurant2');}}),'Near Restaurant')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.heart2,onChange:function onChange(e){return _this3.handleChange(e,'heart2');}}),'Heart of the City')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tranquil2,onChange:function onChange(e){return _this3.handleChange(e,'tranquil2');}}),'Tranquil Area')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearnight2,onChange:function onChange(e){return _this3.handleChange(e,'nearnight2');}}),'Near Nightclub'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'Hotel Facility :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.family2,onChange:function onChange(e){return _this3.handleChange(e,'family2');}}),'Family Room')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.fitness2,onChange:function onChange(e){return _this3.handleChange(e,'fitness2');}}),'Fitness Centre')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.pool2,onChange:function onChange(e){return _this3.handleChange(e,'pool2');}}),'Pool')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.private2,onChange:function onChange(e){return _this3.handleChange(e,'private2');}}),'Private Pool')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.wifi2,onChange:function onChange(e){return _this3.handleChange(e,'wifi2');}}),'WIFI')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nonsmoking2,onChange:function onChange(e){return _this3.handleChange(e,'nonsmoking2');}}),'Non-smoking room')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.smoking2,onChange:function onChange(e){return _this3.handleChange(e,'smoking2');}}),'Smoking room')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.spa2,onChange:function onChange(e){return _this3.handleChange(e,'spa2');}}),'Spa & Wellness Center')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.rest2,onChange:function onChange(e){return _this3.handleChange(e,'rest2');}}),'Restaurant'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Others :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.otherrequest2,onChange:function onChange(e){return _this3.handleChange(e,'otherrequest2');},id:'email'})))),_react2.default.createElement('br',null),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'TRANPORTATION :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'radio',name:'trans',value:this.state.transporty2,onChange:function onChange(e){return _this3.handleChange(e,'transporty2');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'radio',name:'trans',value:this.state.transportn2,onChange:function onChange(e){return _this3.handleChange(e,'transportn2');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.dettransport2,onChange:function onChange(e){return _this3.handleChange(e,'dettransport2');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'TOURS / SIGHTSEEING :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'tours',type:'radio',value:this.state.toursy2,onChange:function onChange(e){return _this3.handleChange(e,'toursy2');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'tours',type:'radio',value:this.state.toursn2,onChange:function onChange(e){return _this3.handleChange(e,'toursn2');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.dettours2,onChange:function onChange(e){return _this3.handleChange(e,'dettours2');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'ACTIVITIES :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'act',type:'radio',value:this.state.acty2,onChange:function onChange(e){return _this3.handleChange(e,'acty2');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'act',type:'radio',value:this.state.actn2,onChange:function onChange(e){return _this3.handleChange(e,'actn2');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.detact2,onChange:function onChange(e){return _this3.handleChange(e,'detact2');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'MEALS :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'meals',type:'radio',value:this.state.mealsy2,onChange:function onChange(e){return _this3.handleChange(e,'mealsy2');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'meals',type:'radio',value:this.state.mealsn2,onChange:function onChange(e){return _this3.handleChange(e,'mealsn2');}}),'No')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.breakfast2,onChange:function onChange(e){return _this3.handleChange(e,'breakfast2');}}),'Breakfast Included')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.half2,onChange:function onChange(e){return _this3.handleChange(e,'half2');}}),'Halfboard (B&L)')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.full2,onChange:function onChange(e){return _this3.handleChange(e,'full2');}}),'Fullboard (B,L&D)'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Indicative Budget :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.budget2,onChange:function onChange(e){return _this3.handleChange(e,'budget2');},id:'email'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Special Remarks :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.remarks2,onChange:function onChange(e){return _this3.handleChange(e,'remarks2');},id:'email'})),_react2.default.createElement('br',null),_react2.default.createElement('button',{type:'submit',onClick:function onClick(e){return _this3.handleSubmit(e);},className:'btn btn-default'},'Submit')));}},{key:'form2',value:function form2(){var _this4=this;return _react2.default.createElement('div',{className:'col-md-offset-1 col-md-10 form'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('h5',null,'Tell us about your dream luxury stays, we want to hear from you!'),_react2.default.createElement('p',null,'Please\xA0contact us and fill the form\xA0for more information or with any help or advice that you may need.'),_react2.default.createElement('p',null,'We will assist you in designing your vacation Bali. Please fill in this event brief form.')),_react2.default.createElement('br',null),_react2.default.createElement('form',{className:'form-div'},_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Name :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.name3,onChange:function onChange(e){return _this4.handleChange(e,'name3');},id:'name',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Nationality :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.national3,onChange:function onChange(e){return _this4.handleChange(e,'national3');},id:'name',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Telephone :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.telp3,onChange:function onChange(e){return _this4.handleChange(e,'telp3');},id:'phone',required:true})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'E-mail :'),_react2.default.createElement('input',{type:'email',className:'form-control',value:this.state.email3,onChange:function onChange(e){return _this4.handleChange(e,'email3');},id:'email',required:true}))),_react2.default.createElement('br',null),_react2.default.createElement('h5',null,'TRIP DETAILS'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Starts from (Date) :'),_react2.default.createElement(_Datepicker2.default,{value:this.state.startdate3,onChange:function onChange(e){return _this4.handleChange(e,'startdate3');}})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Starts from (Time) :'),_react2.default.createElement('input',{type:'text',className:'form-control short-input',value:this.state.starttime3,onChange:function onChange(e){return _this4.handleChange(e,'starttime3');},id:'type'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-end'},'Ends (Date) :'),_react2.default.createElement(_Datepicker2.default,{value:this.state.enddate3,onChange:function onChange(e){return _this4.handleChange(e,'enddate3');}})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'event-start'},'Ends (Time) :'),_react2.default.createElement('input',{type:'text',className:'form-control short-input',value:this.state.endtime3,onChange:function onChange(e){return _this4.handleChange(e,'endtime3');},id:'type'})),_react2.default.createElement('div',{className:'checkbox-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tentative3,onChange:function onChange(e){return _this4.handleChange(e,'tentative3');}}),'Still Tentative')),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Number of Rooms :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.numroom3,onChange:function onChange(e){return _this4.handleChange(e,'numroom3');},id:'phone'}))),_react2.default.createElement('br',null),_react2.default.createElement('h5',null,'ACCOMMODATION'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'Venue/Hotel :'),_react2.default.createElement('select',{className:'form-control',value:this.state.venue3,onChange:function onChange(e){return _this4.handleChange(e,'venue3');},id:'sel1'},_react2.default.createElement('option',{value:'Apartment'},'Apartment'),_react2.default.createElement('option',{value:'Bungalow'},'Bungalow'),_react2.default.createElement('option',{value:'Guest House'},'Guest House'),_react2.default.createElement('option',{value:'5 stars'},'5 stars'),_react2.default.createElement('option',{value:'4 stars'},'4 stars'),_react2.default.createElement('option',{value:'3 stars'},'3 stars'),_react2.default.createElement('option',{value:'2 stars'},'2 stars'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'Number of Adult :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.numad3,onChange:function onChange(e){return _this4.handleChange(e,'numad3');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Number of Kids (if there are any) : '),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.numkid3,onChange:function onChange(e){return _this4.handleChange(e,'numkid3');},id:'phone'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Estimation accommodation budget (per-night, per-room) in IDR :'),_react2.default.createElement('input',{type:'number',className:'form-control',value:this.state.esti3,onChange:function onChange(e){return _this4.handleChange(e,'esti3');},id:'email'})),_react2.default.createElement('h5',null,'REQUEST :'),_react2.default.createElement('div',{className:'form-section'},_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'Hotel Area :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.amed3,onChange:function onChange(e){return _this4.handleChange(e,'amed3');}}),'Amed')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.candi3,onChange:function onChange(e){return _this4.handleChange(e,'candi3');}}),'Candidasa')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.cangguarea3,onChange:function onChange(e){return _this4.handleChange(e,'cangguarea3');}}),'Canggu area')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.canggubeach3,onChange:function onChange(e){return _this4.handleChange(e,'canggubeach3');}}),'Canggu Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.jimbaran3,onChange:function onChange(e){return _this4.handleChange(e,'jimbaran3');}}),'Jimbaran')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.karang3,onChange:function onChange(e){return _this4.handleChange(e,'karang3');}}),'Karangasem')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.kerobokan3,onChange:function onChange(e){return _this4.handleChange(e,'kerobokan3');}}),'Kerobokan')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.kids3,onChange:function onChange(e){return _this4.handleChange(e,'kids3');}}),'Kids/Family Friendly')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.kutaarea3,onChange:function onChange(e){return _this4.handleChange(e,'kutaarea3');}}),'Kuta area')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.kutabeach3,onChange:function onChange(e){return _this4.handleChange(e,'kutabeach3');}}),'Kuta Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.legianarea3,onChange:function onChange(e){return _this4.handleChange(e,'legianarea3');}}),'Legian Area')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.legianbeach3,onChange:function onChange(e){return _this4.handleChange(e,'legianbeach3');}}),'Legian Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.lembongan3,onChange:function onChange(e){return _this4.handleChange(e,'lembongan3');}}),'Lembongan')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.lovinabeach3,onChange:function onChange(e){return _this4.handleChange(e,'lovinabeach3');}}),'Lovina Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.lovina3,onChange:function onChange(e){return _this4.handleChange(e,'lovina3');}}),'Lovina')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.menjangan3,onChange:function onChange(e){return _this4.handleChange(e,'menjangan3');}}),'Menjangan')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearbeach3,onChange:function onChange(e){return _this4.handleChange(e,'nearbeach3');}}),'Near The Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nusadua3,onChange:function onChange(e){return _this4.handleChange(e,'nusadua3');}}),'Nusadua Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.petit3,onChange:function onChange(e){return _this4.handleChange(e,'petit3');}}),'Petitenget')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.seminyakbeach3,onChange:function onChange(e){return _this4.handleChange(e,'seminyakbeach3');}}),'Seminyak Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.seminyak3,onChange:function onChange(e){return _this4.handleChange(e,'seminyak3');}}),'Seminyak')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tabanan3,onChange:function onChange(e){return _this4.handleChange(e,'tabanan3');}}),'Tabanan')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tanjung3,onChange:function onChange(e){return _this4.handleChange(e,'tanjung3');}}),'Tanjung Benoa')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.sanurbeach3,onChange:function onChange(e){return _this4.handleChange(e,'sanurbeach3');}}),'Sanur Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.sanurarea3,onChange:function onChange(e){return _this4.handleChange(e,'sanurarea3');}}),'Sanur Area')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.sinaraja3,onChange:function onChange(e){return _this4.handleChange(e,'sinaraja3');}}),'Sinaraja')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tuban3,onChange:function onChange(e){return _this4.handleChange(e,'tuban3');}}),'Tuban')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tulamben3,onChange:function onChange(e){return _this4.handleChange(e,'tulamben3');}}),'Tulamben')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.ubud3,onChange:function onChange(e){return _this4.handleChange(e,'ubud3');}}),'Ubud')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.uluwatu3,onChange:function onChange(e){return _this4.handleChange(e,'uluwatu3');}}),'Uluwatu')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.ungasan3,onChange:function onChange(e){return _this4.handleChange(e,'ungasan3');}}),'Ungasan'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'phone'},'Hotel Preference :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.beachfront3,onChange:function onChange(e){return _this4.handleChange(e,'beachfront3');}}),'Beachfront')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.business3,onChange:function onChange(e){return _this4.handleChange(e,'business3');}}),'Business facilities')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.golfcourse3,onChange:function onChange(e){return _this4.handleChange(e,'golfcourse3');}}),'Golf Course')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.kidsfam3,onChange:function onChange(e){return _this4.handleChange(e,'kidsfam3');}}),'Kids/Family Friendly')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearthebeach3,onChange:function onChange(e){return _this4.handleChange(e,'nearthebeach3');}}),'Near The Beach')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearmountain3,onChange:function onChange(e){return _this4.handleChange(e,'nearmountain3');}}),'Near Mountain')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearrestaurant3,onChange:function onChange(e){return _this4.handleChange(e,'nearrestaurant3');}}),'Near Restaurant')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.heart3,onChange:function onChange(e){return _this4.handleChange(e,'heart3');}}),'Heart of the City')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.tranquil3,onChange:function onChange(e){return _this4.handleChange(e,'tranquil3');}}),'Tranquil Area')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nearnight3,onChange:function onChange(e){return _this4.handleChange(e,'nearnight3');}}),'Near Nightclub'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'comp-name'},'Hotel Facility :'),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.family3,onChange:function onChange(e){return _this4.handleChange(e,'family3');}}),'Family Room')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.fitness3,onChange:function onChange(e){return _this4.handleChange(e,'fitness3');}}),'Fitness Centre')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.pool3,onChange:function onChange(e){return _this4.handleChange(e,'pool3');}}),'Pool')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.private3,onChange:function onChange(e){return _this4.handleChange(e,'private3');}}),'Private Pool')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.wifi3,onChange:function onChange(e){return _this4.handleChange(e,'wifi3');}}),'WIFI')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.nonsmoking3,onChange:function onChange(e){return _this4.handleChange(e,'nonsmoking3');}}),'Non-smoking room')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.smoking3,onChange:function onChange(e){return _this4.handleChange(e,'smoking3');}}),'Smoking room')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.spa3,onChange:function onChange(e){return _this4.handleChange(e,'spa3');}}),'Spa & Wellness Center')),_react2.default.createElement('div',{className:'checkbox'},_react2.default.createElement('label',null,_react2.default.createElement('input',{type:'checkbox',value:this.state.rest3,onChange:function onChange(e){return _this4.handleChange(e,'rest3');}}),'Restaurant'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Others :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.otherrequest3,onChange:function onChange(e){return _this4.handleChange(e,'otherrequest3');},id:'email'})))),_react2.default.createElement('br',null),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'name'},'TRANPORTATION :'),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'transport3',type:'radio',value:this.state.transporty3,onChange:function onChange(e){return _this4.handleChange(e,'transporty3');}}),'Yes')),_react2.default.createElement('div',{className:'radio-inline'},_react2.default.createElement('label',null,_react2.default.createElement('input',{name:'transport3',type:'radio',value:this.state.transportn3,onChange:function onChange(e){return _this4.handleChange(e,'transportn3');}}),'No'))),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('p',{'for':'comp-name'},'Details :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.dettransport3,onChange:function onChange(e){return _this4.handleChange(e,'dettransport3');},id:'comp-name'})),_react2.default.createElement('div',{className:'form-group'},_react2.default.createElement('label',{'for':'email'},'Special Remarks :'),_react2.default.createElement('input',{type:'text',className:'form-control',value:this.state.remarks3,onChange:function onChange(e){return _this4.handleChange(e,'remarks3');},id:'email'})),_react2.default.createElement('br',null),_react2.default.createElement('button',{type:'submit',onClick:function onClick(e){return _this4.handleSubmit(e);},className:'btn btn-default'},'Submit')));}}]);return Form;}(_react.Component);var mapDispatchToProps=function mapDispatchToProps(dispatch){return{receiveForm:function receiveForm(data1,data2){return(0,_Form2.default)(data1,data2);}};};exports.default=(0,_reactRedux.connect)(null,mapDispatchToProps)(Form);
@@ -68707,43 +68681,23 @@
 
 	var _Dropdown3 = _interopRequireDefault(_Dropdown2);
 
-<<<<<<< HEAD
-	var _DropdownButton2 = __webpack_require__(502);
+	var _DropdownButton2 = __webpack_require__(499);
 
 	var _DropdownButton3 = _interopRequireDefault(_DropdownButton2);
 
-	var _Fade2 = __webpack_require__(504);
+	var _Fade2 = __webpack_require__(501);
 
 	var _Fade3 = _interopRequireDefault(_Fade2);
 
-	var _Form2 = __webpack_require__(505);
+	var _Form2 = __webpack_require__(502);
 
 	var _Form3 = _interopRequireDefault(_Form2);
 
-	var _FormControl2 = __webpack_require__(506);
+	var _FormControl2 = __webpack_require__(503);
 
 	var _FormControl3 = _interopRequireDefault(_FormControl2);
 
-	var _FormGroup2 = __webpack_require__(509);
-=======
-	var _DropdownButton2 = __webpack_require__(498);
-
-	var _DropdownButton3 = _interopRequireDefault(_DropdownButton2);
-
-	var _Fade2 = __webpack_require__(500);
-
-	var _Fade3 = _interopRequireDefault(_Fade2);
-
-	var _Form2 = __webpack_require__(501);
-
-	var _Form3 = _interopRequireDefault(_Form2);
-
-	var _FormControl2 = __webpack_require__(502);
-
-	var _FormControl3 = _interopRequireDefault(_FormControl2);
-
-	var _FormGroup2 = __webpack_require__(505);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _FormGroup2 = __webpack_require__(506);
 
 	var _FormGroup3 = _interopRequireDefault(_FormGroup2);
 
@@ -68751,219 +68705,111 @@
 
 	var _Glyphicon3 = _interopRequireDefault(_Glyphicon2);
 
-<<<<<<< HEAD
-	var _Grid2 = __webpack_require__(510);
+	var _Grid2 = __webpack_require__(507);
 
 	var _Grid3 = _interopRequireDefault(_Grid2);
 
-	var _HelpBlock2 = __webpack_require__(511);
+	var _HelpBlock2 = __webpack_require__(508);
 
 	var _HelpBlock3 = _interopRequireDefault(_HelpBlock2);
 
-	var _Image2 = __webpack_require__(512);
+	var _Image2 = __webpack_require__(509);
 
 	var _Image3 = _interopRequireDefault(_Image2);
 
-	var _InputGroup2 = __webpack_require__(513);
+	var _InputGroup2 = __webpack_require__(510);
 
 	var _InputGroup3 = _interopRequireDefault(_InputGroup2);
 
-	var _Jumbotron2 = __webpack_require__(516);
+	var _Jumbotron2 = __webpack_require__(513);
 
 	var _Jumbotron3 = _interopRequireDefault(_Jumbotron2);
 
-	var _Label2 = __webpack_require__(517);
+	var _Label2 = __webpack_require__(514);
 
 	var _Label3 = _interopRequireDefault(_Label2);
 
-	var _ListGroup2 = __webpack_require__(518);
+	var _ListGroup2 = __webpack_require__(515);
 
 	var _ListGroup3 = _interopRequireDefault(_ListGroup2);
 
-	var _ListGroupItem2 = __webpack_require__(519);
+	var _ListGroupItem2 = __webpack_require__(516);
 
 	var _ListGroupItem3 = _interopRequireDefault(_ListGroupItem2);
 
-	var _Media2 = __webpack_require__(520);
+	var _Media2 = __webpack_require__(517);
 
 	var _Media3 = _interopRequireDefault(_Media2);
 
-	var _MenuItem2 = __webpack_require__(527);
+	var _MenuItem2 = __webpack_require__(524);
 
 	var _MenuItem3 = _interopRequireDefault(_MenuItem2);
 
-	var _Modal2 = __webpack_require__(528);
+	var _Modal2 = __webpack_require__(525);
 
 	var _Modal3 = _interopRequireDefault(_Modal2);
 
-	var _ModalBody2 = __webpack_require__(558);
+	var _ModalBody2 = __webpack_require__(543);
 
 	var _ModalBody3 = _interopRequireDefault(_ModalBody2);
 
-	var _ModalFooter2 = __webpack_require__(560);
+	var _ModalFooter2 = __webpack_require__(545);
 
 	var _ModalFooter3 = _interopRequireDefault(_ModalFooter2);
 
-	var _ModalHeader2 = __webpack_require__(561);
+	var _ModalHeader2 = __webpack_require__(546);
 
 	var _ModalHeader3 = _interopRequireDefault(_ModalHeader2);
 
-	var _ModalTitle2 = __webpack_require__(562);
+	var _ModalTitle2 = __webpack_require__(547);
 
 	var _ModalTitle3 = _interopRequireDefault(_ModalTitle2);
 
-	var _Nav2 = __webpack_require__(563);
+	var _Nav2 = __webpack_require__(548);
 
 	var _Nav3 = _interopRequireDefault(_Nav2);
 
-	var _Navbar2 = __webpack_require__(564);
+	var _Navbar2 = __webpack_require__(549);
 
 	var _Navbar3 = _interopRequireDefault(_Navbar2);
 
-	var _NavbarBrand2 = __webpack_require__(565);
+	var _NavbarBrand2 = __webpack_require__(550);
 
 	var _NavbarBrand3 = _interopRequireDefault(_NavbarBrand2);
 
-	var _NavDropdown2 = __webpack_require__(569);
+	var _NavDropdown2 = __webpack_require__(554);
 
 	var _NavDropdown3 = _interopRequireDefault(_NavDropdown2);
 
-	var _NavItem2 = __webpack_require__(570);
+	var _NavItem2 = __webpack_require__(555);
 
 	var _NavItem3 = _interopRequireDefault(_NavItem2);
 
-	var _Overlay2 = __webpack_require__(571);
+	var _Overlay2 = __webpack_require__(556);
 
 	var _Overlay3 = _interopRequireDefault(_Overlay2);
 
-	var _OverlayTrigger2 = __webpack_require__(580);
+	var _OverlayTrigger2 = __webpack_require__(565);
 
 	var _OverlayTrigger3 = _interopRequireDefault(_OverlayTrigger2);
 
-	var _PageHeader2 = __webpack_require__(581);
+	var _PageHeader2 = __webpack_require__(566);
 
 	var _PageHeader3 = _interopRequireDefault(_PageHeader2);
 
-	var _PageItem2 = __webpack_require__(582);
+	var _PageItem2 = __webpack_require__(567);
 
 	var _PageItem3 = _interopRequireDefault(_PageItem2);
 
-	var _Pager2 = __webpack_require__(585);
+	var _Pager2 = __webpack_require__(570);
 
 	var _Pager3 = _interopRequireDefault(_Pager2);
 
-	var _Pagination2 = __webpack_require__(586);
+	var _Pagination2 = __webpack_require__(571);
 
 	var _Pagination3 = _interopRequireDefault(_Pagination2);
 
-	var _Panel2 = __webpack_require__(588);
-=======
-	var _Grid2 = __webpack_require__(506);
-
-	var _Grid3 = _interopRequireDefault(_Grid2);
-
-	var _HelpBlock2 = __webpack_require__(507);
-
-	var _HelpBlock3 = _interopRequireDefault(_HelpBlock2);
-
-	var _Image2 = __webpack_require__(508);
-
-	var _Image3 = _interopRequireDefault(_Image2);
-
-	var _InputGroup2 = __webpack_require__(509);
-
-	var _InputGroup3 = _interopRequireDefault(_InputGroup2);
-
-	var _Jumbotron2 = __webpack_require__(512);
-
-	var _Jumbotron3 = _interopRequireDefault(_Jumbotron2);
-
-	var _Label2 = __webpack_require__(513);
-
-	var _Label3 = _interopRequireDefault(_Label2);
-
-	var _ListGroup2 = __webpack_require__(514);
-
-	var _ListGroup3 = _interopRequireDefault(_ListGroup2);
-
-	var _ListGroupItem2 = __webpack_require__(515);
-
-	var _ListGroupItem3 = _interopRequireDefault(_ListGroupItem2);
-
-	var _Media2 = __webpack_require__(516);
-
-	var _Media3 = _interopRequireDefault(_Media2);
-
-	var _MenuItem2 = __webpack_require__(523);
-
-	var _MenuItem3 = _interopRequireDefault(_MenuItem2);
-
-	var _Modal2 = __webpack_require__(524);
-
-	var _Modal3 = _interopRequireDefault(_Modal2);
-
-	var _ModalBody2 = __webpack_require__(542);
-
-	var _ModalBody3 = _interopRequireDefault(_ModalBody2);
-
-	var _ModalFooter2 = __webpack_require__(544);
-
-	var _ModalFooter3 = _interopRequireDefault(_ModalFooter2);
-
-	var _ModalHeader2 = __webpack_require__(545);
-
-	var _ModalHeader3 = _interopRequireDefault(_ModalHeader2);
-
-	var _ModalTitle2 = __webpack_require__(546);
-
-	var _ModalTitle3 = _interopRequireDefault(_ModalTitle2);
-
-	var _Nav2 = __webpack_require__(547);
-
-	var _Nav3 = _interopRequireDefault(_Nav2);
-
-	var _Navbar2 = __webpack_require__(548);
-
-	var _Navbar3 = _interopRequireDefault(_Navbar2);
-
-	var _NavbarBrand2 = __webpack_require__(549);
-
-	var _NavbarBrand3 = _interopRequireDefault(_NavbarBrand2);
-
-	var _NavDropdown2 = __webpack_require__(553);
-
-	var _NavDropdown3 = _interopRequireDefault(_NavDropdown2);
-
-	var _NavItem2 = __webpack_require__(554);
-
-	var _NavItem3 = _interopRequireDefault(_NavItem2);
-
-	var _Overlay2 = __webpack_require__(555);
-
-	var _Overlay3 = _interopRequireDefault(_Overlay2);
-
-	var _OverlayTrigger2 = __webpack_require__(564);
-
-	var _OverlayTrigger3 = _interopRequireDefault(_OverlayTrigger2);
-
-	var _PageHeader2 = __webpack_require__(565);
-
-	var _PageHeader3 = _interopRequireDefault(_PageHeader2);
-
-	var _PageItem2 = __webpack_require__(566);
-
-	var _PageItem3 = _interopRequireDefault(_PageItem2);
-
-	var _Pager2 = __webpack_require__(569);
-
-	var _Pager3 = _interopRequireDefault(_Pager2);
-
-	var _Pagination2 = __webpack_require__(570);
-
-	var _Pagination3 = _interopRequireDefault(_Pagination2);
-
-	var _Panel2 = __webpack_require__(572);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Panel2 = __webpack_require__(573);
 
 	var _Panel3 = _interopRequireDefault(_Panel2);
 
@@ -68971,43 +68817,23 @@
 
 	var _PanelGroup3 = _interopRequireDefault(_PanelGroup2);
 
-<<<<<<< HEAD
-	var _Popover2 = __webpack_require__(589);
+	var _Popover2 = __webpack_require__(574);
 
 	var _Popover3 = _interopRequireDefault(_Popover2);
 
-	var _ProgressBar2 = __webpack_require__(590);
+	var _ProgressBar2 = __webpack_require__(575);
 
 	var _ProgressBar3 = _interopRequireDefault(_ProgressBar2);
 
-	var _Radio2 = __webpack_require__(591);
+	var _Radio2 = __webpack_require__(576);
 
 	var _Radio3 = _interopRequireDefault(_Radio2);
 
-	var _ResponsiveEmbed2 = __webpack_require__(592);
+	var _ResponsiveEmbed2 = __webpack_require__(577);
 
 	var _ResponsiveEmbed3 = _interopRequireDefault(_ResponsiveEmbed2);
 
-	var _Row2 = __webpack_require__(593);
-=======
-	var _Popover2 = __webpack_require__(573);
-
-	var _Popover3 = _interopRequireDefault(_Popover2);
-
-	var _ProgressBar2 = __webpack_require__(574);
-
-	var _ProgressBar3 = _interopRequireDefault(_ProgressBar2);
-
-	var _Radio2 = __webpack_require__(575);
-
-	var _Radio3 = _interopRequireDefault(_Radio2);
-
-	var _ResponsiveEmbed2 = __webpack_require__(576);
-
-	var _ResponsiveEmbed3 = _interopRequireDefault(_ResponsiveEmbed2);
-
-	var _Row2 = __webpack_require__(577);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Row2 = __webpack_require__(578);
 
 	var _Row3 = _interopRequireDefault(_Row2);
 
@@ -69015,91 +68841,47 @@
 
 	var _SafeAnchor3 = _interopRequireDefault(_SafeAnchor2);
 
-<<<<<<< HEAD
-	var _SplitButton2 = __webpack_require__(594);
+	var _SplitButton2 = __webpack_require__(579);
 
 	var _SplitButton3 = _interopRequireDefault(_SplitButton2);
 
-	var _Tab2 = __webpack_require__(596);
+	var _Tab2 = __webpack_require__(581);
 
 	var _Tab3 = _interopRequireDefault(_Tab2);
 
-	var _TabContainer2 = __webpack_require__(597);
+	var _TabContainer2 = __webpack_require__(582);
 
 	var _TabContainer3 = _interopRequireDefault(_TabContainer2);
 
-	var _TabContent2 = __webpack_require__(598);
+	var _TabContent2 = __webpack_require__(583);
 
 	var _TabContent3 = _interopRequireDefault(_TabContent2);
 
-	var _Table2 = __webpack_require__(600);
+	var _Table2 = __webpack_require__(585);
 
 	var _Table3 = _interopRequireDefault(_Table2);
 
-	var _TabPane2 = __webpack_require__(599);
+	var _TabPane2 = __webpack_require__(584);
 
 	var _TabPane3 = _interopRequireDefault(_TabPane2);
 
-	var _Tabs2 = __webpack_require__(601);
+	var _Tabs2 = __webpack_require__(586);
 
 	var _Tabs3 = _interopRequireDefault(_Tabs2);
 
-	var _Thumbnail2 = __webpack_require__(602);
+	var _Thumbnail2 = __webpack_require__(587);
 
 	var _Thumbnail3 = _interopRequireDefault(_Thumbnail2);
 
-	var _Tooltip2 = __webpack_require__(603);
+	var _Tooltip2 = __webpack_require__(588);
 
 	var _Tooltip3 = _interopRequireDefault(_Tooltip2);
 
-	var _Well2 = __webpack_require__(604);
+	var _Well2 = __webpack_require__(589);
 
 	var _Well3 = _interopRequireDefault(_Well2);
 
-	var _utils2 = __webpack_require__(605);
-=======
-	var _SplitButton2 = __webpack_require__(578);
-
-	var _SplitButton3 = _interopRequireDefault(_SplitButton2);
-
-	var _Tab2 = __webpack_require__(580);
-
-	var _Tab3 = _interopRequireDefault(_Tab2);
-
-	var _TabContainer2 = __webpack_require__(581);
-
-	var _TabContainer3 = _interopRequireDefault(_TabContainer2);
-
-	var _TabContent2 = __webpack_require__(582);
-
-	var _TabContent3 = _interopRequireDefault(_TabContent2);
-
-	var _Table2 = __webpack_require__(584);
-
-	var _Table3 = _interopRequireDefault(_Table2);
-
-	var _TabPane2 = __webpack_require__(583);
-
-	var _TabPane3 = _interopRequireDefault(_TabPane2);
-
-	var _Tabs2 = __webpack_require__(585);
-
-	var _Tabs3 = _interopRequireDefault(_Tabs2);
-
-	var _Thumbnail2 = __webpack_require__(586);
-
-	var _Thumbnail3 = _interopRequireDefault(_Thumbnail2);
-
-	var _Tooltip2 = __webpack_require__(587);
-
-	var _Tooltip3 = _interopRequireDefault(_Tooltip2);
-
-	var _Well2 = __webpack_require__(588);
-
-	var _Well3 = _interopRequireDefault(_Well2);
-
-	var _utils2 = __webpack_require__(589);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _utils2 = __webpack_require__(590);
 
 	var _utils = _interopRequireWildcard(_utils2);
 
@@ -74953,40 +74735,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var canUseDOM = __webpack_require__(471);
+	var canUseDOM = __webpack_require__(472);
 
-<<<<<<< HEAD
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.animationEnd = exports.animationDelay = exports.animationTiming = exports.animationDuration = exports.animationName = exports.transitionEnd = exports.transitionDuration = exports.transitionDelay = exports.transitionTiming = exports.transitionProperty = exports.transform = undefined;
-
-	var _inDOM = __webpack_require__(472);
-
-	var _inDOM2 = _interopRequireDefault(_inDOM);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var transform = 'transform';
-	var prefix = void 0,
-	    transitionEnd = void 0,
-	    animationEnd = void 0;
-	var transitionProperty = void 0,
-	    transitionDuration = void 0,
-	    transitionTiming = void 0,
-	    transitionDelay = void 0;
-	var animationName = void 0,
-	    animationDuration = void 0,
-	    animationTiming = void 0,
-	    animationDelay = void 0;
-
-	if (_inDOM2.default) {
-	  var _getTransitionPropert = getTransitionProperties();
-
-	  prefix = _getTransitionPropert.prefix;
-	  exports.transitionEnd = transitionEnd = _getTransitionPropert.transitionEnd;
-	  exports.animationEnd = animationEnd = _getTransitionPropert.animationEnd;
-=======
 	var has = Object.prototype.hasOwnProperty,
 	    transform = 'transform',
 	    transition = {},
@@ -74994,7 +74744,6 @@
 	    transitionDuration,
 	    transitionProperty,
 	    transitionDelay;
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 
 	if (canUseDOM) {
 	  transition = getTransitionProperties();
@@ -75053,21 +74802,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-<<<<<<< HEAD
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _inDOM = __webpack_require__(472);
-
-	var _inDOM2 = _interopRequireDefault(_inDOM);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-=======
-	var canUseDOM = __webpack_require__(471);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var canUseDOM = __webpack_require__(472);
 	var on = function on() {};
 
 	if (canUseDOM) {
@@ -75123,11 +74858,7 @@
 
 	var _contains2 = _interopRequireDefault(_contains);
 
-<<<<<<< HEAD
-	var _keycode = __webpack_require__(479);
-=======
-	var _keycode = __webpack_require__(477);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _keycode = __webpack_require__(478);
 
 	var _keycode2 = _interopRequireDefault(_keycode);
 
@@ -75147,19 +74878,11 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _isRequiredForA11y = __webpack_require__(480);
+	var _isRequiredForA11y = __webpack_require__(479);
 
 	var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
 
-	var _uncontrollable = __webpack_require__(481);
-=======
-	var _isRequiredForA11y = __webpack_require__(478);
-
-	var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
-
-	var _uncontrollable = __webpack_require__(479);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _uncontrollable = __webpack_require__(480);
 
 	var _uncontrollable2 = _interopRequireDefault(_uncontrollable);
 
@@ -75171,19 +74894,11 @@
 
 	var _ButtonGroup2 = _interopRequireDefault(_ButtonGroup);
 
-<<<<<<< HEAD
-	var _DropdownMenu = __webpack_require__(484);
+	var _DropdownMenu = __webpack_require__(483);
 
 	var _DropdownMenu2 = _interopRequireDefault(_DropdownMenu);
 
-	var _DropdownToggle = __webpack_require__(500);
-=======
-	var _DropdownMenu = __webpack_require__(482);
-
-	var _DropdownMenu2 = _interopRequireDefault(_DropdownMenu);
-
-	var _DropdownToggle = __webpack_require__(496);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _DropdownToggle = __webpack_require__(497);
 
 	var _DropdownToggle2 = _interopRequireDefault(_DropdownToggle);
 
@@ -75193,11 +74908,7 @@
 
 	var _createChainedFunction2 = _interopRequireDefault(_createChainedFunction);
 
-<<<<<<< HEAD
-	var _PropTypes = __webpack_require__(501);
-=======
-	var _PropTypes = __webpack_require__(497);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _PropTypes = __webpack_require__(498);
 
 	var _ValidComponentChildren = __webpack_require__(436);
 
@@ -75583,11 +75294,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-<<<<<<< HEAD
-	var canUseDOM = __webpack_require__(478);
-=======
-	var canUseDOM = __webpack_require__(471);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var canUseDOM = __webpack_require__(472);
 
 	var contains = (function () {
 	  var root = canUseDOM && document.documentElement;
@@ -75611,16 +75318,6 @@
 /* 478 */
 /***/ function(module, exports) {
 
-<<<<<<< HEAD
-	'use strict';
-	module.exports = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-
-/***/ },
-/* 479 */
-/***/ function(module, exports) {
-
-=======
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 	// Source: http://jsfiddle.net/vWx8V/
 	// http://stackoverflow.com/questions/5603195/full-list-of-javascript-keycodes
 
@@ -75770,11 +75467,7 @@
 
 
 /***/ },
-<<<<<<< HEAD
-/* 480 */
-=======
-/* 478 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 479 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -75799,22 +75492,14 @@
 	}
 
 /***/ },
-<<<<<<< HEAD
-/* 481 */
-=======
-/* 479 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-<<<<<<< HEAD
-	var _createUncontrollable = __webpack_require__(482);
-=======
-	var _createUncontrollable = __webpack_require__(480);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _createUncontrollable = __webpack_require__(481);
 
 	var _createUncontrollable2 = _interopRequireDefault(_createUncontrollable);
 
@@ -75843,11 +75528,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 482 */
-=======
-/* 480 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75866,11 +75547,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-<<<<<<< HEAD
-	var _utils = __webpack_require__(483);
-=======
-	var _utils = __webpack_require__(481);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _utils = __webpack_require__(482);
 
 	var utils = _interopRequireWildcard(_utils);
 
@@ -76020,11 +75697,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 483 */
-=======
-/* 481 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -76146,11 +75819,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 484 */
-=======
-/* 482 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76165,11 +75834,7 @@
 
 	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
-<<<<<<< HEAD
-	var _from = __webpack_require__(485);
-=======
-	var _from = __webpack_require__(483);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _from = __webpack_require__(484);
 
 	var _from2 = _interopRequireDefault(_from);
 
@@ -76189,11 +75854,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-<<<<<<< HEAD
-	var _keycode = __webpack_require__(479);
-=======
-	var _keycode = __webpack_require__(477);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _keycode = __webpack_require__(478);
 
 	var _keycode2 = _interopRequireDefault(_keycode);
 
@@ -76205,11 +75866,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-	var _RootCloseWrapper = __webpack_require__(494);
-=======
-	var _RootCloseWrapper = __webpack_require__(492);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _RootCloseWrapper = __webpack_require__(493);
 
 	var _RootCloseWrapper2 = _interopRequireDefault(_RootCloseWrapper);
 
@@ -76366,65 +76023,34 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
+/* 484 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(485), __esModule: true };
+
+/***/ },
 /* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(486), __esModule: true };
-
-/***/ },
-/* 486 */
-/***/ function(module, exports, __webpack_require__) {
-
 	__webpack_require__(386);
-	__webpack_require__(487);
+	__webpack_require__(486);
 	module.exports = __webpack_require__(349).Array.from;
 
 /***/ },
-/* 487 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	var ctx            = __webpack_require__(350)
 	  , $export        = __webpack_require__(347)
 	  , toObject       = __webpack_require__(380)
-	  , call           = __webpack_require__(488)
-	  , isArrayIter    = __webpack_require__(489)
+	  , call           = __webpack_require__(487)
+	  , isArrayIter    = __webpack_require__(488)
 	  , toLength       = __webpack_require__(371)
-	  , createProperty = __webpack_require__(490)
-	  , getIterFn      = __webpack_require__(491);
+	  , createProperty = __webpack_require__(489)
+	  , getIterFn      = __webpack_require__(490);
 
-	$export($export.S + $export.F * !__webpack_require__(493)(function(iter){ Array.from(iter); }), 'Array', {
-=======
-/* 483 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(484), __esModule: true };
-
-/***/ },
-/* 484 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(385);
-	__webpack_require__(485);
-	module.exports = __webpack_require__(348).Array.from;
-
-/***/ },
-/* 485 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var ctx            = __webpack_require__(349)
-	  , $export        = __webpack_require__(346)
-	  , toObject       = __webpack_require__(379)
-	  , call           = __webpack_require__(486)
-	  , isArrayIter    = __webpack_require__(487)
-	  , toLength       = __webpack_require__(370)
-	  , createProperty = __webpack_require__(488)
-	  , getIterFn      = __webpack_require__(489);
-
-	$export($export.S + $export.F * !__webpack_require__(491)(function(iter){ Array.from(iter); }), 'Array', {
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	$export($export.S + $export.F * !__webpack_require__(492)(function(iter){ Array.from(iter); }), 'Array', {
 	  // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
 	  from: function from(arrayLike/*, mapfn = undefined, thisArg = undefined*/){
 	    var O       = toObject(arrayLike)
@@ -76454,11 +76080,7 @@
 
 
 /***/ },
-<<<<<<< HEAD
-/* 488 */
-=======
-/* 486 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// call something on iterator step with safe closing on error
@@ -76475,11 +76097,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 489 */
-=======
-/* 487 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// check on default Array iterator
@@ -76492,11 +76110,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 490 */
-=======
-/* 488 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76509,34 +76123,20 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 491 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var classof   = __webpack_require__(492)
+	var classof   = __webpack_require__(491)
 	  , ITERATOR  = __webpack_require__(397)('iterator')
 	  , Iterators = __webpack_require__(391);
 	module.exports = __webpack_require__(349).getIteratorMethod = function(it){
-=======
-/* 489 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var classof   = __webpack_require__(490)
-	  , ITERATOR  = __webpack_require__(396)('iterator')
-	  , Iterators = __webpack_require__(390);
-	module.exports = __webpack_require__(348).getIteratorMethod = function(it){
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 	  if(it != undefined)return it[ITERATOR]
 	    || it['@@iterator']
 	    || Iterators[classof(it)];
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 492 */
-=======
-/* 490 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// getting tag from 19.1.3.6 Object.prototype.toString()
@@ -76564,11 +76164,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 493 */
-=======
-/* 491 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var ITERATOR     = __webpack_require__(397)('iterator')
@@ -76594,11 +76190,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 494 */
-=======
-/* 492 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76609,11 +76201,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-<<<<<<< HEAD
-	var _contains = __webpack_require__(495);
-=======
-	var _contains = __webpack_require__(476);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _contains = __webpack_require__(477);
 
 	var _contains2 = _interopRequireDefault(_contains);
 
@@ -76625,19 +76213,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-	var _addEventListener = __webpack_require__(496);
+	var _addEventListener = __webpack_require__(494);
 
 	var _addEventListener2 = _interopRequireDefault(_addEventListener);
 
-	var _ownerDocument = __webpack_require__(498);
-=======
-	var _addEventListener = __webpack_require__(493);
-
-	var _addEventListener2 = _interopRequireDefault(_addEventListener);
-
-	var _ownerDocument = __webpack_require__(495);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _ownerDocument = __webpack_require__(496);
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
@@ -76777,50 +76357,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 495 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _inDOM = __webpack_require__(472);
-
-	var _inDOM2 = _interopRequireDefault(_inDOM);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = function () {
-	  // HTML DOM and SVG DOM may have different support levels,
-	  // so we need to check on context instead of a document root element.
-	  return _inDOM2.default ? function (context, node) {
-	    if (context.contains) {
-	      return context.contains(node);
-	    } else if (context.compareDocumentPosition) {
-	      return context === node || !!(context.compareDocumentPosition(node) & 16);
-	    } else {
-	      return fallback(context, node);
-	    }
-	  } : fallback;
-	}();
-
-	function fallback(context, node) {
-	  if (node) do {
-	    if (node === context) return true;
-	  } while (node = node.parentNode);
-
-	  return false;
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 496 */
-=======
-/* 493 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76843,11 +76380,7 @@
 
 	var _on2 = _interopRequireDefault(_on);
 
-<<<<<<< HEAD
-	var _off = __webpack_require__(497);
-=======
-	var _off = __webpack_require__(494);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _off = __webpack_require__(495);
 
 	var _off2 = _interopRequireDefault(_off);
 
@@ -76856,28 +76389,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 497 */
-=======
-/* 494 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var canUseDOM = __webpack_require__(471);
+	var canUseDOM = __webpack_require__(472);
 	var off = function off() {};
 
-<<<<<<< HEAD
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _inDOM = __webpack_require__(472);
-
-	var _inDOM2 = _interopRequireDefault(_inDOM);
-=======
 	if (canUseDOM) {
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 
 	  off = (function () {
 
@@ -76892,11 +76411,7 @@
 	module.exports = off;
 
 /***/ },
-<<<<<<< HEAD
-/* 498 */
-=======
-/* 495 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -76913,11 +76428,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-	var _ownerDocument = __webpack_require__(499);
-=======
-	var _ownerDocument = __webpack_require__(475);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _ownerDocument = __webpack_require__(476);
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
@@ -76926,26 +76437,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 499 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = ownerDocument;
-	function ownerDocument(node) {
-	  return node && node.ownerDocument || document;
-	}
-	module.exports = exports["default"];
-
-/***/ },
-/* 500 */
-=======
-/* 496 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77058,11 +76550,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 501 */
-=======
-/* 497 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77138,11 +76626,7 @@
 	}
 
 /***/ },
-<<<<<<< HEAD
-/* 502 */
-=======
-/* 498 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77177,11 +76661,7 @@
 
 	var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
-<<<<<<< HEAD
-	var _splitComponentProps2 = __webpack_require__(503);
-=======
-	var _splitComponentProps2 = __webpack_require__(499);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _splitComponentProps2 = __webpack_require__(500);
 
 	var _splitComponentProps3 = _interopRequireDefault(_splitComponentProps2);
 
@@ -77253,11 +76733,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 503 */
-=======
-/* 499 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77294,11 +76770,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-<<<<<<< HEAD
-/* 504 */
-=======
-/* 500 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77418,11 +76890,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 505 */
-=======
-/* 501 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77520,11 +76988,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 506 */
-=======
-/* 502 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -77567,19 +77031,11 @@
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-<<<<<<< HEAD
-	var _FormControlFeedback = __webpack_require__(507);
+	var _FormControlFeedback = __webpack_require__(504);
 
 	var _FormControlFeedback2 = _interopRequireDefault(_FormControlFeedback);
 
-	var _FormControlStatic = __webpack_require__(508);
-=======
-	var _FormControlFeedback = __webpack_require__(503);
-
-	var _FormControlFeedback2 = _interopRequireDefault(_FormControlFeedback);
-
-	var _FormControlStatic = __webpack_require__(504);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _FormControlStatic = __webpack_require__(505);
 
 	var _FormControlStatic2 = _interopRequireDefault(_FormControlStatic);
 
@@ -77671,11 +77127,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 507 */
-=======
-/* 503 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77791,11 +77243,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 508 */
-=======
-/* 504 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -77881,11 +77329,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 509 */
-=======
-/* 505 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78009,11 +77453,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 510 */
-=======
-/* 506 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78110,11 +77550,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 511 */
-=======
-/* 507 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78184,11 +77620,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 512 */
-=======
-/* 508 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78296,11 +77728,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 513 */
-=======
-/* 509 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78335,19 +77763,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _InputGroupAddon = __webpack_require__(514);
+	var _InputGroupAddon = __webpack_require__(511);
 
 	var _InputGroupAddon2 = _interopRequireDefault(_InputGroupAddon);
 
-	var _InputGroupButton = __webpack_require__(515);
-=======
-	var _InputGroupAddon = __webpack_require__(510);
-
-	var _InputGroupAddon2 = _interopRequireDefault(_InputGroupAddon);
-
-	var _InputGroupButton = __webpack_require__(511);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _InputGroupButton = __webpack_require__(512);
 
 	var _InputGroupButton2 = _interopRequireDefault(_InputGroupButton);
 
@@ -78391,11 +77811,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 514 */
-=======
-/* 510 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78465,11 +77881,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 515 */
-=======
-/* 511 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78539,11 +77951,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 516 */
-=======
-/* 512 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78629,11 +78037,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 517 */
-=======
-/* 513 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78734,11 +78138,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 518 */
-=======
-/* 514 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -78777,11 +78177,7 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _ListGroupItem = __webpack_require__(519);
-=======
-	var _ListGroupItem = __webpack_require__(515);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _ListGroupItem = __webpack_require__(516);
 
 	var _ListGroupItem2 = _interopRequireDefault(_ListGroupItem);
 
@@ -78864,11 +78260,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 519 */
-=======
-/* 515 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79014,11 +78406,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 520 */
-=======
-/* 516 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79057,51 +78445,27 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _MediaBody = __webpack_require__(521);
+	var _MediaBody = __webpack_require__(518);
 
 	var _MediaBody2 = _interopRequireDefault(_MediaBody);
 
-	var _MediaHeading = __webpack_require__(522);
+	var _MediaHeading = __webpack_require__(519);
 
 	var _MediaHeading2 = _interopRequireDefault(_MediaHeading);
 
-	var _MediaLeft = __webpack_require__(523);
+	var _MediaLeft = __webpack_require__(520);
 
 	var _MediaLeft2 = _interopRequireDefault(_MediaLeft);
 
-	var _MediaList = __webpack_require__(524);
+	var _MediaList = __webpack_require__(521);
 
 	var _MediaList2 = _interopRequireDefault(_MediaList);
 
-	var _MediaListItem = __webpack_require__(525);
+	var _MediaListItem = __webpack_require__(522);
 
 	var _MediaListItem2 = _interopRequireDefault(_MediaListItem);
 
-	var _MediaRight = __webpack_require__(526);
-=======
-	var _MediaBody = __webpack_require__(517);
-
-	var _MediaBody2 = _interopRequireDefault(_MediaBody);
-
-	var _MediaHeading = __webpack_require__(518);
-
-	var _MediaHeading2 = _interopRequireDefault(_MediaHeading);
-
-	var _MediaLeft = __webpack_require__(519);
-
-	var _MediaLeft2 = _interopRequireDefault(_MediaLeft);
-
-	var _MediaList = __webpack_require__(520);
-
-	var _MediaList2 = _interopRequireDefault(_MediaList);
-
-	var _MediaListItem = __webpack_require__(521);
-
-	var _MediaListItem2 = _interopRequireDefault(_MediaListItem);
-
-	var _MediaRight = __webpack_require__(522);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _MediaRight = __webpack_require__(523);
 
 	var _MediaRight2 = _interopRequireDefault(_MediaRight);
 
@@ -79159,11 +78523,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 521 */
-=======
-/* 517 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79249,11 +78609,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 522 */
-=======
-/* 518 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79339,11 +78695,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 523 */
-=======
-/* 519 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79378,11 +78730,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _Media = __webpack_require__(520);
-=======
-	var _Media = __webpack_require__(516);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Media = __webpack_require__(517);
 
 	var _Media2 = _interopRequireDefault(_Media);
 
@@ -79436,11 +78784,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 524 */
-=======
-/* 520 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79510,11 +78854,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 525 */
-=======
-/* 521 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79584,11 +78924,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 526 */
-=======
-/* 522 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79623,11 +78959,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _Media = __webpack_require__(520);
-=======
-	var _Media = __webpack_require__(516);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Media = __webpack_require__(517);
 
 	var _Media2 = _interopRequireDefault(_Media);
 
@@ -79681,11 +79013,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 527 */
-=======
-/* 523 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79885,11 +79213,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 528 */
-=======
-/* 524 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -79920,11 +79244,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-<<<<<<< HEAD
-	var _events = __webpack_require__(529);
-=======
-	var _events = __webpack_require__(525);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _events = __webpack_require__(526);
 
 	var _events2 = _interopRequireDefault(_events);
 
@@ -79932,19 +79252,11 @@
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
-<<<<<<< HEAD
-	var _inDOM = __webpack_require__(478);
+	var _inDOM = __webpack_require__(472);
 
 	var _inDOM2 = _interopRequireDefault(_inDOM);
 
-	var _scrollbarSize = __webpack_require__(534);
-=======
-	var _inDOM = __webpack_require__(471);
-
-	var _inDOM2 = _interopRequireDefault(_inDOM);
-
-	var _scrollbarSize = __webpack_require__(528);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _scrollbarSize = __webpack_require__(529);
 
 	var _scrollbarSize2 = _interopRequireDefault(_scrollbarSize);
 
@@ -79956,19 +79268,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-	var _Modal = __webpack_require__(535);
+	var _Modal = __webpack_require__(530);
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
-	var _isOverflowing = __webpack_require__(553);
-=======
-	var _Modal = __webpack_require__(529);
-
-	var _Modal2 = _interopRequireDefault(_Modal);
-
-	var _isOverflowing = __webpack_require__(538);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _isOverflowing = __webpack_require__(539);
 
 	var _isOverflowing2 = _interopRequireDefault(_isOverflowing);
 
@@ -79976,51 +79280,27 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _Fade = __webpack_require__(504);
+	var _Fade = __webpack_require__(501);
 
 	var _Fade2 = _interopRequireDefault(_Fade);
 
-	var _ModalBody = __webpack_require__(558);
+	var _ModalBody = __webpack_require__(543);
 
 	var _ModalBody2 = _interopRequireDefault(_ModalBody);
 
-	var _ModalDialog = __webpack_require__(559);
+	var _ModalDialog = __webpack_require__(544);
 
 	var _ModalDialog2 = _interopRequireDefault(_ModalDialog);
 
-	var _ModalFooter = __webpack_require__(560);
+	var _ModalFooter = __webpack_require__(545);
 
 	var _ModalFooter2 = _interopRequireDefault(_ModalFooter);
 
-	var _ModalHeader = __webpack_require__(561);
+	var _ModalHeader = __webpack_require__(546);
 
 	var _ModalHeader2 = _interopRequireDefault(_ModalHeader);
 
-	var _ModalTitle = __webpack_require__(562);
-=======
-	var _Fade = __webpack_require__(500);
-
-	var _Fade2 = _interopRequireDefault(_Fade);
-
-	var _ModalBody = __webpack_require__(542);
-
-	var _ModalBody2 = _interopRequireDefault(_ModalBody);
-
-	var _ModalDialog = __webpack_require__(543);
-
-	var _ModalDialog2 = _interopRequireDefault(_ModalDialog);
-
-	var _ModalFooter = __webpack_require__(544);
-
-	var _ModalFooter2 = _interopRequireDefault(_ModalFooter);
-
-	var _ModalHeader = __webpack_require__(545);
-
-	var _ModalHeader2 = _interopRequireDefault(_ModalHeader);
-
-	var _ModalTitle = __webpack_require__(546);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _ModalTitle = __webpack_require__(547);
 
 	var _ModalTitle2 = _interopRequireDefault(_ModalTitle);
 
@@ -80030,11 +79310,7 @@
 
 	var _createChainedFunction2 = _interopRequireDefault(_createChainedFunction);
 
-<<<<<<< HEAD
-	var _splitComponentProps2 = __webpack_require__(503);
-=======
-	var _splitComponentProps2 = __webpack_require__(499);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _splitComponentProps2 = __webpack_require__(500);
 
 	var _splitComponentProps3 = _interopRequireDefault(_splitComponentProps2);
 
@@ -80285,86 +79561,24 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 529 */
+/* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var on = __webpack_require__(530),
-	    off = __webpack_require__(531),
-	    filter = __webpack_require__(532);
-=======
-/* 525 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var on = __webpack_require__(472),
-	    off = __webpack_require__(494),
-	    filter = __webpack_require__(526);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var on = __webpack_require__(473),
+	    off = __webpack_require__(495),
+	    filter = __webpack_require__(527);
 
 	module.exports = { on: on, off: off, filter: filter };
 
 /***/ },
-<<<<<<< HEAD
-/* 530 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var canUseDOM = __webpack_require__(478);
-	var on = function on() {};
-
-	if (canUseDOM) {
-	  on = (function () {
-
-	    if (document.addEventListener) return function (node, eventName, handler, capture) {
-	      return node.addEventListener(eventName, handler, capture || false);
-	    };else if (document.attachEvent) return function (node, eventName, handler) {
-	      return node.attachEvent('on' + eventName, handler);
-	    };
-	  })();
-	}
-
-	module.exports = on;
-
-/***/ },
-/* 531 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var canUseDOM = __webpack_require__(478);
-	var off = function off() {};
-
-	if (canUseDOM) {
-
-	  off = (function () {
-
-	    if (document.addEventListener) return function (node, eventName, handler, capture) {
-	      return node.removeEventListener(eventName, handler, capture || false);
-	    };else if (document.attachEvent) return function (node, eventName, handler) {
-	      return node.detachEvent('on' + eventName, handler);
-	    };
-	  })();
-	}
-
-	module.exports = off;
-
-/***/ },
-/* 532 */
-=======
-/* 526 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-<<<<<<< HEAD
 	var contains = __webpack_require__(477),
-	    qsa = __webpack_require__(533);
-=======
-	var contains = __webpack_require__(476),
-	    qsa = __webpack_require__(527);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	    qsa = __webpack_require__(528);
 
 	module.exports = function (selector, handler) {
 	  return function (e) {
@@ -80379,11 +79593,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 533 */
-=======
-/* 527 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 528 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -80415,20 +79625,12 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 534 */
-=======
-/* 528 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-<<<<<<< HEAD
-	var canUseDOM = __webpack_require__(478);
-=======
-	var canUseDOM = __webpack_require__(471);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var canUseDOM = __webpack_require__(472);
 
 	var size;
 
@@ -80453,11 +79655,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 535 */
-=======
-/* 529 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -80477,11 +79675,7 @@
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-<<<<<<< HEAD
-	var _componentOrElement = __webpack_require__(536);
-=======
-	var _componentOrElement = __webpack_require__(530);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _componentOrElement = __webpack_require__(531);
 
 	var _componentOrElement2 = _interopRequireDefault(_componentOrElement);
 
@@ -80489,43 +79683,23 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _Portal = __webpack_require__(537);
+	var _Portal = __webpack_require__(532);
 
 	var _Portal2 = _interopRequireDefault(_Portal);
 
-	var _ModalManager = __webpack_require__(539);
+	var _ModalManager = __webpack_require__(534);
 
 	var _ModalManager2 = _interopRequireDefault(_ModalManager);
 
-	var _ownerDocument = __webpack_require__(498);
+	var _ownerDocument = __webpack_require__(496);
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
-	var _addEventListener = __webpack_require__(496);
+	var _addEventListener = __webpack_require__(494);
 
 	var _addEventListener2 = _interopRequireDefault(_addEventListener);
 
-	var _addFocusListener = __webpack_require__(556);
-=======
-	var _Portal = __webpack_require__(531);
-
-	var _Portal2 = _interopRequireDefault(_Portal);
-
-	var _ModalManager = __webpack_require__(533);
-
-	var _ModalManager2 = _interopRequireDefault(_ModalManager);
-
-	var _ownerDocument = __webpack_require__(495);
-
-	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
-
-	var _addEventListener = __webpack_require__(493);
-
-	var _addEventListener2 = _interopRequireDefault(_addEventListener);
-
-	var _addFocusListener = __webpack_require__(541);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _addFocusListener = __webpack_require__(542);
 
 	var _addFocusListener2 = _interopRequireDefault(_addFocusListener);
 
@@ -80533,27 +79707,15 @@
 
 	var _inDOM2 = _interopRequireDefault(_inDOM);
 
-<<<<<<< HEAD
-	var _activeElement = __webpack_require__(557);
+	var _activeElement = __webpack_require__(475);
 
 	var _activeElement2 = _interopRequireDefault(_activeElement);
 
-	var _contains = __webpack_require__(495);
+	var _contains = __webpack_require__(477);
 
 	var _contains2 = _interopRequireDefault(_contains);
 
-	var _getContainer = __webpack_require__(538);
-=======
-	var _activeElement = __webpack_require__(474);
-
-	var _activeElement2 = _interopRequireDefault(_activeElement);
-
-	var _contains = __webpack_require__(476);
-
-	var _contains2 = _interopRequireDefault(_contains);
-
-	var _getContainer = __webpack_require__(532);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _getContainer = __webpack_require__(533);
 
 	var _getContainer2 = _interopRequireDefault(_getContainer);
 
@@ -81042,11 +80204,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 536 */
-=======
-/* 530 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81083,11 +80241,7 @@
 	exports.default = (0, _createChainableTypeChecker2.default)(validate);
 
 /***/ },
-<<<<<<< HEAD
-/* 537 */
-=======
-/* 531 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81104,27 +80258,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-	var _componentOrElement = __webpack_require__(536);
+	var _componentOrElement = __webpack_require__(531);
 
 	var _componentOrElement2 = _interopRequireDefault(_componentOrElement);
 
-	var _ownerDocument = __webpack_require__(498);
+	var _ownerDocument = __webpack_require__(496);
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
-	var _getContainer = __webpack_require__(538);
-=======
-	var _componentOrElement = __webpack_require__(530);
-
-	var _componentOrElement2 = _interopRequireDefault(_componentOrElement);
-
-	var _ownerDocument = __webpack_require__(495);
-
-	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
-
-	var _getContainer = __webpack_require__(532);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _getContainer = __webpack_require__(533);
 
 	var _getContainer2 = _interopRequireDefault(_getContainer);
 
@@ -81221,11 +80363,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 538 */
-=======
-/* 532 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81248,11 +80386,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 539 */
-=======
-/* 533 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81263,43 +80397,23 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-<<<<<<< HEAD
-	var _style = __webpack_require__(540);
+	var _style = __webpack_require__(462);
 
 	var _style2 = _interopRequireDefault(_style);
 
-	var _class = __webpack_require__(548);
+	var _class = __webpack_require__(535);
 
 	var _class2 = _interopRequireDefault(_class);
 
-	var _scrollbarSize = __webpack_require__(552);
+	var _scrollbarSize = __webpack_require__(529);
 
 	var _scrollbarSize2 = _interopRequireDefault(_scrollbarSize);
 
-	var _isOverflowing = __webpack_require__(553);
+	var _isOverflowing = __webpack_require__(539);
 
 	var _isOverflowing2 = _interopRequireDefault(_isOverflowing);
 
-	var _manageAriaHidden = __webpack_require__(555);
-=======
-	var _style = __webpack_require__(461);
-
-	var _style2 = _interopRequireDefault(_style);
-
-	var _class = __webpack_require__(534);
-
-	var _class2 = _interopRequireDefault(_class);
-
-	var _scrollbarSize = __webpack_require__(528);
-
-	var _scrollbarSize2 = _interopRequireDefault(_scrollbarSize);
-
-	var _isOverflowing = __webpack_require__(538);
-
-	var _isOverflowing2 = _interopRequireDefault(_isOverflowing);
-
-	var _manageAriaHidden = __webpack_require__(540);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _manageAriaHidden = __webpack_require__(541);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -81463,349 +80577,30 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 540 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = style;
-
-	var _camelizeStyle = __webpack_require__(541);
-
-	var _camelizeStyle2 = _interopRequireDefault(_camelizeStyle);
-
-	var _hyphenateStyle = __webpack_require__(543);
-
-	var _hyphenateStyle2 = _interopRequireDefault(_hyphenateStyle);
-
-	var _getComputedStyle2 = __webpack_require__(545);
-
-	var _getComputedStyle3 = _interopRequireDefault(_getComputedStyle2);
-
-	var _removeStyle = __webpack_require__(546);
-
-	var _removeStyle2 = _interopRequireDefault(_removeStyle);
-
-	var _properties = __webpack_require__(471);
-
-	var _isTransform = __webpack_require__(547);
-
-	var _isTransform2 = _interopRequireDefault(_isTransform);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function style(node, property, value) {
-	  var css = '';
-	  var transforms = '';
-	  var props = property;
-
-	  if (typeof property === 'string') {
-	    if (value === undefined) {
-	      return node.style[(0, _camelizeStyle2.default)(property)] || (0, _getComputedStyle3.default)(node).getPropertyValue((0, _hyphenateStyle2.default)(property));
-	    } else {
-	      (props = {})[property] = value;
-	    }
-	  }
-
-	  Object.keys(props).forEach(function (key) {
-	    var value = props[key];
-	    if (!value && value !== 0) {
-	      (0, _removeStyle2.default)(node, (0, _hyphenateStyle2.default)(key));
-	    } else if ((0, _isTransform2.default)(key)) {
-	      transforms += key + '(' + value + ') ';
-	    } else {
-	      css += (0, _hyphenateStyle2.default)(key) + ': ' + value + ';';
-	    }
-	  });
-
-	  if (transforms) {
-	    css += _properties.transform + ': ' + transforms + ';';
-	  }
-
-	  node.style.cssText += ';' + css;
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 541 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = camelizeStyleName;
-
-	var _camelize = __webpack_require__(542);
-
-	var _camelize2 = _interopRequireDefault(_camelize);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var msPattern = /^-ms-/; /**
-	                          * Copyright 2014-2015, Facebook, Inc.
-	                          * All rights reserved.
-	                          * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/camelizeStyleName.js
-	                          */
-	function camelizeStyleName(string) {
-	  return (0, _camelize2.default)(string.replace(msPattern, 'ms-'));
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 542 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = camelize;
-	var rHyphen = /-(.)/g;
-
-	function camelize(string) {
-	  return string.replace(rHyphen, function (_, chr) {
-	    return chr.toUpperCase();
-	  });
-	}
-	module.exports = exports["default"];
-
-/***/ },
-/* 543 */
-=======
-/* 534 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-<<<<<<< HEAD
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = hyphenateStyleName;
-
-	var _hyphenate = __webpack_require__(544);
-
-	var _hyphenate2 = _interopRequireDefault(_hyphenate);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var msPattern = /^ms-/; /**
-	                         * Copyright 2013-2014, Facebook, Inc.
-	                         * All rights reserved.
-	                         * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/hyphenateStyleName.js
-	                         */
-
-	function hyphenateStyleName(string) {
-	  return (0, _hyphenate2.default)(string).replace(msPattern, '-ms-');
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 544 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = hyphenate;
-
-	var rUpper = /([A-Z])/g;
-
-	function hyphenate(string) {
-	  return string.replace(rUpper, '-$1').toLowerCase();
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 545 */
-=======
 	module.exports = {
-	  addClass: __webpack_require__(535),
-	  removeClass: __webpack_require__(537),
-	  hasClass: __webpack_require__(536)
+	  addClass: __webpack_require__(536),
+	  removeClass: __webpack_require__(538),
+	  hasClass: __webpack_require__(537)
 	};
 
 /***/ },
-/* 535 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var hasClass = __webpack_require__(536);
+	var hasClass = __webpack_require__(537);
 
-<<<<<<< HEAD
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = _getComputedStyle;
-
-	var _camelizeStyle = __webpack_require__(541);
-
-	var _camelizeStyle2 = _interopRequireDefault(_camelizeStyle);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var rposition = /^(top|right|bottom|left)$/;
-	var rnumnonpx = /^([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|))(?!px)[a-z%]+$/i;
-
-	function _getComputedStyle(node) {
-	  if (!node) throw new TypeError('No Element passed to `getComputedStyle()`');
-	  var doc = node.ownerDocument;
-
-	  return 'defaultView' in doc ? doc.defaultView.opener ? node.ownerDocument.defaultView.getComputedStyle(node, null) : window.getComputedStyle(node, null) : {
-	    //ie 8 "magic" from: https://github.com/jquery/jquery/blob/1.11-stable/src/css/curCSS.js#L72
-	    getPropertyValue: function getPropertyValue(prop) {
-	      var style = node.style;
-
-	      prop = (0, _camelizeStyle2.default)(prop);
-
-	      if (prop == 'float') prop = 'styleFloat';
-
-	      var current = node.currentStyle[prop] || null;
-
-	      if (current == null && style && style[prop]) current = style[prop];
-
-	      if (rnumnonpx.test(current) && !rposition.test(prop)) {
-	        // Remember the original values
-	        var left = style.left;
-	        var runStyle = node.runtimeStyle;
-	        var rsLeft = runStyle && runStyle.left;
-
-	        // Put in the new values to get a computed value out
-	        if (rsLeft) runStyle.left = node.currentStyle.left;
-
-	        style.left = prop === 'fontSize' ? '1em' : current;
-	        current = style.pixelLeft + 'px';
-
-	        // Revert the changed values
-	        style.left = left;
-	        if (rsLeft) runStyle.left = rsLeft;
-	      }
-
-	      return current;
-	    }
-	  };
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 546 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = removeStyle;
-	function removeStyle(node, key) {
-	  return 'removeProperty' in node.style ? node.style.removeProperty(key) : node.style.removeAttribute(key);
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 547 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = isTransform;
-	var supportedTransforms = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i;
-
-	function isTransform(property) {
-	  return !!(property && supportedTransforms.test(property));
-	}
-	module.exports = exports["default"];
-
-/***/ },
-/* 548 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.hasClass = exports.removeClass = exports.addClass = undefined;
-
-	var _addClass = __webpack_require__(549);
-
-	var _addClass2 = _interopRequireDefault(_addClass);
-
-	var _removeClass = __webpack_require__(551);
-
-	var _removeClass2 = _interopRequireDefault(_removeClass);
-
-	var _hasClass = __webpack_require__(550);
-
-	var _hasClass2 = _interopRequireDefault(_hasClass);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.addClass = _addClass2.default;
-	exports.removeClass = _removeClass2.default;
-	exports.hasClass = _hasClass2.default;
-	exports.default = { addClass: _addClass2.default, removeClass: _removeClass2.default, hasClass: _hasClass2.default };
-
-/***/ },
-/* 549 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = addClass;
-
-	var _hasClass = __webpack_require__(550);
-
-	var _hasClass2 = _interopRequireDefault(_hasClass);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function addClass(element, className) {
-	  if (element.classList) element.classList.add(className);else if (!(0, _hasClass2.default)(element)) element.className = element.className + ' ' + className;
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 550 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = hasClass;
-	function hasClass(element, className) {
-	  if (element.classList) return !!className && element.classList.contains(className);else return (" " + element.className + " ").indexOf(" " + className + " ") !== -1;
-	}
-	module.exports = exports["default"];
-
-/***/ },
-/* 551 */
-=======
 	module.exports = function addClass(element, className) {
 	  if (element.classList) element.classList.add(className);else if (!hasClass(element)) element.className = element.className + ' ' + className;
 	};
 
 /***/ },
-/* 536 */
+/* 537 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -81814,8 +80609,7 @@
 	};
 
 /***/ },
-/* 537 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 538 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -81825,51 +80619,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 552 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	exports.default = function (recalc) {
-	  if (!size || recalc) {
-	    if (_inDOM2.default) {
-	      var scrollDiv = document.createElement('div');
-
-	      scrollDiv.style.position = 'absolute';
-	      scrollDiv.style.top = '-9999px';
-	      scrollDiv.style.width = '50px';
-	      scrollDiv.style.height = '50px';
-	      scrollDiv.style.overflow = 'scroll';
-
-	      document.body.appendChild(scrollDiv);
-	      size = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-	      document.body.removeChild(scrollDiv);
-	    }
-	  }
-
-	  return size;
-	};
-
-	var _inDOM = __webpack_require__(472);
-
-	var _inDOM2 = _interopRequireDefault(_inDOM);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var size = void 0;
-
-	module.exports = exports['default'];
-
-/***/ },
-/* 553 */
-=======
-/* 538 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81879,19 +80629,11 @@
 	});
 	exports.default = isOverflowing;
 
-<<<<<<< HEAD
-	var _isWindow = __webpack_require__(554);
+	var _isWindow = __webpack_require__(540);
 
 	var _isWindow2 = _interopRequireDefault(_isWindow);
 
-	var _ownerDocument = __webpack_require__(499);
-=======
-	var _isWindow = __webpack_require__(539);
-
-	var _isWindow2 = _interopRequireDefault(_isWindow);
-
-	var _ownerDocument = __webpack_require__(475);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _ownerDocument = __webpack_require__(476);
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
@@ -81923,11 +80665,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 554 */
-=======
-/* 539 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 540 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -81937,11 +80675,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 555 */
-=======
-/* 540 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 541 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -81995,11 +80729,7 @@
 	}
 
 /***/ },
-<<<<<<< HEAD
-/* 556 */
-=======
-/* 541 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 542 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -82035,37 +80765,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 557 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = activeElement;
-
-	var _ownerDocument = __webpack_require__(499);
-
-	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function activeElement() {
-	  var doc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _ownerDocument2.default)();
-
-	  try {
-	    return doc.activeElement;
-	  } catch (e) {/* ie throws if no active element */}
-	}
-	module.exports = exports['default'];
-
-/***/ },
-/* 558 */
-=======
-/* 542 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -82151,11 +80851,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 559 */
-=======
-/* 543 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -82260,11 +80956,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 560 */
-=======
-/* 544 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -82350,11 +81042,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 561 */
-=======
-/* 545 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -82491,11 +81179,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 562 */
-=======
-/* 546 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -82581,11 +81265,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 563 */
-=======
-/* 547 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 548 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -82616,11 +81296,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-<<<<<<< HEAD
-	var _keycode = __webpack_require__(479);
-=======
-	var _keycode = __webpack_require__(477);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _keycode = __webpack_require__(478);
 
 	var _keycode2 = _interopRequireDefault(_keycode);
 
@@ -82993,11 +81669,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 564 */
-=======
-/* 548 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -83036,51 +81708,27 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _uncontrollable = __webpack_require__(481);
+	var _uncontrollable = __webpack_require__(480);
 
 	var _uncontrollable2 = _interopRequireDefault(_uncontrollable);
 
-	var _Grid = __webpack_require__(510);
+	var _Grid = __webpack_require__(507);
 
 	var _Grid2 = _interopRequireDefault(_Grid);
 
-	var _NavbarBrand = __webpack_require__(565);
+	var _NavbarBrand = __webpack_require__(550);
 
 	var _NavbarBrand2 = _interopRequireDefault(_NavbarBrand);
 
-	var _NavbarCollapse = __webpack_require__(566);
+	var _NavbarCollapse = __webpack_require__(551);
 
 	var _NavbarCollapse2 = _interopRequireDefault(_NavbarCollapse);
 
-	var _NavbarHeader = __webpack_require__(567);
+	var _NavbarHeader = __webpack_require__(552);
 
 	var _NavbarHeader2 = _interopRequireDefault(_NavbarHeader);
 
-	var _NavbarToggle = __webpack_require__(568);
-=======
-	var _uncontrollable = __webpack_require__(479);
-
-	var _uncontrollable2 = _interopRequireDefault(_uncontrollable);
-
-	var _Grid = __webpack_require__(506);
-
-	var _Grid2 = _interopRequireDefault(_Grid);
-
-	var _NavbarBrand = __webpack_require__(549);
-
-	var _NavbarBrand2 = _interopRequireDefault(_NavbarBrand);
-
-	var _NavbarCollapse = __webpack_require__(550);
-
-	var _NavbarCollapse2 = _interopRequireDefault(_NavbarCollapse);
-
-	var _NavbarHeader = __webpack_require__(551);
-
-	var _NavbarHeader2 = _interopRequireDefault(_NavbarHeader);
-
-	var _NavbarToggle = __webpack_require__(552);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _NavbarToggle = __webpack_require__(553);
 
 	var _NavbarToggle2 = _interopRequireDefault(_NavbarToggle);
 
@@ -83352,11 +82000,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 565 */
-=======
-/* 549 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -83441,11 +82085,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 566 */
-=======
-/* 550 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -83528,11 +82168,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 567 */
-=======
-/* 551 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -83606,11 +82242,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 568 */
-=======
-/* 552 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -83725,11 +82357,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 569 */
-=======
-/* 553 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -83768,11 +82396,7 @@
 
 	var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
-<<<<<<< HEAD
-	var _splitComponentProps2 = __webpack_require__(503);
-=======
-	var _splitComponentProps2 = __webpack_require__(499);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _splitComponentProps2 = __webpack_require__(500);
 
 	var _splitComponentProps3 = _interopRequireDefault(_splitComponentProps2);
 
@@ -83879,11 +82503,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 570 */
-=======
-/* 554 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -84014,11 +82634,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 571 */
-=======
-/* 555 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -84053,11 +82669,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _Overlay = __webpack_require__(572);
-=======
-	var _Overlay = __webpack_require__(556);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Overlay = __webpack_require__(557);
 
 	var _Overlay2 = _interopRequireDefault(_Overlay);
 
@@ -84065,11 +82677,7 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _Fade = __webpack_require__(504);
-=======
-	var _Fade = __webpack_require__(500);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Fade = __webpack_require__(501);
 
 	var _Fade2 = _interopRequireDefault(_Fade);
 
@@ -84185,11 +82793,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 572 */
-=======
-/* 556 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -84206,27 +82810,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _Portal = __webpack_require__(537);
+	var _Portal = __webpack_require__(532);
 
 	var _Portal2 = _interopRequireDefault(_Portal);
 
-	var _Position = __webpack_require__(573);
+	var _Position = __webpack_require__(558);
 
 	var _Position2 = _interopRequireDefault(_Position);
 
-	var _RootCloseWrapper = __webpack_require__(494);
-=======
-	var _Portal = __webpack_require__(531);
-
-	var _Portal2 = _interopRequireDefault(_Portal);
-
-	var _Position = __webpack_require__(557);
-
-	var _Position2 = _interopRequireDefault(_Position);
-
-	var _RootCloseWrapper = __webpack_require__(492);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _RootCloseWrapper = __webpack_require__(493);
 
 	var _RootCloseWrapper2 = _interopRequireDefault(_RootCloseWrapper);
 
@@ -84433,11 +83025,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 573 */
-=======
-/* 557 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -84462,35 +83050,19 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-	var _componentOrElement = __webpack_require__(536);
+	var _componentOrElement = __webpack_require__(531);
 
 	var _componentOrElement2 = _interopRequireDefault(_componentOrElement);
 
-	var _calculatePosition = __webpack_require__(574);
+	var _calculatePosition = __webpack_require__(559);
 
 	var _calculatePosition2 = _interopRequireDefault(_calculatePosition);
 
-	var _getContainer = __webpack_require__(538);
+	var _getContainer = __webpack_require__(533);
 
 	var _getContainer2 = _interopRequireDefault(_getContainer);
 
-	var _ownerDocument = __webpack_require__(498);
-=======
-	var _componentOrElement = __webpack_require__(530);
-
-	var _componentOrElement2 = _interopRequireDefault(_componentOrElement);
-
-	var _calculatePosition = __webpack_require__(558);
-
-	var _calculatePosition2 = _interopRequireDefault(_calculatePosition);
-
-	var _getContainer = __webpack_require__(532);
-
-	var _getContainer2 = _interopRequireDefault(_getContainer);
-
-	var _ownerDocument = __webpack_require__(495);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _ownerDocument = __webpack_require__(496);
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
@@ -84667,11 +83239,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 574 */
-=======
-/* 558 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -84681,35 +83249,19 @@
 	});
 	exports.default = calculatePosition;
 
-<<<<<<< HEAD
-	var _offset = __webpack_require__(575);
+	var _offset = __webpack_require__(560);
 
 	var _offset2 = _interopRequireDefault(_offset);
 
-	var _position = __webpack_require__(576);
+	var _position = __webpack_require__(561);
 
 	var _position2 = _interopRequireDefault(_position);
 
-	var _scrollTop = __webpack_require__(578);
+	var _scrollTop = __webpack_require__(563);
 
 	var _scrollTop2 = _interopRequireDefault(_scrollTop);
 
-	var _ownerDocument = __webpack_require__(498);
-=======
-	var _offset = __webpack_require__(559);
-
-	var _offset2 = _interopRequireDefault(_offset);
-
-	var _position = __webpack_require__(560);
-
-	var _position2 = _interopRequireDefault(_position);
-
-	var _scrollTop = __webpack_require__(562);
-
-	var _scrollTop2 = _interopRequireDefault(_scrollTop);
-
-	var _ownerDocument = __webpack_require__(495);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _ownerDocument = __webpack_require__(496);
 
 	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
 
@@ -84819,46 +83371,17 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 575 */
-=======
-/* 559 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var contains = __webpack_require__(476),
-	    getWindow = __webpack_require__(539),
-	    ownerDocument = __webpack_require__(475);
+	var contains = __webpack_require__(477),
+	    getWindow = __webpack_require__(540),
+	    ownerDocument = __webpack_require__(476);
 
-<<<<<<< HEAD
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = offset;
-
-	var _contains = __webpack_require__(495);
-
-	var _contains2 = _interopRequireDefault(_contains);
-
-	var _isWindow = __webpack_require__(554);
-
-	var _isWindow2 = _interopRequireDefault(_isWindow);
-
-	var _ownerDocument = __webpack_require__(499);
-
-	var _ownerDocument2 = _interopRequireDefault(_ownerDocument);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function offset(node) {
-	  var doc = (0, _ownerDocument2.default)(node),
-	      win = (0, _isWindow2.default)(doc),
-=======
 	module.exports = function offset(node) {
 	  var doc = ownerDocument(node),
 	      win = getWindow(doc),
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 	      docElem = doc && doc.documentElement,
 	      box = { top: 0, left: 0, height: 0, width: 0 };
 
@@ -84883,57 +83406,33 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 576 */
-=======
-/* 560 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var babelHelpers = __webpack_require__(467);
+	var babelHelpers = __webpack_require__(468);
 
 	exports.__esModule = true;
 	exports['default'] = position;
 
-<<<<<<< HEAD
-	var _offset = __webpack_require__(575);
-=======
-	var _offset = __webpack_require__(559);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _offset = __webpack_require__(560);
 
 	var _offset2 = babelHelpers.interopRequireDefault(_offset);
 
-<<<<<<< HEAD
-	var _offsetParent = __webpack_require__(577);
-=======
-	var _offsetParent = __webpack_require__(561);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _offsetParent = __webpack_require__(562);
 
 	var _offsetParent2 = babelHelpers.interopRequireDefault(_offsetParent);
 
-<<<<<<< HEAD
-	var _scrollTop = __webpack_require__(578);
-=======
-	var _scrollTop = __webpack_require__(562);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _scrollTop = __webpack_require__(563);
 
 	var _scrollTop2 = babelHelpers.interopRequireDefault(_scrollTop);
 
-<<<<<<< HEAD
-	var _scrollLeft = __webpack_require__(579);
-=======
-	var _scrollLeft = __webpack_require__(563);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _scrollLeft = __webpack_require__(564);
 
 	var _scrollLeft2 = babelHelpers.interopRequireDefault(_scrollLeft);
 
-<<<<<<< HEAD
-	var _style = __webpack_require__(540);
-=======
-	var _style = __webpack_require__(461);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _style = __webpack_require__(462);
 
 	var _style2 = babelHelpers.interopRequireDefault(_style);
 
@@ -84969,33 +83468,21 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 577 */
-=======
-/* 561 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 562 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var babelHelpers = __webpack_require__(467);
+	var babelHelpers = __webpack_require__(468);
 
-<<<<<<< HEAD
-	var _ownerDocument = __webpack_require__(499);
-=======
 	exports.__esModule = true;
 	exports['default'] = offsetParent;
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 
-	var _ownerDocument = __webpack_require__(475);
+	var _ownerDocument = __webpack_require__(476);
 
-<<<<<<< HEAD
-	var _style = __webpack_require__(540);
-=======
 	var _ownerDocument2 = babelHelpers.interopRequireDefault(_ownerDocument);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 
-	var _style = __webpack_require__(461);
+	var _style = __webpack_require__(462);
 
 	var _style2 = babelHelpers.interopRequireDefault(_style);
 
@@ -85017,34 +83504,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 578 */
-=======
-/* 562 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var getWindow = __webpack_require__(539);
+	var getWindow = __webpack_require__(540);
 
-<<<<<<< HEAD
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = scrollTop;
-
-	var _isWindow = __webpack_require__(554);
-
-	var _isWindow2 = _interopRequireDefault(_isWindow);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function scrollTop(node, val) {
-	  var win = (0, _isWindow2.default)(node);
-=======
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 
 	  if (val === undefined) return win ? 'pageYOffset' in win ? win.pageYOffset : win.document.documentElement.scrollTop : node.scrollTop;
 
@@ -85052,34 +83519,14 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 579 */
-=======
-/* 563 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var getWindow = __webpack_require__(539);
+	var getWindow = __webpack_require__(540);
 
-<<<<<<< HEAD
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = scrollTop;
-
-	var _isWindow = __webpack_require__(554);
-
-	var _isWindow2 = _interopRequireDefault(_isWindow);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function scrollTop(node, val) {
-	  var win = (0, _isWindow2.default)(node);
-=======
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 
 	  if (val === undefined) return win ? 'pageXOffset' in win ? win.pageXOffset : win.document.documentElement.scrollLeft : node.scrollLeft;
 
@@ -85087,11 +83534,7 @@
 	};
 
 /***/ },
-<<<<<<< HEAD
-/* 580 */
-=======
-/* 564 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -85134,11 +83577,7 @@
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-<<<<<<< HEAD
-	var _Overlay = __webpack_require__(571);
-=======
-	var _Overlay = __webpack_require__(555);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Overlay = __webpack_require__(556);
 
 	var _Overlay2 = _interopRequireDefault(_Overlay);
 
@@ -85447,11 +83886,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 581 */
-=======
-/* 565 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 566 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -85530,30 +83965,18 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 582 */
-=======
-/* 566 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 567 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-<<<<<<< HEAD
-	var _PagerItem = __webpack_require__(583);
+	var _PagerItem = __webpack_require__(568);
 
 	var _PagerItem2 = _interopRequireDefault(_PagerItem);
 
-	var _deprecationWarning = __webpack_require__(584);
-=======
-	var _PagerItem = __webpack_require__(567);
-
-	var _PagerItem2 = _interopRequireDefault(_PagerItem);
-
-	var _deprecationWarning = __webpack_require__(568);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _deprecationWarning = __webpack_require__(569);
 
 	var _deprecationWarning2 = _interopRequireDefault(_deprecationWarning);
 
@@ -85563,11 +83986,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 583 */
-=======
-/* 567 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -85696,11 +84115,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 584 */
-=======
-/* 568 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 569 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -85792,11 +84207,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 585 */
-=======
-/* 569 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 570 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -85831,11 +84242,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _PagerItem = __webpack_require__(583);
-=======
-	var _PagerItem = __webpack_require__(567);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _PagerItem = __webpack_require__(568);
 
 	var _PagerItem2 = _interopRequireDefault(_PagerItem);
 
@@ -85900,11 +84307,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 586 */
-=======
-/* 570 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -85943,11 +84346,7 @@
 
 	var _elementType2 = _interopRequireDefault(_elementType);
 
-<<<<<<< HEAD
-	var _PaginationButton = __webpack_require__(587);
-=======
-	var _PaginationButton = __webpack_require__(571);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _PaginationButton = __webpack_require__(572);
 
 	var _PaginationButton2 = _interopRequireDefault(_PaginationButton);
 
@@ -86212,11 +84611,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 587 */
-=======
-/* 571 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 572 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -86354,11 +84749,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 588 */
-=======
-/* 572 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -86623,11 +85014,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 589 */
-=======
-/* 573 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -86662,11 +85049,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _isRequiredForA11y = __webpack_require__(480);
-=======
-	var _isRequiredForA11y = __webpack_require__(478);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _isRequiredForA11y = __webpack_require__(479);
 
 	var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
 
@@ -86786,11 +85169,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 590 */
-=======
-/* 574 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -86994,11 +85373,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 591 */
-=======
-/* 575 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -87139,11 +85514,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 592 */
-=======
-/* 576 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -87255,11 +85626,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 593 */
-=======
-/* 577 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87345,11 +85712,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 594 */
-=======
-/* 578 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87388,19 +85751,11 @@
 
 	var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
-<<<<<<< HEAD
-	var _SplitToggle = __webpack_require__(595);
+	var _SplitToggle = __webpack_require__(580);
 
 	var _SplitToggle2 = _interopRequireDefault(_SplitToggle);
 
-	var _splitComponentProps2 = __webpack_require__(503);
-=======
-	var _SplitToggle = __webpack_require__(579);
-
-	var _SplitToggle2 = _interopRequireDefault(_SplitToggle);
-
-	var _splitComponentProps2 = __webpack_require__(499);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _splitComponentProps2 = __webpack_require__(500);
 
 	var _splitComponentProps3 = _interopRequireDefault(_splitComponentProps2);
 
@@ -87489,11 +85844,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 595 */
-=======
-/* 579 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87520,11 +85871,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _DropdownToggle = __webpack_require__(500);
-=======
-	var _DropdownToggle = __webpack_require__(496);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _DropdownToggle = __webpack_require__(497);
 
 	var _DropdownToggle2 = _interopRequireDefault(_DropdownToggle);
 
@@ -87554,11 +85901,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 596 */
-=======
-/* 580 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87585,27 +85928,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _TabContainer = __webpack_require__(597);
+	var _TabContainer = __webpack_require__(582);
 
 	var _TabContainer2 = _interopRequireDefault(_TabContainer);
 
-	var _TabContent = __webpack_require__(598);
+	var _TabContent = __webpack_require__(583);
 
 	var _TabContent2 = _interopRequireDefault(_TabContent);
 
-	var _TabPane = __webpack_require__(599);
-=======
-	var _TabContainer = __webpack_require__(581);
-
-	var _TabContainer2 = _interopRequireDefault(_TabContainer);
-
-	var _TabContent = __webpack_require__(582);
-
-	var _TabContent2 = _interopRequireDefault(_TabContent);
-
-	var _TabPane = __webpack_require__(583);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _TabPane = __webpack_require__(584);
 
 	var _TabPane2 = _interopRequireDefault(_TabPane);
 
@@ -87655,11 +85986,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 597 */
-=======
-/* 581 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -87686,11 +86013,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _uncontrollable = __webpack_require__(481);
-=======
-	var _uncontrollable = __webpack_require__(479);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _uncontrollable = __webpack_require__(480);
 
 	var _uncontrollable2 = _interopRequireDefault(_uncontrollable);
 
@@ -87819,11 +86142,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 598 */
-=======
-/* 582 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88033,11 +86352,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 599 */
-=======
-/* 583 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -88086,11 +86401,7 @@
 
 	var _createChainedFunction2 = _interopRequireDefault(_createChainedFunction);
 
-<<<<<<< HEAD
-	var _Fade = __webpack_require__(504);
-=======
-	var _Fade = __webpack_require__(500);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _Fade = __webpack_require__(501);
 
 	var _Fade2 = _interopRequireDefault(_Fade);
 
@@ -88354,11 +86665,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-<<<<<<< HEAD
-/* 600 */
-=======
-/* 584 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 585 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88464,11 +86771,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 601 */
-=======
-/* 585 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88499,51 +86802,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _isRequiredForA11y = __webpack_require__(480);
+	var _isRequiredForA11y = __webpack_require__(479);
 
 	var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
 
-	var _uncontrollable = __webpack_require__(481);
+	var _uncontrollable = __webpack_require__(480);
 
 	var _uncontrollable2 = _interopRequireDefault(_uncontrollable);
 
-	var _Nav = __webpack_require__(563);
+	var _Nav = __webpack_require__(548);
 
 	var _Nav2 = _interopRequireDefault(_Nav);
 
-	var _NavItem = __webpack_require__(570);
+	var _NavItem = __webpack_require__(555);
 
 	var _NavItem2 = _interopRequireDefault(_NavItem);
 
-	var _TabContainer = __webpack_require__(597);
+	var _TabContainer = __webpack_require__(582);
 
 	var _TabContainer2 = _interopRequireDefault(_TabContainer);
 
-	var _TabContent = __webpack_require__(598);
-=======
-	var _isRequiredForA11y = __webpack_require__(478);
-
-	var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
-
-	var _uncontrollable = __webpack_require__(479);
-
-	var _uncontrollable2 = _interopRequireDefault(_uncontrollable);
-
-	var _Nav = __webpack_require__(547);
-
-	var _Nav2 = _interopRequireDefault(_Nav);
-
-	var _NavItem = __webpack_require__(554);
-
-	var _NavItem2 = _interopRequireDefault(_NavItem);
-
-	var _TabContainer = __webpack_require__(581);
-
-	var _TabContainer2 = _interopRequireDefault(_TabContainer);
-
-	var _TabContent = __webpack_require__(582);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _TabContent = __webpack_require__(583);
 
 	var _TabContent2 = _interopRequireDefault(_TabContent);
 
@@ -88700,11 +86979,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 602 */
-=======
-/* 586 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88799,11 +87074,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 603 */
-=======
-/* 587 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88838,11 +87109,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
-	var _isRequiredForA11y = __webpack_require__(480);
-=======
-	var _isRequiredForA11y = __webpack_require__(478);
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+	var _isRequiredForA11y = __webpack_require__(479);
 
 	var _isRequiredForA11y2 = _interopRequireDefault(_isRequiredForA11y);
 
@@ -88950,11 +87217,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 604 */
-=======
-/* 588 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -89026,11 +87289,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 605 */
-=======
-/* 589 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -89059,52 +87318,7 @@
 	exports.ValidComponentChildren = _ValidComponentChildren3['default'];
 
 /***/ },
-<<<<<<< HEAD
-/* 606 */
-=======
-/* 590 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.receiveForm = undefined;
-
-	var _axios = __webpack_require__(229);
-
-	var _axios2 = _interopRequireDefault(_axios);
-
-	var _const = __webpack_require__(213);
-
-	var con = _interopRequireWildcard(_const);
-
-	var _db = __webpack_require__(254);
-
-	var _db2 = _interopRequireDefault(_db);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var receiveForm = exports.receiveForm = function receiveForm(subject, text) {
-	    return (0, _axios2.default)({
-	        method: 'post',
-	        url: 'http://localhost:3000/email',
-	        data: {
-	            to: 'nensivalentina@gmail.com',
-	            subject: subject,
-	            text: text
-	        }
-	    });
-	};
-
-	exports.default = receiveForm;
-
-/***/ },
 /* 591 */
->>>>>>> 8acaee2a3ece3debf22079c6ddbe9c469cae1c15
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
