@@ -1409,6 +1409,12 @@ class Form extends Component {
         else if(this.props.index==2) {
             return this.form2()
         }
+        else if(this.props.index==3) {
+            return this.form3()
+        }
+        else {
+            return this.form4()
+        }
     }
 
     handleSubmit(e) {
