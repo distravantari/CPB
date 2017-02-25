@@ -4,7 +4,7 @@ import * as constant from 'app_path/actions/const'
 import fetchSocial from 'app_path/actions/Social'
 
 class Sidebar extends React.Component{
-  
+
   componentWillMount(){
     this.props.getTwitterConfig(this)
     this.props.twitterWidget()
@@ -21,14 +21,18 @@ class Sidebar extends React.Component{
       <aside className="col-md-3 col-sm-12">
 
         <div className="hidden-xs hidden-sm hidden-md hidden-lg"></div>
-        
+
         <div id="twitter" className="col-md-12 col-sm-6">
-          <h4 > { this.props.twitter.TITTLE } <i className="fa fa-refresh" id="refresh" onClick={() => this.refresh()}></i> </h4> 
+          <h4 > { this.props.twitter.TITTLE } <i className="fa fa-refresh" id="refresh" onClick={() => this.refresh()}></i> </h4>
           <div>
-            <a  className="twitter-timeline" href="https://twitter.com/valentinancy" data-widget-id={ this.props.twitter.WIDGET_ID } 
-                data-link-color={ this.props.twitter.LINK_COLOR } data-chrome={ this.props.twitter.DATA_CHROME } 
+            {/*<a  className="twitter-timeline" href="https://twitter.com/valentinancy" data-widget-id={ this.props.twitter.WIDGET_ID }
+                data-link-color={ this.props.twitter.LINK_COLOR } data-chrome={ this.props.twitter.DATA_CHROME }
                 lang={ this.props.twitter.LANG } data-tweet-limit={ this.props.twitter.LIMIT }>
+            </a>*/}
+            <a className="twitter-timeline" href="https://twitter.com/Balizeetnb">
+              Tweets by TwitterDev
             </a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
         </div>
 
