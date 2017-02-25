@@ -66,7 +66,6 @@ const Main = ( {contact, facebook, addToMail, receiveForm, map} ) => {
 }
 
 export const ContactDetail = ({ contact, facebook }) => {
-  console.log("facebook url",facebook)
   return (
     <div className="col-md-6 col-sm-6">
       <h3>Contact details</h3>
@@ -100,7 +99,7 @@ export const ContactDetail = ({ contact, facebook }) => {
           <i className="fa fa-whatsapp"></i>
           <div>
             <p><span>Whatsapp:</span> { contact.WHATSAPP[0] } </p>
-            
+
           </div>
         </li>
         <li>
@@ -138,7 +137,6 @@ export class GetInTouch extends React.Component {
       alert('success, thank you for subsribing us');
       let message = "Name: " + this.nameRef.value + "\nEmail: " + this.emailRef.value + "\nMessage: " + this.textRef.value
       let subj = "Form Get in Touch"
-      console.log("udah", message)
       this.props.receiveForm(subj,message)
         .then(() => {
             console.log('berhasil nih kak')
@@ -194,7 +192,6 @@ export class GetInTouch extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state facebook",state)
     return {
       contact: state.feature.contact[0],
       facebook: state.social.facebook,

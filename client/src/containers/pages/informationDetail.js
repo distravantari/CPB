@@ -47,7 +47,6 @@ class Trip extends React.Component{
     if(this.props.location.search.split('&')[1]){
       hal = this.props.location.search.split('&')[1]
     }
-    console.log("hal di render", hal)
     let detail = this.props.routes[1].path.split("-")[0]
     let index = this.props.location.search.split('?')[1].split('&')[0]
     return(
@@ -76,7 +75,6 @@ const Video = ({ trip }) => {
 
 const Desc = ({ detail, voucher, trip, context, hal }) => {
     if((detail == "/Trip") && (hal=="kosong")){
-      console.log("halalala",hal)
       const url = trip.URL
       return (
           <div>
@@ -139,8 +137,6 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
       )
     }
     else {
-      console.log("hal di else", hal)
-      console.log('trip .. ', trip.CHILD.list+" dx "+hal)
       return(
         <div>
             <div className="post-slider col-md-12 col-sm-12">

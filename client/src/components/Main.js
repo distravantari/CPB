@@ -27,7 +27,6 @@ class Content extends React.Component{
 
   render(){
     if(!this.props.vouchers || !this.props.social ) return (<h1> Loading ... </h1>)
-    console.log("instagram", this.props.social.instagram)
     return (
       <div className="col-md-9 col-sm-12 list-page">
 
@@ -70,7 +69,6 @@ const Vouchers = ({ vouchers, url }) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log("social main", state.social)
     return {
       contact: state.feature.contact[0],
       vouchers: state.feature.vouchers[0],
