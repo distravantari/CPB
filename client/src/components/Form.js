@@ -1188,18 +1188,22 @@ class Form extends Component {
                 this.setState({
                     name4: e.target.value
                 })
+                break
             case 'national4':
                 this.setState({
                     national4: e.target.value
                 })
+                break
             case 'telp4':
                 this.setState({
                     telp4: e.target.value
                 })
+                break
             case 'email4':
                 this.setState({
                     email4: e.target.value
                 })
+                break
              case 'startdate4':
                 let startdate4 = e.split('T')[0]
                 this.setState({
@@ -1210,7 +1214,8 @@ class Form extends Component {
                 this.setState({
                     starttime4: e.target.value
                 })
-             case 'enddate4':
+                break
+            case 'enddate4':
                 let enddate4 = e.split('T')[0]
                 this.setState({
                     enddate4: enddate4  
@@ -1220,182 +1225,227 @@ class Form extends Component {
                 this.setState({
                     endtime4: e.target.value
                 })
+                break
             case 'tentative4':
                 this.setState({
                     tentative4: " *still tentative\n"
                 })
+                break
             case 'numroom4':
                 this.setState({
                     numroom4: e.target.value
                 })
+                break
             case 'esti4':
                 this.setState({
                     esti4: e.target.value
                 })
+                break
             case 'beachfront4':
                 this.setState({
                     beachfront4: " Beach front\n"
                 })
+                break
             case 'business4':
                 this.setState({
                     business4: " Business facilities\n"
                 })
+                break
             case 'golfcourse4':
                 this.setState({
                     golfcourse4: " Golf Course\n"
                 })
+                break
             case 'kidsfam4':
                 this.setState({
                     kidsfam4: " Kids/Family Friendly\n"
                 })
+                break
             case 'nearthebeach4':
                 this.setState({
                     nearthebeach4: " Near The Beach\n"
                 })
+                break
             case 'nearmountain4':
                 this.setState({
                     nearmountain4: " Near Mountain\n"
                 })
+                break
             case 'nearrestaurant4':
                 this.setState({
                     nearrestaurant4: " Near Restaurant\n"
                 })
+                break
             case 'heart4':
                 this.setState({
                     heart4: " Heart of the City\n"
                 })
+                break
             case 'tranquil4':
                 this.setState({
                     tranquil4: " Tranquil Area\n"
                 })
+                break
             case 'nearnight4':
                 this.setState({
                     nearnight4: " Near Nightclub\n"
                 })
+                break
             case 'family4':
                 this.setState({
                     family4: " Family Room\n"
                 })
+                break
             case 'fitness4':
                 this.setState({
                     fitness4: " Fitness Centre\n"
                 })
+                break
             case 'pool4':
                 this.setState({
                     pool4: " Pool\n"
                 })
+                break
             case 'private4':
                 this.setState({
                     private4: " Private Pool\n"
                 })
+                break
             case 'wifi4':
                 this.setState({
                     wifi4: " WIFI\n"
                 })
+                break
             case 'nonsmoking4':
                 this.setState({
                     nonsmoking4: " Non-smoking room\n"
                 })
+                break
             case 'smoking4':
                 this.setState({
                     smoking4: " Smoking room\n"
                 })
+                break
             case 'spa4':
                 this.setState({
                     spa4: " Spa & Wellness Center\n"
                 })
+                break
             case 'rest4':
                 this.setState({
                     rest4: " Restaurant\n"
                 })
+                break
             case 'otherrequest4':
                 this.setState({
                     otherrequest4: e.target.value
                 })
+                break
             case 'transporty4':
                 this.setState({
                     transporty4: " yes, we need a transportation\n"
                 })
+                break
             case 'transportn4':
                 this.setState({
                     transportn4: " no, we don't need a transportation\n"
                 })
+                break
             case 'dettransport4':
                 this.setState({
                     dettransport4: e.target.value
                 })
+                break
             case 'toursy4':
                 this.setState({
                     toursy4: " yes, we need a tour\n"
                 })
+                break
             case 'toursn4':
                 this.setState({
                     toursn4: " no, we dont need a tour\n"
                 })
+                break
             case 'dettours4':
                 this.setState({
                     dettours4: e.target.value
                 })
+                break
             case 'acty4':
                 this.setState({
                     acty4: " yes, we need an activities\n"
                 })
+                break
             case 'actn4':
                 this.setState({
                     actn4: " no, we don't need an activites\n"
                 })
+                break
             case 'detact4':
                 this.setState({
                     detact4: e.target.value
                 })
+                break
             case 'mealsy4':
                 this.setState({
                     mealsy4: " yes, we need meals\n"
                 })
+                break
             case 'mealsn4':
                 this.setState({
                     mealsn4: " no, we don't need meals\n"
                 })
+                break
             case 'breakfast4':
                 this.setState({
                     breakfast4: " Breakfast included\n"
                 })
+                break
             case 'half4':
                 this.setState({
                     half4: " Halfboard Included\n" 
                 })
+                break
             case 'full4':
                 this.setState({
                     full4: " Fullboard\n"  
                 })
+                break
             case 'budget4':
                 this.setState({
                     budget4: e.target.value
                 })
+                break
             case 'remarks4':
                 this.setState({
                     remarks4: e.target.value
                 })
+                break
             case 'name5':
                 this.setState({
                     name5: e.target.value
                 })
+                break
             case 'national5':
                 this.setState({
                     national5: e.target.value
                 })
+                break
             case 'telp5':
                 this.setState({
                     telp5: e.target.value
                 })
+                break
             case 'email5':
                 this.setState({
                     email5: e.target.value
                 })
+                break
             case 'message5':
                 this.setState({
                     message5: e.target.value
                 })
+                break
         }
     }
 
@@ -2461,28 +2511,27 @@ class Form extends Component {
                 </div>
                 <br/>
                 <form className="form-div">
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label for="name">Name :</label>
-                            <input type="text" className="form-control" value={this.state.name5} onChange={(e) => this.handleChange(e,'name5')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="name">Nationality :</label>
-                            <input type="text" className="form-control" value={this.state.national5} onChange={(e) => this.handleChange(e,'national5')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="phone">Telephone :</label>
-                            <input type="number" className="form-control" value={this.state.telp5} onChange={(e) => this.handleChange(e,'telp5')} id="phone" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="email">E-mail :</label>
-                            <input type="email" className="form-control" value={this.state.email5} onChange={(e) => this.handleChange(e,'email5')} id="email" required/>
-                        </div>
+                    <div className="form-group">
+                        <label for="name">Name :</label>
+                        <input type="text" className="form-control" value={this.state.name5} onChange={(e) => this.handleChange(e,'name5')} id="name" required/>
+                    </div>
+                    <div className="form-group">
+                        <label for="name">Nationality :</label>
+                        <input type="text" className="form-control" value={this.state.national5} onChange={(e) => this.handleChange(e,'national5')} id="name" required/>
+                    </div>
+                    <div className="form-group">
+                        <label for="phone">Telephone :</label>
+                        <input type="number" className="form-control" value={this.state.telp5} onChange={(e) => this.handleChange(e,'telp5')} id="phone" required/>
+                    </div>
+                    <div className="form-group">
+                        <label for="email">E-mail :</label>
+                        <input type="email" className="form-control" value={this.state.email5} onChange={(e) => this.handleChange(e,'email5')} id="email" required/>
                     </div>
                     <div className="form-group">
                         <label for="email">Your Message :</label>
                         <input type="text" className="form-control" value={this.state.message5} onChange={(e) => this.handleChange(e,'message5')} id="email" required/>
                     </div>
+                    <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
                 </form>
             </div>
         )

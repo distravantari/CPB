@@ -63,7 +63,7 @@ class Trip extends React.Component{
   }
  }
 
-const Video = ({ trip, video }) => {
+const Video = ({ video }) => {
   if(video) {
     return(
       <div className="text-center video">
@@ -132,7 +132,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
     else if(detail == "/Voucher"){
       return (
           <div className="info col-md-offset-1 col-md-10">
-              <iframe src="https://www.youtube.com/embed/8mv9r0mUlbo?ecver=2" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+              <Video video={ voucher.VIDEO }/>
               <h1>{ voucher.TITLE }</h1>
               <div className="text">
                   <p>{ voucher.DESCRIPTION }</p>
