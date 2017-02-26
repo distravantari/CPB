@@ -525,6 +525,7 @@ class ChildPackage extends React.Component {
                           <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
                             <div>{ this.state.filename }</div>
                           </Dropzone>
+                          image size: 470 x 220
                         </div>
                         <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
                           <div className="form-group">
