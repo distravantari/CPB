@@ -240,6 +240,12 @@ class Slider extends React.Component {
         this.newInfoRef.value = ''
         this.newTypeRef.value =''
         this.newIndex.value = ''
+        // set file state to default value
+        this.setState({
+          filename: '',
+          file: '',
+          imagePreviewUrl: ''
+        })
       })
       .catch((err) => {
          alert('fail, new content cannot be saved '+err)
@@ -339,6 +345,12 @@ class Slider extends React.Component {
       })
       .then(() => {
          alert('success, changed content saved')
+         // set file state to default value
+         this.setState({
+           filename: '',
+           file: '',
+           imagePreviewUrl: ''
+         })
       })
       .catch((err) => {
          alert('fail, changed content cannot be saved '+err)
@@ -716,6 +728,12 @@ class Voucher extends React.Component {
         this.props.editVouchers(`list/${index}`, vouchers)
         .then(() => {
            alert('success, changed content saved')
+           // set file state to default value
+           this.setState({
+             filename: '',
+             file: '',
+             imagePreviewUrl: ''
+           })
         })
         .catch(() => {
            alert('fail, changed content cannot be saved')
@@ -778,6 +796,12 @@ class Voucher extends React.Component {
         this.newInstagramRef.value = ''
         this.newUrlRef.value = ''
         this.newDescriptionRef.value = ''
+        // set file state to default value
+        this.setState({
+          filename: '',
+          file: '',
+          imagePreviewUrl: ''
+        })
       })
       .catch(() => {
          alert('fail, new content cannot be saved')
