@@ -81,7 +81,6 @@ const Video = ({ video }) => {
 const Desc = ({ detail, voucher, trip, context, hal }) => {
     if((detail == "/Trip") && (hal=="kosong")){
       const url = trip.URL
-      console.log("video",trip.VIDEO)
       return (
           <div>
             <div className="post-slider col-md-12 col-sm-12">
