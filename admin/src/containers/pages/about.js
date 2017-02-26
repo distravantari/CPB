@@ -117,6 +117,12 @@ class AboutUs extends React.Component {
       })
       .then(() => {
          alert('success, changed content saved')
+         // set file state to default value
+         this.setState({
+           filename: '',
+           file: '',
+           imagePreviewUrl: ''
+         })
       })
       .catch(() => {
          alert('fail, changed content cannot be saved')

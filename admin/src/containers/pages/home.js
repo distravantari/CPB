@@ -58,6 +58,7 @@ class News extends React.Component {
   }
 
   editNews(val, index){
+    val.preventDefault()
     let text = this.state.TEXT
 
     if(!text) text = _.values(this.props.vouchers)[index].TEXT
@@ -204,14 +205,12 @@ class Slider extends React.Component {
     super(props)
     context.router
     this.state = {
-      COMMENT : '',
-      CREATE : '',
-      DATE : '',
       IMG : '',
       INFO : '',
-      LIKE : '',
-      TITTLE : '',
+      TITLE : '',
       TYPE : '',
+      DESTINATION: '',
+      INDEX: '',
       URL : '',
       filename : []
     }
@@ -219,33 +218,39 @@ class Slider extends React.Component {
 
   addSlider(val){
     val.preventDefault()
-    this.props.updateImage(this.state.file)
-    .then((dlurl) => {
-      const newslider = {
-        TITTLE : this.newTitleRef.value,
-        INFO : this.newInfoRef.value,
-        CREATE : this.newCreateRef.value,
-        DATE : this.newDateRef.value,
-        COMMENT : '',
-        IMG : dlurl,
-        LIKE : '',
-        TYPE : this.newTypeRef.value,
-        URL : ''
-      }
+    if(!this.state.file){
+      alert('please insert image')
+    }else{
+      this.props.updateImage(this.state.file)
+      .then((dlurl) => {
+        const newslider = {
+          TITLE : this.newTitleRef.value,
+          INFO : this.newInfoRef.value,
+          IMG : dlurl,
+          TYPE : this.newTypeRef.value,
+          URL : this.newUrlRef.value,
+          INDEX : this.newIndexRef.value
+        }
 
-      this.props.addSlider(this.props.slider.length, newslider)
+        return this.props.addSlider(this.props.slider.length, newslider)
+      })
       .then(() => {
         alert('success, new content saved')
         this.newTitleRef.value = ''
         this.newInfoRef.value = ''
-        this.newCreateRef.value = ''
-        this.newDateRef.value =''
         this.newTypeRef.value =''
+        this.newIndex.value = ''
+        // set file state to default value
+        this.setState({
+          filename: '',
+          file: '',
+          imagePreviewUrl: ''
+        })
       })
-      .catch(() => {
-         alert('fail, new content cannot be saved')
+      .catch((err) => {
+         alert('fail, new content cannot be saved '+err)
       })
-    })
+    }
   }
 
   onDrop(e) {
@@ -278,48 +283,79 @@ class Slider extends React.Component {
 
   editSlider(val, index){
     val.preventDefault()
-    this.props.updateImage(this.state.file)
-    .then((dlurl) => {
-      let comment = this.state.COMMENT
-      let create = this.state.CREATE
-      let date = this.state.DATE
-      let img = this.state.IMG
+    if(!this.state.file){
+      let title = this.state.TITLE
       let info = this.state.INFO
-      let like = this.state.LIKE
-      let tittle = this.state.TITTLE
       let type = this.state.TYPE
-      let url = this.state.URL
+      let destination = this.state.URL
+      let indexing = this.state.INDEX
+      let img = this.state.IMG
 
-      if(!comment) comment = _.values(this.props.slider)[index].COMMENT
-      if(!create) create = _.values(this.props.slider)[index].CREATE
-      if(!date) date = _.values(this.props.slider)[index].DATE
-      if(!img) img = dlurl
+      if(!title) title = _.values(this.props.slider)[index].TITLE
       if(!info) info = _.values(this.props.slider)[index].INFO
-      if(!like) like = _.values(this.props.slider)[index].LIKE
-      if(!tittle) tittle = _.values(this.props.slider)[index].TITTLE
       if(!type) type = _.values(this.props.slider)[index].TYPE
-      if(!url) url = _.values(this.props.slider)[index].URL
+      if(!img) img = _.values(this.props.slider)[index].IMG
+      if(!destination) destination = _.values(this.props.slider)[index].URL
+      if(!indexing) indexing = _.values(this.props.slider)[index].INDEX
 
       const slider = {
-        COMMENT : comment,
-        CREATE : create,
-        DATE : date,
-        IMG : img,
-        INFO : info,
-        LIKE : like,
-        TITTLE : tittle,
-        TYPE : type,
-        URL : url
+        TITLE: title,
+        INFO: info,
+        TYPE: type,
+        URL: destination,
+        INDEX: indexing,
+        IMG: img
       }
 
-      this.props.editSlider(`big/list/${index}`, slider)
+      this.props.editSlider(`list/${index}`, slider)
       .then(() => {
          alert('success, changed content saved')
       })
-      .catch(() => {
-         alert('fail, changed content cannot be saved')
+      .catch((err) => {
+         alert('fail, changed content cannot be saved '+err)
       })
-    })
+    }else{
+      this.props.updateImage(this.state.file)
+      .then((dlurl) => {
+
+        let tittle = this.state.TITLE
+        let info = this.state.INFO
+        let type = this.state.TYPE
+        let destination = this.state.URL
+        let indexing = this.state.INDEX
+        let img = this.state.IMG
+
+        if(!tittle) tittle = _.values(this.props.slider)[index].TITLE
+        if(!info) info = _.values(this.props.slider)[index].INFO
+        if(!type) type = _.values(this.props.slider)[index].TYPE
+        if(!img) img = dlurl
+        if(!destination) destination = _.values(this.props.slider)[index].URL
+        if(!indexing) indexing = _.values(this.props.slider)[index].INDEX
+
+        const slider = {
+          TITLE: title,
+          INFO: info,
+          TYPE: type,
+          URL: destination,
+          INDEX: indexing,
+          IMG: img
+        }
+
+        return this.props.editSlider(`list/${index}`, slider)
+      })
+      .then(() => {
+         alert('success, changed content saved')
+         // set file state to default value
+         this.setState({
+           filename: '',
+           file: '',
+           imagePreviewUrl: ''
+         })
+      })
+      .catch((err) => {
+         alert('fail, changed content cannot be saved '+err)
+      })
+    }
   }
 
   handleChange(val, key, index) {
@@ -332,17 +368,17 @@ class Slider extends React.Component {
       this.setState({
         INFO: val.target.value
       })
-    }else if(key == `create`) {
+    }else if(key == `type`) {
       this.setState({
-        CREATE: val.target.value
+        TYPE: val.target.value
       })
-    }else if(key ==`date`){
+    }else if(key ==`destination`){
       this.setState({
-        DATE: val.target.value
+        DESTINATION: val.target.value
       })
     }else{
       this.setState({
-        TYPE: val.target.value
+        INDEX: val.target.value
       })
     }
 
@@ -407,9 +443,9 @@ class Slider extends React.Component {
                      <div className="col-md-7 col-sm-7 col-xs-12">
 
                         <div className="form-group">
-                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Title</label>
                           <div className="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" className="form-control" placeholder="Tittle" defaultValue={_.values(this.props.slider)[`${index}`].TITTLE} onChange={(ref) => this.handleChange(ref, `tittle`)}/>
+                            <input type="text" className="form-control" placeholder="Tittle" defaultValue={_.values(this.props.slider)[`${index}`].TITLE} onChange={(ref) => this.handleChange(ref, `tittle`)}/>
                           </div>
                         </div>
 
@@ -421,23 +457,23 @@ class Slider extends React.Component {
                         </div>
 
                         <div className="form-group">
-                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
-                          <div className="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" className="form-control" placeholder="Create" defaultValue={_.values(this.props.slider)[`${index}`].CREATE} onChange={(ref) => this.handleChange(ref, `create`)}/>
-                          </div>
-                        </div>
-
-                        <div className="form-group">
-                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
-                          <div className="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" className="form-control" placeholder="Date" defaultValue={_.values(this.props.slider)[`${index}`].DATE} onChange={(ref) => this.handleChange(ref, `date`)}/>
-                          </div>
-                        </div>
-
-                        <div className="form-group">
                           <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
                           <div className="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" className="form-control" placeholder="Type" defaultValue={_.values(this.props.slider)[`${index}`].TYPE} onChange={(ref) => this.handleChange(ref, `type`)}/>
+                            <input type="text" className="form-control" placeholder="Create" defaultValue={_.values(this.props.slider)[`${index}`].TYPE} onChange={(ref) => this.handleChange(ref, `type`)}/>
+                          </div>
+                        </div>
+
+                        <div className="form-group">
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Destination</label>
+                          <div className="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" className="form-control" placeholder="Date" defaultValue={_.values(this.props.slider)[`${index}`].URL} onChange={(ref) => this.handleChange(ref, `destination`)}/>
+                          </div>
+                        </div>
+
+                        <div className="form-group">
+                          <label className="control-label col-md-3 col-sm-3 col-xs-12">Index</label>
+                          <div className="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" className="form-control" placeholder="Index" defaultValue={_.values(this.props.slider)[`${index}`].INDEX} onChange={(ref) => this.handleChange(ref, `index`)}/>
                           </div>
                         </div>
 
@@ -468,9 +504,9 @@ class Slider extends React.Component {
                   <form className="form-horizontal form-label-left">
 
                   <div className="form-group">
-                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
+                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Title</label>
                     <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Tittle" defaultValue='' ref={(ref) => this.newTitleRef = ref}/>
+                      <input type="text" className="form-control" placeholder="Title" defaultValue='' ref={(ref) => this.newTitleRef = ref}/>
                     </div>
                   </div>
 
@@ -482,23 +518,23 @@ class Slider extends React.Component {
                   </div>
 
                   <div className="form-group">
-                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Create</label>
-                    <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Create" defaultValue='' ref={(ref) => this.newCreateRef = ref}/>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
-                    <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Date" defaultValue='' ref={(ref) => this.newDateRef = ref}/>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
                     <label className="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
                     <div className="col-md-9 col-sm-9 col-xs-12">
                       <input type="text" className="form-control" placeholder="Type" defaultValue='' ref={(ref) => this.newTypeRef = ref}/>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Destination</label>
+                    <div className="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" className="form-control" placeholder="URL" defaultValue='' ref={(ref) => this.newUrlRef = ref}/>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="control-label col-md-3 col-sm-3 col-xs-12">Index</label>
+                    <div className="col-md-9 col-sm-9 col-xs-12">
+                      <input type="text" className="form-control" placeholder="Index" defaultValue='' ref={(ref) => this.newIndexRef = ref}/>
                     </div>
                   </div>
 
@@ -528,6 +564,8 @@ class Social extends React.Component {
   }
 
   editSocial(val){
+    val.preventDefault()
+
     const social = {
       facebook : {
         ICON : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/facebook_.jpg?alt=media&token=1cfef65e-293c-4562-8fc6-84a124468976",
@@ -537,19 +575,15 @@ class Social extends React.Component {
         URL : this.instagramRef.value
       },
       twitter : {
-        DATA_CHROME : "noheader nofooter noscrollbar",
-        LANG : "EN",
-        LINK_COLOR : "#f1284e",
-        WIDGET_ID : "400278156189237248",
-        TITTLE : this.twitterTitleRef.value,
-        LIMIT : this.twitterLimitRef.value,
+        USERNAME : this.twitterUserNameRef.value,
+        TITLE: "Latest tweets",
         LINK : this.twitterLinkRef.value
       },
       maps : {
-        latitude : this.props.social.maps[0].latitude,
-        longitude : this.props.social.maps[0].longitude,
-        location : this.props.social.maps[0].location,
-        url : this.props.social.maps[0].url
+        latitude : this.props.social.maps.latitude,
+        longitude : this.props.social.maps.longitude,
+        location : this.props.social.maps.location,
+        url : this.props.social.maps.url
       }
     }
 
@@ -580,35 +614,28 @@ class Social extends React.Component {
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Facebook URL</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="URL" defaultValue={this.props.social.facebook[0].URL} ref={(ref) => this.facebookRef = ref}/>
+                    <input type="text" className="form-control" placeholder="URL" defaultValue={this.props.social.facebook.URL} ref={(ref) => this.facebookRef = ref}/>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Instagram URL</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="URL" defaultValue={this.props.social.instagram[0].URL} ref={(ref) => this.instagramRef = ref}/>
+                    <input type="text" className="form-control" placeholder="URL" defaultValue={this.props.social.instagram.URL} ref={(ref) => this.instagramRef = ref}/>
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter Tittle</label>
+                  <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter Username</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="Tittle" defaultValue={this.props.social.twitter[0].TITTLE} ref={(ref) => this.twitterTitleRef = ref}/>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter Limmit</label>
-                  <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="number" className="form-control" placeholder="Limmit" defaultValue={this.props.social.twitter[0].LIMIT} ref={(ref) => this.twitterLimitRef = ref}/>
+                    <input type="text" className="form-control" placeholder="Tittle" defaultValue={this.props.social.twitter.USERNAME} ref={(ref) => this.twitterUserNameRef = ref}/>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter URL</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
-                    <input type="text" className="form-control" placeholder="URL" defaultValue={this.props.social.twitter[0].LINK} ref={(ref) => this.twitterLinkRef = ref}/>
+                    <input type="text" className="form-control" placeholder="URL" defaultValue={this.props.social.twitter.LINK} ref={(ref) => this.twitterLinkRef = ref}/>
                   </div>
                 </div>
 
@@ -632,11 +659,9 @@ class Voucher extends React.Component {
     super(props)
     context.router
     this.state = {
-      CREATEDBY : '',
-      DATE : '',
       IMG : '',
       TEXT : '',
-      TITTLE : '',
+      TITLE : '',
       INSTAGRAM: '',
       URL : '',
       filename : [],
@@ -677,30 +702,24 @@ class Voucher extends React.Component {
     if(this.state.file){
       this.props.updateImage(this.state.file)
       .then((dlurl) => {
-        let createdby = this.state.CREATEDBY
-        let date = this.state.DATE
         let img = this.state.IMG
         let text = this.state.TEXT
-        let tittle = this.state.TITTLE
+        let tittle = this.state.TITLE
         let url = this.state.URL
         let instagram = this.state.INSTAGRAM
         let description = this.state.DESCRIPTION
 
-        if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
-        if(!date) date = _.values(this.props.vouchers)[index].DATE
         if(!img) img = dlurl
         if(!text) text = _.values(this.props.vouchers)[index].TEXT
-        if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
+        if(!tittle) tittle = _.values(this.props.vouchers)[index].TITLE
         if(!url) url = _.values(this.props.vouchers)[index].URL
         if(!instagram) instagram = _.values(this.props.vouchers)[index].INSTAGRAM
         if(!description) description = _.values(this.props.vouchers)[index].DESCRIPTION
 
         const vouchers = {
-          CREATEDBY : createdby,
-          DATE : date,
           IMG : img,
           TEXT : text,
-          TITTLE : tittle,
+          TITLE : tittle,
           URL : url,
           INSTAGRAM: instagram,
           DESCRIPTION: description
@@ -709,36 +728,36 @@ class Voucher extends React.Component {
         this.props.editVouchers(`list/${index}`, vouchers)
         .then(() => {
            alert('success, changed content saved')
+           // set file state to default value
+           this.setState({
+             filename: '',
+             file: '',
+             imagePreviewUrl: ''
+           })
         })
         .catch(() => {
            alert('fail, changed content cannot be saved')
         })
       })
     }else{
-      let createdby = this.state.CREATEDBY
-      let date = this.state.DATE
       let text = this.state.TEXT
       let img = this.state.IMG
-      let tittle = this.state.TITTLE
+      let tittle = this.state.TITLE
       let url = this.state.URL
       let instagram = this.state.INSTAGRAM
       let description = this.state.DESCRIPTION
 
-      if(!createdby) createdby = _.values(this.props.vouchers)[index].CREATEDBY
-      if(!date) date = _.values(this.props.vouchers)[index].DATE
       if(!text) text = _.values(this.props.vouchers)[index].TEXT
       if(!img) img = _.values(this.props.vouchers)[index].IMG
-      if(!tittle) tittle = _.values(this.props.vouchers)[index].TITTLE
+      if(!tittle) tittle = _.values(this.props.vouchers)[index].TITLE
       if(!url) url = _.values(this.props.vouchers)[index].URL
       if(!instagram) instagram = _.values(this.props.vouchers)[index].INSTAGRAM
       if(!description) description = _.values(this.props.vouchers)[index].DESCRIPTION
 
       const vouchers = {
-        CREATEDBY : createdby,
-        DATE : date,
         TEXT : text,
         IMG : img,
-        TITTLE : tittle,
+        TITLE : tittle,
         URL : url,
         INSTAGRAM: instagram,
         DESCRIPTION: description
@@ -760,28 +779,32 @@ class Voucher extends React.Component {
       this.props.updateImage(this.state.file)
       .then((dlurl) => {
         const newvoucher = {
-          CREATEDBY : '',
-          DATE : '',
           IMG : dlurl,
           TEXT : this.newTextRef.value,
-          TITTLE : this.newTitleRef.value,
+          TITLE : this.newTitleRef.value,
           INSTAGRAM : this.newInstagramRef.value,
           URL : this.newUrlRef.value,
           DESCRIPTION : this.newDescriptionRef.value,
         }
 
-        this.props.addVouchers(this.props.vouchers.length, newvoucher)
-        .then(() => {
-          alert('success, new content saved')
-          this.newTitleRef.value = ''
-          this.newTextRef.value = ''
-          this.newInstagramRef.value = ''
-          this.newUrlRef.value = ''
-          this.newDescriptionRef.value = ''
+        return this.props.addVouchers(this.props.vouchers.length, newvoucher)
+      })
+      .then(() => {
+        alert('success, new content saved')
+        this.newTitleRef.value = ''
+        this.newTextRef.value = ''
+        this.newInstagramRef.value = ''
+        this.newUrlRef.value = ''
+        this.newDescriptionRef.value = ''
+        // set file state to default value
+        this.setState({
+          filename: '',
+          file: '',
+          imagePreviewUrl: ''
         })
-        .catch(() => {
-           alert('fail, new content cannot be saved')
-        })
+      })
+      .catch(() => {
+         alert('fail, new content cannot be saved')
       })
     }else{
       alert('please insert image')
@@ -796,7 +819,7 @@ class Voucher extends React.Component {
       })
     }else if(key == `title`) {
       this.setState({
-        TITTLE: val.target.value
+        TITLE: val.target.value
       })
     }else if(key == `description`) {
       this.setState({
@@ -863,9 +886,9 @@ class Voucher extends React.Component {
                         <div className="col-md-7 col-sm-7 col-xs-12">
                           <form className="form-horizontal form-label-left">
                             <div className="form-group">
-                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Tittle</label>
+                              <label className="control-label col-md-3 col-sm-3 col-xs-12">Title</label>
                               <div className="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" className="form-control" placeholder="Tittle" defaultValue={_.values(this.props.vouchers)[index].TITTLE} onChange={(ref) => this.handleChange(ref, `title`)}/>
+                                <input type="text" className="form-control" placeholder="Title" defaultValue={_.values(this.props.vouchers)[index].TITLE} onChange={(ref) => this.handleChange(ref, `title`)}/>
                               </div>
                             </div>
 
@@ -978,10 +1001,10 @@ class Voucher extends React.Component {
 const mapsStateToProps = (state) => {
   if(state.feature){
     return{
-      slider : state.feature.slider[0].big.list,
+      slider : state.feature.slider.list,
       social : state.social,
-      vouchers : state.feature.vouchers[0].list,
-      news : state.feature.news[0].list
+      vouchers : state.feature.vouchers.list,
+      news : state.feature.news.list
     }
   }else return{}
 }
