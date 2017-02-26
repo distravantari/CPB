@@ -67817,6 +67817,7 @@
 	              )
 	            )
 	          ),
+	          _react2.default.createElement(Video, { video: trip.VIDEO }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
@@ -67838,7 +67839,7 @@
 	                    { className: 'info' },
 	                    _react2.default.createElement(
 	                      'h1',
-	                      { onClick: function onClick() {
+	                      { className: 'click-able', onClick: function onClick() {
 	                          return context.router.push(url + '&' + index);
 	                        } },
 	                      list.TITLE
@@ -67853,7 +67854,6 @@
 	              })
 	            )
 	          ),
-	          _react2.default.createElement(Video, { video: trip.VIDEO }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },

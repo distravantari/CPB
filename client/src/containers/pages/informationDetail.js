@@ -104,6 +104,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                     <p>{ trip.DESCRIPTION }</p>
                 </div>
             </div>
+            <Video video={ trip.VIDEO }/>
             <div className="row">
               <div className="wrapper">
                 {trip.CHILD.list.map((list, index) => (
@@ -113,7 +114,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                             <div className="overlay"></div>
                         </div>
                         <div className="info">
-                            <h1 onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
+                            <h1 className="click-able" onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
                             <p className="text">
                                 { list.TEXT }
                             </p>
@@ -122,7 +123,6 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                 ))}
               </div>
             </div>
-            <Video video={ trip.VIDEO }/>
             <div className="row">
                 <Form index={ trip.FORM } />
             </div>
