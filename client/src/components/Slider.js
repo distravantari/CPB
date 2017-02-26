@@ -127,7 +127,7 @@ const BigSlider = ({ big_slider }) => {
 const mapStateToProps = (state) => {
     if(state.feature.slider[0]){
       return {
-          slider: state.feature.slider[0].big,
+          slider: state.feature.slider[0],
           news: state.feature.news[0]
       }
     }else return {}

@@ -63,12 +63,17 @@ class Trip extends React.Component{
   }
  }
 
-const Video = ({ trip }) => {
-  if(trip.VIDEO) {
+const Video = ({ video }) => {
+  if(video) {
     return(
-      <div>
-        <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src= { trip.VIDEO } width="640" height="360" frameborder="0" allowfullscreen></iframe></div>
+      <div className="text-center video">
+        <iframe src= { video } width="640" height="360" frameborder="0" allowfullscreen></iframe>
       </div>
+    )
+  }
+  else {
+    return(
+      <div></div>
     )
   }
 }
@@ -76,6 +81,7 @@ const Video = ({ trip }) => {
 const Desc = ({ detail, voucher, trip, context, hal }) => {
     if((detail == "/Trip") && (hal=="kosong")){
       const url = trip.URL
+      console.log("video",trip.VIDEO)
       return (
           <div>
             <div className="post-slider col-md-12 col-sm-12">
@@ -98,6 +104,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                     <p>{ trip.DESCRIPTION }</p>
                 </div>
             </div>
+            <Video video={ trip.VIDEO }/>
             <div className="row">
               <div className="wrapper">
                 {trip.CHILD.list.map((list, index) => (
@@ -107,7 +114,7 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                             <div className="overlay"></div>
                         </div>
                         <div className="info">
-                            <h1 onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
+                            <h1 className="click-able" onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
                             <p className="text">
                                 { list.TEXT }
                             </p>
@@ -115,17 +122,17 @@ const Desc = ({ detail, voucher, trip, context, hal }) => {
                     </article>
                 ))}
               </div>
-              </div>
-              <div className="row">
-                  <Form index={ trip.FORM } />
-              </div>
             </div>
+            <div className="row">
+                <Form index={ trip.FORM } />
+            </div>
+          </div>
       )
     }
     else if(detail == "/Voucher"){
       return (
           <div className="info col-md-offset-1 col-md-10">
-              <iframe src="https://www.youtube.com/embed/8mv9r0mUlbo?ecver=2" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+              <Video video={ voucher.VIDEO }/>
               <h1>{ voucher.TITLE }</h1>
               <div className="text">
                   <p>{ voucher.DESCRIPTION }</p>
