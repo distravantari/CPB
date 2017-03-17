@@ -15,11 +15,11 @@ const receiveContainer = (state = initialState, action) =>{
       const result = action.payload
       console.log('receive container ',result.response)
       return Object.assign({}, state, {
-        footer: _.filter(result.response,['key'],['footer']),
-        footer_component: _.filter(result.response, ['key'],['footer_component']),
-        logo: _.filter(result.response,['key'],['logo']),
-        header: _.filter(result.response,['key'],['header']),
-        main_menu: _.filter(result.response,['key'],['main_menu'])
+        footer: result.response.footer,
+        footer_component: result.response.footer_components,
+        logo: result.response.logo,
+        header: result.response.header,
+        main_menu: result.response.main_menu
       })
     }
   }

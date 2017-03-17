@@ -2,10 +2,10 @@ import * as con from './const'
 import base from '../config/db'
 
 export default(context) =>{
+  console.log('default')
   return dispatch => {
     base.listenTo('container', {
       context: context,
-      asArray: true,
       then(data){
         dispatch(receiveContainer(data))
       }
@@ -14,6 +14,7 @@ export default(context) =>{
 }
 
 let receiveContainer = response => {
+  console.log('receiveContainer')
   return {
     type: con.ACTReceiveContainer,
     payload:{
@@ -29,7 +30,7 @@ export const editHeader = (data) => {
 }
 
 export const editFooter = (data) => {
-  return base.post((`container/footer_components/IMG`),{
+  return base.post((`container/footer_components`),{
     data : data
   })
 }
