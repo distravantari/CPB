@@ -59,7 +59,7 @@ class ContactDetail extends React.Component{
     this.props.editMaps(maps)
     .then(() => {
       const contact = {
-        ADDRESS : [this.addressRef.value,""],
+        ADDRESS : [this.addressRef.value, this.addressRef2.value],
         EMAIL : [this.emailRef.value,this.altEmailRef.value],
         PHONE : [this.phoneRef.value],
         BBM: this.bbmRef.value,
@@ -105,7 +105,9 @@ class ContactDetail extends React.Component{
                   <div className="form-group">
                     <label className="control-label col-md-3 col-sm-3 col-xs-12">Address</label>
                     <div className="col-md-9 col-sm-9 col-xs-12">
-                      <input type="text" className="form-control" placeholder="Address" defaultValue={ this.props.contact.ADDRESS } ref={(ref) => this.addressRef = ref}/>
+                      <input type="text" className="form-control" placeholder="Address" defaultValue={ this.props.contact.ADDRESS[0] } ref={(ref) => this.addressRef = ref}/>
+                      <br />
+                      <input type="text" className="form-control" placeholder="Indonesia, 09880" defaultValue={ this.props.contact.ADDRESS[1] } ref={(ref) => this.addressRef2 = ref}/>
                     </div>
                   </div>
 
@@ -175,6 +177,7 @@ class ContactDetail extends React.Component{
 }
 
 const mapsStateToProps =(state) => {
+  console.log("jajaja ", state.feature.contact);
   if(state.feature){
     return{
       maps : state.social.maps,

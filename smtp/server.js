@@ -13,13 +13,6 @@ function error(status, msg) {
   return err;
 }
 
-// for website purpose
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
-
 // use body parser so we can get info from POST and/or URL parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -93,7 +86,7 @@ app.post('/email', function(req, res, next){
       res.send({ success: 'hai' });
       transporter.close();
   });
-  
+
 });
 
 app.use(function(err, req, res, next){
@@ -107,6 +100,7 @@ app.use(function(req, res){
 });
 
 if (!module.parent) {
-  app.listen(3000);
-  console.log('Express started on port 3000');
+  app.listen(3000, function() {
+    console.log("listening on 3000");
+  });
 }
