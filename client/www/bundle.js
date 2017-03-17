@@ -67765,7 +67765,6 @@
 	  if (detail == "/Trip" && hal == "kosong") {
 	    var _ret = function () {
 	      var url = trip.URL;
-	      console.log("video", trip.VIDEO);
 	      return {
 	        v: _react2.default.createElement(
 	          'div',
