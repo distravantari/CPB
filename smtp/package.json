@@ -4,7 +4,8 @@
   "description": "Easy as cake e-mail sending from your Node.js applications",
   "main": "lib/nodemailer.js",
   "scripts": {
-    "test": "grunt"
+    "test": "grunt",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

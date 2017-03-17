@@ -3,7 +3,7 @@
 'use strict';
 
 const bunyan = require('bunyan');
-const nodemailer = require('../lib/nodemailer');
+const nodemailer = require('./lib/nodemailer');
 
 // Create a SMTP transporter object
 let transporter = nodemailer.createTransport({
@@ -32,7 +32,7 @@ console.log('SMTP Configured');
 let message = {
 
     // Comma separated list of recipients
-    to: 'distravantari <nancy_valentina@ymail.com>',
+    to: 'distravantari <nensivalentina@gmail.com>',
 
     // Subject of the message
     subject: 'Balizee is unicode friendly ✔ #', //
