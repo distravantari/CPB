@@ -177,7 +177,6 @@ class ContactDetail extends React.Component{
 }
 
 const mapsStateToProps =(state) => {
-  console.log("jajaja ", state.feature.contact);
   if(state.feature){
     return{
       maps : state.social.maps,
