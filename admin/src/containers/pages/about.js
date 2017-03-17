@@ -169,6 +169,7 @@ class AboutUs extends React.Component {
                 </div>
 
                 <div className="col-md-1 col-sm-1 col-xs-12 col-md-offset-11 col-sm-offset-11">
+                  <br />
                   <input className="btn btn-success" type="submit" name="submit" />
                 </div>
               </form>
