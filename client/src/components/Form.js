@@ -1511,263 +1511,266 @@ class Form extends Component {
                 </div>
                 <br/>
                 <form className="form-div">
-                    <h5>COMPANY DETAILS</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="name">Name :</label>
-                            <input type="text" className="form-control" value={this.state.name1} onChange={(e) => this.handleChange(e,'name1')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="comp-name">Company Name :</label>
-                            <input type="text" className="form-control" value={this.state.compName1} onChange={(e) => this.handleChange(e,'compName1')} id="comp-name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Telephone :</label>
-                            <input type="number" className="form-control" value={this.state.telp1} onChange={(e) => this.handleChange(e,'telp1')} id="phone" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">E-mail :</label>{(e) => this.handleChange = e}
-                            <input type="email" className="form-control" value={this.state.email1} onChange={(e) => this.handleChange(e,'email1')} id="email" required/>
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>EVENT DETAILS</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="event-start">Starts from (Date) :</label>
-                            <Datepicker value={this.state.startdate1} onChange={(e) => this.handleChange(e,'startdate1')} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-start">Starts from (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.starttime1} onChange={(e) => this.handleChange(e,'starttime1')} id="type" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-end">Ends (Date) :</label>
-                            <Datepicker value={this.state.enddate1} onChange={(e) => this.handleChange(e,'enddate1')} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-start">Ends (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.endtime1} onChange={(e) => this.handleChange(e,'endtime1')} id="type" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="type">Event Type :</label>
-                            <input type="text" className="form-control" value={this.state.type1} onChange={(e) => this.handleChange(e,'type1')} id="type" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="gender">Guest Gender of Attendees :</label>
-                            <input type="text" className="form-control" value={this.state.gender1} onChange={(e) => this.handleChange(e,'gender1')} id="gender" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="age">Age Profile of Attendees :</label>
-                            <input type="number" className="form-control" value={this.state.age1} onChange={(e) => this.handleChange(e,'age1')} id="age" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="character">Special characteristics of Attendees :</label>
-                            <input type="text" className="form-control" value={this.state.character1} onChange={(e) => this.handleChange(e,'character1')} id="character" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="num">Number of Attendees :</label>
-                            <input type="number" className="form-control" value={this.state.num1} onChange={(e) => this.handleChange(e,'num1')} id="num" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="level">Managerial Level of Attendees :</label>
-                            <input type="text" className="form-control" value={this.state.level1} onChange={(e) => this.handleChange(e,'level1')} id="level" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="theme">Theme :</label>
-                            <input type="text" className="form-control" value={this.state.theme1} onChange={(e) => this.handleChange(e,'theme1')} id="theme" />
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>ACCOMMODATION</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="name">Venue/Hotel :</label>
-                            <div className="form-group">
-                                <select className="form-control" value={this.state.venue} onChange={(e) => this.handleChange(e,'venue')} id="sel1">
-                                    <option value="5" >5</option>
-                                    <option value="4" >4</option>
-                                    <option value="3" >3</option>
-                                    <option value="2" >2</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="numad">Number of Adult :</label>
-                            <input type="number" className="form-control" value={this.state.numad1} onChange={(e) => this.handleChange(e,'numad1')} id="numad" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="numkid">Number of Kids (if there are any) : </label>
-                            <input type="number" className="form-control" value={this.state.numkid1} onChange={(e) => this.handleChange(e,'numkid1')} id="numkid" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="esti">Estimation accommodation budget (per-night, per-room) in IDR :</label>
-                            <input type="number" className="form-control" value={this.state.esti1} onChange={(e) => this.handleChange(e,'esti1')} id="esti" />
-                        </div>
-                        <h5>REQUEST :</h5>
+                    <div className="col-md-6">
+                        <h5>COMPANY DETAILS</h5>
                         <div className="form-section">
                             <div className="form-group">
-                                <label htmlFor="bed">Bedding type :</label>
-                                <input type="text" className="form-control" value={this.state.bed1} onChange={(e) => this.handleChange(e,'bed1')} id="bed" />
+                                <label htmlFor="name">Name :</label>
+                                <input type="text" className="form-control" value={this.state.name1} onChange={(e) => this.handleChange(e,'name1')} id="name" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="area">Hotel Area or Desirable Atmosphere :</label>
-                                <input type="text" className="form-control" value={this.state.area1} onChange={(e) => this.handleChange(e,'area1')} id="area" />
+                                <label htmlFor="comp-name">Company Name :</label>
+                                <input type="text" className="form-control" value={this.state.compName1} onChange={(e) => this.handleChange(e,'compName1')} id="comp-name" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="fac">Hotel Facility :</label>
-                                <input type="text" className="form-control" value={this.state.fac1} onChange={(e) => this.handleChange(e,'fac1')} id="fac" />
+                                <label htmlFor="phone">Telephone :</label>
+                                <input type="number" className="form-control" value={this.state.telp1} onChange={(e) => this.handleChange(e,'telp1')} id="phone" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="other">Others :</label>
-                                <input type="text" className="form-control" value={this.state.otherrequest1} onChange={(e) => this.handleChange(e,'otherrequest1')} id="other" />
+                                <label htmlFor="email">E-mail :</label>{(e) => this.handleChange = e}
+                                <input type="email" className="form-control" value={this.state.email1} onChange={(e) => this.handleChange(e,'email1')} id="email" required/>
                             </div>
                         </div>
-                    </div>
-                    <br/>
-                    <div className="form-group">
-                        <label htmlFor="name">MEETING/SEMINAR :</label>
-                        <div className="radio-inline">
-                            <label><input name="meeting1" type="radio" value={this.state.meetingy1} onChange={(e) => this.handleChange(e,'meetingy1')}/>Yes</label>
+                        <br/>
+                        <h5>EVENT DETAILS</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="event-start">Starts from (Date) :</label>
+                                <Datepicker value={this.state.startdate1} onChange={(e) => this.handleChange(e,'startdate1')} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-start">Starts from (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.starttime1} onChange={(e) => this.handleChange(e,'starttime1')} id="type" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-end">Ends (Date) :</label>
+                                <Datepicker value={this.state.enddate1} onChange={(e) => this.handleChange(e,'enddate1')} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-start">Ends (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.endtime1} onChange={(e) => this.handleChange(e,'endtime1')} id="type" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="type">Event Type :</label>
+                                <input type="text" className="form-control" value={this.state.type1} onChange={(e) => this.handleChange(e,'type1')} id="type" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="gender">Guest Gender of Attendees :</label>
+                                <input type="text" className="form-control" value={this.state.gender1} onChange={(e) => this.handleChange(e,'gender1')} id="gender" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="age">Age Profile of Attendees :</label>
+                                <input type="number" className="form-control" value={this.state.age1} onChange={(e) => this.handleChange(e,'age1')} id="age" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="character">Special characteristics of Attendees :</label>
+                                <input type="text" className="form-control" value={this.state.character1} onChange={(e) => this.handleChange(e,'character1')} id="character" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="num">Number of Attendees :</label>
+                                <input type="number" className="form-control" value={this.state.num1} onChange={(e) => this.handleChange(e,'num1')} id="num" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="level">Managerial Level of Attendees :</label>
+                                <input type="text" className="form-control" value={this.state.level1} onChange={(e) => this.handleChange(e,'level1')} id="level" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="theme">Theme :</label>
+                                <input type="text" className="form-control" value={this.state.theme1} onChange={(e) => this.handleChange(e,'theme1')} id="theme" />
+                            </div>
                         </div>
-                        <div className="radio-inline">
-                            <label><input name="meeting1" type="radio" value={this.state.meetingn1} onChange={(e) => this.handleChange(e,'meetingn1')}/>No</label>
+                        <br/>
+                        <h5>ACCOMMODATION</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="name">Venue/Hotel :</label>
+                                <div className="form-group">
+                                    <select className="form-control" value={this.state.venue} onChange={(e) => this.handleChange(e,'venue')} id="sel1">
+                                        <option value="5" >5</option>
+                                        <option value="4" >4</option>
+                                        <option value="3" >3</option>
+                                        <option value="2" >2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="numad">Number of Adult :</label>
+                                <input type="number" className="form-control" value={this.state.numad1} onChange={(e) => this.handleChange(e,'numad1')} id="numad" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="numkid">Number of Kids (if there are any) : </label>
+                                <input type="number" className="form-control" value={this.state.numkid1} onChange={(e) => this.handleChange(e,'numkid1')} id="numkid" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="esti">Estimation accommodation budget (per-night, per-room) in IDR :</label>
+                                <input type="number" className="form-control" value={this.state.esti1} onChange={(e) => this.handleChange(e,'esti1')} id="esti" />
+                            </div>
+                            <h5>REQUEST :</h5>
+                            <div className="form-section">
+                                <div className="form-group">
+                                    <label htmlFor="bed">Bedding type :</label>
+                                    <input type="text" className="form-control" value={this.state.bed1} onChange={(e) => this.handleChange(e,'bed1')} id="bed" />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="area">Hotel Area or Desirable Atmosphere :</label>
+                                    <input type="text" className="form-control" value={this.state.area1} onChange={(e) => this.handleChange(e,'area1')} id="area" />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="fac">Hotel Facility :</label>
+                                    <input type="text" className="form-control" value={this.state.fac1} onChange={(e) => this.handleChange(e,'fac1')} id="fac" />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="other">Others :</label>
+                                    <input type="text" className="form-control" value={this.state.otherrequest1} onChange={(e) => this.handleChange(e,'otherrequest1')} id="other" />
+                                </div>
+                            </div>
                         </div>
+                        <br/>
+                        <button type="submit" className="btn btn-default" onClick={(e) => this.handleSubmit(e)}>Submit</button>
                     </div>
-                    <div className="form-group">
+                    <div className="col-md-6">
+                        <div className="form-group">
+                            <label htmlFor="name">MEETING/SEMINAR :</label>
+                            <div className="radio-inline">
+                                <label><input name="meeting1" type="radio" value={this.state.meetingy1} onChange={(e) => this.handleChange(e,'meetingy1')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="meeting1" type="radio" value={this.state.meetingn1} onChange={(e) => this.handleChange(e,'meetingn1')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                                <p htmlFor="comp-name">Details :</p>
+                                <input type="text" className="form-control" value={this.state.detmeeting1} onChange={(e) => this.handleChange(e,'detmeeting1')} id="details" />
+                            </div>
+                        <div className="form-group">
+                            <label htmlFor="comp-name">OUTING :</label>
+                            <div className="radio-inline">
+                                <label><input name="outing1" type="radio" value={this.state.outingy1} onChange={(e) => this.handleChange(e,'outingy1')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="outing1" type="radio" value={this.state.outingn1} onChange={(e) => this.handleChange(e,'outingn1')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                                <p htmlFor="comp-name">Details :</p>
+                                <input type="text" className="form-control" value={this.state.detouting1} onChange={(e) => this.handleChange(e,'detouting1')} id="comp-name" />
+                            </div>
+                        <div className="form-group">
+                            <label htmlFor="phone">TOURS :</label>
+                            <div className="radio-inline">
+                                <label><input name="tours1" type="radio" value={this.state.toursy1} onChange={(e) => this.handleChange(e,'toursy1')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="tours1" type="radio" value={this.state.toursn1} onChange={(e) => this.handleChange(e,'toursn1')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                                <p htmlFor="comp-name">Details :</p>
+                                <input type="text" className="form-control" value={this.state.dettours1} onChange={(e) => this.handleChange(e,'dettours1')} id="comp-name" />
+                            </div>
+                        <div className="form-group">
+                            <label htmlFor="email">TRANSPORTATION :</label>
+                            <div className="radio-inline">
+                                <label><input name="transporty1" type="radio" value={this.state.transporty1} onChange={(e) => this.handleChange(e,'transporty1')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="transportn1" type="radio" value={this.state.transportn1} onChange={(e) => this.handleChange(e,'transportn1')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
                             <p htmlFor="comp-name">Details :</p>
-                            <input type="text" className="form-control" value={this.state.detmeeting1} onChange={(e) => this.handleChange(e,'detmeeting1')} id="details" />
+                            <input type="text" className="form-control" value={this.state.dettransport1} onChange={(e) => this.handleChange(e,'dettransport1')} id="comp-name" />
                         </div>
-                    <div className="form-group">
-                        <label htmlFor="comp-name">OUTING :</label>
-                        <div className="radio-inline">
-                            <label><input name="outing1" type="radio" value={this.state.outingy1} onChange={(e) => this.handleChange(e,'outingy1')}/>Yes</label>
+                        <div className="form-group">
+                            <label htmlFor="email">EVENT :</label>
+                            <div className="radio-inline">
+                                <label><input name="event1" type="radio" value={this.state.eventy1} onChange={(e) => this.handleChange(e,'eventy1')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="event1" type="radio" value={this.state.eventn1} onChange={(e) => this.handleChange(e,'eventn1')}/>No</label>
+                            </div>
                         </div>
-                        <div className="radio-inline">
-                            <label><input name="outing1" type="radio" value={this.state.outingn1} onChange={(e) => this.handleChange(e,'outingn1')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                            <p htmlFor="comp-name">Details :</p>
-                            <input type="text" className="form-control" value={this.state.detouting1} onChange={(e) => this.handleChange(e,'detouting1')} id="comp-name" />
-                        </div>
-                    <div className="form-group">
-                        <label htmlFor="phone">TOURS :</label>
-                        <div className="radio-inline">
-                            <label><input name="tours1" type="radio" value={this.state.toursy1} onChange={(e) => this.handleChange(e,'toursy1')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="tours1" type="radio" value={this.state.toursn1} onChange={(e) => this.handleChange(e,'toursn1')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                            <p htmlFor="comp-name">Details :</p>
-                            <input type="text" className="form-control" value={this.state.dettours1} onChange={(e) => this.handleChange(e,'dettours1')} id="comp-name" />
-                        </div>
-                    <div className="form-group">
-                        <label htmlFor="email">TRANSPORTATION :</label>
-                        <div className="radio-inline">
-                            <label><input name="transporty1" type="radio" value={this.state.transporty1} onChange={(e) => this.handleChange(e,'transporty1')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="transportn1" type="radio" value={this.state.transportn1} onChange={(e) => this.handleChange(e,'transportn1')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <p htmlFor="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.dettransport1} onChange={(e) => this.handleChange(e,'dettransport1')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">EVENT :</label>
-                        <div className="radio-inline">
-                            <label><input name="event1" type="radio" value={this.state.eventy1} onChange={(e) => this.handleChange(e,'eventy1')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="event1" type="radio" value={this.state.eventn1} onChange={(e) => this.handleChange(e,'eventn1')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                            <p htmlFor="comp-name">Details :</p>
-                            <input type="text" className="form-control" type="input" value={this.state.detevent1} onChange={(e) => this.handleChange(e,'detevent1')} id="comp-name" />
-                        </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Talent or Entertainment Need :</label>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.homeband1} onChange={(e) => this.handleChange(e,'homeband1')}/>Home Band</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.keyboardist1} onChange={(e) => this.handleChange(e,'keyboardist1')}/>Keyboardist + Singer</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.popband1} onChange={(e) => this.handleChange(e,'popband1')}/>Popular Band</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.openingdance1} onChange={(e) => this.handleChange(e,'openingdance1')}/>Opening Dance</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.traddance1} onChange={(e) => this.handleChange(e,'traddance1')}/>Traditional Dance</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.moddance1} onChange={(e) => this.handleChange(e,'moddance1')}/>Modern/Contemporary Dance</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.dj1} onChange={(e) => this.handleChange(e,'dj1')}/>DJ</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.mc1} onChange={(e) => this.handleChange(e,'mc1')}/>MC</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.ushers1} onChange={(e) => this.handleChange(e,'ushers1')}/>Ushers</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <p htmlFor="comp-name">Others :</p>
-                        <input type="text" className="form-control" value={this.state.othertalent1} onChange={(e) => this.handleChange(e,'othertalent1')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Technical Support Need :</label>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.sound1} onChange={(e) => this.handleChange(e,'sound1')}/>Sound System</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.lighting1} onChange={(e) => this.handleChange(e,'lighting1')}/>Lighting System</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.led1} onChange={(e) => this.handleChange(e,'led1')}/>LED Backdrop</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.backdrop1} onChange={(e) => this.handleChange(e,'backdrop1')}/>3D Backdrop</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.projector1} onChange={(e) => this.handleChange(e,'projector1')}/>Projector (standard)</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.lcd1} onChange={(e) => this.handleChange(e,'lcd1')}/>LCD/Plasma TV</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.photo1} onChange={(e) => this.handleChange(e,'photo1')}/>Photography</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.video1} onChange={(e) => this.handleChange(e,'video1')}/>Videography</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.digital1} onChange={(e) => this.handleChange(e,'digital1')}/>Digital Printing Backdrop</label>
+                        <div className="form-group">
+                                <p htmlFor="comp-name">Details :</p>
+                                <input type="text" className="form-control" type="input" value={this.state.detevent1} onChange={(e) => this.handleChange(e,'detevent1')} id="comp-name" />
+                            </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Talent or Entertainment Need :</label>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.homeband1} onChange={(e) => this.handleChange(e,'homeband1')}/>Home Band</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.keyboardist1} onChange={(e) => this.handleChange(e,'keyboardist1')}/>Keyboardist + Singer</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.popband1} onChange={(e) => this.handleChange(e,'popband1')}/>Popular Band</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.openingdance1} onChange={(e) => this.handleChange(e,'openingdance1')}/>Opening Dance</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.traddance1} onChange={(e) => this.handleChange(e,'traddance1')}/>Traditional Dance</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.moddance1} onChange={(e) => this.handleChange(e,'moddance1')}/>Modern/Contemporary Dance</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.dj1} onChange={(e) => this.handleChange(e,'dj1')}/>DJ</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.mc1} onChange={(e) => this.handleChange(e,'mc1')}/>MC</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.ushers1} onChange={(e) => this.handleChange(e,'ushers1')}/>Ushers</label>
+                            </div>
                         </div>
                         <div className="form-group">
                             <p htmlFor="comp-name">Others :</p>
-                            <input type="text" className="form-control" value={this.state.otherTech1} onChange={(e) => this.handleChange(e,'otherTech1')} id="comp-name" />
+                            <input type="text" className="form-control" value={this.state.othertalent1} onChange={(e) => this.handleChange(e,'othertalent1')} id="comp-name" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Technical Support Need :</label>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.sound1} onChange={(e) => this.handleChange(e,'sound1')}/>Sound System</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.lighting1} onChange={(e) => this.handleChange(e,'lighting1')}/>Lighting System</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.led1} onChange={(e) => this.handleChange(e,'led1')}/>LED Backdrop</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.backdrop1} onChange={(e) => this.handleChange(e,'backdrop1')}/>3D Backdrop</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.projector1} onChange={(e) => this.handleChange(e,'projector1')}/>Projector (standard)</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.lcd1} onChange={(e) => this.handleChange(e,'lcd1')}/>LCD/Plasma TV</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.photo1} onChange={(e) => this.handleChange(e,'photo1')}/>Photography</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.video1} onChange={(e) => this.handleChange(e,'video1')}/>Videography</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.digital1} onChange={(e) => this.handleChange(e,'digital1')}/>Digital Printing Backdrop</label>
+                            </div>
+                            <div className="form-group">
+                                <p htmlFor="comp-name">Others :</p>
+                                <input type="text" className="form-control" value={this.state.otherTech1} onChange={(e) => this.handleChange(e,'otherTech1')} id="comp-name" />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="budget">Indicative Budget :</label>
+                            <input type="number" className="form-control" value={this.state.budget1} onChange={(e) => this.handleChange(e,'budget1')} id="budget" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="remarks">Special Remarks :</label>
+                            <input type="text" className="form-control" value={this.state.remarks1} onChange={(e) => this.handleChange(e,'remarks1')} id="remarks" />
                         </div>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="budget">Indicative Budget :</label>
-                        <input type="number" className="form-control" value={this.state.budget1} onChange={(e) => this.handleChange(e,'budget1')} id="budget" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="remarks">Special Remarks :</label>
-                        <input type="text" className="form-control" value={this.state.remarks1} onChange={(e) => this.handleChange(e,'remarks1')} id="remarks" />
-                    </div>
-                    <br/>
-                    <button type="submit" className="btn btn-default" onClick={(e) => this.handleSubmit(e)}>Submit</button>
                 </form>
             </div>
         )
@@ -1783,240 +1786,243 @@ class Form extends Component {
                 </div>
                 <br/>
                 <form className="form-div">
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="name">Name :</label>
-                            <input type="text" className="form-control" value={this.state.name2} onChange={(e) => this.handleChange(e,'name2')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="name">Nationality :</label>
-                            <input type="text" className="form-control" value={this.state.national2} onChange={(e) => this.handleChange(e,'national2')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Telephone :</label>
-                            <input type="number" className="form-control" value={this.state.telp2} onChange={(e) => this.handleChange(e,'telp2')} id="phone" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">E-mail :</label>
-                            <input type="email" className="form-control" value={this.state.email2} onChange={(e) => this.handleChange(e,'email2')} id="email" required/>
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>TRIP DETAILS</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="event-start">Starts from (Date) :</label>
-                            <Datepicker value={this.state.startdate2} onChange={(e) => this.handleChange(e,'startdate2')} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-start">Starts from (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.starttime2} onChange={(e) => this.handleChange(e,'starttime2')} id="type" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-end">Ends (Date) :</label>
-                            <Datepicker value={this.state.enddate2} onChange={(e) => this.handleChange(e,'enddate2')} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-start">Ends (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.endtime2} onChange={(e) => this.handleChange(e,'endtime2')} id="type" />
-                        </div>
-                        <div className="checkbox-inline">
-                            <label><input type="checkbox" value={this.state.tentative2} onChange={(e) => this.handleChange(e,'tentative2')}/>Still Tentative</label>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Event Type :</label>
-                            <select className="form-control" value={this.state.type2} onChange={(e) => this.handleChange(e,'type2')} id="sel1">
-                                <option value="Family" >Family</option>
-                                <option value="Friends" >Friends</option>
-                                <option value="Mix Group" >Mix Group</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>ACCOMMODATION</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="name">Venue/Hotel :</label>
-                             <select className="form-control" value={this.state.venue2} onChange={(e) => this.handleChange(e,'venue2')} id="sel1">
-                                <option value="Apartment" >Apartment</option>
-                                <option value="Bungalow" >Bungalow</option>
-                                <option value="Guest House" >Guest House</option>
-                                <option value="5 stars" >5 stars</option>
-                                <option value="4 stars" >4 stars</option>
-                                <option value="3 stars" >3 stars</option>
-                                <option value="2 stars" >2 stars</option>
-                            </select>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="comp-name">Number of Adult :</label>
-                            <input type="number" className="form-control" value={this.state.numad2} onChange={(e) => this.handleChange(e,'numad2')} id="comp-name" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Number of Kids (if there are any) : </label>
-                            <input type="number" className="form-control" value={this.state.numkid2} onChange={(e) => this.handleChange(e,'numkid2')} id="phone" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
-                            <input type="number" className="form-control" value={this.state.esti2} onChange={(e) => this.handleChange(e,'esti2')} id="email" />
-                        </div>
-                        <h5>REQUEST :</h5>
+                    <div className="col-md-6">
                         <div className="form-section">
                             <div className="form-group">
-                                <label htmlFor="name">Bedding type :</label>
-                                <div className="checkbox">
-                                    <label><input type="checkbox"  value={this.state.single2} onChange={(e) => this.handleChange(e,'single2')}/>Single Occupancy (King/Queensize)</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.twinking2} onChange={(e) => this.handleChange(e,'twinking2')}/>Twin Sharing (King/Queensize)</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.twinbed2} onChange={(e) => this.handleChange(e,'twinbed2')}/>Twin Sharing (Twin bed)</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.triple2} onChange={(e) => this.handleChange(e,'triple2')}/>Triple Sharing (add extrabed)</label>
-                                </div>
+                                <label htmlFor="name">Name :</label>
+                                <input type="text" className="form-control" value={this.state.name2} onChange={(e) => this.handleChange(e,'name2')} id="name" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="comp-name">Hotel Area :</label>
-                                <input type="text" className="form-control" value={this.state.area2} onChange={(e) => this.handleChange(e,'area2')} id="comp-name" />
+                                <label htmlFor="name">Nationality :</label>
+                                <input type="text" className="form-control" value={this.state.national2} onChange={(e) => this.handleChange(e,'national2')} id="name" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="phone">Hotel Preference :</label>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.beachfront2} onChange={(e) => this.handleChange(e,'beachfront2')}/>Beachfront</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.business2} onChange={(e) => this.handleChange(e,'business2')}/>Business facilities</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.golfcourse2} onChange={(e) => this.handleChange(e,'golfcourse2')}/>Golf Course</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.kids2} onChange={(e) => this.handleChange(e,'kids2')}/>Kids/Family Friendly</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearbeach2} onChange={(e) => this.handleChange(e,'nearbeach2')}/>Near The Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearmountain2} onChange={(e) => this.handleChange(e,'nearmountain2')}/>Near Mountain</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearrestaurant2} onChange={(e) => this.handleChange(e,'nearrestaurant2')}/>Near Restaurant</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.heart2} onChange={(e) => this.handleChange(e,'heart2')}/>Heart of the City</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.tranquil2} onChange={(e) => this.handleChange(e,'tranquil2')}/>Tranquil Area</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearnight2} onChange={(e) => this.handleChange(e,'nearnight2')}/>Near Nightclub</label>
-                                </div>
+                                <label htmlFor="phone">Telephone :</label>
+                                <input type="number" className="form-control" value={this.state.telp2} onChange={(e) => this.handleChange(e,'telp2')} id="phone" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="comp-name">Hotel Facility :</label>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.family2} onChange={(e) => this.handleChange(e,'family2')}/>Family Room</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.fitness2} onChange={(e) => this.handleChange(e,'fitness2')}/>Fitness Centre</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.pool2} onChange={(e) => this.handleChange(e,'pool2')}/>Pool</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.private2} onChange={(e) => this.handleChange(e,'private2')}/>Private Pool</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.wifi2} onChange={(e) => this.handleChange(e,'wifi2')}/>WIFI</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nonsmoking2} onChange={(e) => this.handleChange(e,'nonsmoking2')}/>Non-smoking room</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.smoking2} onChange={(e) => this.handleChange(e,'smoking2')}/>Smoking room</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.spa2} onChange={(e) => this.handleChange(e,'spa2')}/>Spa & Wellness Center</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.rest2} onChange={(e) => this.handleChange(e,'rest2')}/>Restaurant</label>
-                                </div>
+                                <label htmlFor="email">E-mail :</label>
+                                <input type="email" className="form-control" value={this.state.email2} onChange={(e) => this.handleChange(e,'email2')} id="email" required/>
+                            </div>
+                        </div>
+                        <br/>
+                        <h5>TRIP DETAILS</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="event-start">Starts from (Date) :</label>
+                                <Datepicker value={this.state.startdate2} onChange={(e) => this.handleChange(e,'startdate2')} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="email">Others :</label>
-                                <input type="text" className="form-control" value={this.state.otherrequest2} onChange={(e) => this.handleChange(e,'otherrequest2')} id="email" />
+                                <label htmlFor="event-start">Starts from (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.starttime2} onChange={(e) => this.handleChange(e,'starttime2')} id="type" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-end">Ends (Date) :</label>
+                                <Datepicker value={this.state.enddate2} onChange={(e) => this.handleChange(e,'enddate2')} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-start">Ends (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.endtime2} onChange={(e) => this.handleChange(e,'endtime2')} id="type" />
+                            </div>
+                            <div className="checkbox-inline">
+                                <label><input type="checkbox" value={this.state.tentative2} onChange={(e) => this.handleChange(e,'tentative2')}/>Still Tentative</label>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="phone">Event Type :</label>
+                                <select className="form-control" value={this.state.type2} onChange={(e) => this.handleChange(e,'type2')} id="sel1">
+                                    <option value="Family" >Family</option>
+                                    <option value="Friends" >Friends</option>
+                                    <option value="Mix Group" >Mix Group</option>
+                                </select>
                             </div>
                         </div>
+                        <br/>
+                        <h5>ACCOMMODATION</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="name">Venue/Hotel :</label>
+                                <select className="form-control" value={this.state.venue2} onChange={(e) => this.handleChange(e,'venue2')} id="sel1">
+                                    <option value="Apartment" >Apartment</option>
+                                    <option value="Bungalow" >Bungalow</option>
+                                    <option value="Guest House" >Guest House</option>
+                                    <option value="5 stars" >5 stars</option>
+                                    <option value="4 stars" >4 stars</option>
+                                    <option value="3 stars" >3 stars</option>
+                                    <option value="2 stars" >2 stars</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="comp-name">Number of Adult :</label>
+                                <input type="number" className="form-control" value={this.state.numad2} onChange={(e) => this.handleChange(e,'numad2')} id="comp-name" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="phone">Number of Kids (if there are any) : </label>
+                                <input type="number" className="form-control" value={this.state.numkid2} onChange={(e) => this.handleChange(e,'numkid2')} id="phone" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
+                                <input type="number" className="form-control" value={this.state.esti2} onChange={(e) => this.handleChange(e,'esti2')} id="email" />
+                            </div>
+                            <h5>REQUEST :</h5>
+                            <div className="form-section">
+                                <div className="form-group">
+                                    <label htmlFor="name">Bedding type :</label>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox"  value={this.state.single2} onChange={(e) => this.handleChange(e,'single2')}/>Single Occupancy (King/Queensize)</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.twinking2} onChange={(e) => this.handleChange(e,'twinking2')}/>Twin Sharing (King/Queensize)</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.twinbed2} onChange={(e) => this.handleChange(e,'twinbed2')}/>Twin Sharing (Twin bed)</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.triple2} onChange={(e) => this.handleChange(e,'triple2')}/>Triple Sharing (add extrabed)</label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="comp-name">Hotel Area :</label>
+                                    <input type="text" className="form-control" value={this.state.area2} onChange={(e) => this.handleChange(e,'area2')} id="comp-name" />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="phone">Hotel Preference :</label>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.beachfront2} onChange={(e) => this.handleChange(e,'beachfront2')}/>Beachfront</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.business2} onChange={(e) => this.handleChange(e,'business2')}/>Business facilities</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.golfcourse2} onChange={(e) => this.handleChange(e,'golfcourse2')}/>Golf Course</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.kids2} onChange={(e) => this.handleChange(e,'kids2')}/>Kids/Family Friendly</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearbeach2} onChange={(e) => this.handleChange(e,'nearbeach2')}/>Near The Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearmountain2} onChange={(e) => this.handleChange(e,'nearmountain2')}/>Near Mountain</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearrestaurant2} onChange={(e) => this.handleChange(e,'nearrestaurant2')}/>Near Restaurant</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.heart2} onChange={(e) => this.handleChange(e,'heart2')}/>Heart of the City</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.tranquil2} onChange={(e) => this.handleChange(e,'tranquil2')}/>Tranquil Area</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearnight2} onChange={(e) => this.handleChange(e,'nearnight2')}/>Near Nightclub</label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="comp-name">Hotel Facility :</label>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.family2} onChange={(e) => this.handleChange(e,'family2')}/>Family Room</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.fitness2} onChange={(e) => this.handleChange(e,'fitness2')}/>Fitness Centre</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.pool2} onChange={(e) => this.handleChange(e,'pool2')}/>Pool</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.private2} onChange={(e) => this.handleChange(e,'private2')}/>Private Pool</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.wifi2} onChange={(e) => this.handleChange(e,'wifi2')}/>WIFI</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nonsmoking2} onChange={(e) => this.handleChange(e,'nonsmoking2')}/>Non-smoking room</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.smoking2} onChange={(e) => this.handleChange(e,'smoking2')}/>Smoking room</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.spa2} onChange={(e) => this.handleChange(e,'spa2')}/>Spa & Wellness Center</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.rest2} onChange={(e) => this.handleChange(e,'rest2')}/>Restaurant</label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="email">Others :</label>
+                                    <input type="text" className="form-control" value={this.state.otherrequest2} onChange={(e) => this.handleChange(e,'otherrequest2')} id="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
                     </div>
-                    <br/>
-                    <div className="form-group">
-                        <label htmlFor="name">TRANPORTATION :</label>
-                        <div className="radio-inline">
-                            <label><input type="radio" name="trans" value={this.state.transporty2} onChange={(e) => this.handleChange(e,'transporty2')}/>Yes</label>
+                    <div className="col-md-6">
+                        <div className="form-group">
+                            <label htmlFor="name">TRANPORTATION :</label>
+                            <div className="radio-inline">
+                                <label><input type="radio" name="trans" value={this.state.transporty2} onChange={(e) => this.handleChange(e,'transporty2')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input type="radio" name="trans" value={this.state.transportn2} onChange={(e) => this.handleChange(e,'transportn2')}/>No</label>
+                            </div>
                         </div>
-                        <div className="radio-inline">
-                            <label><input type="radio" name="trans" value={this.state.transportn2} onChange={(e) => this.handleChange(e,'transportn2')}/>No</label>
+                        <div className="form-group">
+                            <p htmlFor="comp-name">Details :</p>
+                            <input type="text" className="form-control" value={this.state.dettransport2} onChange={(e) => this.handleChange(e,'dettransport2')} id="comp-name" />
                         </div>
+                        <div className="form-group">
+                            <label htmlFor="comp-name">TOURS / SIGHTSEEING :</label>
+                            <div className="radio-inline">
+                                <label><input name="tours" type="radio" value={this.state.toursy2} onChange={(e) => this.handleChange(e,'toursy2')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="tours" type="radio" value={this.state.toursn2} onChange={(e) => this.handleChange(e,'toursn2')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <p htmlFor="comp-name">Details :</p>
+                            <input type="text" className="form-control" value={this.state.dettours2} onChange={(e) => this.handleChange(e,'dettours2')} id="comp-name" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="comp-name">ACTIVITIES :</label>
+                            <div className="radio-inline">
+                                <label><input name="act" type="radio" value={this.state.acty2} onChange={(e) => this.handleChange(e,'acty2')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="act" type="radio" value={this.state.actn2} onChange={(e) => this.handleChange(e,'actn2')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <p htmlFor="comp-name">Details :</p>
+                            <input type="text" className="form-control" value={this.state.detact2} onChange={(e) => this.handleChange(e,'detact2')} id="comp-name" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="comp-name">MEALS :</label>
+                            <div className="radio-inline">
+                                <label><input name="meals" type="radio" value={this.state.mealsy2} onChange={(e) => this.handleChange(e,'mealsy2')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="meals" type="radio" value={this.state.mealsn2} onChange={(e) => this.handleChange(e,'mealsn2')}/>No</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.breakfast2} onChange={(e) => this.handleChange(e,'breakfast2')}/>Breakfast Included</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.half2} onChange={(e) => this.handleChange(e,'half2')}/>Halfboard (B&L)</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.full2} onChange={(e) => this.handleChange(e,'full2')}/>Fullboard (B,L&D)</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Indicative Budget :</label>
+                            <input type="number" className="form-control" value={this.state.budget2} onChange={(e) => this.handleChange(e,'budget2')}id="email" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Special Remarks :</label>
+                            <input type="text" className="form-control" value={this.state.remarks2} onChange={(e) => this.handleChange(e,'remarks2')} id="email" />
+                        </div>
+                        <br/>
                     </div>
-                    <div className="form-group">
-                        <p htmlFor="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.dettransport2} onChange={(e) => this.handleChange(e,'dettransport2')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="comp-name">TOURS / SIGHTSEEING :</label>
-                        <div className="radio-inline">
-                            <label><input name="tours" type="radio" value={this.state.toursy2} onChange={(e) => this.handleChange(e,'toursy2')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="tours" type="radio" value={this.state.toursn2} onChange={(e) => this.handleChange(e,'toursn2')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <p htmlFor="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.dettours2} onChange={(e) => this.handleChange(e,'dettours2')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="comp-name">ACTIVITIES :</label>
-                        <div className="radio-inline">
-                            <label><input name="act" type="radio" value={this.state.acty2} onChange={(e) => this.handleChange(e,'acty2')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="act" type="radio" value={this.state.actn2} onChange={(e) => this.handleChange(e,'actn2')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <p htmlFor="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.detact2} onChange={(e) => this.handleChange(e,'detact2')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="comp-name">MEALS :</label>
-                        <div className="radio-inline">
-                            <label><input name="meals" type="radio" value={this.state.mealsy2} onChange={(e) => this.handleChange(e,'mealsy2')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="meals" type="radio" value={this.state.mealsn2} onChange={(e) => this.handleChange(e,'mealsn2')}/>No</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.breakfast2} onChange={(e) => this.handleChange(e,'breakfast2')}/>Breakfast Included</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.half2} onChange={(e) => this.handleChange(e,'half2')}/>Halfboard (B&L)</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.full2} onChange={(e) => this.handleChange(e,'full2')}/>Fullboard (B,L&D)</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Indicative Budget :</label>
-                        <input type="number" className="form-control" value={this.state.budget2} onChange={(e) => this.handleChange(e,'budget2')}id="email" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Special Remarks :</label>
-                        <input type="text" className="form-control" value={this.state.remarks2} onChange={(e) => this.handleChange(e,'remarks2')} id="email" />
-                    </div>
-                    <br/>
-                    <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
                 </form>
             </div>
         )
@@ -2032,264 +2038,267 @@ class Form extends Component {
                 </div>
                 <br/>
                 <form className="form-div">
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="name">Name :</label>
-                            <input type="text" className="form-control" value={this.state.name3} onChange={(e) => this.handleChange(e,'name3')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="name">Nationality :</label>
-                            <input type="text" className="form-control" value={this.state.national3} onChange={(e) => this.handleChange(e,'national3')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Telephone :</label>
-                            <input type="number" className="form-control" value={this.state.telp3} onChange={(e) => this.handleChange(e,'telp3')} id="phone" required/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">E-mail :</label>
-                            <input type="email" className="form-control" value={this.state.email3} onChange={(e) => this.handleChange(e,'email3')} id="email" required/>
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>TRIP DETAILS</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="event-start">Starts from (Date) :</label>
-                            <Datepicker value={this.state.startdate3} onChange={(e) => this.handleChange(e,'startdate3')} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-start">Starts from (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.starttime3} onChange={(e) => this.handleChange(e,'starttime3')} id="type" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-end">Ends (Date) :</label>
-                            <Datepicker value={this.state.enddate3} onChange={(e) => this.handleChange(e,'enddate3')} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="event-start">Ends (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.endtime3} onChange={(e) => this.handleChange(e,'endtime3')} id="type" />
-                        </div>
-                        <div className="checkbox-inline">
-                            <label><input type="checkbox" value={this.state.tentative3} onChange={(e) => this.handleChange(e,'tentative3')} />Still Tentative</label>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Number of Rooms :</label>
-                            <input type="number" className="form-control" value={this.state.numroom3} onChange={(e) => this.handleChange(e,'numroom3')}  id="phone" />
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>ACCOMMODATION</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label htmlFor="name">Venue/Hotel :</label>
-                            <select className="form-control" value={this.state.venue3} onChange={(e) => this.handleChange(e,'venue3')} id="sel1">
-                                <option value="Apartment" >Apartment</option>
-                                <option value="Bungalow" >Bungalow</option>
-                                <option value="Guest House" >Guest House</option>
-                                <option value="5 stars" >5 stars</option>
-                                <option value="4 stars" >4 stars</option>
-                                <option value="3 stars" >3 stars</option>
-                                <option value="2 stars" >2 stars</option>
-                            </select>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="comp-name">Number of Adult :</label>
-                            <input type="number" className="form-control" value={this.state.numad3} onChange={(e) => this.handleChange(e,'numad3')} id="comp-name" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Number of Kids (if there are any) : </label>
-                            <input type="number" className="form-control" value={this.state.numkid3} onChange={(e) => this.handleChange(e,'numkid3')} id="phone" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
-                            <input type="number" className="form-control" value={this.state.esti3} onChange={(e) => this.handleChange(e,'esti3')} id="email" />
-                        </div>
-                        <h5>REQUEST :</h5>
+                    <div className="col-md-6">
                         <div className="form-section">
                             <div className="form-group">
-                                <label htmlFor="comp-name">Hotel Area :</label>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.amed3} onChange={(e) => this.handleChange(e,'amed3')}/>Amed</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.candi3} onChange={(e) => this.handleChange(e,'candi3')}/>Candidasa</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.cangguarea3} onChange={(e) => this.handleChange(e,'cangguarea3')}/>Canggu area</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.canggubeach3} onChange={(e) => this.handleChange(e,'canggubeach3')}/>Canggu Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.jimbaran3} onChange={(e) => this.handleChange(e,'jimbaran3')}/>Jimbaran</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.karang3} onChange={(e) => this.handleChange(e,'karang3')}/>Karangasem</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.kerobokan3} onChange={(e) => this.handleChange(e,'kerobokan3')}/>Kerobokan</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.kids3} onChange={(e) => this.handleChange(e,'kids3')}/>Kids/Family Friendly</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.kutaarea3} onChange={(e) => this.handleChange(e,'kutaarea3')}/>Kuta area</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.kutabeach3} onChange={(e) => this.handleChange(e,'kutabeach3')}/>Kuta Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.legianarea3} onChange={(e) => this.handleChange(e,'legianarea3')}/>Legian Area</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.legianbeach3} onChange={(e) => this.handleChange(e,'legianbeach3')}/>Legian Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.lembongan3} onChange={(e) => this.handleChange(e,'lembongan3')}/>Lembongan</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.lovinabeach3} onChange={(e) => this.handleChange(e,'lovinabeach3')}/>Lovina Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.lovina3} onChange={(e) => this.handleChange(e,'lovina3')}/>Lovina</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.menjangan3} onChange={(e) => this.handleChange(e,'menjangan3')}/>Menjangan</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearbeach3} onChange={(e) => this.handleChange(e,'nearbeach3')}/>Near The Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nusadua3} onChange={(e) => this.handleChange(e,'nusadua3')}/>Nusadua Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.petit3} onChange={(e) => this.handleChange(e,'petit3')}/>Petitenget</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.seminyakbeach3} onChange={(e) => this.handleChange(e,'seminyakbeach3')}/>Seminyak Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.seminyak3} onChange={(e) => this.handleChange(e,'seminyak3')}/>Seminyak</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.tabanan3} onChange={(e) => this.handleChange(e,'tabanan3')}/>Tabanan</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.tanjung3} onChange={(e) => this.handleChange(e,'tanjung3')}/>Tanjung Benoa</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.sanurbeach3} onChange={(e) => this.handleChange(e,'sanurbeach3')}/>Sanur Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.sanurarea3} onChange={(e) => this.handleChange(e,'sanurarea3')}/>Sanur Area</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.sinaraja3} onChange={(e) => this.handleChange(e,'sinaraja3')}/>Sinaraja</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.tuban3} onChange={(e) => this.handleChange(e,'tuban3')}/>Tuban</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.tulamben3} onChange={(e) => this.handleChange(e,'tulamben3')}/>Tulamben</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.ubud3} onChange={(e) => this.handleChange(e,'ubud3')}/>Ubud</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.uluwatu3} onChange={(e) => this.handleChange(e,'uluwatu3')}/>Uluwatu</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.ungasan3} onChange={(e) => this.handleChange(e,'ungasan3')}/>Ungasan</label>
-                                </div>
+                                <label htmlFor="name">Name :</label>
+                                <input type="text" className="form-control" value={this.state.name3} onChange={(e) => this.handleChange(e,'name3')} id="name" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="phone">Hotel Preference :</label>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.beachfront3} onChange={(e) => this.handleChange(e,'beachfront3')}/>Beachfront</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.business3} onChange={(e) => this.handleChange(e,'business3')}/>Business facilities</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.golfcourse3} onChange={(e) => this.handleChange(e,'golfcourse3')}/>Golf Course</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.kidsfam3} onChange={(e) => this.handleChange(e,'kidsfam3')}/>Kids/Family Friendly</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearthebeach3} onChange={(e) => this.handleChange(e,'nearthebeach3')}/>Near The Beach</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearmountain3} onChange={(e) => this.handleChange(e,'nearmountain3')}/>Near Mountain</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearrestaurant3} onChange={(e) => this.handleChange(e,'nearrestaurant3')}/>Near Restaurant</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.heart3} onChange={(e) => this.handleChange(e,'heart3')}/>Heart of the City</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.tranquil3} onChange={(e) => this.handleChange(e,'tranquil3')}/>Tranquil Area</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nearnight3} onChange={(e) => this.handleChange(e,'nearnight3')}/>Near Nightclub</label>
-                                </div>
+                                <label htmlFor="name">Nationality :</label>
+                                <input type="text" className="form-control" value={this.state.national3} onChange={(e) => this.handleChange(e,'national3')} id="name" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="comp-name">Hotel Facility :</label>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.family3} onChange={(e) => this.handleChange(e,'family3')}/>Family Room</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.fitness3} onChange={(e) => this.handleChange(e,'fitness3')}/>Fitness Centre</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.pool3} onChange={(e) => this.handleChange(e,'pool3')}/>Pool</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.private3} onChange={(e) => this.handleChange(e,'private3')}/>Private Pool</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.wifi3} onChange={(e) => this.handleChange(e,'wifi3')}/>WIFI</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.nonsmoking3} onChange={(e) => this.handleChange(e,'nonsmoking3')}/>Non-smoking room</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.smoking3} onChange={(e) => this.handleChange(e,'smoking3')}/>Smoking room</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.spa3} onChange={(e) => this.handleChange(e,'spa3')}/>Spa & Wellness Center</label>
-                                </div>
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value={this.state.rest3} onChange={(e) => this.handleChange(e,'rest3')}/>Restaurant</label>
-                                </div>
+                                <label htmlFor="phone">Telephone :</label>
+                                <input type="number" className="form-control" value={this.state.telp3} onChange={(e) => this.handleChange(e,'telp3')} id="phone" required/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="email">Others :</label>
-                                <input type="text" className="form-control" value={this.state.otherrequest3} onChange={(e) => this.handleChange(e,'otherrequest3')} id="email" />
+                                <label htmlFor="email">E-mail :</label>
+                                <input type="email" className="form-control" value={this.state.email3} onChange={(e) => this.handleChange(e,'email3')} id="email" required/>
                             </div>
                         </div>
-                    </div>
-                    <br/>
-                    <div className="form-group">
-                        <label htmlFor="name">TRANPORTATION :</label>
-                        <div className="radio-inline">
-                            <label><input name="transport3" type="radio" value={this.state.transporty3} onChange={(e) => this.handleChange(e,'transporty3')}/>Yes</label>
+                        <br/>
+                        <h5>TRIP DETAILS</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="event-start">Starts from (Date) :</label>
+                                <Datepicker value={this.state.startdate3} onChange={(e) => this.handleChange(e,'startdate3')} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-start">Starts from (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.starttime3} onChange={(e) => this.handleChange(e,'starttime3')} id="type" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-end">Ends (Date) :</label>
+                                <Datepicker value={this.state.enddate3} onChange={(e) => this.handleChange(e,'enddate3')} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="event-start">Ends (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.endtime3} onChange={(e) => this.handleChange(e,'endtime3')} id="type" />
+                            </div>
+                            <div className="checkbox-inline">
+                                <label><input type="checkbox" value={this.state.tentative3} onChange={(e) => this.handleChange(e,'tentative3')} />Still Tentative</label>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="phone">Number of Rooms :</label>
+                                <input type="number" className="form-control" value={this.state.numroom3} onChange={(e) => this.handleChange(e,'numroom3')}  id="phone" />
+                            </div>
                         </div>
-                        <div className="radio-inline">
-                            <label><input name="transport3" type="radio" value={this.state.transportn3} onChange={(e) => this.handleChange(e,'transportn3')}/>No</label>
+                        <br/>
+                        <h5>ACCOMMODATION</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label htmlFor="name">Venue/Hotel :</label>
+                                <select className="form-control" value={this.state.venue3} onChange={(e) => this.handleChange(e,'venue3')} id="sel1">
+                                    <option value="Apartment" >Apartment</option>
+                                    <option value="Bungalow" >Bungalow</option>
+                                    <option value="Guest House" >Guest House</option>
+                                    <option value="5 stars" >5 stars</option>
+                                    <option value="4 stars" >4 stars</option>
+                                    <option value="3 stars" >3 stars</option>
+                                    <option value="2 stars" >2 stars</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="comp-name">Number of Adult :</label>
+                                <input type="number" className="form-control" value={this.state.numad3} onChange={(e) => this.handleChange(e,'numad3')} id="comp-name" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="phone">Number of Kids (if there are any) : </label>
+                                <input type="number" className="form-control" value={this.state.numkid3} onChange={(e) => this.handleChange(e,'numkid3')} id="phone" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
+                                <input type="number" className="form-control" value={this.state.esti3} onChange={(e) => this.handleChange(e,'esti3')} id="email" />
+                            </div>
+                            <h5>REQUEST :</h5>
+                            <div className="form-section">
+                                <div className="form-group">
+                                    <label htmlFor="comp-name">Hotel Area :</label>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.amed3} onChange={(e) => this.handleChange(e,'amed3')}/>Amed</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.candi3} onChange={(e) => this.handleChange(e,'candi3')}/>Candidasa</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.cangguarea3} onChange={(e) => this.handleChange(e,'cangguarea3')}/>Canggu area</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.canggubeach3} onChange={(e) => this.handleChange(e,'canggubeach3')}/>Canggu Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.jimbaran3} onChange={(e) => this.handleChange(e,'jimbaran3')}/>Jimbaran</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.karang3} onChange={(e) => this.handleChange(e,'karang3')}/>Karangasem</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.kerobokan3} onChange={(e) => this.handleChange(e,'kerobokan3')}/>Kerobokan</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.kids3} onChange={(e) => this.handleChange(e,'kids3')}/>Kids/Family Friendly</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.kutaarea3} onChange={(e) => this.handleChange(e,'kutaarea3')}/>Kuta area</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.kutabeach3} onChange={(e) => this.handleChange(e,'kutabeach3')}/>Kuta Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.legianarea3} onChange={(e) => this.handleChange(e,'legianarea3')}/>Legian Area</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.legianbeach3} onChange={(e) => this.handleChange(e,'legianbeach3')}/>Legian Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.lembongan3} onChange={(e) => this.handleChange(e,'lembongan3')}/>Lembongan</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.lovinabeach3} onChange={(e) => this.handleChange(e,'lovinabeach3')}/>Lovina Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.lovina3} onChange={(e) => this.handleChange(e,'lovina3')}/>Lovina</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.menjangan3} onChange={(e) => this.handleChange(e,'menjangan3')}/>Menjangan</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearbeach3} onChange={(e) => this.handleChange(e,'nearbeach3')}/>Near The Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nusadua3} onChange={(e) => this.handleChange(e,'nusadua3')}/>Nusadua Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.petit3} onChange={(e) => this.handleChange(e,'petit3')}/>Petitenget</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.seminyakbeach3} onChange={(e) => this.handleChange(e,'seminyakbeach3')}/>Seminyak Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.seminyak3} onChange={(e) => this.handleChange(e,'seminyak3')}/>Seminyak</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.tabanan3} onChange={(e) => this.handleChange(e,'tabanan3')}/>Tabanan</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.tanjung3} onChange={(e) => this.handleChange(e,'tanjung3')}/>Tanjung Benoa</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.sanurbeach3} onChange={(e) => this.handleChange(e,'sanurbeach3')}/>Sanur Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.sanurarea3} onChange={(e) => this.handleChange(e,'sanurarea3')}/>Sanur Area</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.sinaraja3} onChange={(e) => this.handleChange(e,'sinaraja3')}/>Sinaraja</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.tuban3} onChange={(e) => this.handleChange(e,'tuban3')}/>Tuban</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.tulamben3} onChange={(e) => this.handleChange(e,'tulamben3')}/>Tulamben</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.ubud3} onChange={(e) => this.handleChange(e,'ubud3')}/>Ubud</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.uluwatu3} onChange={(e) => this.handleChange(e,'uluwatu3')}/>Uluwatu</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.ungasan3} onChange={(e) => this.handleChange(e,'ungasan3')}/>Ungasan</label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="phone">Hotel Preference :</label>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.beachfront3} onChange={(e) => this.handleChange(e,'beachfront3')}/>Beachfront</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.business3} onChange={(e) => this.handleChange(e,'business3')}/>Business facilities</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.golfcourse3} onChange={(e) => this.handleChange(e,'golfcourse3')}/>Golf Course</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.kidsfam3} onChange={(e) => this.handleChange(e,'kidsfam3')}/>Kids/Family Friendly</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearthebeach3} onChange={(e) => this.handleChange(e,'nearthebeach3')}/>Near The Beach</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearmountain3} onChange={(e) => this.handleChange(e,'nearmountain3')}/>Near Mountain</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearrestaurant3} onChange={(e) => this.handleChange(e,'nearrestaurant3')}/>Near Restaurant</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.heart3} onChange={(e) => this.handleChange(e,'heart3')}/>Heart of the City</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.tranquil3} onChange={(e) => this.handleChange(e,'tranquil3')}/>Tranquil Area</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nearnight3} onChange={(e) => this.handleChange(e,'nearnight3')}/>Near Nightclub</label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="comp-name">Hotel Facility :</label>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.family3} onChange={(e) => this.handleChange(e,'family3')}/>Family Room</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.fitness3} onChange={(e) => this.handleChange(e,'fitness3')}/>Fitness Centre</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.pool3} onChange={(e) => this.handleChange(e,'pool3')}/>Pool</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.private3} onChange={(e) => this.handleChange(e,'private3')}/>Private Pool</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.wifi3} onChange={(e) => this.handleChange(e,'wifi3')}/>WIFI</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.nonsmoking3} onChange={(e) => this.handleChange(e,'nonsmoking3')}/>Non-smoking room</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.smoking3} onChange={(e) => this.handleChange(e,'smoking3')}/>Smoking room</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.spa3} onChange={(e) => this.handleChange(e,'spa3')}/>Spa & Wellness Center</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value={this.state.rest3} onChange={(e) => this.handleChange(e,'rest3')}/>Restaurant</label>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="email">Others :</label>
+                                    <input type="text" className="form-control" value={this.state.otherrequest3} onChange={(e) => this.handleChange(e,'otherrequest3')} id="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="form-group">
+                            <label htmlFor="name">TRANPORTATION :</label>
+                            <div className="radio-inline">
+                                <label><input name="transport3" type="radio" value={this.state.transporty3} onChange={(e) => this.handleChange(e,'transporty3')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="transport3" type="radio" value={this.state.transportn3} onChange={(e) => this.handleChange(e,'transportn3')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <p htmlFor="comp-name">Details :</p>
+                            <input type="text" className="form-control" value={this.state.dettransport3} onChange={(e) => this.handleChange(e,'dettransport3')} id="comp-name" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Special Remarks :</label>
+                            <input type="text" className="form-control" value={this.state.remarks3} onChange={(e) => this.handleChange(e,'remarks3')} id="email" />
                         </div>
                     </div>
-                    <div className="form-group">
-                        <p htmlFor="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.dettransport3} onChange={(e) => this.handleChange(e,'dettransport3')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Special Remarks :</label>
-                        <input type="text" className="form-control" value={this.state.remarks3} onChange={(e) => this.handleChange(e,'remarks3')} id="email" />
-                    </div>
-                    <br/>
                     <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
                 </form>
             </div>
@@ -2306,197 +2315,200 @@ class Form extends Component {
                 </div>
                 <br/>
                 <form className="form-div">
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label for="name">Name :</label>
-                            <input type="text" className="form-control" value={this.state.name4} onChange={(e) => this.handleChange(e,'name4')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="name">Nationality :</label>
-                            <input type="text" className="form-control" value={this.state.national4} onChange={(e) => this.handleChange(e,'national4')} id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="phone">Telephone :</label>
-                            <input type="number" className="form-control" value={this.state.telp4} onChange={(e) => this.handleChange(e,'telp4')} id="phone" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="email">E-mail :</label>
-                            <input type="email" className="form-control" value={this.state.email4} onChange={(e) => this.handleChange(e,'email4')} id="email" required/>
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>TRIP DETAILS</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label for="event-start">Starts from (Date) :</label>
-                            <Datepicker value={this.state.startdate4} onChange={(e) => this.handleChange(e,'startdate4')} />
-                        </div>
-                        <div className="form-group">
-                            <label for="event-start">Starts from (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.starttime4} onChange={(e) => this.handleChange(e,'starttime4')} id="type" />
-                        </div>
-                        <div className="form-group">
-                            <label for="event-end">Ends (Date) :</label>
-                            <Datepicker value={this.state.enddate4} onChange={(e) => this.handleChange(e,'enddate4')} />    
-                        </div>
-                        <div className="form-group">
-                            <label for="event-start">Ends (Time) :</label>
-                            <input type="text" className="form-control short-input" value={this.state.endtime4} onChange={(e) => this.handleChange(e,'endtime4')} id="type" />
-                        </div>
-                        <div className="checkbox-inline">
-                            <label><input type="checkbox" value={this.state.tentative4} onChange={(e) => this.handleChange(e,'tentative4')} />Still Tentative</label>
-                        </div>
-                        <div className="form-group">
-                            <label for="phone">Number of Rooms :</label>
-                            <input type="number" className="form-control" value={this.state.numroom4} onChange={(e) => this.handleChange(e,'numroom4')}  id="phone" />
-                        </div>
-                    </div>
-                    <br/>
-                    <div className="form-group">
-                        <label for="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
-                        <input type="number" className="form-control" value={this.state.esti4} onChange={(e) => this.handleChange(e,'esti4')} id="email" />
-                    </div>
-                    <br/>
-                    <h5>REQUEST :</h5>
-                    <div className="form-section">
-                        <div className="form-group">
+                    <div className="col-md-6">
+                        <div className="form-section">
                             <div className="form-group">
-                                <label for="phone">Hotel area :</label>
-                                <input type="text" className="form-control" value={this.state.area4} onChange={(e) => this.handleChange(e,'area4')}  id="phone" />
+                                <label for="name">Name :</label>
+                                <input type="text" className="form-control" value={this.state.name4} onChange={(e) => this.handleChange(e,'name4')} id="name" required/>
                             </div>
-                            <label for="phone">Hotel Preference :</label>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.beachfront4} onChange={(e) => this.handleChange(e,'beachfront4')}/>Beachfront</label>
+                            <div className="form-group">
+                                <label for="name">Nationality :</label>
+                                <input type="text" className="form-control" value={this.state.national4} onChange={(e) => this.handleChange(e,'national4')} id="name" required/>
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.business4} onChange={(e) => this.handleChange(e,'business4')}/>Business facilities</label>
+                            <div className="form-group">
+                                <label for="phone">Telephone :</label>
+                                <input type="number" className="form-control" value={this.state.telp4} onChange={(e) => this.handleChange(e,'telp4')} id="phone" required/>
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.golfcourse4} onChange={(e) => this.handleChange(e,'golfcourse4')}/>Golf Course</label>
+                            <div className="form-group">
+                                <label for="email">E-mail :</label>
+                                <input type="email" className="form-control" value={this.state.email4} onChange={(e) => this.handleChange(e,'email4')} id="email" required/>
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.kidsfam4} onChange={(e) => this.handleChange(e,'kidsfam4')}/>Kids/Family Friendly</label>
+                        </div>
+                        <br/>
+                        <h5>TRIP DETAILS</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <label for="event-start">Starts from (Date) :</label>
+                                <Datepicker value={this.state.startdate4} onChange={(e) => this.handleChange(e,'startdate4')} />
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.nearthebeach4} onChange={(e) => this.handleChange(e,'nearthebeach4')}/>Near The Beach</label>
+                            <div className="form-group">
+                                <label for="event-start">Starts from (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.starttime4} onChange={(e) => this.handleChange(e,'starttime4')} id="type" />
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.nearmountain4} onChange={(e) => this.handleChange(e,'nearmountain4')}/>Near Mountain</label>
+                            <div className="form-group">
+                                <label for="event-end">Ends (Date) :</label>
+                                <Datepicker value={this.state.enddate4} onChange={(e) => this.handleChange(e,'enddate4')} />    
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.nearrestaurant4} onChange={(e) => this.handleChange(e,'nearrestaurant4')}/>Near Restaurant</label>
+                            <div className="form-group">
+                                <label for="event-start">Ends (Time) :</label>
+                                <input type="text" className="form-control short-input" value={this.state.endtime4} onChange={(e) => this.handleChange(e,'endtime4')} id="type" />
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.heart4} onChange={(e) => this.handleChange(e,'heart4')}/>Heart of the City</label>
+                            <div className="checkbox-inline">
+                                <label><input type="checkbox" value={this.state.tentative4} onChange={(e) => this.handleChange(e,'tentative4')} />Still Tentative</label>
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.tranquil4} onChange={(e) => this.handleChange(e,'tranquil4')}/>Tranquil Area</label>
+                            <div className="form-group">
+                                <label for="phone">Number of Rooms :</label>
+                                <input type="number" className="form-control" value={this.state.numroom4} onChange={(e) => this.handleChange(e,'numroom4')}  id="phone" />
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.nearnight4} onChange={(e) => this.handleChange(e,'nearnight4')}/>Near Nightclub</label>
+                        </div>
+                        <br/>
+                        <div className="form-group">
+                            <label for="email">Estimation accommodation budget (per-night, per-room) in IDR :</label>
+                            <input type="number" className="form-control" value={this.state.esti4} onChange={(e) => this.handleChange(e,'esti4')} id="email" />
+                        </div>
+                        <br/>
+                        <h5>REQUEST :</h5>
+                        <div className="form-section">
+                            <div className="form-group">
+                                <div className="form-group">
+                                    <label for="phone">Hotel area :</label>
+                                    <input type="text" className="form-control" value={this.state.area4} onChange={(e) => this.handleChange(e,'area4')}  id="phone" />
+                                </div>
+                                <label for="phone">Hotel Preference :</label>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.beachfront4} onChange={(e) => this.handleChange(e,'beachfront4')}/>Beachfront</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.business4} onChange={(e) => this.handleChange(e,'business4')}/>Business facilities</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.golfcourse4} onChange={(e) => this.handleChange(e,'golfcourse4')}/>Golf Course</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.kidsfam4} onChange={(e) => this.handleChange(e,'kidsfam4')}/>Kids/Family Friendly</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.nearthebeach4} onChange={(e) => this.handleChange(e,'nearthebeach4')}/>Near The Beach</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.nearmountain4} onChange={(e) => this.handleChange(e,'nearmountain4')}/>Near Mountain</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.nearrestaurant4} onChange={(e) => this.handleChange(e,'nearrestaurant4')}/>Near Restaurant</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.heart4} onChange={(e) => this.handleChange(e,'heart4')}/>Heart of the City</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.tranquil4} onChange={(e) => this.handleChange(e,'tranquil4')}/>Tranquil Area</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.nearnight4} onChange={(e) => this.handleChange(e,'nearnight4')}/>Near Nightclub</label>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label for="comp-name">Hotel Facility :</label>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.family4} onChange={(e) => this.handleChange(e,'family4')}/>Family Room</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.fitness4} onChange={(e) => this.handleChange(e,'fitness4')}/>Fitness Centre</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.pool4} onChange={(e) => this.handleChange(e,'pool4')}/>Pool</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.private4} onChange={(e) => this.handleChange(e,'private4')}/>Private Pool</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.wifi4} onChange={(e) => this.handleChange(e,'wifi4')}/>WIFI</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.nonsmoking4} onChange={(e) => this.handleChange(e,'nonsmoking4')}/>Non-smoking room</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.smoking4} onChange={(e) => this.handleChange(e,'smoking4')}/>Smoking room</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.spa4} onChange={(e) => this.handleChange(e,'spa4')}/>Spa & Wellness Center</label>
+                                </div>
+                                <div className="checkbox">
+                                    <label><input type="checkbox" value={this.state.rest4} onChange={(e) => this.handleChange(e,'rest4')}/>Restaurant</label>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label for="email">Others :</label>
+                                <input type="text" className="form-control" value={this.state.otherrequest4} onChange={(e) => this.handleChange(e,'otherrequest4')} id="email" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                         <div className="form-group">
+                            <label for="name">TRANPORTATION :</label>
+                            <div className="radio-inline">
+                                <label><input type="radio" name="trans" value={this.state.transporty4} onChange={(e) => this.handleChange(e,'transporty4')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input type="radio" name="trans" value={this.state.transportn4} onChange={(e) => this.handleChange(e,'transportn4')}/>No</label>
                             </div>
                         </div>
                         <div className="form-group">
-                            <label for="comp-name">Hotel Facility :</label>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.family4} onChange={(e) => this.handleChange(e,'family4')}/>Family Room</label>
+                            <p for="comp-name">Details :</p>
+                            <input type="text" className="form-control" value={this.state.dettransport4} onChange={(e) => this.handleChange(e,'dettransport4')} id="comp-name" />
+                        </div>
+                        <div className="form-group">
+                            <label for="comp-name">TOURS / SIGHTSEEING :</label>
+                            <div className="radio-inline">
+                                <label><input name="tours" type="radio" value={this.state.toursy4} onChange={(e) => this.handleChange(e,'toursy4')}/>Yes</label>
                             </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.fitness4} onChange={(e) => this.handleChange(e,'fitness4')}/>Fitness Centre</label>
-                            </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.pool4} onChange={(e) => this.handleChange(e,'pool4')}/>Pool</label>
-                            </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.private4} onChange={(e) => this.handleChange(e,'private4')}/>Private Pool</label>
-                            </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.wifi4} onChange={(e) => this.handleChange(e,'wifi4')}/>WIFI</label>
-                            </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.nonsmoking4} onChange={(e) => this.handleChange(e,'nonsmoking4')}/>Non-smoking room</label>
-                            </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.smoking4} onChange={(e) => this.handleChange(e,'smoking4')}/>Smoking room</label>
-                            </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.spa4} onChange={(e) => this.handleChange(e,'spa4')}/>Spa & Wellness Center</label>
-                            </div>
-                            <div className="checkbox">
-                                <label><input type="checkbox" value={this.state.rest4} onChange={(e) => this.handleChange(e,'rest4')}/>Restaurant</label>
+                            <div className="radio-inline">
+                                <label><input name="tours" type="radio" value={this.state.toursn4} onChange={(e) => this.handleChange(e,'toursn4')}/>No</label>
                             </div>
                         </div>
                         <div className="form-group">
-                            <label for="email">Others :</label>
-                            <input type="text" className="form-control" value={this.state.otherrequest4} onChange={(e) => this.handleChange(e,'otherrequest4')} id="email" />
+                            <p for="comp-name">Details :</p>
+                            <input type="text" className="form-control" value={this.state.dettours4} onChange={(e) => this.handleChange(e,'dettours4')} id="comp-name" />
+                        </div>
+                        <div className="form-group">
+                            <label for="comp-name">ACTIVITIES :</label>
+                            <div className="radio-inline">
+                                <label><input name="act" type="radio" value={this.state.acty4} onChange={(e) => this.handleChange(e,'acty4')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="act" type="radio" value={this.state.actn4} onChange={(e) => this.handleChange(e,'actn4')}/>No</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <p for="comp-name">Details :</p>
+                            <input type="text" className="form-control" value={this.state.detact4} onChange={(e) => this.handleChange(e,'detact4')} id="comp-name" />
+                        </div>
+                        <div className="form-group">
+                            <label for="comp-name">MEALS :</label>
+                            <div className="radio-inline">
+                                <label><input name="meals" type="radio" value={this.state.mealsy4} onChange={(e) => this.handleChange(e,'mealsy4')}/>Yes</label>
+                            </div>
+                            <div className="radio-inline">
+                                <label><input name="meals" type="radio" value={this.state.mealsn4} onChange={(e) => this.handleChange(e,'mealsn4')}/>No</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.breakfast4} onChange={(e) => this.handleChange(e,'breakfast4')}/>Breakfast Included</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.half4} onChange={(e) => this.handleChange(e,'half4')}/>Halfboard (B&L)</label>
+                            </div>
+                            <div className="checkbox">
+                                <label><input type="checkbox" value={this.state.full4} onChange={(e) => this.handleChange(e,'full4')}/>Fullboard (B,L&D)</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <label for="email">Indicative Budget :</label>
+                            <input type="number" className="form-control" value={this.state.budget4} onChange={(e) => this.handleChange(e,'budget4')}id="email" />
+                        </div>
+                        <div className="form-group">
+                            <label for="email">Special Remarks :</label>
+                            <input type="text" className="form-control" value={this.state.remarks4} onChange={(e) => this.handleChange(e,'remarks4')} id="email" />
                         </div>
                     </div>
-                    <div className="form-group">
-                        <label for="name">TRANPORTATION :</label>
-                        <div className="radio-inline">
-                            <label><input type="radio" name="trans" value={this.state.transporty4} onChange={(e) => this.handleChange(e,'transporty4')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input type="radio" name="trans" value={this.state.transportn4} onChange={(e) => this.handleChange(e,'transportn4')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.dettransport4} onChange={(e) => this.handleChange(e,'dettransport4')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label for="comp-name">TOURS / SIGHTSEEING :</label>
-                        <div className="radio-inline">
-                            <label><input name="tours" type="radio" value={this.state.toursy4} onChange={(e) => this.handleChange(e,'toursy4')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="tours" type="radio" value={this.state.toursn4} onChange={(e) => this.handleChange(e,'toursn4')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.dettours4} onChange={(e) => this.handleChange(e,'dettours4')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label for="comp-name">ACTIVITIES :</label>
-                        <div className="radio-inline">
-                            <label><input name="act" type="radio" value={this.state.acty4} onChange={(e) => this.handleChange(e,'acty4')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="act" type="radio" value={this.state.actn4} onChange={(e) => this.handleChange(e,'actn4')}/>No</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" value={this.state.detact4} onChange={(e) => this.handleChange(e,'detact4')} id="comp-name" />
-                    </div>
-                    <div className="form-group">
-                        <label for="comp-name">MEALS :</label>
-                        <div className="radio-inline">
-                            <label><input name="meals" type="radio" value={this.state.mealsy4} onChange={(e) => this.handleChange(e,'mealsy4')}/>Yes</label>
-                        </div>
-                        <div className="radio-inline">
-                            <label><input name="meals" type="radio" value={this.state.mealsn4} onChange={(e) => this.handleChange(e,'mealsn4')}/>No</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.breakfast4} onChange={(e) => this.handleChange(e,'breakfast4')}/>Breakfast Included</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.half4} onChange={(e) => this.handleChange(e,'half4')}/>Halfboard (B&L)</label>
-                        </div>
-                        <div className="checkbox">
-                            <label><input type="checkbox" value={this.state.full4} onChange={(e) => this.handleChange(e,'full4')}/>Fullboard (B,L&D)</label>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Indicative Budget :</label>
-                        <input type="number" className="form-control" value={this.state.budget4} onChange={(e) => this.handleChange(e,'budget4')}id="email" />
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Special Remarks :</label>
-                        <input type="text" className="form-control" value={this.state.remarks4} onChange={(e) => this.handleChange(e,'remarks4')} id="email" />
-                    </div>
-                    <br/>
                     <button type="submit" onClick={(e) => this.handleSubmit(e)} className="btn btn-default">Submit</button>
                 </form>
             </div>
