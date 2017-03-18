@@ -54,7 +54,7 @@ const Main = ({ about_us }) => {
 						<div className="about-us col-md-12 col-sm-12">
 							<img src={ about_us.IMG } alt="about" />
 							<div className="info">
-								<h1><small> { about_us.TITTLE } </small></h1>
+								<h1><small> { about_us.TITLE } </small></h1>
 								<p> { about_us.TEXT } </p>
 							</div>
 						</div>
