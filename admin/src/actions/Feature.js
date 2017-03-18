@@ -35,13 +35,13 @@ export const editSlider = (key, data) => {
 }
 
 export const addSlider = (index, data) => {
-    return base.post((`feature/slider/list/${index}`), {
+    return base.post((`feature/slider/home/${index}`), {
       data: data
     })
 }
 
 export const deleteSlider = (index) => {
-    return base.remove(`feature/slider/list/${index}`)
+    return base.remove(`feature/slider/home/${index}`)
 }
 
 export const editVouchers = (key, data) => {

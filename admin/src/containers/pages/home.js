@@ -400,7 +400,7 @@ class Slider extends React.Component {
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="x_panel">
           <div className="x_title">
-            <h2>Slider</h2>
+            <h2>Home Slider</h2>
 
             <div className="clearfix"></div>
           </div>
@@ -1002,7 +1002,7 @@ class Voucher extends React.Component {
 const mapsStateToProps = (state) => {
   if(state.feature){
     return{
-      slider : state.feature.slider.list,
+      slider : state.feature.slider.home,
       social : state.social,
       vouchers : state.feature.vouchers.list,
       news : state.feature.news.list

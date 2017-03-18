@@ -348,15 +348,20 @@ class ChildPackage extends React.Component {
   addChild(val){
     val.preventDefault()
     if(this.state.file){
+      const slider = this.newChildSliderRef.value
       this.props.updateImage(this.state.file)
+      const newchild;
       .then((sliderUrl) => {
-        const newchild = {
-          TEXT : this.newChildTitleRef.value,
-          TITLE : this.newChildTextRef.value,
-          IMG: sliderUrl,
-          SLIDER: this.newChildSliderRef.value,
-          DESCRIPTION : this.newChildDescriptionRef.value
+          newchild["TEXT"] = this.newChildTitleRef.value,
+          newchild["TITLE"] = this.newChildTextRef.value,
+          newchild["IMG"] = sliderUrl,
+          newchild["DESCRIPTION"] = this.newChildDescriptionRef.value
         }
+        return this.props.updateImage(this.state.file2)
+      })
+      .then((slideUrl2) => {
+        slider.push(slideUrl2)
+        newchild["SLIDER"] = slider,
         return this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
       })
       .then(() => {
@@ -484,6 +489,34 @@ class ChildPackage extends React.Component {
     }
   }
 
+  onSliderDrop(e) {
+    let img = new Image();
+    let file = e[0];
+    img.src = window.URL.createObjectURL( file )
+    let h = this.state.height
+    let w = this.state.width
+    img.onload = () => {// REFACTORIN
+      this.setState({
+        naturalHeight: img.naturalHeight,
+        naturalWidth: img.naturalWidth
+      })
+      handleImageChange(file)
+    }
+
+    let handleImageChange = (file) => {
+      let reader = new FileReader();
+
+      reader.onloadend = () => {
+        this.setState({
+          filename2: e[0].name,
+          file2: file,
+          imagePreviewUrl2: reader.result
+        });
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
   render(){
     return(
       <div className="x_panel">
@@ -546,8 +579,20 @@ class ChildPackage extends React.Component {
                           <div className="form-group">
                             <label className="">Slider</label>
                             <div className="">
-                              <input id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                                data-parsley-validation-threshold="10" defaultValue={ packet.SLIDER } onChange={(ref) => this.handleChange(ref, `slider`)}></input>
+                              {
+                                packet.SLIDER.map((slider, index) => (
+                                  <div key={index}>
+                                    <input id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                                    data-parsley-validation-threshold="10" defaultValue={ slider } onChange={(ref) => this.handleChange(ref, `slider`)}></input>
+                                    <br />
+                                  </div>
+                                ))
+                              }
+                              Add chil package slider
+                              <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
+                                <div>{ this.state.filename2 }</div>
+                              </Dropzone>
+                              image size: 470 x 220
                             </div>
                           </div>
 
