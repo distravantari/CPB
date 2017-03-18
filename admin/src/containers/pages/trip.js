@@ -349,19 +349,19 @@ class ChildPackage extends React.Component {
     val.preventDefault()
     if(this.state.file){
       const slider = this.newChildSliderRef.value
+      const newchild = {
+        TEXT: this.newChildTitleRef.value,
+        TITLE: this.newChildTextRef.value,
+        DESCRIPTION: this.newChildDescriptionRef.value
+      }
       this.props.updateImage(this.state.file)
-      const newchild;
       .then((sliderUrl) => {
-          newchild["TEXT"] = this.newChildTitleRef.value,
-          newchild["TITLE"] = this.newChildTextRef.value,
-          newchild["IMG"] = sliderUrl,
-          newchild["DESCRIPTION"] = this.newChildDescriptionRef.value
-        }
+          newchild["IMG"] = sliderUrl
         return this.props.updateImage(this.state.file2)
       })
       .then((slideUrl2) => {
         slider.push(slideUrl2)
-        newchild["SLIDER"] = slider,
+        newchild["SLIDER"] = slider
         return this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
       })
       .then(() => {
