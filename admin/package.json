@@ -1,5 +1,5 @@
 {
-  "name": "libao",
+  "name": "balizee-admin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "production": "webpack -p",
     "start": "webpack-dev-server --content-base www/"
   },
-  "author": "Renaldy",
+  "author": "Distra Vantari & Renaldy",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",

@@ -1,89 +1,22 @@
-/* eslint no-console: 0 */
+// using SendGrid's v3 Node.js Library
+// https://github.com/sendgrid/sendgrid-nodejs
+var helper = require('sendgrid').mail;
 
-'use strict';
+from_email = new helper.Email("dstrvntr@gmail.com");
+to_email = new helper.Email("distravantari@gmail.com");
+subject = "Sending with SendGrid is Fun";
+content = new helper.Content("text/plain", "and easy to do anywhere, even with Node.js");
+mail = new helper.Mail(from_email, subject, to_email, content);
 
-const bunyan = require('bunyan');
-const nodemailer = require('./lib/nodemailer');
-
-// Create a SMTP transporter object
-let transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'dstrvntr@gmail.com',
-        pass:  'inidistra'
-    },
-    logger: bunyan.createLogger({
-        name: 'nodemailer'
-    }),
-    debug: true // include SMTP traffic in the logs
-}, {
-    // default message fields
-
-    // sender info
-    from: 'Admin <no-reply@balizee.com>',
-    headers: {
-        'X-Laziness-level': 1000 // just an example header, no need to use this
-    }
+var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+var request = sg.emptyRequest({
+  method: 'POST',
+  path: '/v3/mail/send',
+  body: mail.toJSON()
 });
 
-console.log('SMTP Configured');
-
-// Message object
-let message = {
-
-    // Comma separated list of recipients
-    to: 'distravantari <nensivalentina@gmail.com>',
-
-    // Subject of the message
-    subject: 'Balizee is unicode friendly ✔ #', //
-
-    // plaintext body
-    text: 'Hello ncy!',
-
-    // HTML body
-    // html: '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
-    //     '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
-    //
-    // // Apple Watch specific HTML body
-    // watchHtml: '<b>Hello</b> to myself',
-
-    // An array of attachments
-    // attachments: [
-    //
-    //     // String attachment
-    //     {
-    //         filename: 'notes.txt',
-    //         content: 'Some notes about this e-mail',
-    //         contentType: 'text/plain' // optional, would be detected from the filename
-    //     },
-    //
-    //     // Binary Buffer attachment
-    //     {
-    //         filename: 'image.png',
-    //         content: new Buffer('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD/' +
-    //             '//+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4U' +
-    //             'g9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC', 'base64'),
-    //
-    //         cid: 'note@example.com' // should be as unique as possible
-    //     },
-    //
-    //     // File Stream attachment
-    //     {
-    //         filename: 'nyan cat ✔.gif',
-    //         path: __dirname + '/assets/nyan.gif',
-    //         cid: 'nyan@example.com' // should be as unique as possible
-    //     }
-    // ]
-};
-
-console.log('Sending Mail');
-transporter.sendMail(message, (error, info) => {
-    if (error) {
-        console.log('Error occurred');
-        console.log(error.message);
-        return;
-    }
-    console.log('Message sent successfully!');
-    console.log('Server responded with "%s"', info.response);
-    transporter.close();
-});
+sg.API(request, function(error, response) {
+  console.log(response.statusCode);
+  console.log(response.body);
+  console.log(response.headers);
+})

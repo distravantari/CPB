@@ -4,6 +4,7 @@ var express = require('express');
 const bunyan = require('bunyan');
 const bodyParser = require("body-parser");
 const nodemailer = require('./lib/nodemailer');
+const https = require('https');
 
 var app = module.exports = express();
 
@@ -34,9 +35,18 @@ app.use(allowCrossDomain);
 
 let transporter = nodemailer.createTransport({
     service: 'Gmail',
+    // auth: {
+    //     user: 'dstrvntr@gmail.com',
+    //     pass:  'inidistra'
+    // },
     auth: {
+        type: 'OAuth2',
         user: 'dstrvntr@gmail.com',
-        pass:  'inidistra'
+        clientId: '984872888741-8bo9b9ltdjd42cm45jd0gi1rlpj7uo5c.apps.googleusercontent.com',
+        clientSecret: 'JyMrCK9bOdVjz1ZQXoc5b-M3',
+        refreshToken: '1/ntyg-y-ciNqrLtEsfARBUahtNi0gNsqqU2qth4InrDg',
+        accessToken: 'ya29.GlsXBFaOkHWZ0p-4sIOTGacbx4P9rJmXZp9SWjPonz0SKvHzLLHuHc2LvB94Cd_TQ5gu-fQuYqUOUDXUhXUVtbrPqNs6DnBCi1WcrAEDHhyCLnylMVHcyQLJ8TiZ',
+        expires: 12345
     },
     logger: bunyan.createLogger({
         name: 'nodemailer'
@@ -99,8 +109,13 @@ app.use(function(req, res){
   res.send({ error: "Lame, can't find that" });
 });
 
+// var server = https.createServer(app);
+
 if (!module.parent) {
-  app.listen(3000, function() {
-    console.log("listening on 3000");
+  app.listen(80, function() {
+    console.log("listening on 80");
   });
+  // server.listen(80, function(){
+  //     console.log("server running at port 80")
+  // });
 }
