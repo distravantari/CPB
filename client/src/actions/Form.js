@@ -8,7 +8,7 @@ export const receiveForm = (subject,text) => {
         method: 'post',
         url: 'https://nodemailer-zkhnwhinto.now.sh/email',
         data: {
-            to: 'nensivalentina@gmail.com',
+            to: 'balizeetravel@gmail.com',
             subject: subject,
             text: text
         }
