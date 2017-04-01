@@ -239,7 +239,8 @@ class Slider extends React.Component {
         this.newTitleRef.value = ''
         this.newInfoRef.value = ''
         this.newTypeRef.value =''
-        this.newIndex.value = ''
+        this.newIndexRef.value = ''
+        this.newUrlRef.value = ''
         // set file state to default value
         this.setState({
           filename: '',
@@ -572,9 +573,9 @@ class Social extends React.Component {
         ICON : "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/facebook_.jpg?alt=media&token=1cfef65e-293c-4562-8fc6-84a124468976",
         URL : this.facebookRef.value
       },
-      instagram : {
-        URL : this.instagramRef.value
-      },
+      // instagram : {
+      //   URL : this.instagramRef.value
+      // },
       twitter : {
         USERNAME : this.twitterUserNameRef.value,
         TITLE: "Latest tweets",
@@ -619,12 +620,12 @@ class Social extends React.Component {
                   </div>
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Instagram URL</label>
                   <div className="col-md-9 col-sm-9 col-xs-12">
                     <input type="text" className="form-control" placeholder="URL" defaultValue={this.props.social.instagram.URL} ref={(ref) => this.instagramRef = ref}/>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="form-group">
                   <label className="control-label col-md-3 col-sm-3 col-xs-12">Twitter Username</label>

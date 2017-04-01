@@ -52585,7 +52585,8 @@
 	          _this6.newTitleRef.value = '';
 	          _this6.newInfoRef.value = '';
 	          _this6.newTypeRef.value = '';
-	          _this6.newIndex.value = '';
+	          _this6.newIndexRef.value = '';
+	          _this6.newUrlRef.value = '';
 	          // set file state to default value
 	          _this6.setState({
 	            filename: '',
@@ -53084,9 +53085,9 @@
 	          ICON: "https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/facebook_.jpg?alt=media&token=1cfef65e-293c-4562-8fc6-84a124468976",
 	          URL: this.facebookRef.value
 	        },
-	        instagram: {
-	          URL: this.instagramRef.value
-	        },
+	        // instagram : {
+	        //   URL : this.instagramRef.value
+	        // },
 	        twitter: {
 	          USERNAME: this.twitterUserNameRef.value,
 	          TITLE: "Latest tweets",
@@ -53161,29 +53162,13 @@
 	                  _react2.default.createElement(
 	                    'label',
 	                    { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
-	                    'Instagram URL'
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'URL', defaultValue: this.props.social.instagram.URL, ref: function ref(_ref8) {
-	                        return _this11.instagramRef = _ref8;
-	                      } })
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'form-group' },
-	                  _react2.default.createElement(
-	                    'label',
-	                    { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
 	                    'Twitter Username'
 	                  ),
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: this.props.social.twitter.USERNAME, ref: function ref(_ref9) {
-	                        return _this11.twitterUserNameRef = _ref9;
+	                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: this.props.social.twitter.USERNAME, ref: function ref(_ref8) {
+	                        return _this11.twitterUserNameRef = _ref8;
 	                      } })
 	                  )
 	                ),
@@ -53198,8 +53183,8 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'URL', defaultValue: this.props.social.twitter.LINK, ref: function ref(_ref10) {
-	                        return _this11.twitterLinkRef = _ref10;
+	                    _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'URL', defaultValue: this.props.social.twitter.LINK, ref: function ref(_ref9) {
+	                        return _this11.twitterLinkRef = _ref9;
 	                      } })
 	                  )
 	                ),
@@ -53652,8 +53637,8 @@
 	                        _react2.default.createElement(
 	                          'div',
 	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: '', ref: function ref(_ref11) {
-	                              return _this16.newTitleRef = _ref11;
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: '', ref: function ref(_ref10) {
+	                              return _this16.newTitleRef = _ref10;
 	                            } })
 	                        )
 	                      ),
@@ -53669,8 +53654,8 @@
 	                          'div',
 	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
 	                          _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                            'data-parsley-validation-threshold': '10', style: { height: "130px" }, defaultValue: '', ref: function ref(_ref12) {
-	                              return _this16.newTextRef = _ref12;
+	                            'data-parsley-validation-threshold': '10', style: { height: "130px" }, defaultValue: '', ref: function ref(_ref11) {
+	                              return _this16.newTextRef = _ref11;
 	                            } })
 	                        )
 	                      ),
@@ -53685,8 +53670,8 @@
 	                        _react2.default.createElement(
 	                          'div',
 	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: '', ref: function ref(_ref13) {
-	                              return _this16.newInstagramRef = _ref13;
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Tittle', defaultValue: '', ref: function ref(_ref12) {
+	                              return _this16.newInstagramRef = _ref12;
 	                            } })
 	                        )
 	                      ),
@@ -53701,8 +53686,8 @@
 	                        _react2.default.createElement(
 	                          'div',
 	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Voucher URL', defaultValue: '', ref: function ref(_ref14) {
-	                              return _this16.newUrlRef = _ref14;
+	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Voucher URL', defaultValue: '', ref: function ref(_ref13) {
+	                              return _this16.newUrlRef = _ref13;
 	                            } })
 	                        )
 	                      ),
@@ -53717,8 +53702,8 @@
 	                        _react2.default.createElement(
 	                          'div',
 	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('textarea', { type: 'text', className: 'form-control', placeholder: 'Voucher Description', defaultValue: '', ref: function ref(_ref15) {
-	                              return _this16.newDescriptionRef = _ref15;
+	                          _react2.default.createElement('textarea', { type: 'text', className: 'form-control', placeholder: 'Voucher Description', defaultValue: '', ref: function ref(_ref14) {
+	                              return _this16.newDescriptionRef = _ref14;
 	                            } })
 	                        )
 	                      ),
