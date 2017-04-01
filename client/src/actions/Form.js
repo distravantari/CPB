@@ -6,9 +6,9 @@ import base from '../config/db'
 export const receiveForm = (subject,text) => {
     return axios ({
         method: 'post',
-        url: 'http://localhost:3000/email',
+        url: 'https://nodemailer-zkhnwhinto.now.sh/email',
         data: {
-            to: 'nensivalentina@gmail.com',
+            to: 'balizeetravel@gmail.com',
             subject: subject,
             text: text
         }

@@ -134,7 +134,7 @@ export class GetInTouch extends React.Component {
 
     email(val) {
       val.preventDefault()
-      alert('success, thank you for subsribing us');
+      alert('thank you for contacting us!');
       let message = "Name: " + this.nameRef.value + "\nEmail: " + this.emailRef.value + "\nMessage: " + this.textRef.value
       let subj = "Form Get in Touch"
       this.props.receiveForm(subj,message)

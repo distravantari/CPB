@@ -176,7 +176,7 @@
 }
 @charset "UTF-8";
 body {
-  background: url(https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/background.jpg?alt=media&token=c08f1e27-3e5d-41b1-b5ab-0692e0fc5e20);
+  background: url(https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/about.jpg?alt=media&token=ca8aeb31-1078-4fd3-8d86-2088053faa6a);
   background-attachment: fixed;
   height: 100%;
   font-family: 'Open Sans'; }
@@ -189,7 +189,7 @@ body {
   -moz-box-shadow: 0 -20px 20px 0 rgba(0, 0, 0, 0.4); }
 
 .form-div {
-  width: 500px !important; }
+  width: 900px !important; }
 
 .form-section {
   margin-left: 40px; }
@@ -202,7 +202,8 @@ body {
   background-color: #f5f5f5;
   padding-top: 30px;
   padding-left: 30px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  font-size: 10px; }
 
 .video {
   margin-top: 10px;

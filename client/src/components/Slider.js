@@ -53,7 +53,7 @@ class Slider extends React.Component{
         {/*DEPRECATED*/}
         {<News news={ this.props.news.list } />}
 
-        <BigSlider big_slider={ this.props.slider.list } />
+        <BigSlider big_slider={ this.props.slider.home } />
 
       </div>
     )

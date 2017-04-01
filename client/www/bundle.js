@@ -65974,9 +65974,9 @@
 	var receiveForm = exports.receiveForm = function receiveForm(subject, text) {
 	    return (0, _axios2.default)({
 	        method: 'post',
-	        url: 'http://localhost:3000/email',
+	        url: 'https://nodemailer-zkhnwhinto.now.sh/email',
 	        data: {
-	            to: 'nensivalentina@gmail.com',
+	            to: 'balizeetravel@gmail.com',
 	            subject: subject,
 	            text: text
 	        }
@@ -66332,7 +66332,7 @@
 	    key: 'email',
 	    value: function email(val) {
 	      val.preventDefault();
-	      alert('success, thank you for subsribing us');
+	      alert('thank you for contacting us!');
 	      var message = "Name: " + this.nameRef.value + "\nEmail: " + this.emailRef.value + "\nMessage: " + this.textRef.value;
 	      var subj = "Form Get in Touch";
 	      this.props.receiveForm(subj, message).then(function () {
@@ -66563,7 +66563,7 @@
 	        'div',
 	        { className: 'col-md-12 col-sm-12' },
 	        _react2.default.createElement(News, { news: this.props.news.list }),
-	        _react2.default.createElement(BigSlider, { big_slider: this.props.slider.list })
+	        _react2.default.createElement(BigSlider, { big_slider: this.props.slider.home })
 	      );
 	    }
 	  }]);
