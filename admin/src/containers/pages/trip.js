@@ -555,6 +555,7 @@ class ChildPackage extends React.Component {
                     return(
                       <div key={index} role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`tab${this.props.indexParent}_child${index+1}`} aria-labelledby="home-tab">
                         <div className="x_panel col-md-6 col-sm-12 col-sm-12">
+                          <h5>this is for child package image preview</h5>
                           <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
                             <div>{ this.state.filename }</div>
                           </Dropzone>
@@ -577,26 +578,6 @@ class ChildPackage extends React.Component {
                           </div>
 
                           <div className="form-group">
-                            <label className="">Slider</label>
-                            <div className="">
-                              {
-                                packet.SLIDER.map((slider, index) => (
-                                  <div key={index}>
-                                    <input id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                                    data-parsley-validation-threshold="10" defaultValue={ slider } onChange={(ref) => this.handleChange(ref, `slider`)}></input>
-                                    <br />
-                                  </div>
-                                ))
-                              }
-                              Add child package slider
-                              <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
-                                <div>{ this.state.filename2 }</div>
-                              </Dropzone>
-                              image size: 470 x 220
-                            </div>
-                          </div>
-
-                          <div className="form-group">
                             <label className="">Description</label>
                             <div className="">
                               <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
@@ -610,7 +591,50 @@ class ChildPackage extends React.Component {
                               <button type="" className="btn btn-danger" onClick={(val) => this.deleteChild(val, index)}>Delete</button>
                             </div>
                           </div>
+                        </div>
+                        <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
+                          <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
+                            {
+                              packet.SLIDER.map((packet, index) => {
+                                return(
+                                  <li key={index} role="presentation" className={ index == 0 ? 'active':''}>
+                                    <a href={`#cslider${index+1}`} role="tab" data-toggle="tab" aria-expanded={index == 0 ? 'true' : 'false'}>
+                                      {index}
+                                    </a>
+                                  </li>
+                                )
+                              })
+                            }
+                          </ul>
+                          <div className="form-group">
+                            <label className="">Slider</label>
+                            <div className="">
+                              {
+                                packet.SLIDER.map((slider, index) => (
+                                  <div key={index} role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`cslider${index+1}`} aria-labelledby="home-tab">
 
+                                    <div className="col-md-7 col-sm-7 col-xs-12">
+                                      <form className="form-horizontal form-label-left">
+
+                                        <h5> Add child package slider {index} </h5>
+                                        <p>{ slider }</p>
+                                        <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
+                                          <div>{ this.state.filename2 }</div>
+                                        </Dropzone>
+                                        image size: 690 x 271
+
+                                        <div className="form-group">
+                                          <div className="col-md-9 col-sm-9 col-xs-12">
+                                            <button type="submit" className="btn btn-success"onClick={(val) => this.editChildSlider(val, index)}>Edit</button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                ))
+                              }
+                            </div>
+                          </div>
                         </div>
                       </div>
                     )
