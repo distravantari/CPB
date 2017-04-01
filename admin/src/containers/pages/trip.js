@@ -588,7 +588,7 @@ class ChildPackage extends React.Component {
                                   </div>
                                 ))
                               }
-                              Add chil package slider
+                              Add child package slider
                               <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
                                 <div>{ this.state.filename2 }</div>
                               </Dropzone>

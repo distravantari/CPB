@@ -54661,7 +54661,7 @@
 	                              _react2.default.createElement('br', null)
 	                            );
 	                          }),
-	                          'Add chil package slider',
+	                          'Add child package slider',
 	                          _react2.default.createElement(
 	                            _reactDropzone2.default,
 	                            { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
