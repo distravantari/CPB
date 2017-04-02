@@ -46905,48 +46905,52 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'col-md-12 col-sm-12 col-xs-12' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'page-title col-md-offset-1' },
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'HEADER'
-	          )
-	        ),
-	        _react2.default.createElement('div', { className: 'clearfix' }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
+	          { className: 'x_panel' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-md-4 col-md-offset-1' },
+	            { className: 'x_title' },
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'HEADER'
+	            ),
+	            _react2.default.createElement('div', { className: 'clearfix' }),
 	            _react2.default.createElement(
 	              'div',
-	              { style: { 'marginLeft': '10px !important' } },
+	              { className: 'row' },
 	              _react2.default.createElement(
-	                _reactDropzone2.default,
-	                { style: con.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
-	                    return _this5.onDrop(e);
-	                  } },
+	                'div',
+	                { className: 'col-md-4 col-md-offset-1' },
 	                _react2.default.createElement(
 	                  'div',
-	                  null,
-	                  this.state.filename
+	                  { style: { 'marginLeft': '10px !important' } },
+	                  _react2.default.createElement(
+	                    _reactDropzone2.default,
+	                    { style: con.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                        return _this5.onDrop(e);
+	                      } },
+	                    _react2.default.createElement(
+	                      'div',
+	                      null,
+	                      this.state.filename
+	                    )
+	                  ),
+	                  'image size: 1182 x 350',
+	                  _react2.default.createElement('br', null)
 	                )
-	              ),
-	              'image size: 1182 x 350',
-	              _react2.default.createElement('br', null)
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { type: 'submit', className: 'btn btn-success col-md-offset-1', onClick: function onClick(val) {
+	                  return _this5.editHeader(val);
+	                } },
+	              'Edit'
 	            )
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'submit', className: 'btn btn-success col-md-offset-1', onClick: function onClick(val) {
-	              return _this5.editHeader(val);
-	            } },
-	          'Edit'
 	        )
 	      );
 	    }
@@ -47052,173 +47056,177 @@
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'col-md-12 col-sm-12 col-xs-12' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'page-title col-md-offset-1' },
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'FOOTER'
-	          )
-	        ),
-	        _react2.default.createElement('div', { className: 'clearfix' }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
+	          { className: 'x_panel' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-md-3 col-md-offset-1' },
+	            { className: 'x_title' },
 	            _react2.default.createElement(
-	              _reactDropzone2.default,
-	              { style: con.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
-	                  return _this9.onDrop(e);
-	                } },
+	              'h1',
+	              null,
+	              'FOOTER'
+	            ),
+	            _react2.default.createElement('div', { className: 'clearfix' }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                null,
-	                this.state.filename
+	                { className: 'col-md-3 col-md-offset-1' },
+	                _react2.default.createElement(
+	                  _reactDropzone2.default,
+	                  { style: con.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                      return _this9.onDrop(e);
+	                    } },
+	                  _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    this.state.filename
+	                  )
+	                ),
+	                'image size: 135 x 40',
+	                _react2.default.createElement('br', null)
 	              )
 	            ),
-	            'image size: 135 x 40',
-	            _react2.default.createElement('br', null)
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-md-offset-1 col-md-6' },
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Title'
-	            ),
 	            _react2.default.createElement(
 	              'div',
-	              null,
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.TITLE, ref: function ref(_ref) {
-	                  return _this9.titleRef = _ref;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Text'
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.TEXT, ref: function ref(_ref2) {
-	                  return _this9.textRef = _ref2;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Link'
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
+	              { className: 'row' },
 	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Facebook'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.FB, ref: function ref(_ref3) {
-	                  return _this9.fbRef = _ref3;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Google'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.GOOGLE, ref: function ref(_ref4) {
-	                  return _this9.googleRef = _ref4;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Instagram'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.INSTAGRAM, ref: function ref(_ref5) {
-	                  return _this9.instagramRef = _ref5;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Path'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.PATH, ref: function ref(_ref6) {
-	                  return _this9.pathRef = _ref6;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Trip'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.TRIP, ref: function ref(_ref7) {
-	                  return _this9.tripRef = _ref7;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Twitter'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.TWITTER, ref: function ref(_ref8) {
-	                  return _this9.twitterRef = _ref8;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Youtube'
-	              ),
-	              _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.YOUTUBE, ref: function ref(_ref9) {
-	                  return _this9.youtubeRef = _ref9;
-	                } }),
-	              _react2.default.createElement('br', null)
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'button',
-	              { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
-	                  return _this9.editFooter(val);
-	                } },
-	              'Edit'
+	                'div',
+	                { className: 'col-md-offset-1 col-md-6' },
+	                _react2.default.createElement(
+	                  'label',
+	                  null,
+	                  'Title'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.TITLE, ref: function ref(_ref) {
+	                      return _this9.titleRef = _ref;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'label',
+	                  null,
+	                  'Text'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.TEXT, ref: function ref(_ref2) {
+	                      return _this9.textRef = _ref2;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'label',
+	                  null,
+	                  'Link'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Facebook'
+	                  ),
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.FB, ref: function ref(_ref3) {
+	                      return _this9.fbRef = _ref3;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Google'
+	                  ),
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.GOOGLE, ref: function ref(_ref4) {
+	                      return _this9.googleRef = _ref4;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Instagram'
+	                  ),
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.INSTAGRAM, ref: function ref(_ref5) {
+	                      return _this9.instagramRef = _ref5;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Path'
+	                  ),
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.PATH, ref: function ref(_ref6) {
+	                      return _this9.pathRef = _ref6;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Trip'
+	                  ),
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.TRIP, ref: function ref(_ref7) {
+	                      return _this9.tripRef = _ref7;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Twitter'
+	                  ),
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.TWITTER, ref: function ref(_ref8) {
+	                      return _this9.twitterRef = _ref8;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  null,
+	                  _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Youtube'
+	                  ),
+	                  _react2.default.createElement('input', { type: 'text', className: 'form-control', defaultValue: this.props.component.LINK.YOUTUBE, ref: function ref(_ref9) {
+	                      return _this9.youtubeRef = _ref9;
+	                    } }),
+	                  _react2.default.createElement('br', null)
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                  'button',
+	                  { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
+	                      return _this9.editFooter(val);
+	                    } },
+	                  'Edit'
+	                )
+	              )
 	            )
 	          )
 	        )

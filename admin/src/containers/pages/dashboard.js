@@ -87,22 +87,25 @@ class Header extends React.Component{
 
   render(){
       return(
-        <div className="row">
-          <div className="page-title col-md-offset-1"><h1>HEADER</h1></div>
-
-          <div className="clearfix"></div>
-          <div className='row'>
-            <div className="col-md-4 col-md-offset-1">
-              <div style={{'marginLeft': '10px !important'}}>
-                <Dropzone style={ con.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
-                  <div>{ this.state.filename }</div>
-                </Dropzone>
-                image size: 1182 x 350
-                <br />
+        <div className="col-md-12 col-sm-12 col-xs-12">
+          <div className="x_panel">
+            <div className="x_title">
+              <h1>HEADER</h1>
+              <div className="clearfix"></div>
+              <div className='row'>
+                <div className="col-md-4 col-md-offset-1">
+                  <div style={{'marginLeft': '10px !important'}}>
+                    <Dropzone style={ con.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                      <div>{ this.state.filename }</div>
+                    </Dropzone>
+                    image size: 1182 x 350
+                    <br />
+                  </div>
+                </div>
               </div>
+              <button type="submit" className="btn btn-success col-md-offset-1" onClick={(val) => this.editHeader(val)}>Edit</button>
             </div>
           </div>
-          <button type="submit" className="btn btn-success col-md-offset-1" onClick={(val) => this.editHeader(val)}>Edit</button>
         </div>
       )
   }
@@ -188,70 +191,73 @@ class Footer extends React.Component{
   render(){
       if(!this.props.component) return (<div> Loading .. </div>)
       return(
-        <div className="row">
-          <div className="page-title col-md-offset-1"><h1>FOOTER</h1></div>
-
-          <div className="clearfix"></div>
-          <div className="row">
-            <div className="col-md-3 col-md-offset-1">
-              <Dropzone style={ con.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
-                <div>{ this.state.filename }</div>
-              </Dropzone>
-              image size: 135 x 40
-              <br />
-              {/*<button type="submit" className="btn btn-success" onClick={(val) => this.editFooter(val)}>Edit</button>*/}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-offset-1 col-md-6">
-              <label >Title</label>
-              <div>
-                <input type="text" className="form-control" defaultValue={this.props.component.TITLE} ref={(ref) => this.titleRef = ref}/>
-                <br />
+        <div className="col-md-12 col-sm-12 col-xs-12">
+          <div className="x_panel">
+            <div className="x_title">
+              <h1>FOOTER</h1>
+              <div className="clearfix"></div>
+              <div className="row">
+                <div className="col-md-3 col-md-offset-1">
+                  <Dropzone style={ con.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                    <div>{ this.state.filename }</div>
+                  </Dropzone>
+                  image size: 135 x 40
+                  <br />
+                  {/*<button type="submit" className="btn btn-success" onClick={(val) => this.editFooter(val)}>Edit</button>*/}
+                </div>
               </div>
-              <label >Text</label>
-              <div>
-                <input type="text" className="form-control"  defaultValue={this.props.component.TEXT} ref={(ref) => this.textRef = ref}/>
-                <br />
+              <div className="row">
+                <div className="col-md-offset-1 col-md-6">
+                  <label >Title</label>
+                  <div>
+                    <input type="text" className="form-control" defaultValue={this.props.component.TITLE} ref={(ref) => this.titleRef = ref}/>
+                    <br />
+                  </div>
+                  <label >Text</label>
+                  <div>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.TEXT} ref={(ref) => this.textRef = ref}/>
+                    <br />
+                  </div>
+                  <label >Link</label>
+                  <div>
+                    <label >Facebook</label>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.LINK.FB} ref={(ref) => this.fbRef = ref}/>
+                    <br />
+                  </div>
+                  <div>
+                    <label >Google</label>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.LINK.GOOGLE} ref={(ref) => this.googleRef = ref}/>
+                    <br />
+                  </div>
+                  <div>
+                    <label >Instagram</label>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.LINK.INSTAGRAM} ref={(ref) => this.instagramRef = ref}/>
+                    <br />
+                  </div>
+                  <div>
+                    <label >Path</label>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.LINK.PATH} ref={(ref) => this.pathRef = ref}/>
+                    <br />
+                  </div>
+                  <div>
+                    <label >Trip</label>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.LINK.TRIP} ref={(ref) => this.tripRef = ref}/>
+                    <br />
+                  </div>
+                  <div>
+                    <label >Twitter</label>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.LINK.TWITTER} ref={(ref) => this.twitterRef = ref}/>
+                    <br />
+                  </div>
+                  <div>
+                    <label >Youtube</label>
+                    <input type="text" className="form-control"  defaultValue={this.props.component.LINK.YOUTUBE} ref={(ref) => this.youtubeRef = ref}/>
+                    <br />
+                  </div>
+                  <br />
+                  <button type="submit" className="btn btn-success" onClick={(val) => this.editFooter(val)}>Edit</button>
+                </div>
               </div>
-              <label >Link</label>
-              <div>
-                <label >Facebook</label>
-                <input type="text" className="form-control"  defaultValue={this.props.component.LINK.FB} ref={(ref) => this.fbRef = ref}/>
-                <br />
-              </div>
-              <div>
-                <label >Google</label>
-                <input type="text" className="form-control"  defaultValue={this.props.component.LINK.GOOGLE} ref={(ref) => this.googleRef = ref}/>
-                <br />
-              </div>
-              <div>
-                <label >Instagram</label>
-                <input type="text" className="form-control"  defaultValue={this.props.component.LINK.INSTAGRAM} ref={(ref) => this.instagramRef = ref}/>
-                <br />
-              </div>
-              <div>
-                <label >Path</label>
-                <input type="text" className="form-control"  defaultValue={this.props.component.LINK.PATH} ref={(ref) => this.pathRef = ref}/>
-                <br />
-              </div>
-              <div>
-                <label >Trip</label>
-                <input type="text" className="form-control"  defaultValue={this.props.component.LINK.TRIP} ref={(ref) => this.tripRef = ref}/>
-                <br />
-              </div>
-              <div>
-                <label >Twitter</label>
-                <input type="text" className="form-control"  defaultValue={this.props.component.LINK.TWITTER} ref={(ref) => this.twitterRef = ref}/>
-                <br />
-              </div>
-              <div>
-                <label >Youtube</label>
-                <input type="text" className="form-control"  defaultValue={this.props.component.LINK.YOUTUBE} ref={(ref) => this.youtubeRef = ref}/>
-                <br />
-              </div>
-              <br />
-              <button type="submit" className="btn btn-success" onClick={(val) => this.editFooter(val)}>Edit</button>
             </div>
           </div>
         </div>
