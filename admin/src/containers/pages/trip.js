@@ -584,55 +584,38 @@ class ChildPackage extends React.Component {
                                 data-parsley-validation-threshold="10" defaultValue={ packet.DESCRIPTION } onChange={(ref) => this.handleChange(ref, `description`)}></textarea>
                             </div>
                           </div>
-
-                          <div className="form-group">
-                            <div className="">
-                              <button type="" className="btn btn-success" onClick={(val) => this.editChild(val, index)}>Edit</button>
-                              <button type="" className="btn btn-danger" onClick={(val) => this.deleteChild(val, index)}>Delete</button>
-                            </div>
-                          </div>
                         </div>
                         <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
-                          <ul id="myTab" className="nav nav-tabs bar_tabs" role="tablist">
-                            {
-                              packet.SLIDER.map((packet, index) => {
-                                return(
-                                  <li key={index} role="presentation" className={ index == 0 ? 'active':''}>
-                                    <a href={`#cslider${index+1}`} role="tab" data-toggle="tab" aria-expanded={index == 0 ? 'true' : 'false'}>
-                                      {index}
-                                    </a>
-                                  </li>
-                                )
-                              })
-                            }
-                          </ul>
-                          <div className="form-group">
-                            <label className="">Slider</label>
-                            <div className="">
-                              {
-                                packet.SLIDER.map((slider, index) => (
-                                  <div key={index} role="tabpanel" className={index == 0 ? 'tab-pane fade active in':'tab-pane fade'} id={`cslider${index+1}`} aria-labelledby="home-tab">
+                          <h5>EDIT CHILD SLIDER (can only input 3 slider)</h5>
+                        <hr/>
+                        {
+                          packet.SLIDER.map((slider, index) => (
+                            <div className="col-md-6 col-sm-6 col-xs-12" key={index}>
+                              <form className="form-horizontal form-label-left">
 
-                                    <div className="col-md-7 col-sm-7 col-xs-12">
-                                      <form className="form-horizontal form-label-left">
+                                <h5> Add child package slider {index} </h5>
+                                <p>{ slider }</p>
+                                <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
+                                  <div>{ this.state.filename2 }</div>
+                                </Dropzone>
+                                image size: 690 x 271
 
-                                        <h5> Add child package slider {index} </h5>
-                                        <p>{ slider }</p>
-                                        <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
-                                          <div>{ this.state.filename2 }</div>
-                                        </Dropzone>
-                                        image size: 690 x 271
-
-                                        <div className="form-group">
-                                          <div className="col-md-9 col-sm-9 col-xs-12">
-                                            <button type="submit" className="btn btn-success"onClick={(val) => this.editChildSlider(val, index)}>Edit</button>
-                                          </div>
-                                        </div>
-                                      </form>
-                                    </div>
+                                <div className="form-group">
+                                  <div className="col-md-9 col-sm-9 col-xs-12">
+                                    <button type="submit" className="btn btn-success"onClick={(val) => this.editChildSlider(val, index, packet)}>Edit</button>
                                   </div>
-                                ))
-                              }
+                                </div>
+                              </form>
+                            </div>
+                          ))
+                        }
+                        </div>
+
+                        <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
+                          <div className="form-group">
+                            <div className="">
+                              <button type="" className="btn btn-success" onClick={(val) => this.editChild(val, index)}>save</button>
+                              <button type="" className="btn btn-danger" onClick={(val) => this.deleteChild(val, index)}>Delete</button>
                             </div>
                           </div>
                         </div>
@@ -694,6 +677,23 @@ class ChildPackage extends React.Component {
         </div>
       </div>
     )
+  }
+
+  editChildSlider(val, index, packet) {
+    val.preventDefault()
+    let slider = packet.SLIDER
+    console.log('state ::: ', this.state.SLIDER)
+    if(!this.state.file2) alert('please insert image')
+    this.props.updateImage(this.state.file2)
+    .then((imgurl) => {
+      slider[index] = imgurl
+      this.setState({
+        SLIDER: slider
+      })
+    })
+    .then(() => {
+      alert('success, now please click the save button')
+    })
   }
 }
 

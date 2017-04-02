@@ -54652,7 +54652,70 @@
 	                              return _this10.handleChange(ref, 'description');
 	                            } })
 	                        )
+	                      )
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'x_panel col-md-6 col-sm-12 col-xs-12' },
+	                      _react2.default.createElement(
+	                        'h5',
+	                        null,
+	                        'EDIT CHILD SLIDER (can only input 3 slider)'
 	                      ),
+	                      _react2.default.createElement('hr', null),
+	                      packet.SLIDER.map(function (slider, index) {
+	                        return _react2.default.createElement(
+	                          'div',
+	                          { className: 'col-md-6 col-sm-6 col-xs-12', key: index },
+	                          _react2.default.createElement(
+	                            'form',
+	                            { className: 'form-horizontal form-label-left' },
+	                            _react2.default.createElement(
+	                              'h5',
+	                              null,
+	                              ' Add child package slider ',
+	                              index,
+	                              ' '
+	                            ),
+	                            _react2.default.createElement(
+	                              'p',
+	                              null,
+	                              slider
+	                            ),
+	                            _react2.default.createElement(
+	                              _reactDropzone2.default,
+	                              { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                                  return _this10.onSliderDrop(e);
+	                                } },
+	                              _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _this10.state.filename2
+	                              )
+	                            ),
+	                            'image size: 690 x 271',
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'form-group' },
+	                              _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                                _react2.default.createElement(
+	                                  'button',
+	                                  { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
+	                                      return _this10.editChildSlider(val, index, packet);
+	                                    } },
+	                                  'Edit'
+	                                )
+	                              )
+	                            )
+	                          )
+	                        );
+	                      })
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'x_panel col-md-6 col-sm-12 col-xs-12' },
 	                      _react2.default.createElement(
 	                        'div',
 	                        { className: 'form-group' },
@@ -54664,7 +54727,7 @@
 	                            { type: '', className: 'btn btn-success', onClick: function onClick(val) {
 	                                return _this10.editChild(val, index);
 	                              } },
-	                            'Edit'
+	                            'save'
 	                          ),
 	                          _react2.default.createElement(
 	                            'button',
@@ -54673,91 +54736,6 @@
 	                              } },
 	                            'Delete'
 	                          )
-	                        )
-	                      )
-	                    ),
-	                    _react2.default.createElement(
-	                      'div',
-	                      { className: 'x_panel col-md-6 col-sm-12 col-xs-12' },
-	                      _react2.default.createElement(
-	                        'ul',
-	                        { id: 'myTab', className: 'nav nav-tabs bar_tabs', role: 'tablist' },
-	                        packet.SLIDER.map(function (packet, index) {
-	                          return _react2.default.createElement(
-	                            'li',
-	                            { key: index, role: 'presentation', className: index == 0 ? 'active' : '' },
-	                            _react2.default.createElement(
-	                              'a',
-	                              { href: '#cslider' + (index + 1), role: 'tab', 'data-toggle': 'tab', 'aria-expanded': index == 0 ? 'true' : 'false' },
-	                              index
-	                            )
-	                          );
-	                        })
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { className: '' },
-	                          'Slider'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: '' },
-	                          packet.SLIDER.map(function (slider, index) {
-	                            return _react2.default.createElement(
-	                              'div',
-	                              { key: index, role: 'tabpanel', className: index == 0 ? 'tab-pane fade active in' : 'tab-pane fade', id: 'cslider' + (index + 1), 'aria-labelledby': 'home-tab' },
-	                              _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-7 col-sm-7 col-xs-12' },
-	                                _react2.default.createElement(
-	                                  'form',
-	                                  { className: 'form-horizontal form-label-left' },
-	                                  _react2.default.createElement(
-	                                    'h5',
-	                                    null,
-	                                    ' Add child package slider ',
-	                                    index,
-	                                    ' '
-	                                  ),
-	                                  _react2.default.createElement(
-	                                    'p',
-	                                    null,
-	                                    slider
-	                                  ),
-	                                  _react2.default.createElement(
-	                                    _reactDropzone2.default,
-	                                    { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
-	                                        return _this10.onSliderDrop(e);
-	                                      } },
-	                                    _react2.default.createElement(
-	                                      'div',
-	                                      null,
-	                                      _this10.state.filename2
-	                                    )
-	                                  ),
-	                                  'image size: 690 x 271',
-	                                  _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'form-group' },
-	                                    _react2.default.createElement(
-	                                      'div',
-	                                      { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                                      _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
-	                                            return _this10.editChildSlider(val, index);
-	                                          } },
-	                                        'Edit'
-	                                      )
-	                                    )
-	                                  )
-	                                )
-	                              )
-	                            );
-	                          })
 	                        )
 	                      )
 	                    )
@@ -54877,6 +54855,24 @@
 	          )
 	        )
 	      );
+	    }
+	  }, {
+	    key: 'editChildSlider',
+	    value: function editChildSlider(val, index, packet) {
+	      var _this11 = this;
+
+	      val.preventDefault();
+	      var slider = packet.SLIDER;
+	      console.log('state ::: ', this.state.SLIDER);
+	      if (!this.state.file2) alert('please insert image');
+	      this.props.updateImage(this.state.file2).then(function (imgurl) {
+	        slider[index] = imgurl;
+	        _this11.setState({
+	          SLIDER: slider
+	        });
+	      }).then(function () {
+	        alert('success, now please click the save button');
+	      });
 	    }
 	  }]);
 
