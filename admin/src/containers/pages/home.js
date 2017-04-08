@@ -342,7 +342,7 @@ class Slider extends React.Component {
           IMG: img
         }
 
-        return this.props.editSlider(`list/${index}`, slider)
+        return this.props.editSlider(`${index}`, slider)
       })
       .then(() => {
          alert('success, changed content saved')

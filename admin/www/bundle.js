@@ -52691,7 +52691,7 @@
 	            IMG: img
 	          };
 
-	          return _this8.props.editSlider('list/' + index, slider);
+	          return _this8.props.editSlider('' + index, slider);
 	        }).then(function () {
 	          alert('success, changed content saved');
 	          // set file state to default value
@@ -54340,11 +54340,11 @@
 	          _this7.props.updateImage(_this7.state.file).then(function (sliderUrl) {
 	            console.log("sliderUrl ", _this7.props);
 	            newchild["IMG"] = sliderUrl;
-	            // console.log("addchild: ",this.props.indexParent+" "+this.props.childpackets.list.length+" "+newchild)
 	            var childpackets = 0;
 	            if (_this7.props.childpackets) {
 	              childpackets = _this7.props.childpackets.list.length;
 	            }
+	            console.log("addchild: ", _this7.props.indexParent + ", " + childpackets + ", " + newchild);
 	            return _this7.props.addChild(_this7.props.indexParent, childpackets, newchild);
 	          }).then(function () {
 	            alert('success, new content saved');
@@ -54833,6 +54833,98 @@
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '200', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
 	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref7) {
 	                          return _this10.newChildDescriptionRef = _ref7;
+	                        } })
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: '' },
+	                      _react2.default.createElement(
+	                        'button',
+	                        { type: '', className: 'btn btn-primary', onClick: function onClick(val) {
+	                            return _this10.addChild(val);
+	                          } },
+	                        'Add'
+	                      )
+	                    )
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { role: 'tabpanel', className: 'tab-pane fade', id: 'tab' + this.props.indexParent + '_newchild', 'aria-labelledby': 'home-tab' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'x_panel col-md-6 col-sm-12 col-sm-12' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-4 col-sm-12 col-sm-12' },
+	                    _react2.default.createElement(
+	                      _reactDropzone2.default,
+	                      { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                          return _this10.onDrop(e);
+	                        } },
+	                      _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        this.state.filename
+	                      )
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'x_panel col-md-6 col-sm-12 col-xs-12' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'label',
+	                      { className: '' },
+	                      'Title'
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: '' },
+	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref8) {
+	                          return _this10.newChildTitleRef = _ref8;
+	                        } })
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'label',
+	                      { className: '' },
+	                      'Text (20 chars min, 100 max) :'
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: '' },
+	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
+	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref9) {
+	                          return _this10.newChildTextRef = _ref9;
+	                        } })
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'form-group' },
+	                    _react2.default.createElement(
+	                      'label',
+	                      { className: '' },
+	                      'Description'
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: '' },
+	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '200', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
+	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref10) {
+	                          return _this10.newChildDescriptionRef = _ref10;
 	                        } })
 	                    )
 	                  ),
