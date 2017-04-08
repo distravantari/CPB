@@ -35,7 +35,7 @@ class Sidebar extends React.Component{
           </div>
         </div>
 
-        <div className="banner visible-md visible-lg" id="facebook" onClick={ () => (window.location = this.props.facebook.URL) }>
+        <div className="banner click-able visible-md visible-lg" id="facebook" onClick={ () => (window.location = this.props.facebook.URL) }>
           <img src={ this.props.facebook.ICON } alt="banner" />
         </div>
 
