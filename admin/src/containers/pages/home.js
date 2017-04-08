@@ -307,10 +307,10 @@ class Slider extends React.Component {
         INDEX: indexing,
         IMG: img
       }
-
-      this.props.editSlider(`list/${index}`, slider)
+      
+      this.props.editSlider(`${index}`, slider)
       .then(() => {
-         alert('success, changed content saved')
+         alert('success, changed content saved ')
       })
       .catch((err) => {
          alert('fail, changed content cannot be saved '+err)
@@ -363,7 +363,7 @@ class Slider extends React.Component {
     val.preventDefault();
     if(key == `tittle`){
       this.setState({
-        TITTLE: val.target.value
+        TITLE: val.target.value
       })
     }else if(key == `info`) {
       this.setState({

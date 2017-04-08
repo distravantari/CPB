@@ -52063,7 +52063,7 @@
 	};
 
 	var editSlider = exports.editSlider = function editSlider(key, data) {
-	  return _db2.default.post('feature/slider/' + key, {
+	  return _db2.default.post('feature/slider/home/' + key, {
 	    data: data
 	  });
 	};
@@ -52660,8 +52660,8 @@
 	          IMG: img
 	        };
 
-	        this.props.editSlider('list/' + index, slider).then(function () {
-	          alert('success, changed content saved');
+	        this.props.editSlider('' + index, slider).then(function () {
+	          alert('success, changed content saved ');
 	        }).catch(function (err) {
 	          alert('fail, changed content cannot be saved ' + err);
 	        });
@@ -52711,7 +52711,7 @@
 	      val.preventDefault();
 	      if (key == 'tittle') {
 	        this.setState({
-	          TITTLE: val.target.value
+	          TITLE: val.target.value
 	        });
 	      } else if (key == 'info') {
 	        this.setState({

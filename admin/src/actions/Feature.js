@@ -29,7 +29,7 @@ export const editContact = (key, data) => {
 }
 
 export const editSlider = (key, data) => {
-  return base.post((`feature/slider/${key}`),{
+  return base.post((`feature/slider/home/${key}`),{
     data : data
   })
 }
