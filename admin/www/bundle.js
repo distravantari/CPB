@@ -54335,7 +54335,10 @@
 	            DESCRIPTION: _this7.newChildDescriptionRef.value
 	          };
 	          _this7.props.updateImage(_this7.state.file).then(function (sliderUrl) {
+	            console.log("sliderUrl ", _this7.props);
 	            newchild["IMG"] = sliderUrl;
+	            // console.log("addchild: ",this.props.indexParent+" "+this.props.childpackets.list.length+" "+newchild)
+	            return _this7.props.addChild(_this7.props.indexParent, _this7.props.childpackets.list.length, newchild);
 	          }).then(function () {
 	            alert('success, new content saved');
 	            _this7.newChildTitleRef.value = '';
@@ -54347,7 +54350,7 @@
 	              imagePreviewUrl: ''
 	            });
 	          }).catch(function (err) {
-	            alert('fail, new content cannot be saved ', err);
+	            alert('fail, new content cannot be saved ' + err);
 	          });
 	        })();
 	      } else {
@@ -54494,6 +54497,7 @@
 	    value: function render() {
 	      var _this10 = this;
 
+	      console.log("this.props.childpackets ", this.props.childpackets);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'x_panel' },
@@ -54632,7 +54636,7 @@
 	                        'EDIT CHILD SLIDER (can only input 3 slider)'
 	                      ),
 	                      _react2.default.createElement('hr', null),
-	                      packet.SLIDER.map(function (slider, index) {
+	                      packet.SLIDER && packet.SLIDER.map(function (slider, index) {
 	                        return _react2.default.createElement(
 	                          'div',
 	                          { className: 'col-md-6 col-sm-6 col-xs-12', key: index },
@@ -54680,7 +54684,47 @@
 	                            )
 	                          )
 	                        );
-	                      })
+	                      }),
+	                      !packet.SLIDER && _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-6 col-sm-6 col-xs-12' },
+	                        _react2.default.createElement(
+	                          'form',
+	                          { className: 'form-horizontal form-label-left' },
+	                          _react2.default.createElement(
+	                            'h5',
+	                            null,
+	                            ' Add child package slider 0 '
+	                          ),
+	                          _react2.default.createElement(
+	                            _reactDropzone2.default,
+	                            { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                                return _this10.onSliderDrop(e);
+	                              } },
+	                            _react2.default.createElement(
+	                              'div',
+	                              null,
+	                              _this10.state.filename2
+	                            )
+	                          ),
+	                          'image size: 690 x 271',
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                              _react2.default.createElement(
+	                                'button',
+	                                { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
+	                                    return _this10.editChildSlider(val, 0, packet);
+	                                  } },
+	                                'Edit'
+	                              )
+	                            )
+	                          )
+	                        )
+	                      )
 	                    ),
 	                    _react2.default.createElement(
 	                      'div',

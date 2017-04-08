@@ -355,7 +355,10 @@ class ChildPackage extends React.Component {
       }
       this.props.updateImage(this.state.file)
       .then((sliderUrl) => {
+          console.log("sliderUrl ", this.props);
           newchild["IMG"] = sliderUrl
+          // console.log("addchild: ",this.props.indexParent+" "+this.props.childpackets.list.length+" "+newchild)
+          return this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
       })
       .then(() => {
         alert('success, new content saved')
@@ -369,7 +372,7 @@ class ChildPackage extends React.Component {
         })
       })
       .catch((err) => {
-         alert('fail, new content cannot be saved ',err)
+         alert('fail, new content cannot be saved '+err)
       })
     }else{
       alert('please insert image')
@@ -510,6 +513,7 @@ class ChildPackage extends React.Component {
   }
 
   render(){
+    console.log("this.props.childpackets ", this.props.childpackets);
     return(
       <div className="x_panel">
         <div className="x_title">
@@ -581,7 +585,7 @@ class ChildPackage extends React.Component {
                           <h5>EDIT CHILD SLIDER (can only input 3 slider)</h5>
                         <hr/>
                         {
-                          packet.SLIDER.map((slider, index) => (
+                          packet.SLIDER && packet.SLIDER.map((slider, index) => (
                             <div className="col-md-6 col-sm-6 col-xs-12" key={index}>
                               <form className="form-horizontal form-label-left">
 
@@ -600,6 +604,26 @@ class ChildPackage extends React.Component {
                               </form>
                             </div>
                           ))
+                        }
+                        {
+                          !packet.SLIDER && (
+                            <div className="col-md-6 col-sm-6 col-xs-12">
+                              <form className="form-horizontal form-label-left">
+
+                                <h5> Add child package slider 0 </h5>
+                                <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
+                                  <div>{ this.state.filename2 }</div>
+                                </Dropzone>
+                                image size: 690 x 271
+
+                                <div className="form-group">
+                                  <div className="col-md-9 col-sm-9 col-xs-12">
+                                    <button type="submit" className="btn btn-success"onClick={(val) => this.editChildSlider(val, 0, packet)}>Edit</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          )
                         }
                         </div>
 
