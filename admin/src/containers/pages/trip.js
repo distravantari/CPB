@@ -222,13 +222,6 @@ class TripPackage extends React.Component {
                             </div>
                           </div>
 
-                          {/*<div className="form-group">
-                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Slider</label>
-                            <div className="col-md-9 col-sm-9 col-xs-12">
-                              <input type="text" className="form-control" placeholder="Slider" defaultValue={packet.SLIDER} onChange={(ref) => this.handleChange(ref, `slider`)}/>
-                            </div>
-                          </div>*/}
-
                           <div className="form-group">
                             <div className="">
                               <button type="" className="btn btn-success" onClick={(val) => this.editPackets(val, index)}>Edit</button>
@@ -246,9 +239,6 @@ class TripPackage extends React.Component {
                 })
               }
               <div role="tabpanel" className='tab-pane fade' id='tab_newpacket' aria-labelledby="home-tab">
-                <p> ANJING </p>
-              </div>
-              {/*<div role="tabpanel" className='tab-pane fade' id='tab_newpacket' aria-labelledby="home-tab">
 
                 <div className="col-md-7 col-sm-7 col-xs-12">
                     <form className="form-horizontal form-label-left">
@@ -291,7 +281,7 @@ class TripPackage extends React.Component {
                   </form>
                 </div>
 
-              </div>*/}
+              </div>
             </div>
           </div>
         </div>
