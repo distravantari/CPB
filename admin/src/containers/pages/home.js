@@ -319,14 +319,14 @@ class Slider extends React.Component {
       this.props.updateImage(this.state.file)
       .then((dlurl) => {
 
-        let tittle = this.state.TITLE
+        let title = this.state.TITLE
         let info = this.state.INFO
         let type = this.state.TYPE
         let destination = this.state.URL
         let indexing = this.state.INDEX
         let img = this.state.IMG
 
-        if(!tittle) tittle = _.values(this.props.slider)[index].TITLE
+        if(!title) title = _.values(this.props.slider)[index].TITLE
         if(!info) info = _.values(this.props.slider)[index].INFO
         if(!type) type = _.values(this.props.slider)[index].TYPE
         if(!img) img = dlurl

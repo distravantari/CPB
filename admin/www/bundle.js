@@ -52637,14 +52637,14 @@
 
 	      val.preventDefault();
 	      if (!this.state.file) {
-	        var _title = this.state.TITLE;
+	        var title = this.state.TITLE;
 	        var info = this.state.INFO;
 	        var type = this.state.TYPE;
 	        var destination = this.state.URL;
 	        var indexing = this.state.INDEX;
 	        var img = this.state.IMG;
 
-	        if (!_title) _title = _lodash2.default.values(this.props.slider)[index].TITLE;
+	        if (!title) title = _lodash2.default.values(this.props.slider)[index].TITLE;
 	        if (!info) info = _lodash2.default.values(this.props.slider)[index].INFO;
 	        if (!type) type = _lodash2.default.values(this.props.slider)[index].TYPE;
 	        if (!img) img = _lodash2.default.values(this.props.slider)[index].IMG;
@@ -52652,7 +52652,7 @@
 	        if (!indexing) indexing = _lodash2.default.values(this.props.slider)[index].INDEX;
 
 	        var slider = {
-	          TITLE: _title,
+	          TITLE: title,
 	          INFO: info,
 	          TYPE: type,
 	          URL: destination,
@@ -52668,14 +52668,14 @@
 	      } else {
 	        this.props.updateImage(this.state.file).then(function (dlurl) {
 
-	          var tittle = _this8.state.TITLE;
+	          var title = _this8.state.TITLE;
 	          var info = _this8.state.INFO;
 	          var type = _this8.state.TYPE;
 	          var destination = _this8.state.URL;
 	          var indexing = _this8.state.INDEX;
 	          var img = _this8.state.IMG;
 
-	          if (!tittle) tittle = _lodash2.default.values(_this8.props.slider)[index].TITLE;
+	          if (!title) title = _lodash2.default.values(_this8.props.slider)[index].TITLE;
 	          if (!info) info = _lodash2.default.values(_this8.props.slider)[index].INFO;
 	          if (!type) type = _lodash2.default.values(_this8.props.slider)[index].TYPE;
 	          if (!img) img = dlurl;
@@ -54175,91 +54175,9 @@
 	                  'div',
 	                  { role: 'tabpanel', className: 'tab-pane fade', id: 'tab_newpacket', 'aria-labelledby': 'home-tab' },
 	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-md-7 col-sm-7 col-xs-12' },
-	                    _react2.default.createElement(
-	                      'form',
-	                      { className: 'form-horizontal form-label-left' },
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
-	                          'Title'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Title', defaultValue: '', ref: function ref(_ref) {
-	                              return _this4.newTitleRef = _ref;
-	                            } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
-	                          'Video embeded URL'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: '<iframe ..', defaultValue: '', ref: function ref(_ref2) {
-	                              return _this4.newVideoRef = _ref2;
-	                            } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
-	                          'Form'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: '0-4', defaultValue: '', ref: function ref(_ref3) {
-	                              return _this4.newFormRef = _ref3;
-	                            } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'label',
-	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
-	                          'Description'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Description', defaultValue: '', ref: function ref(_ref4) {
-	                              return _this4.newDescRef = _ref4;
-	                            } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: '' },
-	                          _react2.default.createElement(
-	                            'button',
-	                            { type: '', className: 'btn btn-primary', onClick: function onClick(val) {
-	                                return _this4.addPackets(val);
-	                              } },
-	                            'Add'
-	                          )
-	                        )
-	                      )
-	                    )
+	                    'p',
+	                    null,
+	                    ' ANJING '
 	                  )
 	                )
 	              )
@@ -54797,8 +54715,8 @@
 	                    _react2.default.createElement(
 	                      'div',
 	                      { className: '' },
-	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref5) {
-	                          return _this10.newChildTitleRef = _ref5;
+	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref) {
+	                          return _this10.newChildTitleRef = _ref;
 	                        } })
 	                    )
 	                  ),
@@ -54814,8 +54732,8 @@
 	                      'div',
 	                      { className: '' },
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref6) {
-	                          return _this10.newChildTextRef = _ref6;
+	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref2) {
+	                          return _this10.newChildTextRef = _ref2;
 	                        } })
 	                    )
 	                  ),
@@ -54831,8 +54749,8 @@
 	                      'div',
 	                      { className: '' },
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '200', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref7) {
-	                          return _this10.newChildDescriptionRef = _ref7;
+	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref3) {
+	                          return _this10.newChildDescriptionRef = _ref3;
 	                        } })
 	                    )
 	                  ),
