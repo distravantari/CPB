@@ -65,7 +65,7 @@ class TripPackage extends React.Component {
       TITLE : this.newTitleRef.value,
       FORM : this.newFormRef.value,
       DESCRIPTION : this.newDescRef.value,
-      SLIDER : this.newSliderRef.value,
+      // SLIDER : this.newSliderRef.value,
       VIDEO : this.newVideoRef.value,
     }
     this.props.addPackets(this.props.packets.length, newpackets)
@@ -74,7 +74,7 @@ class TripPackage extends React.Component {
       this.newTitleRef.value = ''
       this.newFormRef.value = ''
       this.newDescRef.value = ''
-      this.newSliderRef.value =''
+      // this.newSliderRef.value =''
       this.newVideoRef.value =''
     })
     .catch((err) => {
@@ -88,19 +88,19 @@ class TripPackage extends React.Component {
     let description = this.state.DESCRIPTION
     let title = this.state.TITLE
     let video = this.state.VIDEO
-    let slider = this.state.SLIDER
+    // let slider = this.state.SLIDER
 
     if(!form) form = _.values(this.props.packets)[index].FORM
     if(!description) description = _.values(this.props.packets)[index].DESCRIPTION
     if(!title) title = _.values(this.props.packets)[index].TITLE
     if(!video) video = _.values(this.props.packets)[index].VIDEO
-    if(!slider) slider = _.values(this.props.packets)[index].SLIDER
+    // if(!slider) slider = _.values(this.props.packets)[index].SLIDER
 
     const packets = {
       TITLE : title,
       FORM : form,
       DESCRIPTION : description,
-      SLIDER : slider,
+      // SLIDER : slider,
       VIDEO : video,
     }
 
@@ -220,12 +220,12 @@ class TripPackage extends React.Component {
                             </div>
                           </div>
 
-                          <div className="form-group">
+                          {/*<div className="form-group">
                             <label className="control-label col-md-3 col-sm-3 col-xs-12">Slider</label>
                             <div className="col-md-9 col-sm-9 col-xs-12">
                               <input type="text" className="form-control" placeholder="Slider" defaultValue={packet.SLIDER} onChange={(ref) => this.handleChange(ref, `slider`)}/>
                             </div>
-                          </div>
+                          </div>*/}
 
                           <div className="form-group">
                             <div className="">
@@ -277,12 +277,12 @@ class TripPackage extends React.Component {
                       </div>
                     </div>
 
-                    <div className="form-group">
+                    {/*<div className="form-group">
                       <label className="control-label col-md-3 col-sm-3 col-xs-12">Slider</label>
                       <div className="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" className="form-control" placeholder="Slider ID" defaultValue='' ref={(ref) => this.newSliderRef = ref}/>
                       </div>
-                    </div>
+                    </div>*/}
 
                     <div className="form-group">
                       <div className="">
@@ -348,7 +348,6 @@ class ChildPackage extends React.Component {
   addChild(val){
     val.preventDefault()
     if(this.state.file){
-      const slider = this.newChildSliderRef.value
       const newchild = {
         TEXT: this.newChildTitleRef.value,
         TITLE: this.newChildTextRef.value,
@@ -357,18 +356,11 @@ class ChildPackage extends React.Component {
       this.props.updateImage(this.state.file)
       .then((sliderUrl) => {
           newchild["IMG"] = sliderUrl
-        return this.props.updateImage(this.state.file2)
-      })
-      .then((slideUrl2) => {
-        slider.push(slideUrl2)
-        newchild["SLIDER"] = slider
-        return this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
       })
       .then(() => {
         alert('success, new content saved')
         this.newChildTitleRef.value = ''
         this.newChildTextRef.value = ''
-        this.newChildSliderRef.value = ''
         // set file state to default value
         this.setState({
           filename: '',
@@ -646,14 +638,6 @@ class ChildPackage extends React.Component {
                     <div className="">
                       <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                         data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildTextRef = ref}></textarea>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="">Slider</label>
-                    <div className="">
-                      <input id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildSliderRef = ref}></input>
                     </div>
                   </div>
 
