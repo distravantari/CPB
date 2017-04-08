@@ -65,7 +65,7 @@ class TripPackage extends React.Component {
       TITLE : this.newTitleRef.value,
       FORM : this.newFormRef.value,
       DESCRIPTION : this.newDescRef.value,
-      SLIDER : this.newSliderRef.value,
+      // SLIDER : this.newSliderRef.value,
       VIDEO : this.newVideoRef.value,
     }
     this.props.addPackets(this.props.packets.length, newpackets)
@@ -74,7 +74,7 @@ class TripPackage extends React.Component {
       this.newTitleRef.value = ''
       this.newFormRef.value = ''
       this.newDescRef.value = ''
-      this.newSliderRef.value =''
+      // this.newSliderRef.value =''
       this.newVideoRef.value =''
     })
     .catch((err) => {
@@ -88,19 +88,19 @@ class TripPackage extends React.Component {
     let description = this.state.DESCRIPTION
     let title = this.state.TITLE
     let video = this.state.VIDEO
-    let slider = this.state.SLIDER
+    // let slider = this.state.SLIDER
 
     if(!form) form = _.values(this.props.packets)[index].FORM
     if(!description) description = _.values(this.props.packets)[index].DESCRIPTION
     if(!title) title = _.values(this.props.packets)[index].TITLE
     if(!video) video = _.values(this.props.packets)[index].VIDEO
-    if(!slider) slider = _.values(this.props.packets)[index].SLIDER
+    // if(!slider) slider = _.values(this.props.packets)[index].SLIDER
 
     const packets = {
       TITLE : title,
       FORM : form,
       DESCRIPTION : description,
-      SLIDER : slider,
+      // SLIDER : slider,
       VIDEO : video,
     }
 
@@ -220,12 +220,12 @@ class TripPackage extends React.Component {
                             </div>
                           </div>
 
-                          <div className="form-group">
+                          {/*<div className="form-group">
                             <label className="control-label col-md-3 col-sm-3 col-xs-12">Slider</label>
                             <div className="col-md-9 col-sm-9 col-xs-12">
                               <input type="text" className="form-control" placeholder="Slider" defaultValue={packet.SLIDER} onChange={(ref) => this.handleChange(ref, `slider`)}/>
                             </div>
-                          </div>
+                          </div>*/}
 
                           <div className="form-group">
                             <div className="">
@@ -277,12 +277,12 @@ class TripPackage extends React.Component {
                       </div>
                     </div>
 
-                    <div className="form-group">
+                    {/*<div className="form-group">
                       <label className="control-label col-md-3 col-sm-3 col-xs-12">Slider</label>
                       <div className="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" className="form-control" placeholder="Slider ID" defaultValue='' ref={(ref) => this.newSliderRef = ref}/>
                       </div>
-                    </div>
+                    </div>*/}
 
                     <div className="form-group">
                       <div className="">
@@ -348,7 +348,6 @@ class ChildPackage extends React.Component {
   addChild(val){
     val.preventDefault()
     if(this.state.file){
-      const slider = this.newChildSliderRef.value
       const newchild = {
         TEXT: this.newChildTitleRef.value,
         TITLE: this.newChildTextRef.value,
@@ -356,19 +355,19 @@ class ChildPackage extends React.Component {
       }
       this.props.updateImage(this.state.file)
       .then((sliderUrl) => {
+          console.log("sliderUrl ", this.props);
           newchild["IMG"] = sliderUrl
-        return this.props.updateImage(this.state.file2)
-      })
-      .then((slideUrl2) => {
-        slider.push(slideUrl2)
-        newchild["SLIDER"] = slider
-        return this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
+          // console.log("addchild: ",this.props.indexParent+" "+this.props.childpackets.list.length+" "+newchild)
+          let childpackets = 0
+          if (this.props.childpackets) {
+            childpackets = this.props.childpackets.list.length
+          }
+          return this.props.addChild(this.props.indexParent, childpackets, newchild)
       })
       .then(() => {
         alert('success, new content saved')
         this.newChildTitleRef.value = ''
         this.newChildTextRef.value = ''
-        this.newChildSliderRef.value = ''
         // set file state to default value
         this.setState({
           filename: '',
@@ -377,7 +376,7 @@ class ChildPackage extends React.Component {
         })
       })
       .catch((err) => {
-         alert('fail, new content cannot be saved ',err)
+         alert('fail, new content cannot be saved '+err)
       })
     }else{
       alert('please insert image')
@@ -589,7 +588,7 @@ class ChildPackage extends React.Component {
                           <h5>EDIT CHILD SLIDER (can only input 3 slider)</h5>
                         <hr/>
                         {
-                          packet.SLIDER.map((slider, index) => (
+                          packet.SLIDER && packet.SLIDER.map((slider, index) => (
                             <div className="col-md-6 col-sm-6 col-xs-12" key={index}>
                               <form className="form-horizontal form-label-left">
 
@@ -609,6 +608,26 @@ class ChildPackage extends React.Component {
                             </div>
                           ))
                         }
+                        {
+                          !packet.SLIDER && (
+                            <div className="col-md-6 col-sm-6 col-xs-12">
+                              <form className="form-horizontal form-label-left">
+
+                                <h5> Add child package slider 0 </h5>
+                                <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onSliderDrop(e) }>
+                                  <div>{ this.state.filename2 }</div>
+                                </Dropzone>
+                                image size: 690 x 271
+
+                                <div className="form-group">
+                                  <div className="col-md-9 col-sm-9 col-xs-12">
+                                    <button type="submit" className="btn btn-primary"onClick={(val) => this.addChildSlider(val, 0)}>add</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          )
+                        }
                         </div>
 
                         <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
@@ -624,54 +643,48 @@ class ChildPackage extends React.Component {
                   }
                 })
               }
-              <div role="tabpanel" className='tab-pane fade' id={`tab${this.props.indexParent}_newchild`} aria-labelledby="home-tab">
-                <div className="x_panel col-md-6 col-sm-12 col-sm-12">
-                  <div className="col-md-4 col-sm-12 col-sm-12">
-                    <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
-                      <div>{ this.state.filename }</div>
-                    </Dropzone>
-                  </div>
-                </div>
-
-                <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
-                  <div className="form-group">
-                    <label className="">Title</label>
-                    <div className="">
-                      <input type="text" style={{width: "500px", height: "30px"}} defaultValue='' ref={(ref) => this.newChildTitleRef = ref}/>
+              { !this.props.childpackets && (
+                <div role="tabpanel" className='tab-pane fade' id={`tab${this.props.indexParent}_newchild`} aria-labelledby="home-tab">
+                  <div className="x_panel col-md-6 col-sm-12 col-sm-12">
+                    <div className="col-md-4 col-sm-12 col-sm-12">
+                      <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                        <div>{ this.state.filename }</div>
+                      </Dropzone>
                     </div>
                   </div>
 
-                  <div className="form-group">
-                    <label className="">Text (20 chars min, 100 max) :</label>
-                    <div className="">
-                      <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildTextRef = ref}></textarea>
+                  <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
+                    <div className="form-group">
+                      <label className="">Title</label>
+                      <div className="">
+                        <input type="text" style={{width: "500px", height: "30px"}} defaultValue='' ref={(ref) => this.newChildTitleRef = ref}/>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="form-group">
-                    <label className="">Slider</label>
-                    <div className="">
-                      <input id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildSliderRef = ref}></input>
+                    <div className="form-group">
+                      <label className="">Text (20 chars min, 100 max) :</label>
+                      <div className="">
+                        <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                          data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildTextRef = ref}></textarea>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="form-group">
-                    <label className="">Description</label>
-                    <div className="">
-                      <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildDescriptionRef = ref}></textarea>
+                    <div className="form-group">
+                      <label className="">Description</label>
+                      <div className="">
+                        <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                          data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildDescriptionRef = ref}></textarea>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="form-group">
-                    <div className="">
-                      <button type="" className="btn btn-primary" onClick={(val) => this.addChild(val)}>Add</button>
+                    <div className="form-group">
+                      <div className="">
+                        <button type="" className="btn btn-primary" onClick={(val) => this.addChild(val)}>Add</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -687,6 +700,26 @@ class ChildPackage extends React.Component {
     this.props.updateImage(this.state.file2)
     .then((imgurl) => {
       slider[index] = imgurl
+      this.setState({
+        SLIDER: slider
+      })
+    })
+    .then(() => {
+      alert('success, now please click the save button')
+    })
+  }
+
+  addChildSlider(val, index){
+    val.preventDefault()
+    console.log("distra =>", this.state.file2);
+    let slider = []
+    // console.log('state ::: ', this.state.SLIDER)
+    if(!this.state.file2) alert('please insert image')
+    this.props.updateImage(this.state.file2)
+    .then((imgurl) => {
+      slider[index] = imgurl
+      slider[index+1] = imgurl
+      slider[index+2] = imgurl
       this.setState({
         SLIDER: slider
       })

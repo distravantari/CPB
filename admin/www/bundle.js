@@ -53928,7 +53928,7 @@
 	        TITLE: this.newTitleRef.value,
 	        FORM: this.newFormRef.value,
 	        DESCRIPTION: this.newDescRef.value,
-	        SLIDER: this.newSliderRef.value,
+	        // SLIDER : this.newSliderRef.value,
 	        VIDEO: this.newVideoRef.value
 	      };
 	      this.props.addPackets(this.props.packets.length, newpackets).then(function () {
@@ -53936,7 +53936,7 @@
 	        _this3.newTitleRef.value = '';
 	        _this3.newFormRef.value = '';
 	        _this3.newDescRef.value = '';
-	        _this3.newSliderRef.value = '';
+	        // this.newSliderRef.value =''
 	        _this3.newVideoRef.value = '';
 	      }).catch(function (err) {
 	        alert('fail, new content cannot be saved ', err);
@@ -53950,19 +53950,19 @@
 	      var description = this.state.DESCRIPTION;
 	      var title = this.state.TITLE;
 	      var video = this.state.VIDEO;
-	      var slider = this.state.SLIDER;
+	      // let slider = this.state.SLIDER
 
 	      if (!form) form = _lodash2.default.values(this.props.packets)[index].FORM;
 	      if (!description) description = _lodash2.default.values(this.props.packets)[index].DESCRIPTION;
 	      if (!title) title = _lodash2.default.values(this.props.packets)[index].TITLE;
 	      if (!video) video = _lodash2.default.values(this.props.packets)[index].VIDEO;
-	      if (!slider) slider = _lodash2.default.values(this.props.packets)[index].SLIDER;
+	      // if(!slider) slider = _.values(this.props.packets)[index].SLIDER
 
 	      var packets = {
 	        TITLE: title,
 	        FORM: form,
 	        DESCRIPTION: description,
-	        SLIDER: slider,
+	        // SLIDER : slider,
 	        VIDEO: video
 	      };
 
@@ -54144,22 +54144,6 @@
 	                            'div',
 	                            { className: 'form-group' },
 	                            _react2.default.createElement(
-	                              'label',
-	                              { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
-	                              'Slider'
-	                            ),
-	                            _react2.default.createElement(
-	                              'div',
-	                              { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                              _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Slider', defaultValue: packet.SLIDER, onChange: function onChange(ref) {
-	                                  return _this4.handleChange(ref, 'slider');
-	                                } })
-	                            )
-	                          ),
-	                          _react2.default.createElement(
-	                            'div',
-	                            { className: 'form-group' },
-	                            _react2.default.createElement(
 	                              'div',
 	                              { className: '' },
 	                              _react2.default.createElement(
@@ -54261,22 +54245,6 @@
 	                        'div',
 	                        { className: 'form-group' },
 	                        _react2.default.createElement(
-	                          'label',
-	                          { className: 'control-label col-md-3 col-sm-3 col-xs-12' },
-	                          'Slider'
-	                        ),
-	                        _react2.default.createElement(
-	                          'div',
-	                          { className: 'col-md-9 col-sm-9 col-xs-12' },
-	                          _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Slider ID', defaultValue: '', ref: function ref(_ref5) {
-	                              return _this4.newSliderRef = _ref5;
-	                            } })
-	                        )
-	                      ),
-	                      _react2.default.createElement(
-	                        'div',
-	                        { className: 'form-group' },
-	                        _react2.default.createElement(
 	                          'div',
 	                          { className: '' },
 	                          _react2.default.createElement(
@@ -54361,24 +54329,24 @@
 	      val.preventDefault();
 	      if (this.state.file) {
 	        (function () {
-	          var slider = _this7.newChildSliderRef.value;
 	          var newchild = {
 	            TEXT: _this7.newChildTitleRef.value,
 	            TITLE: _this7.newChildTextRef.value,
 	            DESCRIPTION: _this7.newChildDescriptionRef.value
 	          };
 	          _this7.props.updateImage(_this7.state.file).then(function (sliderUrl) {
+	            console.log("sliderUrl ", _this7.props);
 	            newchild["IMG"] = sliderUrl;
-	            return _this7.props.updateImage(_this7.state.file2);
-	          }).then(function (slideUrl2) {
-	            slider.push(slideUrl2);
-	            newchild["SLIDER"] = slider;
-	            return _this7.props.addChild(_this7.props.indexParent, _this7.props.childpackets.list.length, newchild);
+	            // console.log("addchild: ",this.props.indexParent+" "+this.props.childpackets.list.length+" "+newchild)
+	            var childpackets = 0;
+	            if (_this7.props.childpackets) {
+	              childpackets = _this7.props.childpackets.list.length;
+	            }
+	            return _this7.props.addChild(_this7.props.indexParent, childpackets, newchild);
 	          }).then(function () {
 	            alert('success, new content saved');
 	            _this7.newChildTitleRef.value = '';
 	            _this7.newChildTextRef.value = '';
-	            _this7.newChildSliderRef.value = '';
 	            // set file state to default value
 	            _this7.setState({
 	              filename: '',
@@ -54386,7 +54354,7 @@
 	              imagePreviewUrl: ''
 	            });
 	          }).catch(function (err) {
-	            alert('fail, new content cannot be saved ', err);
+	            alert('fail, new content cannot be saved ' + err);
 	          });
 	        })();
 	      } else {
@@ -54671,7 +54639,7 @@
 	                        'EDIT CHILD SLIDER (can only input 3 slider)'
 	                      ),
 	                      _react2.default.createElement('hr', null),
-	                      packet.SLIDER.map(function (slider, index) {
+	                      packet.SLIDER && packet.SLIDER.map(function (slider, index) {
 	                        return _react2.default.createElement(
 	                          'div',
 	                          { className: 'col-md-6 col-sm-6 col-xs-12', key: index },
@@ -54719,7 +54687,47 @@
 	                            )
 	                          )
 	                        );
-	                      })
+	                      }),
+	                      !packet.SLIDER && _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-6 col-sm-6 col-xs-12' },
+	                        _react2.default.createElement(
+	                          'form',
+	                          { className: 'form-horizontal form-label-left' },
+	                          _react2.default.createElement(
+	                            'h5',
+	                            null,
+	                            ' Add child package slider 0 '
+	                          ),
+	                          _react2.default.createElement(
+	                            _reactDropzone2.default,
+	                            { style: constant.draganddropstyle, multiple: false, accept: 'image/*', onDrop: function onDrop(e) {
+	                                return _this10.onSliderDrop(e);
+	                              } },
+	                            _react2.default.createElement(
+	                              'div',
+	                              null,
+	                              _this10.state.filename2
+	                            )
+	                          ),
+	                          'image size: 690 x 271',
+	                          _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                              'div',
+	                              { className: 'col-md-9 col-sm-9 col-xs-12' },
+	                              _react2.default.createElement(
+	                                'button',
+	                                { type: 'submit', className: 'btn btn-primary', onClick: function onClick(val) {
+	                                    return _this10.addChildSlider(val, 0);
+	                                  } },
+	                                'add'
+	                              )
+	                            )
+	                          )
+	                        )
+	                      )
 	                    ),
 	                    _react2.default.createElement(
 	                      'div',
@@ -54750,7 +54758,7 @@
 	                  );
 	                }
 	              }),
-	              _react2.default.createElement(
+	              !this.props.childpackets && _react2.default.createElement(
 	                'div',
 	                { role: 'tabpanel', className: 'tab-pane fade', id: 'tab' + this.props.indexParent + '_newchild', 'aria-labelledby': 'home-tab' },
 	                _react2.default.createElement(
@@ -54786,8 +54794,8 @@
 	                    _react2.default.createElement(
 	                      'div',
 	                      { className: '' },
-	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref6) {
-	                          return _this10.newChildTitleRef = _ref6;
+	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref5) {
+	                          return _this10.newChildTitleRef = _ref5;
 	                        } })
 	                    )
 	                  ),
@@ -54803,25 +54811,8 @@
 	                      'div',
 	                      { className: '' },
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref7) {
-	                          return _this10.newChildTextRef = _ref7;
-	                        } })
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'form-group' },
-	                    _react2.default.createElement(
-	                      'label',
-	                      { className: '' },
-	                      'Slider'
-	                    ),
-	                    _react2.default.createElement(
-	                      'div',
-	                      { className: '' },
-	                      _react2.default.createElement('input', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref8) {
-	                          return _this10.newChildSliderRef = _ref8;
+	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref6) {
+	                          return _this10.newChildTextRef = _ref6;
 	                        } })
 	                    )
 	                  ),
@@ -54837,8 +54828,8 @@
 	                      'div',
 	                      { className: '' },
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '200', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
-	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref9) {
-	                          return _this10.newChildDescriptionRef = _ref9;
+	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref7) {
+	                          return _this10.newChildDescriptionRef = _ref7;
 	                        } })
 	                    )
 	                  ),
@@ -54876,6 +54867,27 @@
 	      this.props.updateImage(this.state.file2).then(function (imgurl) {
 	        slider[index] = imgurl;
 	        _this11.setState({
+	          SLIDER: slider
+	        });
+	      }).then(function () {
+	        alert('success, now please click the save button');
+	      });
+	    }
+	  }, {
+	    key: 'addChildSlider',
+	    value: function addChildSlider(val, index) {
+	      var _this12 = this;
+
+	      val.preventDefault();
+	      console.log("distra =>", this.state.file2);
+	      var slider = [];
+	      // console.log('state ::: ', this.state.SLIDER)
+	      if (!this.state.file2) alert('please insert image');
+	      this.props.updateImage(this.state.file2).then(function (imgurl) {
+	        slider[index] = imgurl;
+	        slider[index + 1] = imgurl;
+	        slider[index + 2] = imgurl;
+	        _this12.setState({
 	          SLIDER: slider
 	        });
 	      }).then(function () {
