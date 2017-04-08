@@ -307,7 +307,7 @@ class Slider extends React.Component {
         INDEX: indexing,
         IMG: img
       }
-      
+
       this.props.editSlider(`${index}`, slider)
       .then(() => {
          alert('success, changed content saved ')
@@ -387,6 +387,7 @@ class Slider extends React.Component {
 
   deleteSlider(val, index){
     val.preventDefault()
+    console.log("index ", index);
     this.props.deleteSlider(index)
     .then(() => {
       alert('successfully delete slider')

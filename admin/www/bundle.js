@@ -52735,6 +52735,7 @@
 	    key: 'deleteSlider',
 	    value: function deleteSlider(val, index) {
 	      val.preventDefault();
+	      console.log("index ", index);
 	      this.props.deleteSlider(index).then(function () {
 	        alert('successfully delete slider');
 	      }).catch(function () {
