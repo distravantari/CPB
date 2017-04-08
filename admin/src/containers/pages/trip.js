@@ -358,7 +358,11 @@ class ChildPackage extends React.Component {
           console.log("sliderUrl ", this.props);
           newchild["IMG"] = sliderUrl
           // console.log("addchild: ",this.props.indexParent+" "+this.props.childpackets.list.length+" "+newchild)
-          return this.props.addChild(this.props.indexParent, this.props.childpackets.list.length, newchild)
+          let childpackets = 0
+          if (this.props.childpackets) {
+            childpackets = this.props.childpackets.list.length
+          }
+          return this.props.addChild(this.props.indexParent, childpackets, newchild)
       })
       .then(() => {
         alert('success, new content saved')
@@ -513,7 +517,6 @@ class ChildPackage extends React.Component {
   }
 
   render(){
-    console.log("this.props.childpackets ", this.props.childpackets);
     return(
       <div className="x_panel">
         <div className="x_title">
@@ -618,7 +621,7 @@ class ChildPackage extends React.Component {
 
                                 <div className="form-group">
                                   <div className="col-md-9 col-sm-9 col-xs-12">
-                                    <button type="submit" className="btn btn-success"onClick={(val) => this.editChildSlider(val, 0, packet)}>Edit</button>
+                                    <button type="submit" className="btn btn-primary"onClick={(val) => this.addChildSlider(val, 0)}>add</button>
                                   </div>
                                 </div>
                               </form>
@@ -640,46 +643,48 @@ class ChildPackage extends React.Component {
                   }
                 })
               }
-              <div role="tabpanel" className='tab-pane fade' id={`tab${this.props.indexParent}_newchild`} aria-labelledby="home-tab">
-                <div className="x_panel col-md-6 col-sm-12 col-sm-12">
-                  <div className="col-md-4 col-sm-12 col-sm-12">
-                    <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
-                      <div>{ this.state.filename }</div>
-                    </Dropzone>
+              { !this.props.childpackets && (
+                <div role="tabpanel" className='tab-pane fade' id={`tab${this.props.indexParent}_newchild`} aria-labelledby="home-tab">
+                  <div className="x_panel col-md-6 col-sm-12 col-sm-12">
+                    <div className="col-md-4 col-sm-12 col-sm-12">
+                      <Dropzone style={ constant.draganddropstyle } multiple={ false } accept="image/*"  onDrop={ (e) => this.onDrop(e) }>
+                        <div>{ this.state.filename }</div>
+                      </Dropzone>
+                    </div>
+                  </div>
+
+                  <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
+                    <div className="form-group">
+                      <label className="">Title</label>
+                      <div className="">
+                        <input type="text" style={{width: "500px", height: "30px"}} defaultValue='' ref={(ref) => this.newChildTitleRef = ref}/>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="">Text (20 chars min, 100 max) :</label>
+                      <div className="">
+                        <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                          data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildTextRef = ref}></textarea>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="">Description</label>
+                      <div className="">
+                        <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                          data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildDescriptionRef = ref}></textarea>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <div className="">
+                        <button type="" className="btn btn-primary" onClick={(val) => this.addChild(val)}>Add</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div className='x_panel col-md-6 col-sm-12 col-xs-12'>
-                  <div className="form-group">
-                    <label className="">Title</label>
-                    <div className="">
-                      <input type="text" style={{width: "500px", height: "30px"}} defaultValue='' ref={(ref) => this.newChildTitleRef = ref}/>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="">Text (20 chars min, 100 max) :</label>
-                    <div className="">
-                      <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildTextRef = ref}></textarea>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="">Description</label>
-                    <div className="">
-                      <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildDescriptionRef = ref}></textarea>
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <div className="">
-                      <button type="" className="btn btn-primary" onClick={(val) => this.addChild(val)}>Add</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -695,6 +700,26 @@ class ChildPackage extends React.Component {
     this.props.updateImage(this.state.file2)
     .then((imgurl) => {
       slider[index] = imgurl
+      this.setState({
+        SLIDER: slider
+      })
+    })
+    .then(() => {
+      alert('success, now please click the save button')
+    })
+  }
+
+  addChildSlider(val, index){
+    val.preventDefault()
+    console.log("distra =>", this.state.file2);
+    let slider = []
+    // console.log('state ::: ', this.state.SLIDER)
+    if(!this.state.file2) alert('please insert image')
+    this.props.updateImage(this.state.file2)
+    .then((imgurl) => {
+      slider[index] = imgurl
+      slider[index+1] = imgurl
+      slider[index+2] = imgurl
       this.setState({
         SLIDER: slider
       })

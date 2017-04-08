@@ -54338,7 +54338,11 @@
 	            console.log("sliderUrl ", _this7.props);
 	            newchild["IMG"] = sliderUrl;
 	            // console.log("addchild: ",this.props.indexParent+" "+this.props.childpackets.list.length+" "+newchild)
-	            return _this7.props.addChild(_this7.props.indexParent, _this7.props.childpackets.list.length, newchild);
+	            var childpackets = 0;
+	            if (_this7.props.childpackets) {
+	              childpackets = _this7.props.childpackets.list.length;
+	            }
+	            return _this7.props.addChild(_this7.props.indexParent, childpackets, newchild);
 	          }).then(function () {
 	            alert('success, new content saved');
 	            _this7.newChildTitleRef.value = '';
@@ -54497,7 +54501,6 @@
 	    value: function render() {
 	      var _this10 = this;
 
-	      console.log("this.props.childpackets ", this.props.childpackets);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'x_panel' },
@@ -54716,10 +54719,10 @@
 	                              { className: 'col-md-9 col-sm-9 col-xs-12' },
 	                              _react2.default.createElement(
 	                                'button',
-	                                { type: 'submit', className: 'btn btn-success', onClick: function onClick(val) {
-	                                    return _this10.editChildSlider(val, 0, packet);
+	                                { type: 'submit', className: 'btn btn-primary', onClick: function onClick(val) {
+	                                    return _this10.addChildSlider(val, 0);
 	                                  } },
-	                                'Edit'
+	                                'add'
 	                              )
 	                            )
 	                          )
@@ -54755,7 +54758,7 @@
 	                  );
 	                }
 	              }),
-	              _react2.default.createElement(
+	              !this.props.childpackets && _react2.default.createElement(
 	                'div',
 	                { role: 'tabpanel', className: 'tab-pane fade', id: 'tab' + this.props.indexParent + '_newchild', 'aria-labelledby': 'home-tab' },
 	                _react2.default.createElement(
@@ -54864,6 +54867,27 @@
 	      this.props.updateImage(this.state.file2).then(function (imgurl) {
 	        slider[index] = imgurl;
 	        _this11.setState({
+	          SLIDER: slider
+	        });
+	      }).then(function () {
+	        alert('success, now please click the save button');
+	      });
+	    }
+	  }, {
+	    key: 'addChildSlider',
+	    value: function addChildSlider(val, index) {
+	      var _this12 = this;
+
+	      val.preventDefault();
+	      console.log("distra =>", this.state.file2);
+	      var slider = [];
+	      // console.log('state ::: ', this.state.SLIDER)
+	      if (!this.state.file2) alert('please insert image');
+	      this.props.updateImage(this.state.file2).then(function (imgurl) {
+	        slider[index] = imgurl;
+	        slider[index + 1] = imgurl;
+	        slider[index + 2] = imgurl;
+	        _this12.setState({
 	          SLIDER: slider
 	        });
 	      }).then(function () {
