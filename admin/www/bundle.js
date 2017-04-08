@@ -54332,11 +54332,23 @@
 	      val.preventDefault();
 	      if (this.state.file) {
 	        (function () {
-	          var newchild = {
-	            TEXT: _this7.newChildTitleRef.value,
-	            TITLE: _this7.newChildTextRef.value,
-	            DESCRIPTION: _this7.newChildDescriptionRef.value
-	          };
+	          // console.log("title: ",this.newChildTitleRef.value)
+	          var newchild = {};
+
+	          if (_this7.newChildTitleRef) {
+	            newchild = {
+	              TEXT: _this7.newChildTitleRef.value,
+	              TITLE: _this7.newChildTextRef.value,
+	              DESCRIPTION: _this7.newChildDescriptionRef.value
+	            };
+	          } else {
+	            newchild = {
+	              TEXT: _this7.newChildTitleRef2.value,
+	              TITLE: _this7.newChildTextRef2.value,
+	              DESCRIPTION: _this7.newChildDescriptionRef2.value
+	            };
+	          }
+
 	          _this7.props.updateImage(_this7.state.file).then(function (sliderUrl) {
 	            console.log("sliderUrl ", _this7.props);
 	            newchild["IMG"] = sliderUrl;
@@ -54344,7 +54356,8 @@
 	            if (_this7.props.childpackets) {
 	              childpackets = _this7.props.childpackets.list.length;
 	            }
-	            console.log("addchild: ", _this7.props.indexParent + ", " + childpackets + ", " + newchild);
+	            console.log("addchild: ", _this7.props.indexParent + ", " + childpackets + ", ");
+	            console.log("+newchild ", +newchild);
 	            return _this7.props.addChild(_this7.props.indexParent, childpackets, newchild);
 	          }).then(function () {
 	            alert('success, new content saved');
@@ -54890,7 +54903,7 @@
 	                      'div',
 	                      { className: '' },
 	                      _react2.default.createElement('input', { type: 'text', style: { width: "500px", height: "30px" }, defaultValue: '', ref: function ref(_ref8) {
-	                          return _this10.newChildTitleRef = _ref8;
+	                          return _this10.newChildTitleRef2 = _ref8;
 	                        } })
 	                    )
 	                  ),
@@ -54907,7 +54920,7 @@
 	                      { className: '' },
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '100', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
 	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref9) {
-	                          return _this10.newChildTextRef = _ref9;
+	                          return _this10.newChildTextRef2 = _ref9;
 	                        } })
 	                    )
 	                  ),
@@ -54924,7 +54937,7 @@
 	                      { className: '' },
 	                      _react2.default.createElement('textarea', { id: 'message', required: 'required', className: 'form-control', name: 'message', 'data-parsley-trigger': 'keyup', 'data-parsley-minlength': '20', 'data-parsley-maxlength': '200', 'data-parsley-minlength-message': 'Come on! You need to enter at least a 20 caracters long comment..',
 	                        'data-parsley-validation-threshold': '10', defaultValue: '', ref: function ref(_ref10) {
-	                          return _this10.newChildDescriptionRef = _ref10;
+	                          return _this10.newChildDescriptionRef2 = _ref10;
 	                        } })
 	                    )
 	                  ),

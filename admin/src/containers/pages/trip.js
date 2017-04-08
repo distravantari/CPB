@@ -335,11 +335,23 @@ class ChildPackage extends React.Component {
   addChild(val){
     val.preventDefault()
     if(this.state.file){
-      const newchild = {
-        TEXT: this.newChildTitleRef.value,
-        TITLE: this.newChildTextRef.value,
-        DESCRIPTION: this.newChildDescriptionRef.value
-      }
+      // console.log("title: ",this.newChildTitleRef.value)
+      let newchild = {}
+
+      if (this.newChildTitleRef){
+        newchild = {
+         TEXT: this.newChildTitleRef.value,
+         TITLE: this.newChildTextRef.value,
+         DESCRIPTION: this.newChildDescriptionRef.value
+       }
+     }else{
+       newchild = {
+         TEXT: this.newChildTitleRef2.value,
+         TITLE: this.newChildTextRef2.value,
+         DESCRIPTION: this.newChildDescriptionRef2.value
+       }
+     }
+
       this.props.updateImage(this.state.file)
       .then((sliderUrl) => {
           console.log("sliderUrl ", this.props);
@@ -348,7 +360,8 @@ class ChildPackage extends React.Component {
           if (this.props.childpackets) {
             childpackets = this.props.childpackets.list.length
           }
-          console.log("addchild: ",this.props.indexParent+", "+childpackets+", "+newchild)
+          console.log("addchild: ",this.props.indexParent+", "+childpackets+", ")
+          console.log("+newchild ", +newchild)
           return this.props.addChild(this.props.indexParent, childpackets, newchild)
       })
       .then(() => {
@@ -686,7 +699,7 @@ class ChildPackage extends React.Component {
                   <div className="form-group">
                     <label className="">Title</label>
                     <div className="">
-                      <input type="text" style={{width: "500px", height: "30px"}} defaultValue='' ref={(ref) => this.newChildTitleRef = ref}/>
+                      <input type="text" style={{width: "500px", height: "30px"}} defaultValue='' ref={(ref) => this.newChildTitleRef2 = ref}/>
                     </div>
                   </div>
 
@@ -694,7 +707,7 @@ class ChildPackage extends React.Component {
                     <label className="">Text (20 chars min, 100 max) :</label>
                     <div className="">
                       <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildTextRef = ref}></textarea>
+                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildTextRef2 = ref}></textarea>
                     </div>
                   </div>
 
@@ -702,7 +715,7 @@ class ChildPackage extends React.Component {
                     <label className="">Description</label>
                     <div className="">
                       <textarea id="message" required="required" className="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="200" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
-                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildDescriptionRef = ref}></textarea>
+                        data-parsley-validation-threshold="10" defaultValue='' ref={(ref) => this.newChildDescriptionRef2 = ref}></textarea>
                     </div>
                   </div>
 
