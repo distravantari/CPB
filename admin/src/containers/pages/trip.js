@@ -88,19 +88,21 @@ class TripPackage extends React.Component {
     let description = this.state.DESCRIPTION
     let title = this.state.TITLE
     let video = this.state.VIDEO
+    let child = _.values(this.props.packets)[index].CHILD
     // let slider = this.state.SLIDER
-
+    console.log("check here distra => ", _.values(this.props.packets)[index])
     if(!form) form = _.values(this.props.packets)[index].FORM
     if(!description) description = _.values(this.props.packets)[index].DESCRIPTION
     if(!title) title = _.values(this.props.packets)[index].TITLE
     if(!video) video = _.values(this.props.packets)[index].VIDEO
     // if(!slider) slider = _.values(this.props.packets)[index].SLIDER
-
+    console.log("child ", child)
     const packets = {
       TITLE : title,
       FORM : form,
       DESCRIPTION : description,
       // SLIDER : slider,
+      CHILD : child,
       VIDEO : video,
     }
 
@@ -366,8 +368,8 @@ class ChildPackage extends React.Component {
       })
       .then(() => {
         alert('success, new content saved')
-        this.newChildTitleRef.value = ''
-        this.newChildTextRef.value = ''
+        // this.newChildTitleRef.value = ''
+        // this.newChildTextRef.value = ''
         // set file state to default value
         this.setState({
           filename: '',

@@ -53951,19 +53951,21 @@
 	      var description = this.state.DESCRIPTION;
 	      var title = this.state.TITLE;
 	      var video = this.state.VIDEO;
+	      var child = _lodash2.default.values(this.props.packets)[index].CHILD;
 	      // let slider = this.state.SLIDER
-
+	      console.log("check here distra => ", _lodash2.default.values(this.props.packets)[index]);
 	      if (!form) form = _lodash2.default.values(this.props.packets)[index].FORM;
 	      if (!description) description = _lodash2.default.values(this.props.packets)[index].DESCRIPTION;
 	      if (!title) title = _lodash2.default.values(this.props.packets)[index].TITLE;
 	      if (!video) video = _lodash2.default.values(this.props.packets)[index].VIDEO;
 	      // if(!slider) slider = _.values(this.props.packets)[index].SLIDER
-
+	      console.log("child ", child);
 	      var packets = {
 	        TITLE: title,
 	        FORM: form,
 	        DESCRIPTION: description,
 	        // SLIDER : slider,
+	        CHILD: child,
 	        VIDEO: video
 	      };
 
@@ -54346,8 +54348,8 @@
 	            return _this7.props.addChild(_this7.props.indexParent, childpackets, newchild);
 	          }).then(function () {
 	            alert('success, new content saved');
-	            _this7.newChildTitleRef.value = '';
-	            _this7.newChildTextRef.value = '';
+	            // this.newChildTitleRef.value = ''
+	            // this.newChildTextRef.value = ''
 	            // set file state to default value
 	            _this7.setState({
 	              filename: '',
