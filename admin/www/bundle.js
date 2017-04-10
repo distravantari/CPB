@@ -40804,8 +40804,8 @@
 	var routes = exports.routes = ["About", "Contact", "Home", "Trip"];
 
 	var authentication = exports.authentication = {
-	  username: "distra",
-	  password: "inidistra"
+	  username: "balizee",
+	  password: "radionteam"
 	};
 
 	var draganddropstyle = {
@@ -54582,7 +54582,7 @@
 	      var description = this.state.DESCRIPTION;
 	      var title = this.state.TITLE;
 	      var video = this.state.VIDEO;
-	      var child = "";
+	      var child = _lodash2.default.values(this.props.packets)[index].CHILD;
 	      var text = this.state.TEXT;
 	      var url = this.state.URL;
 

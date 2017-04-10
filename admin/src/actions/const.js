@@ -12,8 +12,8 @@ export const routes = [
 ]
 
 export const authentication = {
-  username : "distra",
-  password : "inidistra"
+  username : "balizee",
+  password : "radionteam"
 }
 
 const draganddropstyle = {

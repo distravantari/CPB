@@ -95,7 +95,7 @@ class TripPackage extends React.Component {
     let description = this.state.DESCRIPTION
     let title = this.state.TITLE
     let video = this.state.VIDEO
-    let child = ""
+    let child = _.values(this.props.packets)[index].CHILD
     let text = this.state.TEXT
     let url = this.state.URL
 
