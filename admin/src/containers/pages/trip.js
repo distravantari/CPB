@@ -55,7 +55,9 @@ class TripPackage extends React.Component {
       DESCRIPTION : '',
       SLIDER : '',
       filename : [],
-      CHILD : []
+      CHILD : [],
+      TEXT: "",
+      URL: ""
     }
   }
 
@@ -65,15 +67,20 @@ class TripPackage extends React.Component {
       TITLE : this.newTitleRef.value,
       FORM : this.newFormRef.value,
       DESCRIPTION : this.newDescRef.value,
+      TEXT : this.newTextRef.value,
+      URL : this.newURLRef.value,
       // SLIDER : this.newSliderRef.value,
       VIDEO : this.newVideoRef.value,
     }
+    console.log("adding ..", newpackets);
     this.props.addPackets(this.props.packets.length, newpackets)
     .then(() => {
       alert('success, new content saved')
       this.newTitleRef.value = ''
       this.newFormRef.value = ''
       this.newDescRef.value = ''
+      this.newTexRef.value = ''
+      this.newURLRef.value = ''
       // this.newSliderRef.value =''
       this.newVideoRef.value =''
     })
@@ -88,22 +95,26 @@ class TripPackage extends React.Component {
     let description = this.state.DESCRIPTION
     let title = this.state.TITLE
     let video = this.state.VIDEO
-    let child = _.values(this.props.packets)[index].CHILD
-    // let slider = this.state.SLIDER
-    console.log("check here distra => ", _.values(this.props.packets)[index])
+    let child = ""
+    let text = this.state.TEXT
+    let url = this.state.URL
+
     if(!form) form = _.values(this.props.packets)[index].FORM
     if(!description) description = _.values(this.props.packets)[index].DESCRIPTION
     if(!title) title = _.values(this.props.packets)[index].TITLE
     if(!video) video = _.values(this.props.packets)[index].VIDEO
-    // if(!slider) slider = _.values(this.props.packets)[index].SLIDER
-    console.log("child ", child)
+    if(!text) text = _.values(this.props.packets)[index].TEXT
+    if(!url) url = _.values(this.props.packets)[index].URL
+
+    console.log("url ", url)
     const packets = {
       TITLE : title,
       FORM : form,
       DESCRIPTION : description,
-      // SLIDER : slider,
+      TEXT : text,
       CHILD : child,
       VIDEO : video,
+      URL : url
     }
 
     this.props.editPackets(`list/${index}`, packets)
@@ -143,6 +154,14 @@ class TripPackage extends React.Component {
     }else if(key == `slider`) {
       this.setState({
         SLIDER: val.target.value
+      })
+    }else if(key == `url`) {
+      this.setState({
+        URL: val.target.value
+      })
+    }else if(key == `text`) {
+      this.setState({
+        TEXT: val.target.value
       })
     }
     else{
@@ -204,7 +223,7 @@ class TripPackage extends React.Component {
                           <div className="form-group">
                             <label className="control-label col-md-3 col-sm-3 col-xs-12">Video embeded URL</label>
                             <div className="col-md-9 col-sm-9 col-xs-12">
-                              <input type="text" className="form-control" placeholder="<iframe .." defaultValue={packet.VIDEO} onChange={(ref) => this.handleChange(ref, `video`)}/>
+                              <input type="text" className="form-control" placeholder="src=..." defaultValue={packet.VIDEO} onChange={(ref) => this.handleChange(ref, `video`)}/>
                             </div>
                           </div>
 
@@ -219,6 +238,20 @@ class TripPackage extends React.Component {
                             <label className="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
                             <div className="col-md-9 col-sm-9 col-xs-12">
                               <input type="text" className="form-control" placeholder="Description" defaultValue={packet.DESCRIPTION} onChange={(ref) => this.handleChange(ref, `description`)}/>
+                            </div>
+                          </div>
+
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">URL</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="URL" defaultValue={packet.URL} onChange={(ref) => this.handleChange(ref, `url`)}/>
+                            </div>
+                          </div>
+
+                          <div className="form-group">
+                            <label className="control-label col-md-3 col-sm-3 col-xs-12">Text</label>
+                            <div className="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" className="form-control" placeholder="TEXT" defaultValue={packet.TEXT} onChange={(ref) => this.handleChange(ref, `text`)}/>
                             </div>
                           </div>
 
@@ -253,7 +286,7 @@ class TripPackage extends React.Component {
                     <div className="form-group">
                       <label className="control-label col-md-3 col-sm-3 col-xs-12">Video embeded URL</label>
                       <div className="col-md-9 col-sm-9 col-xs-12">
-                        <input type="text" className="form-control" placeholder="<iframe .." defaultValue='' ref={(ref) => this.newVideoRef = ref}/>
+                        <input type="text" className="form-control" placeholder="src= .." defaultValue='' ref={(ref) => this.newVideoRef = ref}/>
                       </div>
                     </div>
 
@@ -269,6 +302,20 @@ class TripPackage extends React.Component {
                       <label className="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
                       <div className="col-md-9 col-sm-9 col-xs-12">
                         <input type="text" className="form-control" placeholder="Description" defaultValue='' ref={(ref) => this.newDescRef = ref}/>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="control-label col-md-3 col-sm-3 col-xs-12">Url</label>
+                      <div className="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" className="form-control" placeholder="Url" defaultValue='' ref={(ref) => this.newURLRef = ref}/>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="control-label col-md-3 col-sm-3 col-xs-12">Text</label>
+                      <div className="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" className="form-control" placeholder="Text" defaultValue='' ref={(ref) => this.newTextRef = ref}/>
                       </div>
                     </div>
 

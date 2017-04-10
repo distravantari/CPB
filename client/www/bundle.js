@@ -69,7 +69,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"styles_path/style.sass\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	__webpack_require__(621);
 
 	__webpack_require__(622);
 
@@ -65555,7 +65555,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'banner visible-md visible-lg', id: 'facebook', onClick: function onClick() {
+	          { className: 'banner click-able visible-md visible-lg', id: 'facebook', onClick: function onClick() {
 	              return window.location = _this2.props.facebook.URL;
 	            } },
 	          _react2.default.createElement('img', { src: this.props.facebook.ICON, alt: 'banner' })
@@ -66772,7 +66772,7 @@
 	                'h5',
 	                null,
 	                ' ',
-	                this.props.footer_component.TITTLE,
+	                this.props.footer_component.TITLE,
 	                ' '
 	              ),
 	              _react2.default.createElement(
@@ -91413,7 +91413,12 @@
 	};
 
 /***/ },
-/* 621 */,
+/* 621 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
 /* 622 */
 /***/ function(module, exports, __webpack_require__) {
 
