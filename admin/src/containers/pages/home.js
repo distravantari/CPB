@@ -307,7 +307,7 @@ class Slider extends React.Component {
         INDEX: indexing,
         IMG: img
       }
-
+      console.log("slider ", slider)
       this.props.editSlider(`${index}`, slider)
       .then(() => {
          alert('success, changed content saved ')
@@ -375,7 +375,7 @@ class Slider extends React.Component {
       })
     }else if(key ==`destination`){
       this.setState({
-        DESTINATION: val.target.value
+        URL: val.target.value
       })
     }else{
       this.setState({
