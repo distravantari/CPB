@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
+import receiveForm from '../../actions/Form'
 
 //constanta
 import * as constant from 'app_path/actions/const'
 
 //redux
 import fetchFeature, { addEmail } from 'app_path/actions/Feature'
-import fetchMap from 'app_path/actions/Social'
+import fetchSocial from 'app_path/actions/Social'
 
 class Index extends React.Component{
-
   constructor(props) {
     super(props);
     this.state = {
@@ -28,26 +28,22 @@ class Index extends React.Component{
   }
 
   render(){
-    // contact={ this.props.contact } map={ this.props.map[0] }
-    if(!this.props.map) return (<h1>Loading ..</h1>)
+    if(!this.props.facebook) return (<h1>Loading ..</h1>)
     return(
       <div>
         <div className="main">
-
           <div>
             <div className="row">
-              <Main contact={ this.props.contact } map={ this.props.map[0] } addToMail={ this.props.addToMail} />
+              <Main contact={ this.props.contact } facebook={this.props.facebook} addToMail={ this.props.addToMail} receiveForm={ this.props.receiveForm } map={this.props.map} />
             </div>
           </div>
-
         </div>
       </div>
     )
   }
-
  }
 
-const Main = ( {contact, map, addToMail} ) => {
+const Main = ( {contact, facebook, addToMail, receiveForm, map} ) => {
     return (
         <div className="main">
             <div className="row">
@@ -58,11 +54,10 @@ const Main = ( {contact, map, addToMail} ) => {
                             <iframe src={ `https://www.google.com/maps?q=${map.latitude},${map.longitude}&output=embed` }></iframe>
                         </div>
                     </div>
-
                     <div className="row">
-                        <ContactDetail contact={ contact } />
+                        <ContactDetail facebook={ facebook } contact={ contact } />
 
-                        <GetInTouch addToMail = {addToMail}/>
+                        <GetInTouch addToMail = { addToMail } receiveForm={ receiveForm }/>
                     </div>
                 </div>
             </div>
@@ -70,7 +65,7 @@ const Main = ( {contact, map, addToMail} ) => {
     )
 }
 
-export const ContactDetail = ({ contact }) => {
+export const ContactDetail = ({ contact, facebook }) => {
   return (
     <div className="col-md-6 col-sm-6">
       <h3>Contact details</h3>
@@ -85,8 +80,32 @@ export const ContactDetail = ({ contact }) => {
         <li>
           <i className="fa fa-phone"></i>
           <div>
-            <p>{ contact.PHONE[0] }</p>
-            <p>{ contact.PHONE[1] }</p>
+            <p>{ contact.PHONE }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-fax"></i>
+          <div>
+            <p><span>Fax:</span> { contact.FAX }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-commenting"></i>
+          <div>
+            <p><span>Line:</span> { contact.LINE }</p>
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-whatsapp"></i>
+          <div>
+            <p><span>Whatsapp:</span> { contact.WHATSAPP[0] } </p>
+
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-commenting"></i>
+          <div>
+            <p><span>BBM:</span> { contact.BBM }</p>
           </div>
         </li>
         <li>
@@ -99,8 +118,7 @@ export const ContactDetail = ({ contact }) => {
         <li>
           <i className="fa fa-facebook"></i>
           <div>
-            <p><span>Facebook:</span> { contact.FACEBOOK[0] }</p>
-            <p>{ contact.FACEBOOK[1] }</p>
+            <p><span>Facebook:</span> { facebook.URL } </p>
           </div>
         </li>
       </ul>
@@ -116,8 +134,16 @@ export class GetInTouch extends React.Component {
 
     email(val) {
       val.preventDefault()
-      this.props.addToMail(this.nameRef.value,this.emailRef.value,this.textRef.value)
-      alert('success, thank you for subsribing us');
+      alert('thank you for contacting us!');
+      let message = "Name: " + this.nameRef.value + "\nEmail: " + this.emailRef.value + "\nMessage: " + this.textRef.value
+      let subj = "Form Get in Touch"
+      this.props.receiveForm(subj,message)
+        .then(() => {
+            console.log('berhasil nih kak')
+        })
+        .catch(() => {
+            console.log('yah gagal kak')
+        })
       this.nameRef.value = ""
       this.emailRef.value= ""
       this.textRef.value = ""
@@ -168,6 +194,7 @@ export class GetInTouch extends React.Component {
 const mapStateToProps = (state) => {
     return {
       contact: state.feature.contact[0],
+      facebook: state.social.facebook,
       map: state.social.map
     };
 }
@@ -175,8 +202,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       getContact: (context) => dispatch(fetchFeature(context)),
-      getSocial: (context) => dispatch(fetchMap(context)),
-      addToMail: (name, email, text) => addEmail(name, email, text)
+      getSocial: (context) => dispatch(fetchSocial(context)),
+      receiveForm:(data1, data2) => receiveForm(data1, data2)
     };
 }
 

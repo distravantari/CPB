@@ -5,7 +5,7 @@ class Welcome extends React.Component{
       return(
         <div className="right_col" role="main">
           <div className="">
-            <div className="page-title"><h1>Welcome Page</h1></div>
+            <div className="page-title"><h1>Form Page</h1></div>
 
             <div className="clearfix"></div>
             <div className='row'></div>

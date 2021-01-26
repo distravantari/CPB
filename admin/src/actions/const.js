@@ -10,3 +10,14 @@ export const routes = [
     "Home",
     "Trip"
 ]
+
+export const authentication = {
+  username : "balizee",
+  password : "radionteam"
+}
+
+const draganddropstyle = {
+  width: '200px',
+  height: '200px',
+  border: 'dashed 2px rgb(102, 102, 102)'
+}

@@ -7,7 +7,7 @@ export default (context) => {
     return dispatch => {
         base.listenTo('about', {
             context: context,
-            asArray: true,
+            asArray: false,
             then(data){
                 dispatch(receiveAbout(data))
             }

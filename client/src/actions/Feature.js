@@ -24,7 +24,7 @@ const receiveFeature = (response) => {
     }
 }
 
-//add
+//add 
 export const addEmail = (name, email, text) => {
     base.push('inbox/list', {
       data: {

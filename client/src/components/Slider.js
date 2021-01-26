@@ -27,7 +27,7 @@ class Slider extends React.Component{
 		  infiniteLoop: true,
 		  adaptiveHeight: true,
 		  auto: true,
-		  pause: 4000
+		  pause: 400
 		});
   }
 
@@ -41,7 +41,7 @@ class Slider extends React.Component{
 		  prevSelector: ".post-slider .controls .prev",
 		  fadeText: false,
 		  auto: true,
-		  pause: 4000
+		  pause: 400000000
 		});
   }
 
@@ -51,9 +51,9 @@ class Slider extends React.Component{
       <div className="col-md-12 col-sm-12">
 
         {/*DEPRECATED*/}
-        {/*<News news={ this.props.news.list } />*/}
+        {<News news={ this.props.news.list } />}
 
-        <BigSlider big_slider={ this.props.slider.list } />
+        <BigSlider big_slider={ this.props.slider.home } />
 
       </div>
     )
@@ -65,33 +65,27 @@ class Slider extends React.Component{
 // COMPONENTS
 
 // DEPRECATED
-// const News = ({ news }) => {
-//   if(!news) return (<h1>loading ..</h1>)
-//   return (
-//     <div className="row">
-//         <div className="breaking col-md-12 col-sm-12">
-//           <div className="controls">
-//             <p className="prev"><i className="fa fa-angle-left"></i></p>
-//             <p className="next"><i className="fa fa-angle-right"></i></p>
-//           </div>
-//
-//           <ul className="news">
-//
-//             { news.map((list, index) => (
-//
-//               <li key={index} >
-//                 <span> { list.IMPORTANT } </span>
-//
-//               </li>
-//
-//             ))}
-//
-//           </ul>
-//
-//         </div>
-//       </div>
-//   )
-// }
+const News = ({ news }) => {
+  if(!news) return (<h1>loading ..</h1>)
+  return (
+    <div className="row">
+        <div className="breaking col-md-12 col-sm-12">
+          {/*<div className="controls">
+            <p className="prev"><i className="fa fa-angle-left"></i></p>
+            <p className="next"><i className="fa fa-angle-right"></i></p>
+          </div>*/}
+          <ul className="news">
+            { news.map((list, index) => (
+              <li key={index} >
+                <span> { list.IMPORTANT } </span>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+      </div>
+  )
+}
 
 const BigSlider = ({ big_slider }) => {
   return (
@@ -103,7 +97,6 @@ const BigSlider = ({ big_slider }) => {
         </div>
 
         <div className="slides">
-
           {
             big_slider.map((list, index) => (
               <article className="big clearfix" key={ index }>
@@ -113,7 +106,7 @@ const BigSlider = ({ big_slider }) => {
                     <a> { list.TYPE } </a>
                   </p>
                   <h1>
-                    <Link to={ list.URL }> { list.TITTLE } </Link>
+                    <Link to={ list.URL }> { list.TITLE } </Link>
                   </h1>
                   <p className="text">
                     {
@@ -122,17 +115,8 @@ const BigSlider = ({ big_slider }) => {
                   </p>
                   <p className="details"> { list.DATE } <a> { list.CREATE } </a></p>
                 </div>
-                <ul className="counters list-inline">
-                  <li>
-                    <a><i className="fa fa-comment"></i> { list.COMMENT } </a>
-                  </li>
-                  <li>
-                    <a><i className="fa fa-heart"></i> { list.LIKE } </a>
-                  </li>
-                </ul>
               </article>
           ))}
-
         </div>
 
       </div>
@@ -143,7 +127,8 @@ const BigSlider = ({ big_slider }) => {
 const mapStateToProps = (state) => {
     if(state.feature.slider[0]){
       return {
-          slider: state.feature.slider[0].big
+          slider: state.feature.slider[0],
+          news: state.feature.news[0]
       }
     }else return {}
 }

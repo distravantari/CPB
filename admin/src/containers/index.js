@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 class Index extends React.Component{
   render(){
       return (
-        <body className="nav-md">
+        <div className="nav-md">
           <div className="container body">
             <div className="main_container">
               <SideBar />
@@ -14,7 +14,7 @@ class Index extends React.Component{
               <Footer />
             </div>
           </div>
-        </body>
+        </div>
       )
   }
 }

@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import { connect } from 'react-redux'
+import Form from 'components_path/Form'
+import { Link } from 'react-router'
 // import DatePicker from 'react-datepicker'
 // import moment from 'moment'
 
@@ -16,12 +18,16 @@ import Immutable from 'immutable'
 import Slider from 'components_path/Slider'
 
 class Trip extends React.Component{
+  static get contextTypes() {
+    return {
+      router: PropTypes.object.isRequired,
+    }
+  }
 
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //     startDate: moment()
-    // }
+  constructor(props, context){
+    super(props)
+    context.router
+
   }
 
   componentDidMount(){}
@@ -37,322 +43,132 @@ class Trip extends React.Component{
 //   }
 
   render(){
+    let hal = 'kosong'
+    if(this.props.location.search.split('&')[1]){
+      hal = this.props.location.search.split('&')[1]
+    }
     let detail = this.props.routes[1].path.split("-")[0]
-    console.log('props ',this.props)
-    let index = this.props.location.search.split('?')[1]
-    console.log('index ',index)
+    let index = this.props.location.search.split('?')[1].split('&')[0]
     return(
       <div>
         <div className="main">
-
           <div>
             <div className="row">
-
-            </div>
-            <div className="row">
-              <Desc detail={ detail } trip={ this.props.trip.list[index].DETAIL } voucher={ this.props.voucher.list[index].DETAIL } />
-            </div>
-            <div className="row">
-              <Form />
+              <Desc hal={ hal } context={ this.context } detail={ detail } trip={ this.props.trip.list[index] } voucher={ this.props.voucher.list[index] } />
             </div>
           </div>
-
         </div>
       </div>
     )
   }
  }
 
-const Desc = ({ detail, voucher, trip }) => {
-    if(detail == "/Trip"){
-      console.log(trip)
-      return (
-          <div className="info col-md-offset-1 col-md-10">
-              <h1>{ trip.TITTLE }</h1>
+const Video = ({ video }) => {
+  if(video) {
+    return(
+      <div className="text-center video">
+        <iframe src= { video } width="640" height="360" frameborder="0" allowfullscreen></iframe>
+      </div>
+    )
+  }
+  else {
+    return(
+      <div></div>
+    )
+  }
+}
 
-              <div className="text">
-                  <p>{ trip.TEXT }</p>
+const Desc = ({ detail, voucher, trip, context, hal }) => {
+    if((detail == "/Trip") && (hal=="kosong")){
+      const url = trip.URL
+      return (
+          <div>
+            <div className="post-slider col-md-12 col-sm-12">
+              <div className="controls">
+                <p className="prev"><i className="fa fa-angle-left"></i></p>
+                <p className="next"><i className="fa fa-angle-right"></i></p>
               </div>
+              <div className="slides">
+                {trip.CHILD.list && trip.CHILD.list.map((list, index) => (
+                    <article className="big clearfix" key={ index }>
+                      <img src={ list.SLIDER[0] } alt="post1" />
+                    </article>
+                ))}
+              </div>
+            </div>
+            <div className="info col-md-offset-1 col-md-10">
+                <h1>{ trip.TITLE }</h1>
+
+                <div className="text">
+                    <p>{ trip.DESCRIPTION }</p>
+                </div>
+            </div>
+            <Video video={ trip.VIDEO }/>
+            <div className="row">
+              <div className="wrapper">
+                {trip.CHILD.list.map((list, index) => (
+                  <article className="col-md-3 col-sm-6 mid" key={index}>
+                        <div className="img">
+                            <img src={ list.IMG } alt="post" />
+                            <div className="overlay"></div>
+                        </div>
+                        <div className="info">
+                            <h1 className="click-able" onClick={ () => context.router.push(`${url}&${index}`) }>{ list.TITLE }</h1>
+                            <p className="text">
+                                { list.TEXT }
+                            </p>
+                        </div>
+                    </article>
+                ))}
+              </div>
+            </div>
+            <div className="row">
+                <Form index={ trip.FORM } />
+            </div>
           </div>
       )
-    }else{
-      console.log(voucher)
+    }
+    else if(detail == "/Voucher"){
       return (
           <div className="info col-md-offset-1 col-md-10">
-              <h1>{ voucher.TITTLE }</h1>
-
+              <Video video={ voucher.VIDEO }/>
+              <h1>{ voucher.TITLE }</h1>
               <div className="text">
-                  <p>{ voucher.TEXT }</p>
+                  <p>{ voucher.DESCRIPTION }</p>
+              </div>
+              <div className="text">
+                <p>Please contact us or check our instagram for latest promo <a href={ voucher.INSTAGRAM }>{ voucher.INSTAGRAM }</a></p>
               </div>
           </div>
       )
     }
-}
-
-const Form = () => {
-    return(
-        <div className="col-md-offset-1 col-md-10 form">
-            <div className="form-group">
-                <h5>Tell us about your ideal event, we want to hear from you!</h5>
-                <p>Please contact us and fill the form for more information or with any help or advice that you may need.</p>
-                <p>We will assist you in designing your event in Bali. Please fill in this event brief form.</p>
+    else {
+      return(
+        <div>
+            <div className="post-slider col-md-12 col-sm-12">
+              <div className="controls">
+                <p className="prev"><i className="fa fa-angle-left"></i></p>
+                <p className="next"><i className="fa fa-angle-right"></i></p>
+              </div>
+              <div className="slides">
+                {
+                  (trip.CHILD.list[hal]) ? (trip.CHILD.list[hal].SLIDER.map((slider, index) => (
+                    <article className="big clearfix" key={ index }>
+                      <img src={ slider } alt="post1" />
+                    </article>
+                ))) : <div> no content founds </div>
+                }
+              </div>
             </div>
-            <br/>
-            <form className="form-div">
-                <h5>COMPANY DETAILS</h5>
-                <div className="form-section">
-                    <div className="form-group">
-                        <label for="name">Name :</label>
-                        <input type="text" className="form-control" id="name" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="comp-name">Company Name :</label>
-                        <input type="text" className="form-control" id="comp-name" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="phone">Telephone :</label>
-                        <input type="number" className="form-control" id="phone" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">E-mail :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                    </div>
+            <div className="info col-md-offset-1 col-md-10">
+                <h1>{ trip.CHILD.list[hal].TITLE }</h1>
+                <div className="text">
+                    <p>{ trip.CHILD.list[hal].DESCRIPTION }</p>
                 </div>
-                <br/>
-                <h5>EVENT DETAILS</h5>
-                <div className="form-section">
-                    <div className="form-group">
-                        <label for="event-start">Starts from :</label>
-                        <input type="text" className="form-control" id="event-start" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="event-end">Ends :</label>
-                        <input type="text" className="form-control" id="event-end" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="phone">Event Type :</label>
-                        <input type="number" className="form-control" id="phone" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Guest Gender of Attendees :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Age Profile of Attendees :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                        <label>pax</label>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Special characteristics of Attendees :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Number of Attendees :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Managerial Level of Attendees :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Theme :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                    </div>
-                </div>
-                <br/>
-                <h5>ACCOMMODATION</h5>
-                <div className="form-section">
-                    <div className="form-group">
-                        <label for="name">Venue/Hotel :</label>
-                        <div className="dropdown">
-                            <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Stars
-                            <span className="caret"></span></button>
-                            <ul className="dropdown-menu">
-                                <li>5</li>
-                                <li>4</li>
-                                <li>3</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label for="comp-name">Number of Adult :</label>
-                        <input type="text" className="form-control" id="comp-name" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="phone">Number of Kids (if there are any) : </label>
-                        <input type="number" className="form-control" id="phone" required/>
-                    </div>
-                    <div className="form-group">
-                        <label for="email">Estimation accommodation budget (per-night, per-room) :</label>
-                        <input type="email" className="form-control" id="email" required/>
-                    </div>
-                    <h5>REQUEST :</h5>
-                    <div className="form-section">
-                        <div className="form-group">
-                            <label for="name">Bedding type :</label>
-                            <input type="text" className="form-control" id="name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="comp-name">Hotel Area or Desirable Atmosphere :</label>
-                            <input type="text" className="form-control" id="comp-name" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="phone">Hotel Facility :</label>
-                            <input type="number" className="form-control" id="phone" required/>
-                        </div>
-                        <div className="form-group">
-                            <label for="email">Others :</label>
-                            <input type="email" className="form-control" id="email" required/>
-                        </div>
-                    </div>    
-                </div>
-                <br/>
-                <div className="form-group">
-                    <label for="name">MEETING/SEMINAR :</label>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>Yes</label>
-                    </div>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>No</label>
-                    </div>
-                </div>
-                <div className="form-group">
-                        <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" id="comp-name" required/>
-                    </div>
-                <div className="form-group">
-                    <label for="comp-name">OUTING :</label>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>Yes</label>
-                    </div>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>No</label>
-                    </div>
-                </div>
-                <div className="form-group">
-                        <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" id="comp-name" required/>
-                    </div>
-                <div className="form-group">
-                    <label for="phone">TOURS :</label>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>Yes</label>
-                    </div>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>No</label>
-                    </div>
-                </div>
-                <div className="form-group">
-                        <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" id="comp-name" required/>
-                    </div>
-                <div className="form-group">
-                    <label for="email">TRANSPORTATION :</label>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>Yes</label>
-                    </div>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>No</label>
-                    </div>
-                </div>
-                <div className="form-group">
-                    <p for="comp-name">Details :</p>
-                    <input type="text" className="form-control" id="comp-name" required/>
-                </div>
-                <div className="form-group">
-                    <label for="email">EVENT :</label>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>Yes</label>
-                    </div>
-                    <div className="checkbox-inline">
-                        <label><input type="checkbox" value=""/>No</label>
-                    </div>
-                </div>
-                <div className="form-group">
-                        <p for="comp-name">Details :</p>
-                        <input type="text" className="form-control" id="comp-name" required/>
-                    </div>
-                <div className="form-group">
-                    <label for="email">Talent or Entertainment Need :</label>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Home Band</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Keyboardist + Singer</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Popular Band</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Opening Dance</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Traditional Dance</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Modern/Contemporary Dance</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>DJ</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>MC</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Ushers</label>
-                    </div>
-                </div>
-                <div className="form-group">
-                    <p for="comp-name">Others :</p>
-                    <input type="text" className="form-control" id="comp-name" required/>
-                </div>
-                <div className="form-group">
-                    <label for="email">Technical Support Need :</label>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Sound System</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Lighting System</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>LED Backdrop</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>3D Backdrop</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Projector (standard)</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>LCD/Plasma TV</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Photography</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Videography</label>
-                    </div>
-                    <div className="checkbox">
-                        <label><input type="checkbox" value=""/>Digital Printing Backdrop</label>
-                    </div>
-                </div>
-                <div className="form-group">
-                    <p for="comp-name">Others :</p>
-                    <input type="text" className="form-control" id="comp-name" required/>
-                </div>
-                <div className="form-group">
-                    <label for="email">Indicative Budget :</label>
-                    <input type="email" className="form-control" id="email" required/>
-                </div>
-                <div className="form-group">
-                    <label for="email">Special Remarks :</label>
-                    <input type="email" className="form-control" id="email" required/>
-                </div>
-                <br/>
-                <button type="submit" className="btn btn-default">Submit</button>
-            </form>
-        </div>
-    )
+            </div>
+          </div>
+      )
+    }
 }
 
 const mapStateToProps = (state) => {

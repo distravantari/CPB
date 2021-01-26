@@ -10,20 +10,19 @@ class Footer extends React.Component{
           <div className="row">
             <div className="about col-md-12 col-sm-12">
               <img src={ this.props.footer_component.IMG } alt="logo" />
-              <h5> { this.props.footer_component.TITTLE } </h5>
+              <h5> { this.props.footer_component.TITLE } </h5>
               <p>
                 { this.props.footer_component.TEXT }
               </p>
 
               <ul className="social list-inline">
-                <li><a><i className="fa fa-facebook"></i></a></li>
-                <li><a><i className="fa fa-twitter"></i></a></li>
-                <li><a><i className="fa fa-google-plus"></i></a></li>
-                <li><a><i className="fa fa-youtube-play"></i></a></li>
-                <li><a><i className="fa fa-flickr"></i></a></li>
-                <li><a><i className="fa fa-vimeo-square"></i></a></li>
-                <li><a><i className="fa  fa-tumblr"></i></a></li>
-                <li><a><i className="fa fa-rss"></i></a></li>
+                <li><a href={ this.props.footer_component.LINK.FB }><i className="fa fa-facebook"></i></a></li>
+                <li><a href={ this.props.footer_component.LINK.INSTAGRAM }><i className="fa fa-instagram"></i></a></li>
+                <li><a href={ this.props.footer_component.LINK.TWITTER }><i className="fa fa-twitter"></i></a></li>
+                <li><a href={ this.props.footer_component.LINK.GOOGLE }><i className="fa fa-google-plus"></i></a></li>
+                <li><a href={ this.props.footer_component.LINK.YOUTUBE }><i className="fa fa-youtube-play"></i></a></li>
+                <li><a href={ this.props.footer_component.LINK.PATH }><i className="fa fa-product-hunt"></i></a></li>
+                <li><a href={ this.props.footer_component.LINK.TRIP }><i className="fa fa-plane"></i></a></li>
               </ul>
             </div>
           </div>

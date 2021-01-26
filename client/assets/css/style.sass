@@ -2,7 +2,7 @@
 @import url(../fonts/Montserrat.css);
 
 //image URL
-$background-img: url(https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/background.jpg?alt=media&token=c08f1e27-3e5d-41b1-b5ab-0692e0fc5e20);
+$background-img: url(https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/about.jpg?alt=media&token=ca8aeb31-1078-4fd3-8d86-2088053faa6a);
 $header-img: url(https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/header.jpg?alt=media&token=5010bbbc-35e6-4003-a33e-fd445f010cd3);
 $newsletter-img: url(https://firebasestorage.googleapis.com/v0/b/balizee-e308b.appspot.com/o/newsletter.jpg?alt=media&token=247b2e4b-fd7d-463b-a130-22ec48acbe26);
 
@@ -20,7 +20,7 @@ body
   -moz-box-shadow: 0 -20px 20px 0 rgba(0, 0, 0, 0.4)
 
 .form-div
-    width: 500px !important
+    width: 900px !important
 
 .form-section
   margin-left: 40px
@@ -34,9 +34,31 @@ body
   padding-top: 30px
   padding-left: 30px
   padding-bottom: 30px
+  font-size: 10px
 
-.checkbox-inline
+.video
+  margin-top: 10px
+  margin-bottom: 20px
+
+.click-able
+  cursor: pointer
+
+.short-input
+  width: 200px !important
+  display: block
+
+.radio-inline
   padding-left: 50px
+
+.loader
+    border: 16px solid #f3f3f3
+    border-top: 16px solid #3498db
+    border-radius: 50%
+    height: 120px
+    animation: spin 2s linear infinite
+
+.wrapper
+  padding-left: 10px
 
 a
   color: inherit
@@ -59,7 +81,7 @@ iframe
 // HEADER
 
 header .container
-  background-image: $header-img
+  // background-image: $header-img
   position: relative
   height: 340px
   text-align: center
@@ -647,7 +669,7 @@ aside
 
 #twitter div
   margin-top: 20px
-  
+
 #refresh:hover
     cursor: pointer !important
 
@@ -2285,4 +2307,3 @@ form [class*="col-md-"]
         float: none !important
   .comments article.mid.row img
     margin-right: 15px !important
-  

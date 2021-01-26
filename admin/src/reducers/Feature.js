@@ -6,20 +6,21 @@ const initialState = {
   contact: {},
   packets: {},
   slider:{},
-  vouchers:{}
+  vouchers:{},
+  news:{}
 }
 
 const receiveFeature = (state = initialState, action) => {
   switch (action.type) {
     case con.ACTReceiveFeature:{
       const result = action.payload
-
       return Object.assign({}, state,{
-        errorpage: _.filter(result.response, ['key', '404']),
-        contact: _.filter(result.response, ['key', 'contact']),
-        packets: _.filter(result.response, ['key', 'packets']),
-        slider: _.filter(result.response, ['key', 'slider']),
-        vouchers: _.filter(result.response, ['key', 'vouchers'])
+        errorpage: _.filter(result.response, ['key', '404'])[0],
+        contact: _.filter(result.response, ['key', 'contact'])[0],
+        packets: _.filter(result.response, ['key', 'packets'])[0],
+        slider: _.filter(result.response, ['key', 'slider'])[0],
+        vouchers: _.filter(result.response, ['key', 'vouchers'])[0],
+        news: _.filter(result.response, ['key', 'news'])[0]
       })
     }
   }

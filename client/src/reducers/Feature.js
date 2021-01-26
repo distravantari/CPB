@@ -6,7 +6,8 @@ const initialState = {
   packets: {},
   slider: {},
   vouchers: {},
-  errorpage: {}
+  errorpage: {},
+  news: {}
 };
 
 const receiveFeature = (state = initialState, action) => {
@@ -19,7 +20,8 @@ const receiveFeature = (state = initialState, action) => {
                 packets: _.filter(result.response, ['key', 'packets']), 
                 slider: _.filter(result.response, ['key', 'slider']), 
                 vouchers: _.filter(result.response, ['key', 'vouchers']),
-                errorpage: _.filter(result.response, ['key', '404'])
+                errorpage: _.filter(result.response, ['key', '404']),
+                news: _.filter(result.response, ['key', 'news'])
             })
         }
     }
